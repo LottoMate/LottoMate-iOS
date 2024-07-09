@@ -27,7 +27,7 @@ jobs:
           template-path: .github/ISSUE_TEMPLATE/issue_form.yml
 
       - name: Log Issue Parser
-        run: 
+        run: |
           echo '${{ steps.issue-parser.outputs.jsonString }}'
 
       - name: Convert markdown to Jira Syntax
@@ -46,7 +46,7 @@ jobs:
         uses: atlassian/gajira-create@v3
         with:
           project: LM
-          issuetype: Subtask
+          issuetype: Task
           summary: "${{ github.event.issue.title }}"
           description: "${{ steps.md2jira.outputs.output-text }}"
           fields: |
