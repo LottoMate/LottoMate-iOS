@@ -27,7 +27,7 @@ jobs:
           template-path: .github/ISSUE_TEMPLATE/issue_form.yml
 
       - name: Log Issue Parser
-        run: |
+        run: 
           echo '${{ steps.issue-parser.outputs.jsonString }}'
 
       - name: Convert markdown to Jira Syntax
