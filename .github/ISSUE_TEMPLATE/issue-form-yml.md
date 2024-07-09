@@ -1,6 +1,6 @@
 ---
 name: issue-form.yml
-about: LottoMate-iOS 이슈
+about: Describe this issue template's purpose here.
 title: ''
 labels: ''
 assignees: ''
@@ -12,6 +12,15 @@ description: 'LottoMate-iOS Repo에 이슈를 생성하며, 생성된 이슈는 
 labels: [order]
 title: '이슈 이름을 작성해주세요'
 body:
+  - type: input
+    id: parentKey
+    attributes:
+      label: '상위 작업 Ticket Number'
+      description: '상위 작업의 Ticket Number를 기입해주세요'
+      placeholder: 'KAN-1'
+    validations:
+      required: true
+
   - type: input
     id: description
     attributes:
