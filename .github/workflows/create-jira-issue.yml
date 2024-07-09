@@ -45,16 +45,10 @@ jobs:
         id: create
         uses: atlassian/gajira-create@v3
         with:
-          project: LM
-          issuetype: Task
-          summary: "${{ github.event.issue.title }}"
-          description: "${{ steps.md2jira.outputs.output-text }}"
-          fields: |
-            {
-              "parent": {
-                "key": "${{ steps.issue-parser.outputs.issueparser_parentKey }}"
-              }
-            }
+          project: HIWJ  
+          issuetype: Task 
+          summary: '${{ github.event.issue.title }}'
+          description: '${{ github.event.issue.html_url }}'
 
       - name: Log created issue
         run: echo "Jira Issue ${{ steps.issue-parser.outputs.parentKey }}/${{ steps.create.outputs.issue }} was created"
