@@ -1,12 +1,3 @@
----
-name: issue-form.yml
-about: Describe this issue template's purpose here.
-title: ''
-labels: ''
-assignees: ''
-
----
-
 name: 'LottoMate-iOS 이슈 생성'
 description: 'LottoMate-iOS Repo에 이슈를 생성하며, 생성된 이슈는 Jira와 연동됩니다.'
 labels: [order]
