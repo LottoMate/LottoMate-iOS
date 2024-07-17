@@ -46,7 +46,7 @@ jobs:
         uses: atlassian/gajira-create@v3
         with:
           project: LOTTO
-          issuetype: Subtask 
+          issuetype: Task 
           summary: '${{ github.event.issue.title }}'
           description: '${{ github.event.issue.html_url }}'
           fields: |
