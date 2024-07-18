@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "husky": "^9.1.0",
+    "jira-prepare-commit-msg": "^1.7.2"
+  },
+  "scripts": {
+    "prepare": "husky"
+  },
+  "jira-prepare-commit-msg": {
+    "messagePattern": "[$J] $M",
+    "allowEmptyCommitMessage": false,
+    "ignoredBranchesPattern": "^(master|main|dev|develop|development|release)$"
+  }
+}
