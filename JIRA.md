@@ -1,3 +1,3 @@
 ```swift
-print("Jira work branch updated")
+print("Close issue with keywords")
 ```
