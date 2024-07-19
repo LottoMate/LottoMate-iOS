@@ -1,3 +1,3 @@
 ```swift
-print("LOTTO-31 커밋메시지 테스트 5")
+print("LOTTO-31 커밋메시지 테스트 6")
 ```
