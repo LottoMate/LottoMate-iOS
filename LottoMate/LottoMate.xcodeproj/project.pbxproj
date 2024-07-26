@@ -1,0 +1,798 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09341C1D2C52394900B47642 /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C1C2C52394900B47642 /* StyledButton.swift */; };
+		09341C222C52653B00B47642 /* TestHomeView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C212C52653B00B47642 /* TestHomeView .swift */; };
+		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
+		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
+		096966602C4FE27600BCE28B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665F2C4FE27600BCE28B /* ViewController.swift */; };
+		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
+		096966652C4FE27800BCE28B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 096966642C4FE27800BCE28B /* Assets.xcassets */; };
+		096966682C4FE27800BCE28B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966662C4FE27800BCE28B /* LaunchScreen.storyboard */; };
+		096966732C4FE27800BCE28B /* LottoMateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096966722C4FE27800BCE28B /* LottoMateTests.swift */; };
+		0969667D2C4FE27800BCE28B /* LottoMateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969667C2C4FE27800BCE28B /* LottoMateUITests.swift */; };
+		0969667F2C4FE27800BCE28B /* LottoMateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969667E2C4FE27800BCE28B /* LottoMateUITestsLaunchTests.swift */; };
+		0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */; };
+		351E7EC8303E6F0E8904CCCB /* Pods_LottoMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C69D96F3ED39DB5BA4D4AE /* Pods_LottoMate.framework */; };
+		537DF08BDE30FF4F05AFA1E6 /* Pods_LottoMateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B94928D4A7AEBEA74C0515 /* Pods_LottoMateTests.framework */; };
+		95344F206282895607E6B85B /* Pods_LottoMate_LottoMateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AA9DA80FE4904DA373202B /* Pods_LottoMate_LottoMateUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0969666F2C4FE27800BCE28B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 096966502C4FE27600BCE28B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 096966572C4FE27600BCE28B;
+			remoteInfo = LottoMate;
+		};
+		096966792C4FE27800BCE28B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 096966502C4FE27600BCE28B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 096966572C4FE27600BCE28B;
+			remoteInfo = LottoMate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09341C1B2C51651500B47642 /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
+		09341C1C2C52394900B47642 /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
+		09341C212C52653B00B47642 /* TestHomeView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestHomeView .swift"; sourceTree = "<group>"; };
+		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0969665F2C4FE27600BCE28B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		096966622C4FE27600BCE28B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		096966642C4FE27800BCE28B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		096966672C4FE27800BCE28B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		096966692C4FE27800BCE28B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0969666E2C4FE27800BCE28B /* LottoMateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottoMateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		096966722C4FE27800BCE28B /* LottoMateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateTests.swift; sourceTree = "<group>"; };
+		096966782C4FE27800BCE28B /* LottoMateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottoMateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0969667C2C4FE27800BCE28B /* LottoMateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateUITests.swift; sourceTree = "<group>"; };
+		0969667E2C4FE27800BCE28B /* LottoMateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		5E5C7A7533DF885F7DE00D46 /* Pods-LottoMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate.debug.xcconfig"; path = "Target Support Files/Pods-LottoMate/Pods-LottoMate.debug.xcconfig"; sourceTree = "<group>"; };
+		68C69D96F3ED39DB5BA4D4AE /* Pods_LottoMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottoMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7044F1E30336263B6D0F3A34 /* Pods-LottoMate-LottoMateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate-LottoMateUITests.debug.xcconfig"; path = "Target Support Files/Pods-LottoMate-LottoMateUITests/Pods-LottoMate-LottoMateUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7BD632C1B9FE98F220F76DDF /* Pods-LottoMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate.release.xcconfig"; path = "Target Support Files/Pods-LottoMate/Pods-LottoMate.release.xcconfig"; sourceTree = "<group>"; };
+		7FF700B421FB4DC0BC87F3C3 /* Pods-LottoMateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMateTests.debug.xcconfig"; path = "Target Support Files/Pods-LottoMateTests/Pods-LottoMateTests.debug.xcconfig"; sourceTree = "<group>"; };
+		83B94928D4A7AEBEA74C0515 /* Pods_LottoMateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottoMateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85AA9DA80FE4904DA373202B /* Pods_LottoMate_LottoMateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottoMate_LottoMateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F05A526772F04023CB62B16 /* Pods-LottoMateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMateTests.release.xcconfig"; path = "Target Support Files/Pods-LottoMateTests/Pods-LottoMateTests.release.xcconfig"; sourceTree = "<group>"; };
+		A49C3277C82D089FC5C91474 /* Pods-LottoMate-LottoMateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate-LottoMateUITests.release.xcconfig"; path = "Target Support Files/Pods-LottoMate-LottoMateUITests/Pods-LottoMate-LottoMateUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		096966552C4FE27600BCE28B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351E7EC8303E6F0E8904CCCB /* Pods_LottoMate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0969666B2C4FE27800BCE28B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				537DF08BDE30FF4F05AFA1E6 /* Pods_LottoMateTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		096966752C4FE27800BCE28B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95344F206282895607E6B85B /* Pods_LottoMate_LottoMateUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0969664F2C4FE27600BCE28B = {
+			isa = PBXGroup;
+			children = (
+				09341C1B2C51651500B47642 /* PretendardVariable.ttf */,
+				0969665A2C4FE27600BCE28B /* LottoMate */,
+				096966712C4FE27800BCE28B /* LottoMateTests */,
+				0969667B2C4FE27800BCE28B /* LottoMateUITests */,
+				096966592C4FE27600BCE28B /* Products */,
+				9A0FF9F5ECF066B9301A234C /* Pods */,
+				3EC22CEE2F66BBB20E1D8814 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		096966592C4FE27600BCE28B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				096966582C4FE27600BCE28B /* LottoMate.app */,
+				0969666E2C4FE27800BCE28B /* LottoMateTests.xctest */,
+				096966782C4FE27800BCE28B /* LottoMateUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0969665A2C4FE27600BCE28B /* LottoMate */ = {
+			isa = PBXGroup;
+			children = (
+				0969665B2C4FE27600BCE28B /* AppDelegate.swift */,
+				0969665D2C4FE27600BCE28B /* SceneDelegate.swift */,
+				0969665F2C4FE27600BCE28B /* ViewController.swift */,
+				09341C212C52653B00B47642 /* TestHomeView .swift */,
+				0969668C2C4FE4AF00BCE28B /* UI */,
+				096966612C4FE27600BCE28B /* Main.storyboard */,
+				096966642C4FE27800BCE28B /* Assets.xcassets */,
+				096966662C4FE27800BCE28B /* LaunchScreen.storyboard */,
+				096966692C4FE27800BCE28B /* Info.plist */,
+			);
+			path = LottoMate;
+			sourceTree = "<group>";
+		};
+		096966712C4FE27800BCE28B /* LottoMateTests */ = {
+			isa = PBXGroup;
+			children = (
+				096966722C4FE27800BCE28B /* LottoMateTests.swift */,
+			);
+			path = LottoMateTests;
+			sourceTree = "<group>";
+		};
+		0969667B2C4FE27800BCE28B /* LottoMateUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0969667C2C4FE27800BCE28B /* LottoMateUITests.swift */,
+				0969667E2C4FE27800BCE28B /* LottoMateUITestsLaunchTests.swift */,
+			);
+			path = LottoMateUITests;
+			sourceTree = "<group>";
+		};
+		0969668C2C4FE4AF00BCE28B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0969668D2C4FE4B900BCE28B /* Buttons */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0969668D2C4FE4B900BCE28B /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */,
+				09341C1C2C52394900B47642 /* StyledButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		3EC22CEE2F66BBB20E1D8814 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68C69D96F3ED39DB5BA4D4AE /* Pods_LottoMate.framework */,
+				85AA9DA80FE4904DA373202B /* Pods_LottoMate_LottoMateUITests.framework */,
+				83B94928D4A7AEBEA74C0515 /* Pods_LottoMateTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A0FF9F5ECF066B9301A234C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E5C7A7533DF885F7DE00D46 /* Pods-LottoMate.debug.xcconfig */,
+				7BD632C1B9FE98F220F76DDF /* Pods-LottoMate.release.xcconfig */,
+				7044F1E30336263B6D0F3A34 /* Pods-LottoMate-LottoMateUITests.debug.xcconfig */,
+				A49C3277C82D089FC5C91474 /* Pods-LottoMate-LottoMateUITests.release.xcconfig */,
+				7FF700B421FB4DC0BC87F3C3 /* Pods-LottoMateTests.debug.xcconfig */,
+				9F05A526772F04023CB62B16 /* Pods-LottoMateTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		096966572C4FE27600BCE28B /* LottoMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 096966822C4FE27800BCE28B /* Build configuration list for PBXNativeTarget "LottoMate" */;
+			buildPhases = (
+				D3217508F9C2869DF9E2B450 /* [CP] Check Pods Manifest.lock */,
+				096966542C4FE27600BCE28B /* Sources */,
+				096966552C4FE27600BCE28B /* Frameworks */,
+				096966562C4FE27600BCE28B /* Resources */,
+				094DCC17D49D16089395D675 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LottoMate;
+			productName = LottoMate;
+			productReference = 096966582C4FE27600BCE28B /* LottoMate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0969666D2C4FE27800BCE28B /* LottoMateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 096966852C4FE27800BCE28B /* Build configuration list for PBXNativeTarget "LottoMateTests" */;
+			buildPhases = (
+				F43E43347A54BF920E0A528C /* [CP] Check Pods Manifest.lock */,
+				0969666A2C4FE27800BCE28B /* Sources */,
+				0969666B2C4FE27800BCE28B /* Frameworks */,
+				0969666C2C4FE27800BCE28B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				096966702C4FE27800BCE28B /* PBXTargetDependency */,
+			);
+			name = LottoMateTests;
+			productName = LottoMateTests;
+			productReference = 0969666E2C4FE27800BCE28B /* LottoMateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		096966772C4FE27800BCE28B /* LottoMateUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 096966882C4FE27800BCE28B /* Build configuration list for PBXNativeTarget "LottoMateUITests" */;
+			buildPhases = (
+				5909CDBE118147D5C794886B /* [CP] Check Pods Manifest.lock */,
+				096966742C4FE27800BCE28B /* Sources */,
+				096966752C4FE27800BCE28B /* Frameworks */,
+				096966762C4FE27800BCE28B /* Resources */,
+				F2254B3F6F0A4C6935E60D76 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0969667A2C4FE27800BCE28B /* PBXTargetDependency */,
+			);
+			name = LottoMateUITests;
+			productName = LottoMateUITests;
+			productReference = 096966782C4FE27800BCE28B /* LottoMateUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		096966502C4FE27600BCE28B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					096966572C4FE27600BCE28B = {
+						CreatedOnToolsVersion = 15.1;
+					};
+					0969666D2C4FE27800BCE28B = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 096966572C4FE27600BCE28B;
+					};
+					096966772C4FE27800BCE28B = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 096966572C4FE27600BCE28B;
+					};
+				};
+			};
+			buildConfigurationList = 096966532C4FE27600BCE28B /* Build configuration list for PBXProject "LottoMate" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0969664F2C4FE27600BCE28B;
+			productRefGroup = 096966592C4FE27600BCE28B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				096966572C4FE27600BCE28B /* LottoMate */,
+				0969666D2C4FE27800BCE28B /* LottoMateTests */,
+				096966772C4FE27800BCE28B /* LottoMateUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		096966562C4FE27600BCE28B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				096966682C4FE27800BCE28B /* LaunchScreen.storyboard in Resources */,
+				096966652C4FE27800BCE28B /* Assets.xcassets in Resources */,
+				096966632C4FE27600BCE28B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0969666C2C4FE27800BCE28B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		096966762C4FE27800BCE28B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		094DCC17D49D16089395D675 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LottoMate/Pods-LottoMate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LottoMate/Pods-LottoMate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LottoMate/Pods-LottoMate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5909CDBE118147D5C794886B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LottoMate-LottoMateUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3217508F9C2869DF9E2B450 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LottoMate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2254B3F6F0A4C6935E60D76 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LottoMate-LottoMateUITests/Pods-LottoMate-LottoMateUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LottoMate-LottoMateUITests/Pods-LottoMate-LottoMateUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LottoMate-LottoMateUITests/Pods-LottoMate-LottoMateUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F43E43347A54BF920E0A528C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LottoMateTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		096966542C4FE27600BCE28B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				096966602C4FE27600BCE28B /* ViewController.swift in Sources */,
+				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
+				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
+				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
+				09341C222C52653B00B47642 /* TestHomeView .swift in Sources */,
+				0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0969666A2C4FE27800BCE28B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				096966732C4FE27800BCE28B /* LottoMateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		096966742C4FE27800BCE28B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0969667F2C4FE27800BCE28B /* LottoMateUITestsLaunchTests.swift in Sources */,
+				0969667D2C4FE27800BCE28B /* LottoMateUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		096966702C4FE27800BCE28B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 096966572C4FE27600BCE28B /* LottoMate */;
+			targetProxy = 0969666F2C4FE27800BCE28B /* PBXContainerItemProxy */;
+		};
+		0969667A2C4FE27800BCE28B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 096966572C4FE27600BCE28B /* LottoMate */;
+			targetProxy = 096966792C4FE27800BCE28B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		096966612C4FE27600BCE28B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				096966622C4FE27600BCE28B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		096966662C4FE27800BCE28B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				096966672C4FE27800BCE28B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		096966802C4FE27800BCE28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		096966812C4FE27800BCE28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		096966832C4FE27800BCE28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E5C7A7533DF885F7DE00D46 /* Pods-LottoMate.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UWBTUB2396;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LottoMate/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mirae.LottoMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		096966842C4FE27800BCE28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BD632C1B9FE98F220F76DDF /* Pods-LottoMate.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6K4KG4NH2;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LottoMate/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mirae.LottoMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		096966862C4FE27800BCE28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FF700B421FB4DC0BC87F3C3 /* Pods-LottoMateTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6K4KG4NH2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mirae.LottoMateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LottoMate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LottoMate";
+			};
+			name = Debug;
+		};
+		096966872C4FE27800BCE28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F05A526772F04023CB62B16 /* Pods-LottoMateTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6K4KG4NH2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mirae.LottoMateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LottoMate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LottoMate";
+			};
+			name = Release;
+		};
+		096966892C4FE27800BCE28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7044F1E30336263B6D0F3A34 /* Pods-LottoMate-LottoMateUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6K4KG4NH2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mirae.LottoMateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LottoMate;
+			};
+			name = Debug;
+		};
+		0969668A2C4FE27800BCE28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A49C3277C82D089FC5C91474 /* Pods-LottoMate-LottoMateUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6K4KG4NH2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mirae.LottoMateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LottoMate;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		096966532C4FE27600BCE28B /* Build configuration list for PBXProject "LottoMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				096966802C4FE27800BCE28B /* Debug */,
+				096966812C4FE27800BCE28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		096966822C4FE27800BCE28B /* Build configuration list for PBXNativeTarget "LottoMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				096966832C4FE27800BCE28B /* Debug */,
+				096966842C4FE27800BCE28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		096966852C4FE27800BCE28B /* Build configuration list for PBXNativeTarget "LottoMateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				096966862C4FE27800BCE28B /* Debug */,
+				096966872C4FE27800BCE28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		096966882C4FE27800BCE28B /* Build configuration list for PBXNativeTarget "LottoMateUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				096966892C4FE27800BCE28B /* Debug */,
+				0969668A2C4FE27800BCE28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 096966502C4FE27600BCE28B /* Project object */;
+}
