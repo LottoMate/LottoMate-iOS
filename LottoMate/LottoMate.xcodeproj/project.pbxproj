@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		09341C1D2C52394900B47642 /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C1C2C52394900B47642 /* StyledButton.swift */; };
-		09341C222C52653B00B47642 /* TestHomeView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C212C52653B00B47642 /* TestHomeView .swift */; };
+		09341C222C52653B00B47642 /* TestButtonView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C212C52653B00B47642 /* TestButtonView .swift */; };
+		09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C252C53A71000B47642 /* TabBarViewController.swift */; };
+		09341C2A2C53AA6E00B47642 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C292C53AA6E00B47642 /* HomeViewController.swift */; };
+		09341C2C2C53AA8000B47642 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C2B2C53AA8000B47642 /* MapViewController.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966602C4FE27600BCE28B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665F2C4FE27600BCE28B /* ViewController.swift */; };
@@ -44,7 +47,10 @@
 /* Begin PBXFileReference section */
 		09341C1B2C51651500B47642 /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
 		09341C1C2C52394900B47642 /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
-		09341C212C52653B00B47642 /* TestHomeView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestHomeView .swift"; sourceTree = "<group>"; };
+		09341C212C52653B00B47642 /* TestButtonView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestButtonView .swift"; sourceTree = "<group>"; };
+		09341C252C53A71000B47642 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		09341C292C53AA6E00B47642 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		09341C2B2C53AA8000B47642 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09341C272C53A72200B47642 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				096966612C4FE27600BCE28B /* Main.storyboard */,
+				096966662C4FE27800BCE28B /* LaunchScreen.storyboard */,
+				096966692C4FE27800BCE28B /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		09341C282C53AA4400B47642 /* TabViews */ = {
+			isa = PBXGroup;
+			children = (
+				09341C252C53A71000B47642 /* TabBarViewController.swift */,
+				09341C292C53AA6E00B47642 /* HomeViewController.swift */,
+				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
+			);
+			path = TabViews;
+			sourceTree = "<group>";
+		};
 		0969664F2C4FE27600BCE28B = {
 			isa = PBXGroup;
 			children = (
@@ -124,15 +150,14 @@
 		0969665A2C4FE27600BCE28B /* LottoMate */ = {
 			isa = PBXGroup;
 			children = (
+				096966642C4FE27800BCE28B /* Assets.xcassets */,
 				0969665B2C4FE27600BCE28B /* AppDelegate.swift */,
 				0969665D2C4FE27600BCE28B /* SceneDelegate.swift */,
 				0969665F2C4FE27600BCE28B /* ViewController.swift */,
-				09341C212C52653B00B47642 /* TestHomeView .swift */,
+				09341C212C52653B00B47642 /* TestButtonView .swift */,
+				09341C282C53AA4400B47642 /* TabViews */,
 				0969668C2C4FE4AF00BCE28B /* UI */,
-				096966612C4FE27600BCE28B /* Main.storyboard */,
-				096966642C4FE27800BCE28B /* Assets.xcassets */,
-				096966662C4FE27800BCE28B /* LaunchScreen.storyboard */,
-				096966692C4FE27800BCE28B /* Info.plist */,
+				09341C272C53A72200B47642 /* Supporting Files */,
 			);
 			path = LottoMate;
 			sourceTree = "<group>";
@@ -437,8 +462,11 @@
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
-				09341C222C52653B00B47642 /* TestHomeView .swift in Sources */,
+				09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */,
+				09341C222C52653B00B47642 /* TestButtonView .swift in Sources */,
 				0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */,
+				09341C2C2C53AA8000B47642 /* MapViewController.swift in Sources */,
+				09341C2A2C53AA6E00B47642 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,7 +652,7 @@
 				DEVELOPMENT_TEAM = UWBTUB2396;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LottoMate/Info.plist;
+				INFOPLIST_FILE = "LottoMate/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -654,7 +682,7 @@
 				DEVELOPMENT_TEAM = G6K4KG4NH2;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LottoMate/Info.plist;
+				INFOPLIST_FILE = "LottoMate/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

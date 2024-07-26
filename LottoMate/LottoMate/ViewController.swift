@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let testHomeView = TestHomeView()
-        self.view = testHomeView
+        let testView = TestButtonView()
+        self.view = testView
     }
 }
 

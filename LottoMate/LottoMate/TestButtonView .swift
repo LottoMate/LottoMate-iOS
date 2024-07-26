@@ -9,7 +9,7 @@ import UIKit
 import FlexLayout
 import PinLayout
 
-class TestHomeView: UIView {
+class TestButtonView: UIView {
     fileprivate let rootFlexContainer = UIView()
     
     init() {
@@ -65,6 +65,6 @@ class TestHomeView: UIView {
 }
 
 #Preview {
-    let preview = TestHomeView()
+    let preview = TestButtonView()
     return preview
 }
