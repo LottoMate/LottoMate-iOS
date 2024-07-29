@@ -14,7 +14,7 @@
 		09341C2C2C53AA8000B47642 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C2B2C53AA8000B47642 /* MapViewController.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
-		096966602C4FE27600BCE28B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665F2C4FE27600BCE28B /* ViewController.swift */; };
+		096966602C4FE27600BCE28B /* TestButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665F2C4FE27600BCE28B /* TestButtonViewController.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
 		096966652C4FE27800BCE28B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 096966642C4FE27800BCE28B /* Assets.xcassets */; };
 		096966682C4FE27800BCE28B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966662C4FE27800BCE28B /* LaunchScreen.storyboard */; };
@@ -54,7 +54,7 @@
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0969665F2C4FE27600BCE28B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0969665F2C4FE27600BCE28B /* TestButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonViewController.swift; sourceTree = "<group>"; };
 		096966622C4FE27600BCE28B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		096966642C4FE27800BCE28B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		096966672C4FE27800BCE28B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -120,6 +120,7 @@
 				09341C252C53A71000B47642 /* TabBarViewController.swift */,
 				09341C292C53AA6E00B47642 /* HomeViewController.swift */,
 				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
+				0969665F2C4FE27600BCE28B /* TestButtonViewController.swift */,
 			);
 			path = TabViews;
 			sourceTree = "<group>";
@@ -153,7 +154,6 @@
 				096966642C4FE27800BCE28B /* Assets.xcassets */,
 				0969665B2C4FE27600BCE28B /* AppDelegate.swift */,
 				0969665D2C4FE27600BCE28B /* SceneDelegate.swift */,
-				0969665F2C4FE27600BCE28B /* ViewController.swift */,
 				09341C212C52653B00B47642 /* TestButtonView .swift */,
 				09341C282C53AA4400B47642 /* TabViews */,
 				0969668C2C4FE4AF00BCE28B /* UI */,
@@ -458,7 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				096966602C4FE27600BCE28B /* ViewController.swift in Sources */,
+				096966602C4FE27600BCE28B /* TestButtonViewController.swift in Sources */,
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,

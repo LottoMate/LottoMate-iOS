@@ -7,18 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TestButtonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let testView = TestButtonView()
-        self.view = testView
+        let testButtonView = TestButtonView()
+        self.view = testButtonView
     }
 }
 
 #Preview {
-    let preview = ViewController()
+    let preview = TestButtonViewController()
     return preview
 }
 

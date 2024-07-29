@@ -22,8 +22,13 @@ class TabBarViewController: UITabBarController {
         let mapTabIcon = UITabBarItem(title: "지도", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
         mapViewController.tabBarItem = mapTabIcon
         
+        // MARK: Test Button Tab
+        let testButtonViewController = TestButtonViewController()
+        let testButtonTabIcon = UITabBarItem(title: "버튼", image: UIImage(systemName: "command.circle"), selectedImage: UIImage(systemName: "command.circle.fill"))
+        testButtonViewController.tabBarItem = testButtonTabIcon
         
-        let tabViewControllers = [homeViewController, mapViewController]
+        
+        let tabViewControllers = [homeViewController, mapViewController, testButtonViewController]
         self.viewControllers = tabViewControllers
     }
 }
