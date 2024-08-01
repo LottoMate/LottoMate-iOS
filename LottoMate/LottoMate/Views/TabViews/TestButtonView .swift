@@ -11,25 +11,25 @@ import PinLayout
 
 class TestButtonView: UIView {
     fileprivate let rootFlexContainer = UIView()
+    public let defaultSolidButton = StyledButton(buttonStyle: .solid(.active), fontSize: 16, cornerRadius: 8)
     
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
         
-        let defaultSolidButton = StyledButton(buttonStyle: .solid(.default), fontSize: 16, cornerRadius: 8)
         defaultSolidButton.setTitle("Test Button", for: .normal)
         defaultSolidButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         let pressedSolidButton = StyledButton(buttonStyle: .solid(.pressed), fontSize: 16, cornerRadius: 8)
         pressedSolidButton.setTitle("Test Button", for: .normal)
         
-        let disabledSolidButton = StyledButton(buttonStyle: .solid(.disabled), fontSize: 16, cornerRadius: 8)
+        let disabledSolidButton = StyledButton(buttonStyle: .solid(.inactive), fontSize: 16, cornerRadius: 8)
         disabledSolidButton.setTitle("Test Button", for: .normal)
         
-        let defaultOutlinedButton = StyledButton(buttonStyle: .outlined(.default), fontSize: 16, cornerRadius: 8)
+        let defaultOutlinedButton = StyledButton(buttonStyle: .outlined(.active), fontSize: 16, cornerRadius: 8)
         defaultOutlinedButton.setTitle("Test Button", for: .normal)
         
-        let defaultMediumSolidBtn = StyledButton(buttonStyle: .solid(.default), fontSize: 16, cornerRadius: 8)
+        let defaultMediumSolidBtn = StyledButton(buttonStyle: .solid(.active), fontSize: 16, cornerRadius: 8)
         defaultMediumSolidBtn.setTitle("Button", for: .normal)
         
         let smallSolidBtn = StyledButton(buttonStyle: .solid(.pressed), fontSize: 14, cornerRadius: 18)

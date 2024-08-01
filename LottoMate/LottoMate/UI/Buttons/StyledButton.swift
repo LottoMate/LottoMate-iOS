@@ -8,9 +8,9 @@
 import UIKit
 
 class StyledButton: UIButton {
-    var style: ButtonStyle = .solid(.default) {
+    var style: ButtonStyle = .solid(.active) {
         didSet {
-            appleButtonStyle()
+            applyButtonStyle()
         }
     }
     var fontSize: CGFloat?
@@ -22,7 +22,7 @@ class StyledButton: UIButton {
         self.fontSize = fontSize
         self.cornerRadius = cornerRadius
         buttonSetUp()
-        appleButtonStyle()
+        applyButtonStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -31,7 +31,7 @@ class StyledButton: UIButton {
     
     override var isEnabled: Bool {
         didSet {
-            appleButtonStyle()
+            applyButtonStyle()
         }
     }
     
@@ -40,7 +40,7 @@ class StyledButton: UIButton {
         layer.cornerRadius = cornerRadius ?? 0
     }
     
-    func appleButtonStyle() {
+    func applyButtonStyle() {
         setTitleColor(style.textColor, for: isEnabled ? .normal : .disabled)
         backgroundColor = style.backgroundColor
         layer.borderWidth = 1
@@ -49,6 +49,6 @@ class StyledButton: UIButton {
 }
 
 #Preview {
-    let styledBtnView = StyledButton(buttonStyle: .solid(.default), fontSize: 16, cornerRadius: 8)
+    let styledBtnView = StyledButton(buttonStyle: .solid(.active), fontSize: 16, cornerRadius: 8)
     return styledBtnView
 }

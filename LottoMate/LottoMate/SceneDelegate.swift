@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -24,6 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let viewController = TabBarViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        
         window?.rootViewController = navigationController
     }
 

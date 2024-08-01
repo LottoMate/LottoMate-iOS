@@ -12,6 +12,12 @@
 		09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C252C53A71000B47642 /* TabBarViewController.swift */; };
 		09341C2A2C53AA6E00B47642 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C292C53AA6E00B47642 /* HomeViewController.swift */; };
 		09341C2C2C53AA8000B47642 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C2B2C53AA8000B47642 /* MapViewController.swift */; };
+		09341C9B2C57F68B00B47642 /* WinningNumbersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */; };
+		09341C9E2C57FB0700B47642 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C9D2C57FB0700B47642 /* Typography.swift */; };
+		09341C9F2C58BDBC00B47642 /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09341C1B2C51651500B47642 /* PretendardVariable.ttf */; };
+		09341CA12C58D8C500B47642 /* WinningNumbersDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341CA02C58D8C500B47642 /* WinningNumbersDetailView.swift */; };
+		09341CA72C5B9C6300B47642 /* WinningNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341CA62C5B9C6300B47642 /* WinningNumbersView.swift */; };
+		09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341CA82C5BC97800B47642 /* WinningNumberCircleView.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966602C4FE27600BCE28B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665F2C4FE27600BCE28B /* ViewController.swift */; };
@@ -51,6 +57,11 @@
 		09341C252C53A71000B47642 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		09341C292C53AA6E00B47642 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		09341C2B2C53AA8000B47642 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningNumbersDetailViewController.swift; sourceTree = "<group>"; };
+		09341C9D2C57FB0700B47642 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		09341CA02C58D8C500B47642 /* WinningNumbersDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningNumbersDetailView.swift; sourceTree = "<group>"; };
+		09341CA62C5B9C6300B47642 /* WinningNumbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningNumbersView.swift; sourceTree = "<group>"; };
+		09341CA82C5BC97800B47642 /* WinningNumberCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningNumberCircleView.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,11 +128,48 @@
 		09341C282C53AA4400B47642 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
+				09341CA42C5B9C0600B47642 /* WinningNumbersDetail */,
 				09341C252C53A71000B47642 /* TabBarViewController.swift */,
 				09341C292C53AA6E00B47642 /* HomeViewController.swift */,
 				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
+				09341C212C52653B00B47642 /* TestButtonView .swift */,
 			);
 			path = TabViews;
+			sourceTree = "<group>";
+		};
+		09341C992C57F60900B47642 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09341C282C53AA4400B47642 /* TabViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		09341C9C2C57FA7000B47642 /* Typography */ = {
+			isa = PBXGroup;
+			children = (
+				09341C9D2C57FB0700B47642 /* Typography.swift */,
+			);
+			path = Typography;
+			sourceTree = "<group>";
+		};
+		09341CA42C5B9C0600B47642 /* WinningNumbersDetail */ = {
+			isa = PBXGroup;
+			children = (
+				09341CA52C5B9C3200B47642 /* Subviews */,
+				09341CA02C58D8C500B47642 /* WinningNumbersDetailView.swift */,
+				09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */,
+			);
+			path = WinningNumbersDetail;
+			sourceTree = "<group>";
+		};
+		09341CA52C5B9C3200B47642 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				09341CA62C5B9C6300B47642 /* WinningNumbersView.swift */,
+				09341CA82C5BC97800B47642 /* WinningNumberCircleView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		0969664F2C4FE27600BCE28B = {
@@ -154,8 +202,7 @@
 				0969665B2C4FE27600BCE28B /* AppDelegate.swift */,
 				0969665D2C4FE27600BCE28B /* SceneDelegate.swift */,
 				0969665F2C4FE27600BCE28B /* ViewController.swift */,
-				09341C212C52653B00B47642 /* TestButtonView .swift */,
-				09341C282C53AA4400B47642 /* TabViews */,
+				09341C992C57F60900B47642 /* Views */,
 				0969668C2C4FE4AF00BCE28B /* UI */,
 				09341C272C53A72200B47642 /* Supporting Files */,
 			);
@@ -182,6 +229,7 @@
 		0969668C2C4FE4AF00BCE28B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				09341C9C2C57FA7000B47642 /* Typography */,
 				0969668D2C4FE4B900BCE28B /* Buttons */,
 			);
 			path = UI;
@@ -328,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09341C9F2C58BDBC00B47642 /* PretendardVariable.ttf in Resources */,
 				096966682C4FE27800BCE28B /* LaunchScreen.storyboard in Resources */,
 				096966652C4FE27800BCE28B /* Assets.xcassets in Resources */,
 				096966632C4FE27600BCE28B /* Main.storyboard in Resources */,
@@ -459,13 +508,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				096966602C4FE27600BCE28B /* ViewController.swift in Sources */,
+				09341CA72C5B9C6300B47642 /* WinningNumbersView.swift in Sources */,
+				09341CA12C58D8C500B47642 /* WinningNumbersDetailView.swift in Sources */,
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
+				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
 				09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */,
 				09341C222C52653B00B47642 /* TestButtonView .swift in Sources */,
 				0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */,
+				09341C9B2C57F68B00B47642 /* WinningNumbersDetailViewController.swift in Sources */,
 				09341C2C2C53AA8000B47642 /* MapViewController.swift in Sources */,
+				09341C9E2C57FB0700B47642 /* Typography.swift in Sources */,
 				09341C2A2C53AA6E00B47642 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,6 +712,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -688,6 +743,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

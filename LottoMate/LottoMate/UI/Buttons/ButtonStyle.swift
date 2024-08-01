@@ -9,13 +9,12 @@ import UIKit
 import Foundation
 
 enum ButtonStatus: CaseIterable {
-    case `default`
-    case disabled
+    case active
+    case inactive
     case pressed
 }
 
 enum ButtonStyle {
-    
     case solid(ButtonStatus)
     case outlined(ButtonStatus)
     case text(ButtonStatus)
@@ -24,9 +23,9 @@ enum ButtonStyle {
         switch self {
         case .solid(let buttonStatus):
             switch buttonStatus {
-            case .default:
+            case .active:
                 return .defaultSolidBtnBg
-            case .disabled:
+            case .inactive:
                 return .disabledSolidBtnBg
             case .pressed:
                 return .pressedSolidBtnBg
@@ -34,19 +33,19 @@ enum ButtonStyle {
         
         case .outlined(let buttonStatus):
             switch buttonStatus {
-            case .default:
+            case .active:
                 return .clear
-            case .disabled:
+            case .inactive:
                 return .clear
             case .pressed:
-                return .pressedOutlineBtnBg
+                return .clear
             }
         
         case .text(let buttonStatus):
             switch buttonStatus {
-            case .default:
+            case .active:
                 return .clear
-            case .disabled:
+            case .inactive:
                 return .clear
             case .pressed:
                 return .pressedTextBtnBg
@@ -61,12 +60,12 @@ enum ButtonStyle {
         
         case .outlined(let buttonStatus):
             switch buttonStatus {
-            case .default:
-                return .defaultOutline
-            case .disabled:
-                return .disabledOutline
+            case .active:
+                return .activeOutline
+            case .inactive:
+                return .inactiveOutline
             case .pressed:
-                return .pressedOutline
+                return .defaultOutline
             }
         
         case .text(_):
@@ -81,19 +80,19 @@ enum ButtonStyle {
         
         case .outlined(let buttonStatus):
             switch buttonStatus {
-            case .default:
-                return .defaultOutlineBtnText
-            case .disabled:
-                return .disabledOutlineBtnText
+            case .active:
+                return .activeOutlineBtnText
+            case .inactive:
+                return .inactiveOutlineBtnText
             case .pressed:
-                return .pressedOutlineBtnText
+                return .defaultOutlineBtnText
             }
             
         case .text(let buttonStatus):
             switch buttonStatus {
-            case .default:
+            case .active:
                 return .defaultTextBtnText
-            case .disabled:
+            case .inactive:
                 return .diabledTextBtnText
             case .pressed:
                 return .pressedTextBtnText
@@ -116,27 +115,27 @@ enum ButtonStyle {
         switch self {
         case .solid(let buttonStatus):
             switch buttonStatus {
-            case .default:
+            case .active:
                 return false
-            case .disabled:
+            case .inactive:
                 return true
             case .pressed:
                 return false
             }
         case .outlined(let buttonStatus):
             switch buttonStatus {
-            case .default:
+            case .active:
                 return false
-            case .disabled:
+            case .inactive:
                 return true
             case .pressed:
                 return false
             }
         case .text(let buttonStatus):
             switch buttonStatus {
-            case .default:
+            case .active:
                 return false
-            case .disabled:
+            case .inactive:
                 return true
             case .pressed:
                 return false
