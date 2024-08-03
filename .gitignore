@@ -1,5 +1,6 @@
 # Ignore Ds_Store
 **/.DS_Store
 
-# Ignore user-specific data
-LottoMate/LottoMate.xcworkspace/xcuserdata/mirae.xcuserdatad/UserInterfaceState.xcuserstate
+# Ignore user-specific data in Xcode projects
+*.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
