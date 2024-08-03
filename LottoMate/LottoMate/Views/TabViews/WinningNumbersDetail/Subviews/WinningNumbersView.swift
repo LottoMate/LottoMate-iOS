@@ -3,7 +3,7 @@
 //  LottoMate
 //
 //  Created by Mirae on 8/1/24.
-//
+//  금주 당첨 번호를 보여주는 뷰
 
 import UIKit
 import FlexLayout
@@ -25,15 +25,18 @@ class WinningNumbersView: UIView {
     let fourthNumberView = WinningNumberCircleView(circleColor: .ltmRed, number: 21)
     let fifthNumberView = WinningNumberCircleView(circleColor: .ltmPeach, number: 37)
     let sixthNumberView = WinningNumberCircleView(circleColor: .ltmPeach, number: 40)
+    let plusIcon = UIImageView()
     let bonusNumberView = WinningNumberCircleView(circleColor: .ltmGreen, number: 43)
     
     init() {
         super.init(frame: .zero)
-        
-        rootFlexContainer.frame = CGRect(x: 0, y: 0, width: 335, height: 112)
+    
+        rootFlexContainer.backgroundColor = .white
         rootFlexContainer.layer.borderWidth = 1
         rootFlexContainer.layer.borderColor = UIColor.lightestGray.cgColor
         rootFlexContainer.layer.cornerRadius = 16
+        let shadowOffset = CGSize(width: 0, height: 0)
+        rootFlexContainer.addShadow(offset: shadowOffset, color: UIColor.black, radius: 8, opacity: 0.1)
         
         winningNumberLabel.text = "당첨 번호"
         styleLabel(for: winningNumberLabel, fontStyle: .caption, textColor: .subtleGray)
@@ -41,6 +44,8 @@ class WinningNumbersView: UIView {
         BonusLabel.text = "보너스"
         styleLabel(for: BonusLabel, fontStyle: .caption, textColor: .subtleGray)
         
+        plusIcon.image = UIImage(named: "plus")
+        plusIcon.contentMode = .center
         
         rootFlexContainer.flex.direction(.column).paddingVertical(28).paddingHorizontal(20).define { flex in
             flex.addItem(winningNumbersAndBonus).direction(.row).justifyContent(.spaceBetween).paddingBottom(8).define { flex in
@@ -55,6 +60,7 @@ class WinningNumbersView: UIView {
                 flex.addItem(fourthNumberView).width(30).height(30)
                 flex.addItem(fifthNumberView).width(30).height(30)
                 flex.addItem(sixthNumberView).width(30).height(30)
+                flex.addItem(plusIcon).width(8).height(8).alignSelf(.center)
                 flex.addItem(bonusNumberView).width(30).height(30)
             }
         }
@@ -71,14 +77,10 @@ class WinningNumbersView: UIView {
         rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
+
 }
 
-#Preview(traits: .sizeThatFitsLayout, body: {
+#Preview {
     let view = WinningNumbersView()
     return view
-})
-
-//#Preview {
-//    let view = WinningNumbersView()
-//    return view
-//}
+}

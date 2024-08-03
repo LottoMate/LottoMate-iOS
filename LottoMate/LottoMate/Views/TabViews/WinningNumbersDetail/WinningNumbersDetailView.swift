@@ -35,9 +35,17 @@ class WinningNumbersDetailView: UIView {
     
     /// 당첨 번호 보기
     let lotteryResultsTitle = UILabel()
+    let winningNumbersView = WinningNumbersView()
     
-    // 테스트 a subview
-    let testSubview = WinningNumbersView()
+    /// 등수별 당첨 정보 & 총 판매 금액 컨테이너
+    let prizeAndSalesAmount = UIView()
+    let prizeDetailsByRank = UILabel()
+    /// 총 판매 금액 레이블
+    let totalSalesAmountLabel = UILabel()
+    /// 총 판매 금액 값
+    let totalSalesAmountValue: Int = 0 // thousand... 처리 필요 (백엔드에서 정보 어떻게 오는지 확인)
+    
+    let lottoResultInfoView = LottoResultInfoView(rankValue: 1, prizeAmountValue: 26250206631, winningConditionValue: "당첨번호 6개 일치", numberOfWinnerValue: 11, prizePerWinnerValue: 2386283483)
     
     init() {
         super.init(frame: .zero)
@@ -73,13 +81,18 @@ class WinningNumbersDetailView: UIView {
         lotteryResultsTitle.text = "당첨 번호 보기"
         styleLabel(for: lotteryResultsTitle, fontStyle: .headline1, textColor: .primaryGray)
         
+        prizeDetailsByRank.text = "등수별 당첨 정보"
+        styleLabel(for: prizeDetailsByRank, fontStyle: .headline1, textColor: .primaryGray)
+        
+        totalSalesAmountLabel.text = "총 판매 금액 : \(totalSalesAmountValue)원"
+        styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .subtleGray)
+        
         rootFlexContainer.flex.direction(.column).paddingHorizontal(20).define { flex in
             // 네비게이션 바
             flex.addItem().direction(.row).justifyContent(.center).paddingVertical(14).define { flex in
                 flex.addItem(navBackButton)
                 flex.addItem(navTitleLabel).grow(1).position(.relative).right(8)
             }
-//            .border(1, .red)
             
             // 복권 종류 필터 버튼
             flex.addItem().direction(.row).paddingTop(16).define { flex in
@@ -87,10 +100,9 @@ class WinningNumbersDetailView: UIView {
                 flex.addItem(pensionLotteryTypeButton).width(79).height(34).marginRight(10)
                 flex.addItem(spittoTypeButton).width(56).height(34)
             }
-//            .border(1, .green)
             
             // 당첨 회차
-            flex.addItem().direction(.row).justifyContent(.spaceBetween).marginTop(28).define { flex in
+            flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(28).define { flex in
                 flex.addItem(previousRoundButton)
                 flex.addItem(lotteryDrawingInfo).direction(.row).define { flex in
                     flex.addItem(lotteryDrawRound).marginRight(8)
@@ -98,11 +110,18 @@ class WinningNumbersDetailView: UIView {
                 }
                 flex.addItem(nextRoundButton)
             }
-//            .border(1, .black)
             
+            // 당첨 번호 보기
             flex.addItem(lotteryResultsTitle).alignSelf(.start).paddingTop(24)
+            // 당첨 번호 박스
+            flex.addItem(winningNumbersView).paddingTop(12)
+            // 등수별 당첨 정보
+            flex.addItem(prizeAndSalesAmount).direction(.row).paddingTop(48).justifyContent(.spaceBetween).define { flex in
+                flex.addItem(prizeDetailsByRank)
+                flex.addItem(totalSalesAmountLabel)
+            }
             
-            flex.addItem(testSubview)
+            flex.addItem(lottoResultInfoView).marginTop(12)
         }
         
         addSubview(rootFlexContainer)
