@@ -21,15 +21,36 @@ class WinningNumbersDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+    }
+    
+    @objc func showDrawPicker() {
+        let pickerVC = DrawPickerViewController()
+        pickerVC.modalPresentationStyle = .pageSheet
+        pickerVC.modalTransitionStyle = .coverVertical
         
-//        if let winningNumbersDetailView = view as? WinningNumbersDetailView {
-//            navigationItem.titleView = winningNumbersDetailView.titleLabel
-//            navigationItem.leftBarButtonItem = winningNumbersDetailView.backButton
-//        }
+        if let sheet = pickerVC.sheetPresentationController {
+            sheet.detents = [
+                .custom { context in
+                    return 200 // Custom height in points
+                }
+            ]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        pickerVC.selectedDrawInfo = { selectedInfo in
+            print("Selected draw info: \(selectedInfo)")
+        }
+        
+        present(pickerVC, animated: true, completion: nil)
     }
 }
 
 extension WinningNumbersDetailViewController: WinningNumbersDetailViewDelegate {
+    func didTapDrawView() {
+        showDrawPicker()
+    }
+    
     func didTapBackButton() {
         navigationController?.popViewController(animated: true)
     }

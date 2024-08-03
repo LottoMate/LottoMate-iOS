@@ -22,6 +22,8 @@
 		09341CAD2C5E278200B47642 /* LottoResultInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341CAC2C5E278200B47642 /* LottoResultInfoView.swift */; };
 		09341CAF2C5E2FE200B47642 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341CAE2C5E2FE200B47642 /* UIColor+Extensions.swift */; };
 		09554D112C5E5376009D1847 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D102C5E5376009D1847 /* Extensions.swift */; };
+		09554D132C5E5FB6009D1847 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D122C5E5FB6009D1847 /* SampleData.swift */; };
+		09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D142C5E619C009D1847 /* DrawPickerViewController.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -69,6 +71,8 @@
 		09341CAC2C5E278200B47642 /* LottoResultInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoResultInfoView.swift; sourceTree = "<group>"; };
 		09341CAE2C5E2FE200B47642 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		09554D102C5E5376009D1847 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		09554D122C5E5FB6009D1847 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		09554D142C5E619C009D1847 /* DrawPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawPickerViewController.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 				09341CA62C5B9C6300B47642 /* WinningNumbersView.swift */,
 				09341CA82C5BC97800B47642 /* WinningNumberCircleView.swift */,
 				09341CAC2C5E278200B47642 /* LottoResultInfoView.swift */,
+				09554D142C5E619C009D1847 /* DrawPickerViewController.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -182,7 +187,7 @@
 		09554D0F2C5E533D009D1847 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				09554D102C5E5376009D1847 /* Extensions.swift */,
+				09554D122C5E5FB6009D1847 /* SampleData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 		0969668C2C4FE4AF00BCE28B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				09554D102C5E5376009D1847 /* Extensions.swift */,
 				09341CAA2C5D140800B47642 /* UIView+Extensions.swift */,
 				09341CAE2C5E2FE200B47642 /* UIColor+Extensions.swift */,
 				09341C9C2C57FA7000B47642 /* Typography */,
@@ -525,12 +531,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				09554D112C5E5376009D1847 /* Extensions.swift in Sources */,
+				09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */,
 				09341CA72C5B9C6300B47642 /* WinningNumbersView.swift in Sources */,
 				09341CA12C58D8C500B47642 /* WinningNumbersDetailView.swift in Sources */,
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
 				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
+				09554D132C5E5FB6009D1847 /* SampleData.swift in Sources */,
 				09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */,
 				09341C222C52653B00B47642 /* TestButtonView .swift in Sources */,
 				0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */,
