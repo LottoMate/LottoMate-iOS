@@ -1,1 +1,5 @@
+# Ignore Ds_Store
 **/.DS_Store
+
+# Ignore user-specific data
+LottoMate/LottoMate.xcworkspace/xcuserdata/mirae.xcuserdatad/UserInterfaceState.xcuserstate
