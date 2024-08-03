@@ -2,5 +2,4 @@
 **/.DS_Store
 
 # Ignore user-specific data in Xcode projects
-*.xcworkspace/xcuserdata/
-*.xcodeproj/project.xcworkspace/xcuserdata/
+**/UserInterfaceState.xcuserstateㅁ
