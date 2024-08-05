@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIView {
+    /// 뷰에 그림자를 추가
     func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
         layer.masksToBounds = false
         layer.shadowOffset = offset

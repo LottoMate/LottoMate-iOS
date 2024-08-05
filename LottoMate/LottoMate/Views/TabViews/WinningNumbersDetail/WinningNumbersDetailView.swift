@@ -11,6 +11,7 @@ import PinLayout
 
 protocol WinningNumbersDetailViewDelegate: AnyObject {
     func didTapBackButton()
+    func didTapDrawView()
 }
 
 class WinningNumbersDetailView: UIView {
@@ -68,6 +69,10 @@ class WinningNumbersDetailView: UIView {
         
         drawDate.text = "2024.06.29"
         styleLabel(for: drawDate, fontStyle: .label2, textColor: .subtleGray)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapDrawView))
+        lotteryDrawingInfo.addGestureRecognizer(tapGesture)
+        lotteryDrawingInfo.isUserInteractionEnabled = true
         
         let previousRoundBtnImage = UIImage(named: "small_arrow_left")
         previousRoundButton.setImage(previousRoundBtnImage, for: .normal)
@@ -139,6 +144,10 @@ class WinningNumbersDetailView: UIView {
     
     @objc func backButtonTapped() {
         delegate?.didTapBackButton()
+    }
+    
+    @objc func didTapDrawView() {
+        delegate?.didTapDrawView()
     }
 }
 
