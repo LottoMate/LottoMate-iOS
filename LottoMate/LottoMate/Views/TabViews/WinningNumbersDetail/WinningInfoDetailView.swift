@@ -9,16 +9,16 @@ import UIKit
 import FlexLayout
 import PinLayout
 
-protocol WinningNumbersDetailViewDelegate: AnyObject {
+protocol WinningInfoDetailViewDelegate: AnyObject {
     func didTapBackButton()
     func didTapDrawView()
 }
 
-class WinningNumbersDetailView: UIView {
+class WinningInfoDetailView: UIView {
     fileprivate let contentView = UIScrollView()
     fileprivate let rootFlexContainer = UIView()
     
-    weak var delegate: WinningNumbersDetailViewDelegate?
+    weak var delegate: WinningInfoDetailViewDelegate?
     /// 네비게이션 아이템 타이틀
     let navTitleLabel = UILabel()
     /// 네비게이션 아이템 뒤로가기 버튼
@@ -168,6 +168,6 @@ class WinningNumbersDetailView: UIView {
 }
 
 #Preview {
-    let view = WinningNumbersDetailView()
+    let view = WinningInfoDetailView()
     return view
 }

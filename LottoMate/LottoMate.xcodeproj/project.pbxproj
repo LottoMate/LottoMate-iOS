@@ -15,7 +15,7 @@
 		09341C9B2C57F68B00B47642 /* WinningNumbersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */; };
 		09341C9E2C57FB0700B47642 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C9D2C57FB0700B47642 /* Typography.swift */; };
 		09341C9F2C58BDBC00B47642 /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09341C1B2C51651500B47642 /* PretendardVariable.ttf */; };
-		09341CA12C58D8C500B47642 /* WinningNumbersDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341CA02C58D8C500B47642 /* WinningNumbersDetailView.swift */; };
+		09341CA12C58D8C500B47642 /* WinningInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */; };
 		09341CA72C5B9C6300B47642 /* WinningNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341CA62C5B9C6300B47642 /* WinningNumbersView.swift */; };
 		09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341CA82C5BC97800B47642 /* WinningNumberCircleView.swift */; };
 		09341CAB2C5D140800B47642 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341CAA2C5D140800B47642 /* UIView+Extensions.swift */; };
@@ -64,7 +64,7 @@
 		09341C2B2C53AA8000B47642 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningNumbersDetailViewController.swift; sourceTree = "<group>"; };
 		09341C9D2C57FB0700B47642 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
-		09341CA02C58D8C500B47642 /* WinningNumbersDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningNumbersDetailView.swift; sourceTree = "<group>"; };
+		09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningInfoDetailView.swift; sourceTree = "<group>"; };
 		09341CA62C5B9C6300B47642 /* WinningNumbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningNumbersView.swift; sourceTree = "<group>"; };
 		09341CA82C5BC97800B47642 /* WinningNumberCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningNumberCircleView.swift; sourceTree = "<group>"; };
 		09341CAA2C5D140800B47642 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				09341CA52C5B9C3200B47642 /* Subviews */,
-				09341CA02C58D8C500B47642 /* WinningNumbersDetailView.swift */,
+				09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */,
 				09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */,
 			);
 			path = WinningNumbersDetail;
@@ -533,7 +533,7 @@
 				09554D112C5E5376009D1847 /* Extensions.swift in Sources */,
 				09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */,
 				09341CA72C5B9C6300B47642 /* WinningNumbersView.swift in Sources */,
-				09341CA12C58D8C500B47642 /* WinningNumbersDetailView.swift in Sources */,
+				09341CA12C58D8C500B47642 /* WinningInfoDetailView.swift in Sources */,
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
 				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,

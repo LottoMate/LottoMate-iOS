@@ -10,12 +10,12 @@ import FlexLayout
 import PinLayout
 
 class WinningNumbersDetailViewController: UIViewController {
-    fileprivate var mainView: WinningNumbersDetailView {
-        return self.view as! WinningNumbersDetailView
+    fileprivate var mainView: WinningInfoDetailView {
+        return self.view as! WinningInfoDetailView
     }
     
     override func loadView() {
-        let winningNumbersView = WinningNumbersDetailView()
+        let winningNumbersView = WinningInfoDetailView()
         view = winningNumbersView
         
         mainView.delegate = self
@@ -48,7 +48,7 @@ class WinningNumbersDetailViewController: UIViewController {
     }
 }
 
-extension WinningNumbersDetailViewController: WinningNumbersDetailViewDelegate {
+extension WinningNumbersDetailViewController: WinningInfoDetailViewDelegate {
     func didTapDrawView() {
         showDrawPicker()
     }
