@@ -15,7 +15,9 @@ class WinningNumbersDetailViewController: UIViewController {
     }
     
     override func loadView() {
-        view = WinningNumbersDetailView()
+        let winningNumbersView = WinningNumbersDetailView()
+        view = winningNumbersView
+        
         mainView.delegate = self
     }
     

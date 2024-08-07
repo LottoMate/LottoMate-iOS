@@ -56,7 +56,7 @@ class WinningNumbersDetailView: UIView {
         super.init(frame: .zero)
         backgroundColor = .white
         
-        navTitleLabel.text = "당첨 번호 상세"
+        navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
         
         let backButtonImage = UIImage(named: "backArrow")
