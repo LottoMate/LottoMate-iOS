@@ -148,7 +148,7 @@ class WinningInfoDetailView: UIView {
         super.layoutSubviews()
         
         // 1) Layout the contentView & rootFlexContainer using PinLayout
-        contentView.pin.all(pin.safeArea)
+        contentView.pin.top(pin.safeArea).bottom().left().right()
         rootFlexContainer.pin.top().horizontally()
         
         // 2) Let the flexbox container layout itself and adjust the height
