@@ -15,7 +15,9 @@ protocol WinningNumbersDetailViewDelegate: AnyObject {
 }
 
 class WinningNumbersDetailView: UIView {
+    fileprivate let contentView = UIScrollView()
     fileprivate let rootFlexContainer = UIView()
+    
     weak var delegate: WinningNumbersDetailViewDelegate?
     /// 네비게이션 아이템 타이틀
     let navTitleLabel = UILabel()
@@ -47,6 +49,8 @@ class WinningNumbersDetailView: UIView {
     let totalSalesAmountValue: Int = 0 // thousand... 처리 필요 (백엔드에서 정보 어떻게 오는지 확인)
     
     let lottoResultInfoView = LottoResultInfoView(rankValue: 1, prizeAmountValue: 26250206631, winningConditionValue: "당첨번호 6개 일치", numberOfWinnerValue: 11, prizePerWinnerValue: 2386283483)
+    let lottoResultInfoView2 = LottoResultInfoView(rankValue: 1, prizeAmountValue: 26250206631, winningConditionValue: "당첨번호 6개 일치", numberOfWinnerValue: 11, prizePerWinnerValue: 2386283483)
+    let lottoResultInfoView3 = LottoResultInfoView(rankValue: 1, prizeAmountValue: 26250206631, winningConditionValue: "당첨번호 6개 일치", numberOfWinnerValue: 11, prizePerWinnerValue: 2386283483)
     
     init() {
         super.init(frame: .zero)
@@ -127,9 +131,13 @@ class WinningNumbersDetailView: UIView {
             }
             
             flex.addItem(lottoResultInfoView).marginTop(12)
+            flex.addItem(lottoResultInfoView2).marginTop(12)
+            flex.addItem(lottoResultInfoView3).marginTop(12)
         }
         
-        addSubview(rootFlexContainer)
+        contentView.addSubview(rootFlexContainer)
+        
+        addSubview(contentView)
     }
     
     required init?(coder: NSCoder) {
@@ -138,8 +146,16 @@ class WinningNumbersDetailView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
+        
+        // 1) Layout the contentView & rootFlexContainer using PinLayout
+        contentView.pin.all(pin.safeArea)
+        rootFlexContainer.pin.top().horizontally()
+        
+        // 2) Let the flexbox container layout itself and adjust the height
         rootFlexContainer.flex.layout(mode: .adjustHeight)
+        
+        // 3) Adjust the scrollview contentSize
+        contentView.contentSize = rootFlexContainer.frame.size
     }
     
     @objc func backButtonTapped() {
