@@ -138,7 +138,7 @@
 		09341C282C53AA4400B47642 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
-				09341CA42C5B9C0600B47642 /* WinningNumbersDetail */,
+				09341CA42C5B9C0600B47642 /* WinningInfoDetail */,
 				09341C252C53A71000B47642 /* TabBarViewController.swift */,
 				09341C292C53AA6E00B47642 /* HomeViewController.swift */,
 				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
@@ -163,14 +163,14 @@
 			path = Typography;
 			sourceTree = "<group>";
 		};
-		09341CA42C5B9C0600B47642 /* WinningNumbersDetail */ = {
+		09341CA42C5B9C0600B47642 /* WinningInfoDetail */ = {
 			isa = PBXGroup;
 			children = (
 				09341CA52C5B9C3200B47642 /* Subviews */,
 				09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */,
 				09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */,
 			);
-			path = WinningNumbersDetail;
+			path = WinningInfoDetail;
 			sourceTree = "<group>";
 		};
 		09341CA52C5B9C3200B47642 /* Subviews */ = {
