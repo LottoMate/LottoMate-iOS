@@ -1,7 +1,7 @@
 name: 'LottoMate-iOS 이슈 생성'
 description: 'LottoMate-iOS Repo에 이슈를 생성하며, 생성된 이슈는 Jira와 연동됩니다.'
 labels: [task]
-title: ''
+title: ' '
 body:
   - type: input
     id: parentKey
@@ -16,7 +16,7 @@ body:
     id: description
     attributes:
       label: '이슈 내용(Description)'
-      description: ''
+      description: ' '
     validations:
       required: true
 
@@ -24,7 +24,7 @@ body:
     id: details
     attributes:
       label: '상세 내용(Details)'
-      description: ''
+      description: ' '
       value: |
         - About Details
     validations:
