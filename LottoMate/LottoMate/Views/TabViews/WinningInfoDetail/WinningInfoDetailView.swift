@@ -64,28 +64,9 @@ class WinningInfoDetailView: UIView {
         navBackButton.frame = CGRect(x: 0, y: 0, width: 8, height: 16)
         navBackButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
-        lottoTypeButton.setTitle("로또", for: .normal)
-        pensionLotteryTypeButton.setTitle("연금복권", for: .normal)
-        spittoTypeButton.setTitle("스피또", for: .normal)
+        lotteryTypeButtonsView()
         
-        lotteryDrawRound.text = "1126회"
-        styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .primaryGray)
-        
-        drawDate.text = "2024.06.29"
-        styleLabel(for: drawDate, fontStyle: .label2, textColor: .subtleGray)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapDrawView))
-        lotteryDrawingInfo.addGestureRecognizer(tapGesture)
-        lotteryDrawingInfo.isUserInteractionEnabled = true
-        
-        let previousRoundBtnImage = UIImage(named: "small_arrow_left")
-        previousRoundButton.setImage(previousRoundBtnImage, for: .normal)
-        previousRoundButton.tintColor = .primaryGray
-        previousRoundButton.frame = CGRect(x: 0, y: 0, width: 5, height: 10)
-        let nextRoundBtnImage = UIImage(named: "small_arrow_right")
-        nextRoundButton.setImage(nextRoundBtnImage, for: .normal)
-        nextRoundButton.tintColor = .secondaryGray
-        nextRoundButton.frame = CGRect(x: 0, y: 0, width: 5, height: 10)
+        drawView()
         
         lotteryResultsTitle.text = "당첨 번호 보기"
         styleLabel(for: lotteryResultsTitle, fontStyle: .headline1, textColor: .primaryGray)

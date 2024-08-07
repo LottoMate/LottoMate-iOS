@@ -24,6 +24,8 @@
 		09554D112C5E5376009D1847 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D102C5E5376009D1847 /* Extensions.swift */; };
 		09554D132C5E5FB6009D1847 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D122C5E5FB6009D1847 /* SampleData.swift */; };
 		09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D142C5E619C009D1847 /* DrawPickerViewController.swift */; };
+		09554D172C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */; };
+		09554D192C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D182C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -73,6 +75,8 @@
 		09554D102C5E5376009D1847 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		09554D122C5E5FB6009D1847 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		09554D142C5E619C009D1847 /* DrawPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawPickerViewController.swift; sourceTree = "<group>"; };
+		09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WinningInfoDetailView+DrawView.swift"; sourceTree = "<group>"; };
+		09554D182C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WinningInfoDetailView+LotteryTypeButtonsView.swift"; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,8 +171,10 @@
 			isa = PBXGroup;
 			children = (
 				09341CA52C5B9C3200B47642 /* Subviews */,
-				09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */,
 				09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */,
+				09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */,
+				09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */,
+				09554D182C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift */,
 			);
 			path = WinningInfoDetail;
 			sourceTree = "<group>";
@@ -535,12 +541,14 @@
 				09341CA72C5B9C6300B47642 /* WinningNumbersView.swift in Sources */,
 				09341CA12C58D8C500B47642 /* WinningInfoDetailView.swift in Sources */,
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
+				09554D192C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift in Sources */,
 				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
 				09554D132C5E5FB6009D1847 /* SampleData.swift in Sources */,
 				09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */,
 				09341C222C52653B00B47642 /* TestButtonView .swift in Sources */,
+				09554D172C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift in Sources */,
 				0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */,
 				09341C9B2C57F68B00B47642 /* WinningNumbersDetailViewController.swift in Sources */,
 				09341C2C2C53AA8000B47642 /* MapViewController.swift in Sources */,
