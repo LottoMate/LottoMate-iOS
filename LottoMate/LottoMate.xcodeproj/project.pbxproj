@@ -26,6 +26,7 @@
 		09554D172C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */; };
 		09554D192C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D182C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift */; };
 		09554D1D2C649740009D1847 /* PrizeInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D1C2C649740009D1847 /* PrizeInfoCardView.swift */; };
+		09554D1F2C64B5CB009D1847 /* ViewTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D1E2C64B5CB009D1847 /* ViewTemplate.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WinningInfoDetailView+DrawView.swift"; sourceTree = "<group>"; };
 		09554D182C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WinningInfoDetailView+LotteryTypeButtonsView.swift"; sourceTree = "<group>"; };
 		09554D1C2C649740009D1847 /* PrizeInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeInfoCardView.swift; sourceTree = "<group>"; };
+		09554D1E2C64B5CB009D1847 /* ViewTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTemplate.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,17 +156,10 @@
 		09341C992C57F60900B47642 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				09554D202C64B6EB009D1847 /* Common */,
 				09341C282C53AA4400B47642 /* TabViews */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		09341C9C2C57FA7000B47642 /* Typography */ = {
-			isa = PBXGroup;
-			children = (
-				09341C9D2C57FB0700B47642 /* Typography.swift */,
-			);
-			path = Typography;
 			sourceTree = "<group>";
 		};
 		09341CA42C5B9C0600B47642 /* WinningInfoDetail */ = {
@@ -196,6 +191,18 @@
 				09554D122C5E5FB6009D1847 /* SampleData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		09554D202C64B6EB009D1847 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				09341C9D2C57FB0700B47642 /* Typography.swift */,
+				09554D102C5E5376009D1847 /* Extensions.swift */,
+				09341CAA2C5D140800B47642 /* UIView+Extensions.swift */,
+				09341CAE2C5E2FE200B47642 /* UIColor+Extensions.swift */,
+				09554D1E2C64B5CB009D1847 /* ViewTemplate.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		0969664F2C4FE27600BCE28B = {
@@ -255,10 +262,6 @@
 		0969668C2C4FE4AF00BCE28B /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				09554D102C5E5376009D1847 /* Extensions.swift */,
-				09341CAA2C5D140800B47642 /* UIView+Extensions.swift */,
-				09341CAE2C5E2FE200B47642 /* UIColor+Extensions.swift */,
-				09341C9C2C57FA7000B47642 /* Typography */,
 				0969668D2C4FE4B900BCE28B /* Buttons */,
 			);
 			path = UI;
@@ -536,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09554D1F2C64B5CB009D1847 /* ViewTemplate.swift in Sources */,
 				09554D112C5E5376009D1847 /* Extensions.swift in Sources */,
 				09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */,
 				09341CA72C5B9C6300B47642 /* WinningNumbersView.swift in Sources */,
