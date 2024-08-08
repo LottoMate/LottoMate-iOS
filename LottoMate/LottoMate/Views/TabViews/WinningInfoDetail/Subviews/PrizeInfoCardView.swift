@@ -1,21 +1,32 @@
 //
-//  LottoResultInfoView.swift
+//  PrizeInfoCardView.swift
 //  LottoMate
 //
-//  Created by Mirae on 8/3/24.
+//  Created by Mirae on 8/8/24.
 //
 
 import UIKit
-import FlexLayout
 import PinLayout
+import FlexLayout
 
-class LottoResultInfoView: UIView {
+enum LotteryType: String {
+    case lotto = "로또"
+    case pensionLottery = "연금복권"
+    case speeto = "스피또"
+}
+
+class PrizeInfoCardView: UIView {
     fileprivate let rootFlexContainer = UIView()
+    
+    var lotteryType: LotteryType?
     
     let rank = UILabel()
     var rankValue: Int?
-    let prizeMoney = UILabel() // prizeMoney로 변경하기
-    var prizeMoneyValue: Int?
+    
+    let prizeMoney = UILabel()
+    var lottoPrizeMoneyValue: Int?
+    /// 연금복권, 스피또는 상금이 고정되어 있어 스트링 타입으로 입력 (년, 원 등 단위까지 입력해주어야 함.)
+    var prizeMoneyString: String?
     
     /// 당첨 조건 타이틀 레이블
     let winningConditionLabel = UILabel()
@@ -45,23 +56,37 @@ class LottoResultInfoView: UIView {
     /// 당첨 조건, 당첨자 수, 인당 당첨금 값 컨테이너
     let prizeDetailValueContainer = UIView()
     
-    init(rankValue: Int, prizeAmountValue: Int, winningConditionValue: String, numberOfWinnerValue: Int, prizePerWinnerValue: Int) {
+    init(lotteryType: LotteryType, rankValue: Int, lottoPrizeMoneyValue: Int? = nil, prizeMoneyString: String? = nil, winningConditionValue: String, numberOfWinnerValue: Int, prizePerWinnerValue: Int? = nil) {
         super.init(frame: .zero)
+        self.lotteryType = lotteryType
         self.rankValue = rankValue
-        self.prizeMoneyValue = prizeAmountValue
+        self.lottoPrizeMoneyValue = lottoPrizeMoneyValue
+        self.prizeMoneyString = prizeMoneyString
         self.winningConditionValue = winningConditionValue
         self.numberOfWinnerValue = numberOfWinnerValue
         self.prizePerWinnerValue = prizePerWinnerValue
         
         configurePrizeInfoCardView(for: rootFlexContainer)
-        
         let shadowOffset = CGSize(width: 0, height: 0)
         rootFlexContainer.addShadow(offset: shadowOffset, color: UIColor.black, radius: 8, opacity: 0.1)
         
         rank.text = "\(rankValue)등"
         styleLabel(for: rank, fontStyle: .headline2, textColor: .gray_6B6B6B)
         
-        prizeMoney.text = "\(prizeAmountValue.formattedWithSeparator())원"
+        switch lotteryType {
+        case .lotto:
+            if let lottoPrizeMoney = lottoPrizeMoneyValue {
+                prizeMoney.text = "\(lottoPrizeMoney.formattedWithSeparator())원"
+            }
+        case .pensionLottery:
+            if let pensionPrizeMoney = prizeMoneyString {
+                prizeMoney.text = "\(pensionPrizeMoney)"
+            }
+        case .speeto:
+            if let speetoPrizeMoney = prizeMoneyString {
+                prizeMoney.text = "\(speetoPrizeMoney)"
+            }
+        }
         styleLabel(for: prizeMoney, fontStyle: .title3, textColor: .black)
         
         prizeInfoDetailContainer.backgroundColor = .gray_F9F9F9
@@ -82,29 +107,31 @@ class LottoResultInfoView: UIView {
         numberOfWinnersValueLabel.text = "\(numberOfWinnerValue)명"
         styleLabel(for: numberOfWinnersValueLabel, fontStyle: .headline2, textColor: .black)
         
-        prizePerWinnerValueLabel.text = "\(prizePerWinnerValue.formattedWithSeparator())원"
-        styleLabel(for: prizePerWinnerValueLabel, fontStyle: .headline2, textColor: .black)
+        if let lottoPrizeMoneyPerWinner = prizePerWinnerValue {
+            prizePerWinnerValueLabel.text = "\(lottoPrizeMoneyPerWinner.formattedWithSeparator())원"
+            styleLabel(for: prizePerWinnerValueLabel, fontStyle: .headline2, textColor: .black)
+        }
         
-        
-        
-        rootFlexContainer.flex.direction(.column).paddingTop(24).paddingBottom(20).paddingHorizontal(20).define { flex in
+        rootFlexContainer.flex.direction(.column).padding(20).define { flex in
             flex.addItem(rank).alignSelf(.start)
             flex.addItem(prizeMoney).alignSelf(.start).marginTop(2).marginBottom(12)
             
-            flex.addItem(prizeInfoDetailContainer).direction(.row).paddingTop(13).paddingBottom(10).paddingLeft(16).define { flex in
+            flex.addItem(prizeInfoDetailContainer).direction(.row).paddingVertical(16).paddingHorizontal(20).define { flex in
                 flex.addItem(prizeDetailLabelContainer).direction(.column).alignItems(.start).define { flex in
-                    flex.addItem(winningConditionLabel).marginBottom(10)
-                    flex.addItem(numberOfWinnersLabel).marginBottom(10)
-                    flex.addItem(prizePerWinnerLabel)
+                    flex.addItem(winningConditionLabel)
+                    flex.addItem(numberOfWinnersLabel).marginTop(10)
+                    if prizePerWinnerValue != nil {
+                        flex.addItem(prizePerWinnerLabel).marginTop(10)
+                    }
                 }
                 
                 flex.addItem(prizeDetailValueContainer).direction(.column).alignItems(.start).paddingLeft(24).define { flex in
-                    flex.addItem(winningConditionValueLabel).marginBottom(10)
-                    flex.addItem(numberOfWinnersValueLabel).marginBottom(10)
-                    flex.addItem(prizePerWinnerValueLabel)
-                    
+                    flex.addItem(winningConditionValueLabel)
+                    flex.addItem(numberOfWinnersValueLabel).marginTop(10)
+                    if prizePerWinnerValue != nil {
+                        flex.addItem(prizePerWinnerValueLabel).marginTop(10)
+                    }
                 }
-                
             }
         }
         
@@ -117,12 +144,13 @@ class LottoResultInfoView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
 }
 
 #Preview {
-    let view = LottoResultInfoView(rankValue: 1, prizeAmountValue: 26250206631, winningConditionValue: "당첨번호 6개 일치", numberOfWinnerValue: 11, prizePerWinnerValue: 2386283483)
+    let view = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 1)
     return view
 }

@@ -20,4 +20,12 @@ extension UIView {
         backgroundColor = nil
         layer.backgroundColor =  backgroundCGColor
     }
+    
+    /// 복권 등수별 당첨 정보 카드뷰 기본 설정
+    func configurePrizeInfoCardView(for rootFlexContainer: UIView) {
+        rootFlexContainer.backgroundColor = .white
+        rootFlexContainer.layer.borderWidth = 1
+        rootFlexContainer.layer.borderColor = UIColor.lightestGray.cgColor
+        rootFlexContainer.layer.cornerRadius = 16
+    }
 }
