@@ -52,6 +52,9 @@ class WinningInfoDetailView: UIView {
     let lottoResultInfoView2 = LottoResultInfoView(rankValue: 1, prizeAmountValue: 26250206631, winningConditionValue: "당첨번호 6개 일치", numberOfWinnerValue: 11, prizePerWinnerValue: 2386283483)
     let lottoResultInfoView3 = LottoResultInfoView(rankValue: 1, prizeAmountValue: 26250206631, winningConditionValue: "당첨번호 6개 일치", numberOfWinnerValue: 11, prizePerWinnerValue: 2386283483)
     
+    let lottoResultInfoView4 = PrizeInfoCardView(lotteryType: .lotto, rankValue: 2, lottoPrizeMoneyValue: 12376487, winningConditionValue: "당첨번호 5개 일치", numberOfWinnerValue: 50, prizePerWinnerValue: 34323)
+    let pensionLotteryResultView = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
+    
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
@@ -114,6 +117,8 @@ class WinningInfoDetailView: UIView {
             flex.addItem(lottoResultInfoView).marginTop(12)
             flex.addItem(lottoResultInfoView2).marginTop(12)
             flex.addItem(lottoResultInfoView3).marginTop(12)
+            flex.addItem(lottoResultInfoView4).marginTop(12)
+            flex.addItem(pensionLotteryResultView).marginTop(12)
         }
         
         contentView.addSubview(rootFlexContainer)

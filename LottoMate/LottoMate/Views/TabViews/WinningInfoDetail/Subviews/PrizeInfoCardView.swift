@@ -104,7 +104,14 @@ class PrizeInfoCardView: UIView {
         winningConditionValueLabel.text = "\(winningConditionValue)"
         styleLabel(for: winningConditionValueLabel, fontStyle: .headline2, textColor: .black)
         
-        numberOfWinnersValueLabel.text = "\(numberOfWinnerValue)명"
+        switch lotteryType {
+        case .lotto:
+            numberOfWinnersValueLabel.text = "\(numberOfWinnerValue)명"
+        case .pensionLottery:
+            numberOfWinnersValueLabel.text = "\(numberOfWinnerValue)매"
+        case .speeto:
+            numberOfWinnersValueLabel.text = "\(numberOfWinnerValue)매"
+        }
         styleLabel(for: numberOfWinnersValueLabel, fontStyle: .headline2, textColor: .black)
         
         if let lottoPrizeMoneyPerWinner = prizePerWinnerValue {
