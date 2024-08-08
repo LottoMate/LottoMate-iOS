@@ -17,4 +17,10 @@ extension UIColor {
     static var gray_858585: UIColor {
         return UIColor(named: "858585") ?? .clear
     }
+    static var gray_EEEEEE: UIColor {
+        return UIColor(named: "EEEEEE") ?? .clear
+    }
+    static var gray_D2D2D2: UIColor {
+        return UIColor(named: "D2D2D2") ?? .clear
+    }
 }

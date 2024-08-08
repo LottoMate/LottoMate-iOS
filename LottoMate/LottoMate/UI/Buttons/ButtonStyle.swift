@@ -18,6 +18,7 @@ enum ButtonStyle {
     case solid(ButtonStatus)
     case outlined(ButtonStatus)
     case text(ButtonStatus)
+    case assistive(ButtonStatus)
     
     var backgroundColor: UIColor {
         switch self {
@@ -50,6 +51,16 @@ enum ButtonStyle {
             case .pressed:
                 return .pressedTextBtnBg
             }
+       
+        case .assistive(let buttonStatus):
+            switch buttonStatus {
+            case .active:
+                return .clear
+            case .inactive:
+                return .clear
+            case .pressed:
+                return .gray_EEEEEE
+            }
         }
     }
     
@@ -70,6 +81,9 @@ enum ButtonStyle {
         
         case .text(_):
             return .textOutline
+        
+        case .assistive(_):
+            return .gray_D2D2D2
         }
     }
     
@@ -97,6 +111,16 @@ enum ButtonStyle {
             case .pressed:
                 return .pressedTextBtnText
             }
+        
+        case .assistive(let buttonStatus):
+            switch buttonStatus {
+            case .active:
+                return .black
+            case .inactive:
+                return .gray_D2D2D2
+            case .pressed:
+                return .black
+            }
         }
     }
     
@@ -107,6 +131,8 @@ enum ButtonStyle {
         case .outlined(_):
             return true
         case .text(_):
+            return true
+        case .assistive(_):
             return true
         }
     }
@@ -122,6 +148,7 @@ enum ButtonStyle {
             case .pressed:
                 return false
             }
+        
         case .outlined(let buttonStatus):
             switch buttonStatus {
             case .active:
@@ -131,7 +158,18 @@ enum ButtonStyle {
             case .pressed:
                 return false
             }
+        
         case .text(let buttonStatus):
+            switch buttonStatus {
+            case .active:
+                return false
+            case .inactive:
+                return true
+            case .pressed:
+                return false
+            }
+        
+        case .assistive(let buttonStatus):
             switch buttonStatus {
             case .active:
                 return false
