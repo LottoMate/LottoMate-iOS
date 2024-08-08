@@ -25,7 +25,7 @@ enum ButtonStyle {
         case .solid(let buttonStatus):
             switch buttonStatus {
             case .active:
-                return .defaultSolidBtnBg
+                return .ltm_E1464C
             case .inactive:
                 return .disabledSolidBtnBg
             case .pressed:
