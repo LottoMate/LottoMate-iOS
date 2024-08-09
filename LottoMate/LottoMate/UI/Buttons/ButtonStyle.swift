@@ -14,15 +14,22 @@ enum ButtonStatus: CaseIterable {
     case pressed
 }
 
+enum ButtonSize {
+    case large
+    case medium
+    case small
+    case round
+}
+
 enum ButtonStyle {
-    case solid(ButtonStatus)
-    case outlined(ButtonStatus)
-    case text(ButtonStatus)
-    case assistive(ButtonStatus)
+    case solid(ButtonSize, ButtonStatus)
+    case outlined(ButtonSize, ButtonStatus)
+    case text(ButtonSize, ButtonStatus)
+    case assistive(ButtonSize, ButtonStatus)
     
     var backgroundColor: UIColor {
         switch self {
-        case .solid(let buttonStatus):
+        case .solid(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return .ltm_E1464C
@@ -32,7 +39,7 @@ enum ButtonStyle {
                 return .pressedSolidBtnBg
             }
         
-        case .outlined(let buttonStatus):
+        case .outlined(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return .clear
@@ -42,7 +49,7 @@ enum ButtonStyle {
                 return .clear
             }
         
-        case .text(let buttonStatus):
+        case .text(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return .clear
@@ -52,7 +59,7 @@ enum ButtonStyle {
                 return .pressedTextBtnBg
             }
        
-        case .assistive(let buttonStatus):
+        case .assistive(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return .clear
@@ -66,10 +73,10 @@ enum ButtonStyle {
     
     var borderColor: UIColor {
         switch self {
-        case .solid(_):
+        case .solid(_, _):
             return .clear
         
-        case .outlined(let buttonStatus):
+        case .outlined(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return .activeOutline
@@ -79,20 +86,20 @@ enum ButtonStyle {
                 return .defaultOutline
             }
         
-        case .text(_):
+        case .text(_, _):
             return .textOutline
         
-        case .assistive(_):
+        case .assistive(_, _):
             return .gray_D2D2D2
         }
     }
     
     var textColor: UIColor {
         switch self {
-        case .solid(_):
+        case .solid(_, _):
             return .white
         
-        case .outlined(let buttonStatus):
+        case .outlined(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return .activeOutlineBtnText
@@ -102,7 +109,7 @@ enum ButtonStyle {
                 return .defaultOutlineBtnText
             }
             
-        case .text(let buttonStatus):
+        case .text(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return .defaultTextBtnText
@@ -112,7 +119,7 @@ enum ButtonStyle {
                 return .pressedTextBtnText
             }
         
-        case .assistive(let buttonStatus):
+        case .assistive(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return .black
@@ -124,22 +131,58 @@ enum ButtonStyle {
         }
     }
     
+    var titleFontStyle: Typography {
+        switch self {
+        case .solid(let buttonSize, _):
+            switch buttonSize {
+            case .large, .medium:
+                return .label1
+            case .small, .round:
+                return .label2
+            }
+            
+        case .outlined(let buttonSize, _):
+            switch buttonSize {
+            case .large, .medium:
+                return .label1
+            case .small, .round:
+                return .label2
+            }
+            
+        case .text(let buttonSize, _):
+            switch buttonSize {
+            case .large, .medium:
+                return .label1
+            case .small, .round:
+                return .label2
+            }
+            
+        case .assistive(let buttonSize, _):
+            switch buttonSize {
+            case .large, .medium:
+                return .label1
+            case .small, .round:
+                return .label2
+            }
+        }
+    }
+    
     var hasBorder: Bool {
         switch self {
-        case .solid(_):
+        case .solid(_, _):
             return false
-        case .outlined(_):
+        case .outlined(_, _):
             return true
-        case .text(_):
+        case .text(_, _):
             return true
-        case .assistive(_):
+        case .assistive(_, _):
             return true
         }
     }
     
     var isDisabled: Bool {
         switch self {
-        case .solid(let buttonStatus):
+        case .solid(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return false
@@ -149,7 +192,7 @@ enum ButtonStyle {
                 return false
             }
         
-        case .outlined(let buttonStatus):
+        case .outlined(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return false
@@ -159,7 +202,7 @@ enum ButtonStyle {
                 return false
             }
         
-        case .text(let buttonStatus):
+        case .text(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return false
@@ -169,7 +212,7 @@ enum ButtonStyle {
                 return false
             }
         
-        case .assistive(let buttonStatus):
+        case .assistive(_, let buttonStatus):
             switch buttonStatus {
             case .active:
                 return false

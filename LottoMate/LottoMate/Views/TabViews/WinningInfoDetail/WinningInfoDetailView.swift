@@ -25,9 +25,9 @@ class WinningInfoDetailView: UIView {
     let navBackButton = UIButton()
     
     // 복권 타입 버튼
-    let lottoTypeButton = StyledButton(buttonStyle: .outlined(.active), fontSize: 14, cornerRadius: 17)
-    let pensionLotteryTypeButton = StyledButton(buttonStyle: .outlined(.inactive), fontSize: 14, cornerRadius: 17)
-    let spittoTypeButton = StyledButton(buttonStyle: .outlined(.inactive), fontSize: 14, cornerRadius: 17)
+//    let lottoTypeButton = StyledButton(buttonStyle: .outlined(.active), fontSize: 14, cornerRadius: 17)
+//    let pensionLotteryTypeButton = StyledButton(buttonStyle: .outlined(.inactive), fontSize: 14, cornerRadius: 17)
+//    let spittoTypeButton = StyledButton(buttonStyle: .outlined(.inactive), fontSize: 14, cornerRadius: 17)
     
     // 복권 당첨 회차
     var lotteryDrawRound = UILabel()
@@ -84,17 +84,17 @@ class WinningInfoDetailView: UIView {
             }
             
             // 복권 종류 필터 버튼
-            flex.addItem().direction(.row).paddingTop(16).define { flex in
-                flex.addItem(lottoTypeButton).width(56).height(34).marginRight(10)
-                flex.addItem(pensionLotteryTypeButton).width(79).height(34).marginRight(10)
-                flex.addItem(spittoTypeButton).width(56).height(34)
-            }
+//            flex.addItem().direction(.row).paddingTop(16).define { flex in
+//                flex.addItem(lottoTypeButton).width(56).height(34).marginRight(10)
+//                flex.addItem(pensionLotteryTypeButton).width(79).height(34).marginRight(10)
+//                flex.addItem(spittoTypeButton).width(56).height(34)
+//            }
             
             // 당첨 회차
             flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(28).define { flex in
                 flex.addItem(previousRoundButton)
                 flex.addItem(lotteryDrawingInfo).direction(.row).define { flex in
-                    flex.addItem(lotteryDrawRound).marginRight(8)
+                    flex.addItem(lotteryDrawRound).marginRight(8).border(1, .red)
                     flex.addItem(drawDate)
                 }
                 flex.addItem(nextRoundButton)
