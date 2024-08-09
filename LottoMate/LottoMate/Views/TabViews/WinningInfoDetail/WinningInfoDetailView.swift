@@ -19,15 +19,13 @@ class WinningInfoDetailView: UIView {
     fileprivate let rootFlexContainer = UIView()
     
     weak var delegate: WinningInfoDetailViewDelegate?
+    
     /// 네비게이션 아이템 타이틀
     let navTitleLabel = UILabel()
     /// 네비게이션 아이템 뒤로가기 버튼
     let navBackButton = UIButton()
     
-    // 복권 타입 버튼
-//    let lottoTypeButton = StyledButton(buttonStyle: .outlined(.active), fontSize: 14, cornerRadius: 17)
-//    let pensionLotteryTypeButton = StyledButton(buttonStyle: .outlined(.inactive), fontSize: 14, cornerRadius: 17)
-//    let spittoTypeButton = StyledButton(buttonStyle: .outlined(.inactive), fontSize: 14, cornerRadius: 17)
+    let lotteryTypeButtonsView = LotteryTypeButtonsView()
     
     // 복권 당첨 회차
     var lotteryDrawRound = UILabel()
@@ -63,8 +61,6 @@ class WinningInfoDetailView: UIView {
         navBackButton.frame = CGRect(x: 0, y: 0, width: 8, height: 16)
         navBackButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
-        lotteryTypeButtonsView()
-        
         drawView()
         
         lotteryResultsTitle.text = "당첨 번호 보기"
@@ -84,11 +80,7 @@ class WinningInfoDetailView: UIView {
             }
             
             // 복권 종류 필터 버튼
-//            flex.addItem().direction(.row).paddingTop(16).define { flex in
-//                flex.addItem(lottoTypeButton).width(56).height(34).marginRight(10)
-//                flex.addItem(pensionLotteryTypeButton).width(79).height(34).marginRight(10)
-//                flex.addItem(spittoTypeButton).width(56).height(34)
-//            }
+            flex.addItem(lotteryTypeButtonsView).marginTop(24)
             
             // 당첨 회차
             flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(28).define { flex in

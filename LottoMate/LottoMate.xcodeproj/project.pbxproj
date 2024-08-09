@@ -24,7 +24,6 @@
 		09554D132C5E5FB6009D1847 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D122C5E5FB6009D1847 /* SampleData.swift */; };
 		09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D142C5E619C009D1847 /* DrawPickerViewController.swift */; };
 		09554D172C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */; };
-		09554D192C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D182C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift */; };
 		09554D1D2C649740009D1847 /* PrizeInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D1C2C649740009D1847 /* PrizeInfoCardView.swift */; };
 		09554D1F2C64B5CB009D1847 /* ViewTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D1E2C64B5CB009D1847 /* ViewTemplate.swift */; };
 		09554D222C64B798009D1847 /* LotteryTypeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D212C64B798009D1847 /* LotteryTypeButtonsView.swift */; };
@@ -77,7 +76,6 @@
 		09554D122C5E5FB6009D1847 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		09554D142C5E619C009D1847 /* DrawPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawPickerViewController.swift; sourceTree = "<group>"; };
 		09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WinningInfoDetailView+DrawView.swift"; sourceTree = "<group>"; };
-		09554D182C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WinningInfoDetailView+LotteryTypeButtonsView.swift"; sourceTree = "<group>"; };
 		09554D1C2C649740009D1847 /* PrizeInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeInfoCardView.swift; sourceTree = "<group>"; };
 		09554D1E2C64B5CB009D1847 /* ViewTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTemplate.swift; sourceTree = "<group>"; };
 		09554D212C64B798009D1847 /* LotteryTypeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryTypeButtonsView.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */,
 				09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */,
 				09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */,
-				09554D182C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift */,
 			);
 			path = WinningInfoDetail;
 			sourceTree = "<group>";
@@ -548,7 +545,6 @@
 				09341CA72C5B9C6300B47642 /* WinningNumbersView.swift in Sources */,
 				09341CA12C58D8C500B47642 /* WinningInfoDetailView.swift in Sources */,
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
-				09554D192C63E6C2009D1847 /* WinningInfoDetailView+LotteryTypeButtonsView.swift in Sources */,
 				09554D222C64B798009D1847 /* LotteryTypeButtonsView.swift in Sources */,
 				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
