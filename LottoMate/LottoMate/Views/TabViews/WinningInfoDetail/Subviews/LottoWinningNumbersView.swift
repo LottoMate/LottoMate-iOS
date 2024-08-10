@@ -19,14 +19,14 @@ class LottoWinningNumbersView: UIView {
     
     /// 당첨번호 공 번호를 담을 컨테이너 뷰
     let winningNumberBalls = UIView()
-    let firstNumberView = WinningNumberCircleView(circleColor: .ltmYellow, number: 4)
-    let secondNumberView = WinningNumberCircleView(circleColor: .ltmYellow, number: 5)
-    let thirdNumberView = WinningNumberCircleView(circleColor: .ltmBlue, number: 20)
-    let fourthNumberView = WinningNumberCircleView(circleColor: .ltmRed, number: 21)
-    let fifthNumberView = WinningNumberCircleView(circleColor: .ltmPeach, number: 37)
-    let sixthNumberView = WinningNumberCircleView(circleColor: .ltmPeach, number: 40)
+    let firstNumberView = WinningNumberCircleView()
+    let secondNumberView = WinningNumberCircleView()
+    let thirdNumberView = WinningNumberCircleView()
+    let fourthNumberView = WinningNumberCircleView()
+    let fifthNumberView = WinningNumberCircleView()
+    let sixthNumberView = WinningNumberCircleView()
     let plusIcon = UIImageView()
-    let bonusNumberView = WinningNumberCircleView(circleColor: .ltmGreen, number: 43)
+    let bonusNumberView = WinningNumberCircleView()
     
     init() {
         super.init(frame: .zero)
@@ -43,6 +43,30 @@ class LottoWinningNumbersView: UIView {
         
         BonusLabel.text = "보너스"
         styleLabel(for: BonusLabel, fontStyle: .caption, textColor: .gray_ACACAC)
+        
+        // MARK: 당첨 번호 설정
+        firstNumberView.number = 4
+        firstNumberView.circleColor = .ltmRed
+        
+        secondNumberView.number = 5
+        secondNumberView.circleColor = .ltmBlue
+        
+        thirdNumberView.number = 6
+        thirdNumberView.circleColor = .ltmGreen
+        
+        fourthNumberView.number = 7
+        fourthNumberView.circleColor = .ltmPeach
+        
+        fifthNumberView.number = 8
+        fifthNumberView.circleColor = .ltmYellow
+        
+        sixthNumberView.number = 9
+        sixthNumberView.circleColor = .ltm_E1464C
+        
+        bonusNumberView.number = 9
+        bonusNumberView.circleColor = .ltmRed
+        
+    
         
         plusIcon.image = UIImage(named: "plus")
         plusIcon.contentMode = .center

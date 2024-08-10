@@ -15,7 +15,7 @@ class PensionLotteryWinningNumbersView: UIView {
     let rankLabel = UILabel()
     let winningNumbersContainer = UIView()
     let groupContainer = UIView()
-    let groupNumberBall = WinningNumberCircleView(circleColor: .black, number: 0)
+    let groupNumberBall = WinningNumberCircleView()
     var groupNumber: Int?
     let groupLabel = UILabel()
     
@@ -31,6 +31,9 @@ class PensionLotteryWinningNumbersView: UIView {
         groupLabel.text = "조"
         styleLabel(for: groupLabel, fontStyle: .label2, textColor: .black)
         
+        groupNumberBall.number = 4
+        groupNumberBall.circleColor = .black
+
         rootFlexContainer.flex.direction(.column).paddingVertical(24).paddingHorizontal(20).define { flex in
             flex.addItem(rankLabel).alignSelf(.start).marginBottom(8)
             flex.addItem(groupContainer).direction(.row).define { flex in
