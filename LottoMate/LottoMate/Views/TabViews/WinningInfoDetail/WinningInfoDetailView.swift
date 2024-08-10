@@ -36,7 +36,7 @@ class WinningInfoDetailView: UIView {
     
     /// 당첨 번호 보기
     let lotteryResultsTitle = UILabel()
-    let winningNumbersView = WinningNumbersView()
+    let winningNumbersView = LottoWinningNumbersView()
     
     /// 등수별 당첨 정보 & 총 판매 금액 컨테이너
     let prizeAndSalesAmount = UIView()
@@ -70,7 +70,7 @@ class WinningInfoDetailView: UIView {
         styleLabel(for: prizeDetailsByRank, fontStyle: .headline1, textColor: .primaryGray)
         
         totalSalesAmountLabel.text = "총 판매 금액 : \(totalSalesAmountValue)원"
-        styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .subtleGray)
+        styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .gray_ACACAC)
         
         rootFlexContainer.flex.direction(.column).paddingHorizontal(20).define { flex in
             // 네비게이션 바

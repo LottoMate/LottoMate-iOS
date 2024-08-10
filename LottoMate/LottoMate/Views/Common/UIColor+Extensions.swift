@@ -26,4 +26,7 @@ extension UIColor {
     static var ltm_E1464C: UIColor {
         return UIColor(named: "E1464C") ?? .clear
     }
+    static var gray_ACACAC: UIColor {
+        return UIColor(named: "ACACAC") ?? .clear
+    }
 }

@@ -66,7 +66,7 @@ class PrizeInfoCardView: UIView {
         self.numberOfWinnerValue = numberOfWinnerValue
         self.prizePerWinnerValue = prizePerWinnerValue
         
-        configurePrizeInfoCardView(for: rootFlexContainer)
+        configureCardView(for: rootFlexContainer)
         let shadowOffset = CGSize(width: 0, height: 0)
         rootFlexContainer.addShadow(offset: shadowOffset, color: UIColor.black, radius: 8, opacity: 0.1)
         

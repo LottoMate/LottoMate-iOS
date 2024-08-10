@@ -13,7 +13,7 @@ extension WinningInfoDetailView {
         styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .primaryGray)
         
         drawDate.text = "2024.06.29"
-        styleLabel(for: drawDate, fontStyle: .label2, textColor: .subtleGray)
+        styleLabel(for: drawDate, fontStyle: .label2, textColor: .gray_ACACAC)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapDrawView))
         lotteryDrawingInfo.addGestureRecognizer(tapGesture)

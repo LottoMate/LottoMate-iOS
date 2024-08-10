@@ -22,7 +22,7 @@ extension UIView {
     }
     
     /// 복권 등수별 당첨 정보 카드뷰 기본 설정
-    func configurePrizeInfoCardView(for rootFlexContainer: UIView) {
+    func configureCardView(for rootFlexContainer: UIView) {
         rootFlexContainer.backgroundColor = .white
         rootFlexContainer.layer.borderWidth = 1
         rootFlexContainer.layer.borderColor = UIColor.lightestGray.cgColor

@@ -14,6 +14,8 @@ class ViewTemplate: UIView {
     
     init() {
         super.init(frame: .zero)
+        
+        addSubview(rootFlexContainer)
     }
     
     required init?(coder: NSCoder) {
@@ -21,7 +23,7 @@ class ViewTemplate: UIView {
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews()
+        super.layoutSubviews() 
     }
 }
 
