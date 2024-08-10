@@ -28,6 +28,21 @@ class PensionLotteryWinningNumbersView: UIView {
     let fifthPensionLotteryNumber = WinningNumberCircleView()
     let sixthPensionLotteryNumber = WinningNumberCircleView()
     
+    let bonusLabel = UILabel()
+    let bonusGroupAndNumbersContainer = UIView()
+    let eachGroupContainer = UIView()
+    let eachLabel = UILabel()
+    let bonusGroupLabel = UILabel()
+    
+    let bonusNumbersContainer = UIView()
+    let firstPensionBonusNumber = WinningNumberCircleView()
+    let secondPensionBonusNumber = WinningNumberCircleView()
+    let thirdPensionBonusNumber = WinningNumberCircleView()
+    let fourthPensionBonusNumber = WinningNumberCircleView()
+    let fifthPensionBonusNumber = WinningNumberCircleView()
+    let sixthPensionBonusNumber = WinningNumberCircleView()
+    
+    
     init(groupNumber: Int) {
         super.init(frame: .zero)
         self.groupNumber = groupNumber
@@ -55,6 +70,26 @@ class PensionLotteryWinningNumbersView: UIView {
         fifthPensionLotteryNumber.circleColor = .ltmBlue
         sixthPensionLotteryNumber.number = 9
         sixthPensionLotteryNumber.circleColor = .ltmRed
+        
+        bonusLabel.text = "보너스"
+        styleLabel(for: bonusLabel, fontStyle: .caption, textColor: .gray_ACACAC)
+        eachLabel.text = "각"
+        styleLabel(for: eachLabel, fontStyle: .body1, textColor: .black)
+        bonusGroupLabel.text = "조"
+        styleLabel(for: bonusGroupLabel, fontStyle: .label2, textColor: .black)
+        
+        firstPensionBonusNumber.number = 8
+        firstPensionBonusNumber.circleColor = .ltmRed
+        secondPensionBonusNumber.number = 1
+        secondPensionBonusNumber.circleColor = .ltmPeach
+        thirdPensionBonusNumber.number = 7
+        thirdPensionBonusNumber.circleColor = .ltmYellow
+        fourthPensionBonusNumber.number = 5
+        fourthPensionBonusNumber.circleColor = .ltmGreen
+        fifthPensionBonusNumber.number = 1
+        fifthPensionBonusNumber.circleColor = .ltmBlue
+        sixthPensionBonusNumber.number = 9
+        sixthPensionBonusNumber.circleColor = .ltmRed
 
         rootFlexContainer.flex.direction(.column).paddingVertical(24).paddingHorizontal(20).define { flex in
             flex.addItem(rankLabel).alignSelf(.start).marginBottom(8)
@@ -75,7 +110,23 @@ class PensionLotteryWinningNumbersView: UIView {
                 .grow(1)
             }
             
-            flex.addItem().height(1).marginTop(16).backgroundColor(.lightGray) // 컬러 변경 필요 
+            flex.addItem().height(1).marginTop(16).backgroundColor(.gray_EEEEEE)
+            flex.addItem(bonusLabel).alignSelf(.start).marginTop(16)
+            
+            flex.addItem(bonusGroupAndNumbersContainer).direction(.row).define { flex in
+                flex.addItem(eachLabel).marginRight(24)
+                flex.addItem(bonusGroupLabel).marginRight(24)
+                flex.addItem(bonusNumbersContainer).direction(.row).justifyContent(.spaceBetween).define { flex in
+                    flex.addItem(firstPensionBonusNumber).width(30).height(30)
+                    flex.addItem(secondPensionBonusNumber).width(30).height(30)
+                    flex.addItem(thirdPensionBonusNumber).width(30).height(30)
+                    flex.addItem(fourthPensionBonusNumber).width(30).height(30)
+                    flex.addItem(fifthPensionBonusNumber).width(30).height(30)
+                    flex.addItem(sixthPensionBonusNumber).width(30).height(30)
+                }
+                .grow(1)
+            }
+            
         }
         
         addSubview(rootFlexContainer)
