@@ -28,6 +28,10 @@
 		09554D1F2C64B5CB009D1847 /* ViewTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D1E2C64B5CB009D1847 /* ViewTemplate.swift */; };
 		09554D222C64B798009D1847 /* LotteryTypeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D212C64B798009D1847 /* LotteryTypeButtonsView.swift */; };
 		09554D252C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D242C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift */; };
+		09554D402C6907E4009D1847 /* LottoMateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D3F2C6907E4009D1847 /* LottoMateService.swift */; };
+		09554D422C6908E4009D1847 /* LottoMateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D412C6908E4009D1847 /* LottoMateProvider.swift */; };
+		09554D442C6909C6009D1847 /* LottoResultInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D432C6909C6009D1847 /* LottoResultInfoModel.swift */; };
+		09554D462C690ABA009D1847 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 09554D452C690ABA009D1847 /* Moya */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -81,6 +85,9 @@
 		09554D1E2C64B5CB009D1847 /* ViewTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTemplate.swift; sourceTree = "<group>"; };
 		09554D212C64B798009D1847 /* LotteryTypeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryTypeButtonsView.swift; sourceTree = "<group>"; };
 		09554D242C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryWinningNumbersView.swift; sourceTree = "<group>"; };
+		09554D3F2C6907E4009D1847 /* LottoMateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateService.swift; sourceTree = "<group>"; };
+		09554D412C6908E4009D1847 /* LottoMateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateProvider.swift; sourceTree = "<group>"; };
+		09554D432C6909C6009D1847 /* LottoResultInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoResultInfoModel.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09554D462C690ABA009D1847 /* Moya in Frameworks */,
 				351E7EC8303E6F0E8904CCCB /* Pods_LottoMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +200,9 @@
 			isa = PBXGroup;
 			children = (
 				09554D122C5E5FB6009D1847 /* SampleData.swift */,
+				09554D3F2C6907E4009D1847 /* LottoMateService.swift */,
+				09554D412C6908E4009D1847 /* LottoMateProvider.swift */,
+				09554D432C6909C6009D1847 /* LottoResultInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,6 +331,9 @@
 			dependencies = (
 			);
 			name = LottoMate;
+			packageProductDependencies = (
+				09554D452C690ABA009D1847 /* Moya */,
+			);
 			productName = LottoMate;
 			productReference = 096966582C4FE27600BCE28B /* LottoMate.app */;
 			productType = "com.apple.product-type.application";
@@ -395,6 +409,9 @@
 				Base,
 			);
 			mainGroup = 0969664F2C4FE27600BCE28B;
+			packageReferences = (
+				09554D3E2C6907D6009D1847 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 096966592C4FE27600BCE28B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -545,10 +562,12 @@
 				09554D1F2C64B5CB009D1847 /* ViewTemplate.swift in Sources */,
 				09554D112C5E5376009D1847 /* Extensions.swift in Sources */,
 				09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */,
+				09554D442C6909C6009D1847 /* LottoResultInfoModel.swift in Sources */,
 				09341CA72C5B9C6300B47642 /* LottoWinningNumbersView.swift in Sources */,
 				09341CA12C58D8C500B47642 /* WinningInfoDetailView.swift in Sources */,
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
 				09554D222C64B798009D1847 /* LotteryTypeButtonsView.swift in Sources */,
+				09554D422C6908E4009D1847 /* LottoMateProvider.swift in Sources */,
 				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
 				09554D252C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift in Sources */,
@@ -561,6 +580,7 @@
 				0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */,
 				09341C9B2C57F68B00B47642 /* WinningNumbersDetailViewController.swift in Sources */,
 				09341C2C2C53AA8000B47642 /* MapViewController.swift in Sources */,
+				09554D402C6907E4009D1847 /* LottoMateService.swift in Sources */,
 				09341CAB2C5D140800B47642 /* UIView+Extensions.swift in Sources */,
 				09341C9E2C57FB0700B47642 /* Typography.swift in Sources */,
 				09341CAF2C5E2FE200B47642 /* UIColor+Extensions.swift in Sources */,
@@ -921,6 +941,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		09554D3E2C6907D6009D1847 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		09554D452C690ABA009D1847 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09554D3E2C6907D6009D1847 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 096966502C4FE27600BCE28B /* Project object */;
 }

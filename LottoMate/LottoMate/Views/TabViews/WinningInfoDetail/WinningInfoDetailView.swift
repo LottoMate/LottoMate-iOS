@@ -18,6 +18,8 @@ class WinningInfoDetailView: UIView {
     fileprivate let contentView = UIScrollView()
     fileprivate let rootFlexContainer = UIView()
     
+    let viewModel = LottoMateProvider()
+    
     weak var delegate: WinningInfoDetailViewDelegate?
     
     /// 네비게이션 아이템 타이틀
@@ -52,6 +54,8 @@ class WinningInfoDetailView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
+        
+        viewModel.getLottoResultInfo()
         
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
