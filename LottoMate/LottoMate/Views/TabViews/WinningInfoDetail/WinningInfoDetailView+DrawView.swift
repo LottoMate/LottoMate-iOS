@@ -22,10 +22,10 @@ extension WinningInfoDetailView {
         let previousRoundBtnImage = UIImage(named: "small_arrow_left")
         previousRoundButton.setImage(previousRoundBtnImage, for: .normal)
         previousRoundButton.tintColor = .primaryGray
-        previousRoundButton.frame = CGRect(x: 0, y: 0, width: 5, height: 10)
+        previousRoundButton.frame = CGRect(x: 0, y: 0, width: 4, height: 10)
         let nextRoundBtnImage = UIImage(named: "small_arrow_right")
         nextRoundButton.setImage(nextRoundBtnImage, for: .normal)
         nextRoundButton.tintColor = .secondaryGray
-        nextRoundButton.frame = CGRect(x: 0, y: 0, width: 5, height: 10)
+        nextRoundButton.frame = CGRect(x: 0, y: 0, width: 4, height: 10)
     }
 }

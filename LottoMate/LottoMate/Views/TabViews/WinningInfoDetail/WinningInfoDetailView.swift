@@ -46,7 +46,7 @@ class WinningInfoDetailView: UIView {
     /// 총 판매 금액 레이블
     let totalSalesAmountLabel = UILabel()
     /// 총 판매 금액 값
-    let totalSalesAmountValue: Int = 0 // thousand... 처리 필요 (백엔드에서 정보 어떻게 오는지 확인)
+    let totalSalesAmountValue: Int = 111998191000
     
     let lottoResultInfoView4 = PrizeInfoCardView(lotteryType: .lotto, rankValue: 2, lottoPrizeMoneyValue: 12376487, winningConditionValue: "당첨번호 5개 일치", numberOfWinnerValue: 50, prizePerWinnerValue: 34323)
     let pensionLotteryResultView = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
@@ -55,14 +55,12 @@ class WinningInfoDetailView: UIView {
         super.init(frame: .zero)
         backgroundColor = .white
         
-//        viewModel.getLottoResultInfo()
-        
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
         
         let backButtonImage = UIImage(named: "backArrow")
         navBackButton.setImage(backButtonImage, for: .normal)
-        navBackButton.frame = CGRect(x: 0, y: 0, width: 8, height: 16)
+        navBackButton.frame = CGRect(x: 0, y: 0, width: 10, height: 18)
         navBackButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
         drawView()
@@ -74,9 +72,7 @@ class WinningInfoDetailView: UIView {
         styleLabel(for: prizeDetailsByRank, fontStyle: .headline1, textColor: .primaryGray)
         
         // 수정 필요 - lineHeight 때문에 텍스트가 뷰에서 아래쪽으로 붙지 않음
-        totalSalesAmountLabel.text = "총 판매 금액 : \(totalSalesAmountValue)원"
-        totalSalesAmountLabel.layer.borderColor = UIColor.red.cgColor
-        totalSalesAmountLabel.layer.borderWidth = 1
+        totalSalesAmountLabel.text = "총 판매 금액 : \(totalSalesAmountValue.formattedWithSeparator())원"
         styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .gray_ACACAC)
         
         rootFlexContainer.flex.direction(.column).paddingHorizontal(20).define { flex in
@@ -92,9 +88,9 @@ class WinningInfoDetailView: UIView {
             // 당첨 회차
             flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(28).define { flex in
                 flex.addItem(previousRoundButton)
-                flex.addItem(lotteryDrawingInfo).direction(.row).define { flex in
-                    flex.addItem(lotteryDrawRound).marginRight(8).border(1, .blue)
-                    flex.addItem(drawDate).border(1, .red)
+                flex.addItem(lotteryDrawingInfo).direction(.row).alignItems(.baseline).define { flex in
+                    flex.addItem(lotteryDrawRound).marginRight(8)
+                    flex.addItem(drawDate)
                 }
                 flex.addItem(nextRoundButton)
             }
@@ -104,7 +100,7 @@ class WinningInfoDetailView: UIView {
             // 당첨 번호 박스
             flex.addItem(winningNumbersView).marginTop(12)
             // 등수별 당첨 정보
-            flex.addItem(prizeAndSalesAmount).direction(.row).paddingTop(42).justifyContent(.spaceBetween).define { flex in
+            flex.addItem().direction(.row).paddingTop(42).justifyContent(.spaceBetween).alignItems(.end).define { flex in
                 flex.addItem(prizeDetailsByRank)
                 flex.addItem(totalSalesAmountLabel)
             }
