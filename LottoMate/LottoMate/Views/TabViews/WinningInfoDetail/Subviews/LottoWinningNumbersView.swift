@@ -36,7 +36,7 @@ class LottoWinningNumbersView: UIView {
         rootFlexContainer.layer.borderColor = UIColor.lightestGray.cgColor
         rootFlexContainer.layer.cornerRadius = 16
         let shadowOffset = CGSize(width: 0, height: 0)
-        rootFlexContainer.addShadow(offset: shadowOffset, color: UIColor.black, radius: 8, opacity: 0.1)
+        rootFlexContainer.addShadow(offset: shadowOffset, color: UIColor.black, radius: 5, opacity: 0.1)
         
         winningNumberLabel.text = "당첨 번호"
         styleLabel(for: winningNumberLabel, fontStyle: .caption, textColor: .gray_ACACAC)
@@ -65,8 +65,6 @@ class LottoWinningNumbersView: UIView {
         
         bonusNumberView.number = 9
         bonusNumberView.circleColor = .ltmRed
-        
-    
         
         plusIcon.image = UIImage(named: "plus")
         plusIcon.contentMode = .center

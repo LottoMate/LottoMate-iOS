@@ -55,7 +55,7 @@ class WinningInfoDetailView: UIView {
         super.init(frame: .zero)
         backgroundColor = .white
         
-        viewModel.getLottoResultInfo()
+//        viewModel.getLottoResultInfo()
         
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
@@ -73,7 +73,10 @@ class WinningInfoDetailView: UIView {
         prizeDetailsByRank.text = "등수별 당첨 정보"
         styleLabel(for: prizeDetailsByRank, fontStyle: .headline1, textColor: .primaryGray)
         
+        // 수정 필요 - lineHeight 때문에 텍스트가 뷰에서 아래쪽으로 붙지 않음
         totalSalesAmountLabel.text = "총 판매 금액 : \(totalSalesAmountValue)원"
+        totalSalesAmountLabel.layer.borderColor = UIColor.red.cgColor
+        totalSalesAmountLabel.layer.borderWidth = 1
         styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .gray_ACACAC)
         
         rootFlexContainer.flex.direction(.column).paddingHorizontal(20).define { flex in
@@ -90,18 +93,18 @@ class WinningInfoDetailView: UIView {
             flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(28).define { flex in
                 flex.addItem(previousRoundButton)
                 flex.addItem(lotteryDrawingInfo).direction(.row).define { flex in
-                    flex.addItem(lotteryDrawRound).marginRight(8).border(1, .red)
-                    flex.addItem(drawDate)
+                    flex.addItem(lotteryDrawRound).marginRight(8).border(1, .blue)
+                    flex.addItem(drawDate).border(1, .red)
                 }
                 flex.addItem(nextRoundButton)
             }
             
             // 당첨 번호 보기
-            flex.addItem(lotteryResultsTitle).alignSelf(.start).paddingTop(24)
+            flex.addItem(lotteryResultsTitle).alignSelf(.start).marginTop(24)
             // 당첨 번호 박스
-            flex.addItem(winningNumbersView).paddingTop(12)
+            flex.addItem(winningNumbersView).marginTop(12)
             // 등수별 당첨 정보
-            flex.addItem(prizeAndSalesAmount).direction(.row).paddingTop(48).justifyContent(.spaceBetween).define { flex in
+            flex.addItem(prizeAndSalesAmount).direction(.row).paddingTop(42).justifyContent(.spaceBetween).define { flex in
                 flex.addItem(prizeDetailsByRank)
                 flex.addItem(totalSalesAmountLabel)
             }
