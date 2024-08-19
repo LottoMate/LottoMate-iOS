@@ -20,17 +20,46 @@ class WinningNumbersDetailViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     override func loadView() {
-        let winningInfoDetailView = WinningInfoDetailView(viewModel: viewModel)
+        let winningInfoDetailView = WinningInfoDetailView()
         view = winningInfoDetailView
         mainView.delegate = self
+    }
+    
+    fileprivate let rootFlexContainer = UIView()
+    
+    let navBarContainer = UIView()
+    /// 네비게이션 아이템 타이틀
+    let navTitleLabel = UILabel()
+    /// 네비게이션 아이템 뒤로가기 버튼
+    let navBackButton = UIButton()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-//        setupLoadingIndicator()
+        // 네비바에 적용한 컬러와 살짝 달라서 확인 필요
+        changeStatusBarBgColor(bgColor: .commonNavBar)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        styleLabel(for: mainView.lotteryDrawRound, fontStyle: .headline1, textColor: .primaryGray)
+        navTitleLabel.text = "당첨 정보 상세"
+        styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
+        
+        let backButtonImage = UIImage(named: "backArrow")
+        navBackButton.setImage(backButtonImage, for: .normal)
+        navBackButton.frame = CGRect(x: 0, y: 0, width: 10, height: 18)
+        navBackButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        
+        rootFlexContainer.flex.direction(.column).define { flex in
+            flex.addItem(navBarContainer).direction(.row).justifyContent(.center).paddingHorizontal(19).paddingVertical(14).define { navBar in
+                navBar.addItem(navBackButton)
+                navBar.addItem(navTitleLabel).grow(1).position(.relative).right(8)
+            }
+            .backgroundColor(.commonNavBar)
+        }
+        
+        view.addSubview(rootFlexContainer)
         
         // 회차별 로또 정보 가져오기
         viewModel.fetchLottoResult(round: 1126)
@@ -38,13 +67,14 @@ class WinningNumbersDetailViewController: UIViewController {
         setupBindings()
     }
     
-    private func setupLoadingIndicator() {
-        view.addSubview(loadingIndicator)
-        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        rootFlexContainer.pin.top(view.safeAreaInsets.top).horizontally()
+        rootFlexContainer.flex.layout(mode: .adjustHeight)
+    }
+    
+    @objc func backButtonTapped() {
+        didTapBackButton()
     }
     
     @objc func showDrawPicker() {
@@ -60,20 +90,13 @@ class WinningNumbersDetailViewController: UIViewController {
             ]
             sheet.prefersGrabberVisible = true
         }
-        
         pickerVC.selectedDrawInfo = { selectedInfo in
             print("Selected draw info: \(selectedInfo)")
         }
-        
         present(pickerVC, animated: true, completion: nil)
     }
     
     private func setupBindings() {
-//        viewModel.isLoading
-//            .bind(to: loadingIndicator.rx.isAnimating)
-//            .disposed(by: disposeBag)
-        
-        // Accessing mainView's properties
         viewModel.lottoResult
             .map { result in
                 let text = "\(result?.lottoResult.lottoRndNum ?? 0)회"
@@ -81,19 +104,29 @@ class WinningNumbersDetailViewController: UIViewController {
             }
             .bind(to: mainView.lotteryDrawRound.rx.attributedText)
             .disposed(by: disposeBag)
-        
-//        viewModel.isLoading
-//            .map { !$0 }
-//            .bind(to: mainView.rx.isHidden)
-//            .disposed(by: disposeBag)
     }
+    
+    func changeStatusBarBgColor(bgColor: UIColor?) {
+           if #available(iOS 13.0, *) {
+               let window = UIApplication.shared.windows.first
+               let statusBarManager = window?.windowScene?.statusBarManager
+               
+               let statusBarView = UIView(frame: statusBarManager?.statusBarFrame ?? .zero)
+               statusBarView.backgroundColor = bgColor
+               
+               window?.addSubview(statusBarView)
+               
+           } else {
+               let statusBarView = UIApplication.shared.value(forKey: "statusBar") as? UIView
+               statusBarView?.backgroundColor = bgColor
+           }
+       }
 }
 
 extension WinningNumbersDetailViewController: WinningInfoDetailViewDelegate {
     func didTapDrawView() {
         showDrawPicker()
     }
-    
     func didTapBackButton() {
         navigationController?.popViewController(animated: true)
     }
