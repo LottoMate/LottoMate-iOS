@@ -9,7 +9,7 @@ import UIKit
 
 extension WinningInfoDetailView {
     func drawView() {
-        lotteryDrawRound.text = "1126회"
+        lotteryDrawRound.text = ""
         styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .primaryGray)
         
         drawDate.text = "2024.06.29"

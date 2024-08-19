@@ -3,11 +3,13 @@
 //  LottoMate
 //
 //  Created by Mirae on 7/30/24.
-//  당첨 번호 상세 View
+//  당첨 번호 상세 View (로또)
 
 import UIKit
 import FlexLayout
 import PinLayout
+import RxSwift
+import RxCocoa
 
 protocol WinningInfoDetailViewDelegate: AnyObject {
     func didTapBackButton()
@@ -29,6 +31,7 @@ class WinningInfoDetailView: UIView {
     
     // 복권 당첨 회차
     var lotteryDrawRound = UILabel()
+    var lotteryDrawRoundNumber: Int?
     var drawDate = UILabel()
     let lotteryDrawingInfo = UIView()
     let previousRoundButton = UIButton()
@@ -49,12 +52,20 @@ class WinningInfoDetailView: UIView {
     let lottoResultInfoView4 = PrizeInfoCardView(lotteryType: .lotto, rankValue: 2, lottoPrizeMoneyValue: 12376487, winningConditionValue: "당첨번호 5개 일치", numberOfWinnerValue: 50, prizePerWinnerValue: 34323)
     let pensionLotteryResultView = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
     
-    private let viewModel: LottoMateViewModel
+    var viewModel: LottoMateViewModel? {
+            didSet {
+                setupBindings()
+            }
+        }
+    
+    private let disposeBag = DisposeBag()
     
     init(viewModel: LottoMateViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         backgroundColor = .white
+        
+        setupBindings()
         
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
@@ -90,7 +101,7 @@ class WinningInfoDetailView: UIView {
             flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(28).define { flex in
                 flex.addItem(previousRoundButton)
                 flex.addItem(lotteryDrawingInfo).direction(.row).alignItems(.baseline).define { flex in
-                    flex.addItem(lotteryDrawRound).marginRight(8)
+                    flex.addItem(lotteryDrawRound).marginRight(8).minWidth(53)
                     flex.addItem(drawDate)
                 }
                 flex.addItem(nextRoundButton)
@@ -105,7 +116,7 @@ class WinningInfoDetailView: UIView {
                 flex.addItem(prizeDetailsByRank)
                 flex.addItem(totalSalesAmountLabel)
             }
-        
+            
             flex.addItem(lottoResultInfoView4).marginTop(12)
             flex.addItem(pensionLotteryResultView).marginTop(12)
         }
@@ -113,6 +124,8 @@ class WinningInfoDetailView: UIView {
         contentView.addSubview(rootFlexContainer)
         
         addSubview(contentView)
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -140,9 +153,22 @@ class WinningInfoDetailView: UIView {
     @objc func didTapDrawView() {
         delegate?.didTapDrawView()
     }
+     
+    private func setupBindings() {
+        guard let viewModel = viewModel else { return }
+                
+//        viewModel.lottoResult
+//            .map { "\($0?.lottoResult.lottoRndNum ?? 0)회" }
+//            .bind(to: lotteryDrawRound.rx.text)
+//            .disposed(by: disposeBag)
+    }
+    
+    private func updateUI(with data: LottoResultInfoModel) {
+        // Update UI elements with new data
+    }
 }
 
 #Preview {
-    let view = WinningInfoDetailView()
+    let view = WinningInfoDetailView(viewModel: LottoMateViewModel())
     return view
 }

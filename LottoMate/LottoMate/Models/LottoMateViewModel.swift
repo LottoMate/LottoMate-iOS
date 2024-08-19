@@ -10,13 +10,22 @@ import Moya
 import RxSwift
 
 class LottoMateViewModel {
+    let isLoading = BehaviorSubject<Bool>(value: false)
     
-    let dataSubject = BehaviorSubject<[LottoResult]>(value: [])
-    
+    private let apiClient = LottoMateClient()
     private let disposeBag = DisposeBag()
     
-    func fetchData() {
-        
-            
+    let lottoResult: BehaviorSubject<LottoResultInfoModel?> = BehaviorSubject(value: nil)
+    
+    func fetchLottoResult(round: Int) {
+        apiClient.getLottoResultInfo(round: round)
+            .subscribe(onNext: { [weak self] result in
+                self?.lottoResult.onNext(result)
+                self?.isLoading.onNext(true)
+            }, onError: { error in
+                print("Error fetching lotto result: \(error)")
+                self.isLoading.onNext(false)
+            })
+            .disposed(by: disposeBag)
     }
 }

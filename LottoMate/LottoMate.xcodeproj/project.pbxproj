@@ -31,7 +31,6 @@
 		09554D402C6907E4009D1847 /* LottoMateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D3F2C6907E4009D1847 /* LottoMateService.swift */; };
 		09554D422C6908E4009D1847 /* LottoMateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D412C6908E4009D1847 /* LottoMateViewModel.swift */; };
 		09554D442C6909C6009D1847 /* LottoResultInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D432C6909C6009D1847 /* LottoResultInfoModel.swift */; };
-		09554D462C690ABA009D1847 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 09554D452C690ABA009D1847 /* Moya */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -119,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09554D462C690ABA009D1847 /* Moya in Frameworks */,
 				351E7EC8303E6F0E8904CCCB /* Pods_LottoMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,7 +333,6 @@
 			);
 			name = LottoMate;
 			packageProductDependencies = (
-				09554D452C690ABA009D1847 /* Moya */,
 			);
 			productName = LottoMate;
 			productReference = 096966582C4FE27600BCE28B /* LottoMate.app */;
@@ -413,7 +410,6 @@
 			);
 			mainGroup = 0969664F2C4FE27600BCE28B;
 			packageReferences = (
-				09554D3E2C6907D6009D1847 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 096966592C4FE27600BCE28B /* Products */;
 			projectDirPath = "";
@@ -945,25 +941,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		09554D3E2C6907D6009D1847 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		09554D452C690ABA009D1847 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 09554D3E2C6907D6009D1847 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 096966502C4FE27600BCE28B /* Project object */;
 }

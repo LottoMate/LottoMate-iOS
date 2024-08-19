@@ -8,8 +8,11 @@ target 'LottoMate' do
   # Pods for LottoMate
   pod 'FlexLayout'
   pod 'PinLayout'
+  pod 'Moya'
+  pod 'Moya/RxSwift'
   pod 'RxSwift'
   pod 'RxCocoa'
+  
 
   target 'LottoMateTests' do
     inherit! :search_paths

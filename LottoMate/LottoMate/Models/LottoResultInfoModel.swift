@@ -11,7 +11,8 @@ import Foundation
 /// 로또 추첨 결과 정보 모델 (당첨 번호, 당첨금 등)
 struct LottoResultInfoModel: Codable {
     let lottoResult: LottoResult
-    let code, message: String
+    let code: Int
+    let message: String
 
     enum CodingKeys: String, CodingKey {
         case lottoResult = "645"
