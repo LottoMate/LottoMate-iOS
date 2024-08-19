@@ -18,8 +18,6 @@ class WinningInfoDetailView: UIView {
     fileprivate let contentView = UIScrollView()
     fileprivate let rootFlexContainer = UIView()
     
-    let viewModel = LottoMateProvider()
-    
     weak var delegate: WinningInfoDetailViewDelegate?
     
     /// 네비게이션 아이템 타이틀
@@ -51,7 +49,10 @@ class WinningInfoDetailView: UIView {
     let lottoResultInfoView4 = PrizeInfoCardView(lotteryType: .lotto, rankValue: 2, lottoPrizeMoneyValue: 12376487, winningConditionValue: "당첨번호 5개 일치", numberOfWinnerValue: 50, prizePerWinnerValue: 34323)
     let pensionLotteryResultView = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
     
-    init() {
+    private let viewModel: LottoMateViewModel
+    
+    init(viewModel: LottoMateViewModel) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
         backgroundColor = .white
         

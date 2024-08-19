@@ -23,7 +23,7 @@ class WinningNumbersDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
     }
     
     @objc func showDrawPicker() {
