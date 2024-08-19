@@ -24,14 +24,14 @@ extension LottoMateService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getLottoResult(let round):
+        case .getLottoResult(_):
             return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .getLottoResult(let round):
+        case .getLottoResult(_):
             return .requestPlain
         }
     }

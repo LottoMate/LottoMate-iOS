@@ -3,7 +3,7 @@
 //  LottoMate
 //
 //  Created by Mirae on 8/3/24.
-//
+//  임시 픽커뷰에서 사용중
 
 import Foundation
 
