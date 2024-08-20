@@ -5,26 +5,27 @@
 //  Created by Mirae on 8/11/24.
 //
 
-import Foundation
 import Moya
 import RxSwift
+import RxRelay
 
 class LottoMateViewModel {
-    let isLoading = BehaviorSubject<Bool>(value: false)
+    let lottoResult = BehaviorRelay<LottoResultInfoModel?>(value: nil)
+    let isLoading = BehaviorRelay<Bool>(value: false)
     
     private let apiClient = LottoMateClient()
     private let disposeBag = DisposeBag()
     
-    let lottoResult: BehaviorSubject<LottoResultInfoModel?> = BehaviorSubject(value: nil)
-    
     func fetchLottoResult(round: Int) {
+        isLoading.accept(true)
+        
         apiClient.getLottoResultInfo(round: round)
             .subscribe(onNext: { [weak self] result in
-                self?.lottoResult.onNext(result)
-                self?.isLoading.onNext(true)
+                self?.lottoResult.accept(result)
+                self?.isLoading.accept(false)
             }, onError: { error in
                 print("Error fetching lotto result: \(error)")
-                self.isLoading.onNext(false)
+                self.isLoading.accept(false)
             })
             .disposed(by: disposeBag)
     }

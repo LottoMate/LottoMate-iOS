@@ -79,7 +79,7 @@ class WinningInfoDetailView: UIView {
                     flex.addItem(previousRoundButton)
                     flex.addItem(lotteryDrawingInfo).direction(.row).alignItems(.baseline).define { flex in
                         flex.addItem(lotteryDrawRound).marginRight(8).minWidth(53)
-                        flex.addItem(drawDate)
+                        flex.addItem(drawDate).minWidth(71)
                     }
                     flex.addItem(nextRoundButton)
                 }

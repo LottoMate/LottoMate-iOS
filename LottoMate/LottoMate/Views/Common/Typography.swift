@@ -124,10 +124,6 @@ public enum Typography {
         let font = font()
         let baselineOffset = (self.lineHeight - font.lineHeight) / 2.0
         
-        print("font.lineHeight: \(font.lineHeight)")
-        print("lineHeight: \(self.lineHeight)")
-        print("self.size: \(self.size)")
-        
         paragraphStyle.alignment = .center // 텍스트 뷰의 width가 최대한 넓게 설정됐을 때 가운데 오도록 함 (예: nav bar)
         
         return [

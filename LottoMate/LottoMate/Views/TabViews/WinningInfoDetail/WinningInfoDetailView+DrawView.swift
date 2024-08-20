@@ -9,10 +9,10 @@ import UIKit
 
 extension WinningInfoDetailView {
     func drawView() {
-        lotteryDrawRound.text = ""
+//        lotteryDrawRound.text = ""
         styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .primaryGray)
         
-        drawDate.text = "2024.06.29"
+//        drawDate.text = ""
         styleLabel(for: drawDate, fontStyle: .label2, textColor: .gray_ACACAC)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapDrawView))

@@ -9,15 +9,26 @@ import UIKit
 import FlexLayout
 import PinLayout
 import RxSwift
+import RxCocoa
+import RxRelay
 
 class WinningNumbersDetailViewController: UIViewController {
     fileprivate var mainView: WinningInfoDetailView {
         return self.view as! WinningInfoDetailView
     }
     
-    private let viewModel = LottoMateViewModel()
+    private let viewModel: LottoMateViewModel
     private let loadingIndicator = UIActivityIndicatorView(style: .large)
     private let disposeBag = DisposeBag()
+    
+    init(viewModel: LottoMateViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         let winningInfoDetailView = WinningInfoDetailView()
@@ -36,7 +47,7 @@ class WinningNumbersDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 네비바에 적용한 컬러와 살짝 달라서 확인 필요
+        // 뷰를 나타낼때마다 색이 적용되어 opacity가 변경됨... 점점 불투명해짐.
         changeStatusBarBgColor(bgColor: .commonNavBar)
     }
     
@@ -73,6 +84,35 @@ class WinningNumbersDetailViewController: UIViewController {
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
     
+    private func setupBindings() {
+        // 로딩 인디케이터
+        viewModel.isLoading
+            .observe(on: MainScheduler.instance)
+            .bind(to: loadingIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        // 회차 라벨
+        viewModel.lottoResult
+            .map { result in
+                let text = "\(result?.lottoResult.lottoRndNum ?? 0)회"
+                return NSAttributedString(string: text, attributes: Typography.headline1.attributes())
+            }
+            .bind(to: mainView.lotteryDrawRound.rx.attributedText)
+            .disposed(by: disposeBag)
+        
+        // 추첨 날짜
+        viewModel.lottoResult
+            .observe(on: MainScheduler.instance)
+            .map { result in
+                let dwrtDate = result?.lottoResult.drwtDate.reformatDate ?? "no data"
+                return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
+            }
+            .bind(to: mainView.drawDate.rx.attributedText)
+            .disposed(by: disposeBag)
+        
+        // 추첨 번호
+    }
+    
     @objc func backButtonTapped() {
         didTapBackButton()
     }
@@ -94,16 +134,6 @@ class WinningNumbersDetailViewController: UIViewController {
             print("Selected draw info: \(selectedInfo)")
         }
         present(pickerVC, animated: true, completion: nil)
-    }
-    
-    private func setupBindings() {
-        viewModel.lottoResult
-            .map { result in
-                let text = "\(result?.lottoResult.lottoRndNum ?? 0)회"
-                return NSAttributedString(string: text, attributes: Typography.headline1.attributes())
-            }
-            .bind(to: mainView.lotteryDrawRound.rx.attributedText)
-            .disposed(by: disposeBag)
     }
     
     func changeStatusBarBgColor(bgColor: UIColor?) {
@@ -133,6 +163,6 @@ extension WinningNumbersDetailViewController: WinningInfoDetailViewDelegate {
 }
 
 #Preview {
-    let winningNumbersDetailViewController = WinningNumbersDetailViewController()
+    let winningNumbersDetailViewController = WinningNumbersDetailViewController(viewModel: LottoMateViewModel())
     return winningNumbersDetailViewController
 }
