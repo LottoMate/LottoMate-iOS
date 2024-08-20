@@ -176,10 +176,10 @@
 			isa = PBXGroup;
 			children = (
 				09CB96002C748693001083F5 /* SpeetoWinningInfoDetail */,
-				09341CA52C5B9C3200B47642 /* Subviews */,
 				09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */,
 				09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */,
 				09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */,
+				09341CA52C5B9C3200B47642 /* Subviews */,
 			);
 			path = WinningInfoDetail;
 			sourceTree = "<group>";

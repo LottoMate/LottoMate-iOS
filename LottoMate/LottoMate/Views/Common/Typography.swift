@@ -143,11 +143,3 @@ public func styleLabel(for label: UILabel, fontStyle: Typography, textColor: UIC
     label.attributedText = attributedString
     label.textColor = textColor
 }
-
-public func styleLabel2(for label: UILabel, fontStyle: Typography, textColor: UIColor) {
-    let fontStyle: Typography = fontStyle
-    let attributedString = NSAttributedString(string: label.text ?? "", attributes: fontStyle.attributes())
-    
-    label.attributedText = attributedString
-    label.textColor = textColor
-}
