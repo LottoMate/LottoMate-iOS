@@ -3,7 +3,7 @@
 //  LottoMate
 //
 //  Created by Mirae on 8/3/24.
-//
+//  임시 픽커뷰에서 사용중
 
 import Foundation
 
@@ -18,4 +18,25 @@ struct SampleDrawInfo {
         SampleDrawInfo(drawNumber: 1123, drawDate: "2024.06.08"),
         SampleDrawInfo(drawNumber: 1122, drawDate: "2024.06.01"),
     ]
+}
+
+struct SampleHtmlDoc {
+    static var sampleData = 
+    """
+<div><br></div>
+<div><span style="font-size: 14pt;">▶ 당첨되신 걸 어떻게 알게 되셨고, 또 알았을 때 기분이 어떠셨나요?&nbsp;</span></div>
+<div><span style="font-size: 14pt;">-&gt; 매주 퇴근길에 로또복권과 연금복권을 구매하고 있습니다. 회사에서 안 좋은 일이 있어서 퇴근길에 술을 마셔야겠다는 생각이 들었습니다. 혼자 설렁탕집으로 가는 길에 복권판매점이 보였고, 평소처럼 로또복권과 연금복권을 구매했습니다. 며칠 후, 자주 가는 복권판매점에 방문해서 연금복권 당첨번호를 확인했는데 끝자리 번호만 일치한 걸 보고 7등에 당첨이 됐다고 생각했습니다. 판매점주에게 복권으로 교환을 요청했는데, 깜짝 놀란 목소리로 1등에 당첨됐다고 알려줬습니다. 다시 확인해 보니 1, 2등 동시에 당첨된 것이었고, 기분이 너무 좋았습니다. 기쁜 마음에 가족들에게 당첨 사실을 알렸습니다. 남들과 마찬가지로 막연하게 언젠가 당첨될 거로 생각했는데, 큰 행운이 저에게 찾아와서 감사한 마음입니다. 처음에는 당첨금을 일시불로 못 받는 거에 대해 아쉬움이 있었는데, 노후를 생각해 보니 연금식으로 받는 게 더 좋다고 생각이 들었습니다.</span></div>
+<div><br></div>
+<div><span style="font-size: 14pt;">▶ 최근 기억에 남는 꿈이 있으신가요?</span></div>
+<div><span style="font-size: 14pt;">-&gt; 꿈을 꾸지 않았습니다.</span></div>
+<div><br></div>
+<div><span style="font-size: 14pt;">▶ 평소에 어떤 복권을 자주 구매하시나요?</span></div>
+<div><span style="font-size: 14pt;">-&gt; 주로 로또복권과 연금복권을 구매합니다.</span></div>
+<div><span style="font-size: 14pt;">&nbsp;</span></div>
+<div><span style="font-size: 14pt;">▶ 당첨금은 어디에 사용하실 계획인가요?</span></div>
+<div><span style="font-size: 14pt;">-&gt; 더 넓은 집으로 이사할 계획입니다.</span></div>
+
+<div><span style="font-size: 14pt;"><br></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: 14pt;"><img src="/img/board/content/1723164312758.jpg" title="1723164312758.jpg"><br style="clear:both;"><br></span></div><div style="text-align: center;" align="center"></div><div style="text-align: center;"><span style="font-size: 18.6667px;"><img src="/img/board/content/1723164320613.jpg" title="1723164320613.jpg"><br style="clear:both;"><br></span></div>
+"""
 }
