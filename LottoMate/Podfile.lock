@@ -15,6 +15,7 @@ PODS:
   - RxRelay (6.7.1):
     - RxSwift (= 6.7.1)
   - RxSwift (6.7.1)
+  - SwiftSoup (2.7.3)
 
 DEPENDENCIES:
   - FlexLayout
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - PinLayout
   - RxCocoa
   - RxSwift
+  - SwiftSoup
 
 SPEC REPOS:
   trunk:
@@ -33,6 +35,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SwiftSoup
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
@@ -42,7 +45,8 @@ SPEC CHECKSUMS:
   RxCocoa: f5609cb4637587a7faa99c5d5787e3ad582b75a4
   RxRelay: 4151ba01152436b08271e08410135e099880eae5
   RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
+  SwiftSoup: e3849c3293b1efee9cf892f91f6ae5c22bfeb5f7
 
-PODFILE CHECKSUM: e4f0af163817fd2fbd03ed82897e87456f349365
+PODFILE CHECKSUM: 37cb45986630ecc0258dc7a15454a5c287b0b741
 
 COCOAPODS: 1.14.3

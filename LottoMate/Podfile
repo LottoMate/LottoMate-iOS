@@ -12,6 +12,7 @@ target 'LottoMate' do
   pod 'Moya/RxSwift'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'SwiftSoup'
   
 
   target 'LottoMateTests' do
