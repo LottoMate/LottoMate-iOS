@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091C235E2C74F25400377A92 /* SpeetoWinningInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C235D2C74F25300377A92 /* SpeetoWinningInfoViewController.swift */; };
+		091C23622C74F98900377A92 /* SpeetoTypeButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23612C74F98900377A92 /* SpeetoTypeButtons.swift */; };
+		091C23642C75B87100377A92 /* CustomSementedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23632C75B87100377A92 /* CustomSementedButton.swift */; };
+		091C23662C75C43300377A92 /* SpeetoPrizeInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23652C75C43300377A92 /* SpeetoPrizeInfoCardView.swift */; };
+		091C23682C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23672C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift */; };
+		091C236A2C765CCA00377A92 /* LotteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23692C765CCA00377A92 /* LotteryViewController.swift */; };
 		09341C1D2C52394900B47642 /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C1C2C52394900B47642 /* StyledButton.swift */; };
 		09341C222C52653B00B47642 /* TestButtonView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C212C52653B00B47642 /* TestButtonView .swift */; };
 		09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C252C53A71000B47642 /* TabBarViewController.swift */; };
@@ -64,6 +70,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		091C235D2C74F25300377A92 /* SpeetoWinningInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoWinningInfoViewController.swift; sourceTree = "<group>"; };
+		091C23612C74F98900377A92 /* SpeetoTypeButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoTypeButtons.swift; sourceTree = "<group>"; };
+		091C23632C75B87100377A92 /* CustomSementedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSementedButton.swift; sourceTree = "<group>"; };
+		091C23652C75C43300377A92 /* SpeetoPrizeInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoPrizeInfoCardView.swift; sourceTree = "<group>"; };
+		091C23672C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoCardViewDetailContainer.swift; sourceTree = "<group>"; };
+		091C23692C765CCA00377A92 /* LotteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryViewController.swift; sourceTree = "<group>"; };
 		09341C1B2C51651500B47642 /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
 		09341C1C2C52394900B47642 /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
 		09341C212C52653B00B47642 /* TestButtonView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestButtonView .swift"; sourceTree = "<group>"; };
@@ -177,6 +189,7 @@
 			children = (
 				09CB96002C748693001083F5 /* SpeetoWinningInfoDetail */,
 				09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */,
+				091C23692C765CCA00377A92 /* LotteryViewController.swift */,
 				09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */,
 				09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */,
 				09341CA52C5B9C3200B47642 /* Subviews */,
@@ -288,6 +301,7 @@
 			children = (
 				0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */,
 				09341C1C2C52394900B47642 /* StyledButton.swift */,
+				091C23632C75B87100377A92 /* CustomSementedButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -295,6 +309,10 @@
 		09CB96002C748693001083F5 /* SpeetoWinningInfoDetail */ = {
 			isa = PBXGroup;
 			children = (
+				091C235D2C74F25300377A92 /* SpeetoWinningInfoViewController.swift */,
+				091C23612C74F98900377A92 /* SpeetoTypeButtons.swift */,
+				091C23652C75C43300377A92 /* SpeetoPrizeInfoCardView.swift */,
+				091C23672C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift */,
 			);
 			path = SpeetoWinningInfoDetail;
 			sourceTree = "<group>";
@@ -567,6 +585,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				09554D1F2C64B5CB009D1847 /* ViewTemplate.swift in Sources */,
+				091C236A2C765CCA00377A92 /* LotteryViewController.swift in Sources */,
+				091C23682C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift in Sources */,
+				091C23642C75B87100377A92 /* CustomSementedButton.swift in Sources */,
 				09554D112C5E5376009D1847 /* Extensions.swift in Sources */,
 				09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */,
 				09554D442C6909C6009D1847 /* LottoResultInfoModel.swift in Sources */,
@@ -575,6 +596,7 @@
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
 				09554D222C64B798009D1847 /* LotteryTypeButtonsView.swift in Sources */,
 				09554D422C6908E4009D1847 /* LottoMateViewModel.swift in Sources */,
+				091C23622C74F98900377A92 /* SpeetoTypeButtons.swift in Sources */,
 				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
 				09554D252C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift in Sources */,
@@ -590,6 +612,8 @@
 				09554D402C6907E4009D1847 /* LottoMateService.swift in Sources */,
 				09341CAB2C5D140800B47642 /* UIView+Extensions.swift in Sources */,
 				09341C9E2C57FB0700B47642 /* Typography.swift in Sources */,
+				091C23662C75C43300377A92 /* SpeetoPrizeInfoCardView.swift in Sources */,
+				091C235E2C74F25400377A92 /* SpeetoWinningInfoViewController.swift in Sources */,
 				09798E112C733CFF00FF187B /* LottoMateClient.swift in Sources */,
 				09341CAF2C5E2FE200B47642 /* UIColor+Extensions.swift in Sources */,
 				09341C2A2C53AA6E00B47642 /* HomeViewController.swift in Sources */,

@@ -38,8 +38,9 @@ class WinningNumbersDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    let winningInfoDetailView = WinningInfoDetailView()
+    
     override func loadView() {
-        let winningInfoDetailView = WinningInfoDetailView()
         view = winningInfoDetailView
         mainView.delegate = self
     }
