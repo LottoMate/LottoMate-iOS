@@ -47,7 +47,6 @@ class TestButtonView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }

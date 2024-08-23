@@ -83,10 +83,9 @@ class WinningInfoDetailView: UIView {
                         flex.view?.subviews.forEach { $0.removeFromSuperview() }
                         
                         if type == .speeto {
-                            if let view = SpeetoWinningInfoViewController().view {
+                            let view = SpeetoWinningInfoView()
                                 flex.addItem(view).grow(1)
                                 self.layoutSubviews()
-                            }
                         } else if type == .pensionLottery {
                             let view = TestButtonView()
                             flex.addItem(view).grow(1)
@@ -197,7 +196,7 @@ class WinningInfoDetailView: UIView {
 //            if let view = SpeetoWinningInfoViewController().view {
 //                flex.addItem(view).grow(1).border(1, .red)
 //            }
-            selectedView = SpeetoWinningInfoViewController().view
+            selectedView = SpeetoWinningInfoView()
         }
         // Add the selected view to contentView
         contentView.addSubview(selectedView)

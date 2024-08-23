@@ -12,16 +12,7 @@ import RxSwift
 import RxRelay
 
 
-class SpeetoWinningInfoViewController: UIViewController {
-    fileprivate var mainView: SpeetoTypeButtons {
-        return self.view as! SpeetoTypeButtons
-    }
-    
-    override func loadView() {
-        let speetoTypeButtons = SpeetoTypeButtons()
-        view = speetoTypeButtons
-    }
-    
+class SpeetoWinningInfoView: UIView {
     fileprivate let rootFlexContainer = UIView()
     
     private let button1 = CustomSegmentedButton()
@@ -37,15 +28,16 @@ class SpeetoWinningInfoViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let selectedButtonSubject = BehaviorRelay<Int>(value: 0)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init() {
+        super.init(frame: .zero)
+        backgroundColor = .white
         
         setupButtons()
         setupBindings()
         setupDrawRoundContainer()
         setupPrizeDetailByRankLabel()
         
-        view.addSubview(rootFlexContainer)
+        addSubview(rootFlexContainer)
         
         rootFlexContainer.flex.direction(.column).paddingHorizontal(20).paddingTop(12).define { flex in
             flex.addItem().direction(.row).paddingTop(10).define { flex in
@@ -71,9 +63,13 @@ class SpeetoWinningInfoViewController: UIViewController {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        rootFlexContainer.pin.top(view.safeAreaInsets.top).horizontally()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        rootFlexContainer.pin.top(pin.safeArea.top).horizontally()
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
     
@@ -137,6 +133,6 @@ class SpeetoWinningInfoViewController: UIViewController {
 }
 
 #Preview {
-    let view = SpeetoWinningInfoViewController()
+    let view = SpeetoWinningInfoView()
     return view
 }
