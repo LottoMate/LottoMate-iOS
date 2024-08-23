@@ -18,7 +18,7 @@ class WinningNumbersDetailViewController: UIViewController {
     }
     
     fileprivate let rootFlexContainer = UIView()
-    private let viewModel: LottoMateViewModel
+    let viewModel = LottoMateViewModel.shared
     private let loadingIndicator = UIActivityIndicatorView(style: .large)
     private let disposeBag = DisposeBag()
     
@@ -28,15 +28,6 @@ class WinningNumbersDetailViewController: UIViewController {
     let navTitleLabel = UILabel()
     /// 네비게이션 아이템 뒤로가기 버튼
     let navBackButton = UIButton()
-    
-    init(viewModel: LottoMateViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     let winningInfoDetailView = WinningInfoDetailView()
     
@@ -73,10 +64,10 @@ class WinningNumbersDetailViewController: UIViewController {
         
         view.addSubview(rootFlexContainer)
         
-        // 회차별 로또 정보 가져오기
-        viewModel.fetchLottoResult(round: 903)
+        // 회차별 로또 정보 가져오기 - 서버에 통신 줄이기 위해 주석처리
+//        viewModel.fetchLottoResult(round: 903)
+        
         bindViewModel()
-//        setupBindings()
     }
     
     override func viewDidLayoutSubviews() {
@@ -87,6 +78,7 @@ class WinningNumbersDetailViewController: UIViewController {
     
     private func bindViewModel() {
         mainView.bind(viewModel: viewModel)
+        mainView.setupBindings(viewModel: viewModel)
     }
     
     @objc func backButtonTapped() {
@@ -139,6 +131,6 @@ extension WinningNumbersDetailViewController: WinningInfoDetailViewDelegate {
 }
 
 #Preview {
-    let winningNumbersDetailViewController = WinningNumbersDetailViewController(viewModel: LottoMateViewModel())
+    let winningNumbersDetailViewController = WinningNumbersDetailViewController()
     return winningNumbersDetailViewController
 }

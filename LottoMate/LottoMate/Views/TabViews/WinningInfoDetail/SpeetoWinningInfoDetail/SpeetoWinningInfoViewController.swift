@@ -47,7 +47,7 @@ class SpeetoWinningInfoViewController: UIViewController {
         
         view.addSubview(rootFlexContainer)
         
-        rootFlexContainer.flex.direction(.column).paddingHorizontal(20).define { flex in
+        rootFlexContainer.flex.direction(.column).paddingHorizontal(20).paddingTop(12).define { flex in
             flex.addItem().direction(.row).paddingTop(10).define { flex in
                 flex.addItem(button1).width(40).marginRight(16)
                 flex.addItem(button2).width(40).marginRight(16)
@@ -105,6 +105,7 @@ class SpeetoWinningInfoViewController: UIViewController {
     
     @objc private func buttonTapped(_ sender: UIButton) {
         selectedButtonSubject.accept(sender.tag)
+        print("speeto button type: \(sender.tag)")
     }
     
     private func updateButtonSelection(selectedIndex: Int) {

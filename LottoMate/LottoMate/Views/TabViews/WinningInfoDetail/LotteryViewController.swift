@@ -14,7 +14,7 @@ class LotteryViewController: UIView {
 
     private let scrollView = UIScrollView()
     private let contentView = UIView()
-    private let buttonsView = LotteryTypeButtonsView()
+//    private let buttonsView = LotteryTypeButtonsView()
     
     private let disposeBag = DisposeBag()
 
@@ -39,20 +39,20 @@ class LotteryViewController: UIView {
     private func setupViews() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
-        addSubview(buttonsView)
+//        addSubview(buttonsView)
         
         // Layout constraints
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        buttonsView.translatesAutoresizingMaskIntoConstraints = false
+//        buttonsView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            buttonsView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            buttonsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            buttonsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            buttonsView.heightAnchor.constraint(equalToConstant: 50),
+//            buttonsView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+//            buttonsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+//            buttonsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+//            buttonsView.heightAnchor.constraint(equalToConstant: 50),
 
-            scrollView.topAnchor.constraint(equalTo: buttonsView.bottomAnchor),
+//            scrollView.topAnchor.constraint(equalTo: buttonsView.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
@@ -66,11 +66,11 @@ class LotteryViewController: UIView {
     }
 
     private func setupBindings() {
-        buttonsView.selectedLotteryType
-            .subscribe(onNext: { [weak self] type in
-                self?.handleLotteryTypeSelection(type)
-            })
-            .disposed(by: disposeBag)
+//        buttonsView.selectedLotteryType
+//            .subscribe(onNext: { [weak self] type in
+//                self?.handleLotteryTypeSelection(type)
+//            })
+//            .disposed(by: disposeBag)
     }
 
     private func handleLotteryTypeSelection(_ lotteryType: LotteryType) {
