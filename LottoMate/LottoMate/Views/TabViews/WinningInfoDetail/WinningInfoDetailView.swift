@@ -78,35 +78,35 @@ class WinningInfoDetailView: UIView {
             // 복권 종류 필터 버튼
             flex.addItem(lotteryTypeButtonsView).marginTop(80) // padding 24 + navBar 56
             
-            if selectedLotteryTypeRelay.value == .lotto {
-                if let view = SpeetoWinningInfoViewController().view {
-                    flex.addItem(view).grow(1).border(1, .red)
-                }
-            }
+//            if selectedLotteryTypeRelay.value == .lotto {
+//                if let view = SpeetoWinningInfoViewController().view {
+//                    flex.addItem(view).grow(1).border(1, .red)
+//                }
+//            }
             
             // 당첨 회차
-//            flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(28).define { flex in
-//                flex.addItem(previousRoundButton)
-//                flex.addItem(lotteryDrawingInfo).direction(.row).alignItems(.baseline).define { flex in
-//                    flex.addItem(lotteryDrawRound).marginRight(8).minWidth(53)
-//                    flex.addItem(drawDate).minWidth(71)
-//                }
-//                flex.addItem(nextRoundButton)
-//            }
-//            // 당첨 번호 보기
-//            flex.addItem(lotteryResultsTitle).alignSelf(.start).marginTop(24)
-//            // 당첨 번호 박스
-//            flex.addItem(winningNumbersView).marginTop(12)
-//            // 등수별 당첨 정보
-//            flex.addItem().direction(.row).paddingTop(42).justifyContent(.spaceBetween).alignItems(.end).define { flex in
-//                flex.addItem(prizeDetailsByRank)
-//                flex.addItem(totalSalesAmountLabel)
-//            }
-//            // 당첨 정보 상세 박스
-//            flex.addItem(lottoResultInfoView4).marginTop(12)
-//            flex.addItem(pensionLotteryResultView).marginTop(12)
-//            flex.addItem(pensionLotteryResultView2).marginTop(12)
-//            flex.addItem(pensionLotteryResultView3).marginTop(12)
+            flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(28).define { flex in
+                flex.addItem(previousRoundButton)
+                flex.addItem(lotteryDrawingInfo).direction(.row).alignItems(.baseline).define { flex in
+                    flex.addItem(lotteryDrawRound).marginRight(8).minWidth(53)
+                    flex.addItem(drawDate).minWidth(71)
+                }
+                flex.addItem(nextRoundButton)
+            }
+            // 당첨 번호 보기
+            flex.addItem(lotteryResultsTitle).alignSelf(.start).marginTop(24)
+            // 당첨 번호 박스
+            flex.addItem(winningNumbersView).marginTop(12)
+            // 등수별 당첨 정보
+            flex.addItem().direction(.row).paddingTop(42).justifyContent(.spaceBetween).alignItems(.end).define { flex in
+                flex.addItem(prizeDetailsByRank)
+                flex.addItem(totalSalesAmountLabel)
+            }
+            // 당첨 정보 상세 박스
+            flex.addItem(lottoResultInfoView4).marginTop(12)
+            flex.addItem(pensionLotteryResultView).marginTop(12)
+            flex.addItem(pensionLotteryResultView2).marginTop(12)
+            flex.addItem(pensionLotteryResultView3).marginTop(12)
         }
         scrollView.addSubview(rootFlexContainer)
         addSubview(scrollView)
@@ -133,7 +133,7 @@ class WinningInfoDetailView: UIView {
         // 회차 라벨
         viewModel.lottoResult
             .map { result in
-                let text = "\(result?.lottoResult.lottoRndNum ?? 0)회"
+                let text = "\(result?.lottoResult.drwNum ?? 0)회"
                 return NSAttributedString(string: text, attributes: Typography.headline1.attributes())
             }
             .bind(to: lotteryDrawRound.rx.attributedText)
@@ -143,7 +143,7 @@ class WinningInfoDetailView: UIView {
         viewModel.lottoResult
             .observe(on: MainScheduler.instance)
             .map { result in
-                let dwrtDate = result?.lottoResult.drwtDate.reformatDate ?? "no data"
+                let dwrtDate = result?.lottoResult.drwDate.reformatDate ?? "no data"
                 return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
             }
             .bind(to: drawDate.rx.attributedText)
@@ -152,7 +152,7 @@ class WinningInfoDetailView: UIView {
         // 인당 당첨금
         viewModel.lottoResult
             .map { result in
-                let drwtMoney = result?.lottoResult.drwtMoney[0]
+                let drwtMoney = result?.lottoResult.p1Jackpot
                 let string = (drwtMoney?.formattedWithSeparator() ?? "") + "원"
                 return NSAttributedString(string: string, attributes: Typography.title3.attributes())
             }

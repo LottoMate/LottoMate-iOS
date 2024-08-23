@@ -11,10 +11,10 @@ import Moya
 class LottoMateClient {
     let provider = MoyaProvider<LottoMateService>()
     
-    func getLottoResultInfo(round: Int) -> Observable<LottoResultInfoModel> {
+    func getLottoResultInfo(round: Int) -> Observable<LottoResultModel> {
         return provider.rx.request(.getLottoResult(round: round))
             .filterSuccessfulStatusCodes()
-            .map(LottoResultInfoModel.self)
+            .map(LottoResultModel.self)
             .asObservable()
     }
 }

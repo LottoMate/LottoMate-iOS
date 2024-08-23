@@ -10,7 +10,7 @@ import RxSwift
 import RxRelay
 
 class LottoMateViewModel {
-    let lottoResult = BehaviorRelay<LottoResultInfoModel?>(value: nil)
+    let lottoResult = BehaviorRelay<LottoResultModel?>(value: nil)
     let isLoading = BehaviorRelay<Bool>(value: false)
     
     private let apiClient = LottoMateClient()
