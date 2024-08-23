@@ -15,9 +15,9 @@ import RxRelay
 class SpeetoWinningInfoView: UIView {
     fileprivate let rootFlexContainer = UIView()
     
-    private let button1 = CustomSegmentedButton()
-    private let button2 = CustomSegmentedButton()
-    private let button3 = CustomSegmentedButton()
+    private let speeto2000Button = CustomSegmentedButton()
+    private let speeto1000Button = CustomSegmentedButton()
+    private let speeto500Button = CustomSegmentedButton()
     
     let drawRoundLabel = UILabel()
     let previousRoundButton = UIButton()
@@ -41,16 +41,15 @@ class SpeetoWinningInfoView: UIView {
         
         rootFlexContainer.flex.direction(.column).paddingHorizontal(20).paddingTop(12).define { flex in
             flex.addItem().direction(.row).paddingTop(10).define { flex in
-                flex.addItem(button1).width(40).marginRight(16)
-                flex.addItem(button2).width(40).marginRight(16)
-                flex.addItem(button3).width(40)
+                flex.addItem(speeto2000Button).width(40).marginRight(16)
+                flex.addItem(speeto1000Button).width(40).marginRight(16)
+                flex.addItem(speeto500Button).width(40)
             }
             flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(36).define { flex in
                 flex.addItem(previousRoundButton)
                 flex.addItem(drawRoundLabel)
                 flex.addItem(nextRoundButton)
             }
-            
             flex.addItem().direction(.column).marginTop(24).define { flex in
                 flex.addItem(prizeDetailsByRank).alignSelf(.start).marginBottom(12)
                 // 1등 카드
@@ -74,25 +73,25 @@ class SpeetoWinningInfoView: UIView {
     }
     
     private func setupButtons() {
-        let button1title = NSAttributedString(string: "2000", attributes: Typography.headline2.attributes())
-        let button2title = NSAttributedString(string: "1000", attributes: Typography.headline2.attributes())
-        let button3title = NSAttributedString(string: "500", attributes: Typography.headline2.attributes())
+        let speeto2000Title = NSAttributedString(string: "2000", attributes: Typography.headline2.attributes())
+        let speeto1000Title = NSAttributedString(string: "1000", attributes: Typography.headline2.attributes())
+        let speeto500Title = NSAttributedString(string: "500", attributes: Typography.headline2.attributes())
         
-        button1.setAttributedTitle(attributedTitle: button1title)
-        button2.setAttributedTitle(attributedTitle: button2title)
-        button3.setAttributedTitle(attributedTitle: button3title)
+        speeto2000Button.setAttributedTitle(attributedTitle: speeto2000Title)
+        speeto1000Button.setAttributedTitle(attributedTitle: speeto1000Title)
+        speeto500Button.setAttributedTitle(attributedTitle: speeto500Title)
         
-        button1.tag = 0
-        button2.tag = 1
-        button3.tag = 2
+        speeto2000Button.tag = 0
+        speeto1000Button.tag = 1
+        speeto500Button.tag = 2
         
-        button1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        button2.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        button3.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        speeto2000Button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        speeto1000Button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        speeto500Button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
     
     private func setupBindings() {
-        selectedButtonSubject.asObservable()
+        selectedButtonSubject
             .subscribe(onNext: { [weak self] selectedIndex in
                 self?.updateButtonSelection(selectedIndex: selectedIndex)
             })
@@ -101,13 +100,12 @@ class SpeetoWinningInfoView: UIView {
     
     @objc private func buttonTapped(_ sender: UIButton) {
         selectedButtonSubject.accept(sender.tag)
-        print("speeto button type: \(sender.tag)")
     }
     
     private func updateButtonSelection(selectedIndex: Int) {
-        button1.updateAppearance(isSelected: selectedIndex == 0)
-        button2.updateAppearance(isSelected: selectedIndex == 1)
-        button3.updateAppearance(isSelected: selectedIndex == 2)
+        speeto2000Button.updateAppearance(isSelected: selectedIndex == 0)
+        speeto1000Button.updateAppearance(isSelected: selectedIndex == 1)
+        speeto500Button.updateAppearance(isSelected: selectedIndex == 2)
     }
     
     

@@ -14,7 +14,7 @@ class TabBarViewController: UITabBarController {
         delegate = self
         
         // MARK: Home Tab
-        let homeViewController = WinningNumbersDetailViewController()
+        let homeViewController = HomeViewController()
         let homeTabIcon = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         homeViewController.tabBarItem = homeTabIcon
         

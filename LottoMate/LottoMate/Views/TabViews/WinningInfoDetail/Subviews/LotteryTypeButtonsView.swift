@@ -22,16 +22,17 @@ class LotteryTypeButtonsView: UIView {
     
     private let disposeBag = DisposeBag()
     // Observable to emit selected lottery type
-    var selectedLotteryType: Observable<LotteryType> {
-        return selectedLotteryTypeRelay.asObservable()
-    }
-    private let selectedLotteryTypeRelay = BehaviorRelay<LotteryType>(value: .lotto)
+//    var selectedLotteryType: Observable<LotteryType> {
+//        return selectedLotteryTypeRelay.asObservable()
+//    }
+//    private let selectedLotteryTypeRelay = BehaviorRelay<LotteryType>(value: .lotto)
     
     init() {
         super.init(frame: .zero)
         
-        selectedLotteryTypeRelay.accept(.lotto)
-        bind(viewModel: viewModel )
+//        selectedLotteryTypeRelay.accept(.lotto)
+//        bind(viewModel: viewModel)
+        setupBindings()
         
         rootFlexContainer.flex.direction(.row).define { flex in
             flex.addItem(lottoTypeButton).marginRight(10)
@@ -53,10 +54,10 @@ class LotteryTypeButtonsView: UIView {
     
     func bind(viewModel: LottoMateViewModel) {
         // init에 triggering 하지 않아도 되는지 확인
-        setupBindings(viewModel: viewModel)
+//        setupBindings(viewModel: viewModel)
     }
     
-    private func setupBindings(viewModel: LottoMateViewModel) {
+    private func setupBindings() {
         let lottoButtonTap = lottoTypeButton.rx.tap.asObservable()
         let pensionButtonTap = pensionLotteryTypeButton.rx.tap.asObservable()
         let speetoButtonTap = speetoTypeButton.rx.tap.asObservable()

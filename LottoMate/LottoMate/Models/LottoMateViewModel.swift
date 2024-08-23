@@ -15,6 +15,7 @@ class LottoMateViewModel {
     var lottoResult = BehaviorRelay<LottoResultModel?>(value: nil)
     var isLoading = BehaviorRelay<Bool>(value: false) // isLoading 값 사용 테스트 필요
     var selectedLotteryType = BehaviorSubject<LotteryType>(value: .lotto)
+    var selectedSpeetoType = BehaviorSubject<Int>(value: 0)
     
     private let apiClient = LottoMateClient()
     private let disposeBag = DisposeBag()
