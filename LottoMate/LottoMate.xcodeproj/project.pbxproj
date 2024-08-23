@@ -14,7 +14,7 @@
 		091C23682C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23672C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift */; };
 		091C236A2C765CCA00377A92 /* LotteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23692C765CCA00377A92 /* LotteryViewController.swift */; };
 		09341C1D2C52394900B47642 /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C1C2C52394900B47642 /* StyledButton.swift */; };
-		09341C222C52653B00B47642 /* TestButtonView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C212C52653B00B47642 /* TestButtonView .swift */; };
+		09341C222C52653B00B47642 /* TestButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C212C52653B00B47642 /* TestButtonView.swift */; };
 		09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C252C53A71000B47642 /* TabBarViewController.swift */; };
 		09341C2A2C53AA6E00B47642 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C292C53AA6E00B47642 /* HomeViewController.swift */; };
 		09341C2C2C53AA8000B47642 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C2B2C53AA8000B47642 /* MapViewController.swift */; };
@@ -78,7 +78,7 @@
 		091C23692C765CCA00377A92 /* LotteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryViewController.swift; sourceTree = "<group>"; };
 		09341C1B2C51651500B47642 /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
 		09341C1C2C52394900B47642 /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
-		09341C212C52653B00B47642 /* TestButtonView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestButtonView .swift"; sourceTree = "<group>"; };
+		09341C212C52653B00B47642 /* TestButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonView.swift; sourceTree = "<group>"; };
 		09341C252C53A71000B47642 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		09341C292C53AA6E00B47642 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		09341C2B2C53AA8000B47642 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 				09341C252C53A71000B47642 /* TabBarViewController.swift */,
 				09341C292C53AA6E00B47642 /* HomeViewController.swift */,
 				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
-				09341C212C52653B00B47642 /* TestButtonView .swift */,
+				09341C212C52653B00B47642 /* TestButtonView.swift */,
 			);
 			path = TabViews;
 			sourceTree = "<group>";
@@ -604,7 +604,7 @@
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
 				09554D132C5E5FB6009D1847 /* SampleData.swift in Sources */,
 				09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */,
-				09341C222C52653B00B47642 /* TestButtonView .swift in Sources */,
+				09341C222C52653B00B47642 /* TestButtonView.swift in Sources */,
 				09554D172C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift in Sources */,
 				0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */,
 				09341C9B2C57F68B00B47642 /* WinningNumbersDetailViewController.swift in Sources */,

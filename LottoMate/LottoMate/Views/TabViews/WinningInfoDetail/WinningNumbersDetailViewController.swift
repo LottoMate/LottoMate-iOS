@@ -74,7 +74,7 @@ class WinningNumbersDetailViewController: UIViewController {
         view.addSubview(rootFlexContainer)
         
         // 회차별 로또 정보 가져오기
-        viewModel.fetchLottoResult(round: 1126)
+        viewModel.fetchLottoResult(round: 903)
         bindViewModel()
 //        setupBindings()
     }
