@@ -163,33 +163,24 @@ class LottoPrizeInfoCardView: UIView {
     }
     
     func bindData() {
+        // 인당 당첨금 (현재 총 당첨금 데이터 사용. 추후 변경 필요.)
         viewModel.lottoResult
             .map { result in
-                var totalPrizeMoney: Int?
-                var winnerCount: Int?
-                var resultString: NSAttributedString?
+                var totalPrizeMoney = 0
                 switch self.prizeTier {
                 case .firstPrize:
-                    totalPrizeMoney = result?.lottoResult.p1Jackpot
-                    winnerCount = result?.lottoResult.p1WinnrCnt
+                    totalPrizeMoney = result?.lottoResult.p1Jackpot ?? 0
                 case .secondPrize:
-                    totalPrizeMoney = result?.lottoResult.p2Jackpot
-                    winnerCount = result?.lottoResult.p2WinnrCnt
+                    totalPrizeMoney = result?.lottoResult.p2Jackpot ?? 0
                 case .thirdPrize:
-                    totalPrizeMoney = result?.lottoResult.p3Jackpot
-                    winnerCount = result?.lottoResult.p3WinnrCnt
+                    totalPrizeMoney = result?.lottoResult.p3Jackpot ?? 0
                 case .fourthPrize:
-                    totalPrizeMoney = result?.lottoResult.p4Jackpot
-                    winnerCount = result?.lottoResult.p4WinnrCnt
+                    totalPrizeMoney = result?.lottoResult.p4Jackpot ?? 0
                 case .fifthPrize:
-                    totalPrizeMoney = result?.lottoResult.p5Jackpot
-                    winnerCount = result?.lottoResult.p5WinnrCnt
+                    totalPrizeMoney = result?.lottoResult.p5Jackpot ?? 0
                 }
-                if let prizeMoney = totalPrizeMoney, let winnerCnt = winnerCount {
-                    let prizeMoneyString = "\((prizeMoney / winnerCnt).formattedWithSeparator())원"
-                    resultString = NSAttributedString(string: prizeMoneyString, attributes: Typography.title3.attributes())
-                }
-                return resultString
+                let prizeMoney = "\((totalPrizeMoney).formattedWithSeparator())원"
+                return NSAttributedString(string: prizeMoney, attributes: Typography.title3.attributes())
             }
             .bind(to: prizeMoney.rx.attributedText)
             .disposed(by: disposeBag)

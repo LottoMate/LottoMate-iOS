@@ -18,13 +18,11 @@ class LottoWinningInfoView: UIView {
     
     private let disposeBag = DisposeBag()
     
-    let lottoResultInfoView4 = PrizeInfoCardView(lotteryType: .lotto, rankValue: 2, lottoPrizeMoneyValue: 12376487, winningConditionValue: "당첨번호 5개 일치", numberOfWinnerValue: 50, prizePerWinnerValue: 34323)
-    
-    let pensionLotteryResultView = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
-    let pensionLotteryResultView2 = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
-    let pensionLotteryResultView3 = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
-    
-    var lottoPrizeInfoCardView: LottoPrizeInfoCardView?
+    var firstPrizeCardView = LottoPrizeInfoCardView(prizeTier: .firstPrize)
+    var secondPrizeCardView = LottoPrizeInfoCardView(prizeTier: .secondPrize)
+    var thirdPrizeCardView = LottoPrizeInfoCardView(prizeTier: .thirdPrize)
+    var fourthPrizeCardView = LottoPrizeInfoCardView(prizeTier: .fourthPrize)
+    var fifthPrizeCardView = LottoPrizeInfoCardView(prizeTier: .fifthPrize)
     
     var lotteryDrawRound = UILabel()
     var lotteryDrawRoundNumber: Int?
@@ -85,19 +83,10 @@ class LottoWinningInfoView: UIView {
             }
             // 당첨 정보 상세 박스
             flex.addItem().direction(.column).gap(20).marginTop(12).marginBottom(20).define { flex in
-                let firstPrizeCardView = LottoPrizeInfoCardView(prizeTier: .firstPrize)
                 flex.addItem(firstPrizeCardView)
-                
-                let secondPrizeCardView = LottoPrizeInfoCardView(prizeTier: .secondPrize)
                 flex.addItem(secondPrizeCardView)
-                
-                let thirdPrizeCardView = LottoPrizeInfoCardView(prizeTier: .thirdPrize)
                 flex.addItem(thirdPrizeCardView)
-                
-                let fourthPrizeCardView = LottoPrizeInfoCardView(prizeTier: .fourthPrize)
                 flex.addItem(fourthPrizeCardView)
-                
-                let fifthPrizeCardView = LottoPrizeInfoCardView(prizeTier: .fifthPrize)
                 flex.addItem(fifthPrizeCardView)
             }
         }
@@ -131,15 +120,32 @@ class LottoWinningInfoView: UIView {
             .bind(to: drawDate.rx.attributedText)
             .disposed(by: disposeBag)
         
-        // 인당 당첨금
-        viewModel.lottoResult
-            .map { result in
-                let drwtMoney = result?.lottoResult.p1Jackpot
-                let string = (drwtMoney?.formattedWithSeparator() ?? "") + "원"
-                return NSAttributedString(string: string, attributes: Typography.title3.attributes())
-            }
-            .bind(to: lottoResultInfoView4.prizeMoney.rx.attributedText)
+        // round를 어떻게 보낼지....
+        previousRoundButton.rx.tap
+            .subscribe(onNext: { _ in
+                self.viewModel.fetchLottoResult(round: 902)
+            })
             .disposed(by: disposeBag)
+        
+//        viewModel.lottoResult
+//            .observe(on: MainScheduler.instance)
+//            .map { result in
+//                let totalPrizeMoney = result?.lottoResult.p1Jackpot ?? 0
+//                let prizeMoneyString = "\(totalPrizeMoney.formattedWithSeparator())원"
+//                return NSAttributedString(string: prizeMoneyString, attributes: Typography.title3.attributes())
+//            }
+//            .bind(to: firstPrizeCardView.prizeMoney.rx.attributedText)
+//            .disposed(by: disposeBag)
+        
+        // 인당 당첨금
+//        viewModel.lottoResult
+//            .map { result in
+//                let drwtMoney = result?.lottoResult.p1Jackpot
+//                let string = (drwtMoney?.formattedWithSeparator() ?? "") + "원"
+//                return NSAttributedString(string: string, attributes: Typography.title3.attributes())
+//            }
+//            .bind(to: lottoResultInfoView4.prizeMoney.rx.attributedText)
+//            .disposed(by: disposeBag)
     }
 }
 
