@@ -29,30 +29,30 @@ class WinningInfoDetailView: UIView {
     let contentView = UIView()
     
     // 복권 당첨 회차
-    var lotteryDrawRound = UILabel()
-    var lotteryDrawRoundNumber: Int?
-    var drawDate = UILabel()
-    let lotteryDrawingInfo = UIView()
-    let previousRoundButton = UIButton()
-    let nextRoundButton = UIButton()
-    
-    /// 당첨 번호 보기
-    let lotteryResultsTitle = UILabel()
-    let winningNumbersView = LottoWinningNumbersView()
-    
-    /// 등수별 당첨 정보 & 총 판매 금액 컨테이너
-    let prizeAndSalesAmount = UIView()
-    let prizeDetailsByRank = UILabel()
-    /// 총 판매 금액 레이블
-    let totalSalesAmountLabel = UILabel()
-    /// 총 판매 금액 값
-    let totalSalesAmountValue: Int = 111998191000
-    
-    let lottoResultInfoView4 = PrizeInfoCardView(lotteryType: .lotto, rankValue: 2, lottoPrizeMoneyValue: 12376487, winningConditionValue: "당첨번호 5개 일치", numberOfWinnerValue: 50, prizePerWinnerValue: 34323)
-    
-    let pensionLotteryResultView = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
-    let pensionLotteryResultView2 = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
-    let pensionLotteryResultView3 = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
+//    var lotteryDrawRound = UILabel()
+//    var lotteryDrawRoundNumber: Int?
+//    var drawDate = UILabel()
+//    let lotteryDrawingInfo = UIView()
+//    let previousRoundButton = UIButton()
+//    let nextRoundButton = UIButton()
+//    
+//    /// 당첨 번호 보기
+//    let lotteryResultsTitle = UILabel()
+//    let winningNumbersView = LottoWinningNumbersView()
+//    
+//    /// 등수별 당첨 정보 & 총 판매 금액 컨테이너
+//    let prizeAndSalesAmount = UIView()
+//    let prizeDetailsByRank = UILabel()
+//    /// 총 판매 금액 레이블
+//    let totalSalesAmountLabel = UILabel()
+//    /// 총 판매 금액 값
+//    let totalSalesAmountValue: Int = 111998191000
+//    
+//    let lottoResultInfoView4 = PrizeInfoCardView(lotteryType: .lotto, rankValue: 2, lottoPrizeMoneyValue: 12376487, winningConditionValue: "당첨번호 5개 일치", numberOfWinnerValue: 50, prizePerWinnerValue: 34323)
+//    
+//    let pensionLotteryResultView = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
+//    let pensionLotteryResultView2 = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
+//    let pensionLotteryResultView3 = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
     
     init() {
         super.init(frame: .zero)
@@ -61,16 +61,16 @@ class WinningInfoDetailView: UIView {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         
-        drawView()
+//        drawView()
         
-        lotteryResultsTitle.text = "당첨 번호 보기"
-        styleLabel(for: lotteryResultsTitle, fontStyle: .headline1, textColor: .primaryGray)
-        
-        prizeDetailsByRank.text = "등수별 당첨 정보"
-        styleLabel(for: prizeDetailsByRank, fontStyle: .headline1, textColor: .primaryGray)
-        
-        totalSalesAmountLabel.text = "총 판매 금액 : \(totalSalesAmountValue.formattedWithSeparator())원"
-        styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .gray_ACACAC)
+//        lotteryResultsTitle.text = "당첨 번호 보기"
+//        styleLabel(for: lotteryResultsTitle, fontStyle: .headline1, textColor: .primaryGray)
+//        
+//        prizeDetailsByRank.text = "등수별 당첨 정보"
+//        styleLabel(for: prizeDetailsByRank, fontStyle: .headline1, textColor: .primaryGray)
+//        
+//        totalSalesAmountLabel.text = "총 판매 금액 : \(totalSalesAmountValue.formattedWithSeparator())원"
+//        styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .gray_ACACAC)
 
         rootFlexContainer.flex.direction(.column).define { flex in
             // 복권 종류 필터 버튼
@@ -91,7 +91,9 @@ class WinningInfoDetailView: UIView {
                             flex.addItem(view).grow(1)
                             self.layoutSubviews()
                         } else if type == .lotto {
-                            
+                            let view = LottoWinningInfoView()
+                            flex.addItem(view).grow(1)
+                            self.layoutSubviews()
                         }
                     })
                     .disposed(by: disposeBag)
@@ -141,36 +143,36 @@ class WinningInfoDetailView: UIView {
         scrollView.contentSize = rootFlexContainer.frame.size
     }
     
-    func bind(viewModel: LottoMateViewModel) {
-        // 회차 라벨
-        viewModel.lottoResult
-            .map { result in
-                let text = "\(result?.lottoResult.drwNum ?? 0)회"
-                return NSAttributedString(string: text, attributes: Typography.headline1.attributes())
-            }
-            .bind(to: lotteryDrawRound.rx.attributedText)
-            .disposed(by: disposeBag)
-        
-        // 추첨 날짜
-        viewModel.lottoResult
-            .observe(on: MainScheduler.instance)
-            .map { result in
-                let dwrtDate = result?.lottoResult.drwDate.reformatDate ?? "no data"
-                return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
-            }
-            .bind(to: drawDate.rx.attributedText)
-            .disposed(by: disposeBag)
-        
-        // 인당 당첨금
-        viewModel.lottoResult
-            .map { result in
-                let drwtMoney = result?.lottoResult.p1Jackpot
-                let string = (drwtMoney?.formattedWithSeparator() ?? "") + "원"
-                return NSAttributedString(string: string, attributes: Typography.title3.attributes())
-            }
-            .bind(to: lottoResultInfoView4.prizeMoney.rx.attributedText)
-            .disposed(by: disposeBag)
-    }
+//    func bind(viewModel: LottoMateViewModel) {
+//        // 회차 라벨
+//        viewModel.lottoResult
+//            .map { result in
+//                let text = "\(result?.lottoResult.drwNum ?? 0)회"
+//                return NSAttributedString(string: text, attributes: Typography.headline1.attributes())
+//            }
+//            .bind(to: lotteryDrawRound.rx.attributedText)
+//            .disposed(by: disposeBag)
+//        
+//        // 추첨 날짜
+//        viewModel.lottoResult
+//            .observe(on: MainScheduler.instance)
+//            .map { result in
+//                let dwrtDate = result?.lottoResult.drwDate.reformatDate ?? "no data"
+//                return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
+//            }
+//            .bind(to: drawDate.rx.attributedText)
+//            .disposed(by: disposeBag)
+//        
+//        // 인당 당첨금
+//        viewModel.lottoResult
+//            .map { result in
+//                let drwtMoney = result?.lottoResult.p1Jackpot
+//                let string = (drwtMoney?.formattedWithSeparator() ?? "") + "원"
+//                return NSAttributedString(string: string, attributes: Typography.title3.attributes())
+//            }
+//            .bind(to: lottoResultInfoView4.prizeMoney.rx.attributedText)
+//            .disposed(by: disposeBag)
+//    }
     
     func setupBindings(viewModel: LottoMateViewModel) {
         viewModel.selectedLotteryType
