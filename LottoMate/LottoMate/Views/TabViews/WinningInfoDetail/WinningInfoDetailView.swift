@@ -61,17 +61,6 @@ class WinningInfoDetailView: UIView {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         
-//        drawView()
-        
-//        lotteryResultsTitle.text = "당첨 번호 보기"
-//        styleLabel(for: lotteryResultsTitle, fontStyle: .headline1, textColor: .primaryGray)
-//        
-//        prizeDetailsByRank.text = "등수별 당첨 정보"
-//        styleLabel(for: prizeDetailsByRank, fontStyle: .headline1, textColor: .primaryGray)
-//        
-//        totalSalesAmountLabel.text = "총 판매 금액 : \(totalSalesAmountValue.formattedWithSeparator())원"
-//        styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .gray_ACACAC)
-
         rootFlexContainer.flex.direction(.column).define { flex in
             // 복권 종류 필터 버튼
             flex.addItem(lotteryTypeButtonsView).marginHorizontal(20).marginTop(80) // padding 24 + navBar 56
@@ -98,29 +87,6 @@ class WinningInfoDetailView: UIView {
                     })
                     .disposed(by: disposeBag)
             }
-            // 당첨 회차
-//            flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(28).define { flex in
-//                flex.addItem(previousRoundButton)
-//                flex.addItem(lotteryDrawingInfo).direction(.row).alignItems(.baseline).define { flex in
-//                    flex.addItem(lotteryDrawRound).marginRight(8).minWidth(53)
-//                    flex.addItem(drawDate).minWidth(71)
-//                }
-//                flex.addItem(nextRoundButton)
-//            }
-//            // 당첨 번호 보기
-//            flex.addItem(lotteryResultsTitle).alignSelf(.start).marginTop(24)
-//            // 당첨 번호 박스
-//            flex.addItem(winningNumbersView).marginTop(12)
-//            // 등수별 당첨 정보
-//            flex.addItem().direction(.row).paddingTop(42).justifyContent(.spaceBetween).alignItems(.end).define { flex in
-//                flex.addItem(prizeDetailsByRank)
-//                flex.addItem(totalSalesAmountLabel)
-//            }
-//            // 당첨 정보 상세 박스
-//            flex.addItem(lottoResultInfoView4).marginTop(12)
-//            flex.addItem(pensionLotteryResultView).marginTop(12)
-//            flex.addItem(pensionLotteryResultView2).marginTop(12)
-//            flex.addItem(pensionLotteryResultView3).marginTop(12)
         }
         scrollView.addSubview(rootFlexContainer)
         addSubview(scrollView)
@@ -143,40 +109,9 @@ class WinningInfoDetailView: UIView {
         scrollView.contentSize = rootFlexContainer.frame.size
     }
     
-//    func bind(viewModel: LottoMateViewModel) {
-//        // 회차 라벨
-//        viewModel.lottoResult
-//            .map { result in
-//                let text = "\(result?.lottoResult.drwNum ?? 0)회"
-//                return NSAttributedString(string: text, attributes: Typography.headline1.attributes())
-//            }
-//            .bind(to: lotteryDrawRound.rx.attributedText)
-//            .disposed(by: disposeBag)
-//        
-//        // 추첨 날짜
-//        viewModel.lottoResult
-//            .observe(on: MainScheduler.instance)
-//            .map { result in
-//                let dwrtDate = result?.lottoResult.drwDate.reformatDate ?? "no data"
-//                return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
-//            }
-//            .bind(to: drawDate.rx.attributedText)
-//            .disposed(by: disposeBag)
-//        
-//        // 인당 당첨금
-//        viewModel.lottoResult
-//            .map { result in
-//                let drwtMoney = result?.lottoResult.p1Jackpot
-//                let string = (drwtMoney?.formattedWithSeparator() ?? "") + "원"
-//                return NSAttributedString(string: string, attributes: Typography.title3.attributes())
-//            }
-//            .bind(to: lottoResultInfoView4.prizeMoney.rx.attributedText)
-//            .disposed(by: disposeBag)
-//    }
-    
     func setupBindings(viewModel: LottoMateViewModel) {
         viewModel.selectedLotteryType
-            .subscribe(onNext: { [weak self] lotteryType in
+            .subscribe(onNext: { lotteryType in
 //                self?.handleLotteryTypeSelection(lotteryType)
                 print("lotteryType: \(lotteryType)")
             })
@@ -195,9 +130,6 @@ class WinningInfoDetailView: UIView {
         case .pensionLottery:
             selectedView = PensionLotteryWinningNumbersView(groupNumber: 1)
         case .speeto:
-//            if let view = SpeetoWinningInfoViewController().view {
-//                flex.addItem(view).grow(1).border(1, .red)
-//            }
             selectedView = SpeetoWinningInfoView()
         }
         // Add the selected view to contentView

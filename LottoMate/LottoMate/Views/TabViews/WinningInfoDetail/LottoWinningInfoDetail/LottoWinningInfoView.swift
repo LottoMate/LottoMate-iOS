@@ -24,6 +24,8 @@ class LottoWinningInfoView: UIView {
     let pensionLotteryResultView2 = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
     let pensionLotteryResultView3 = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
     
+    var lottoPrizeInfoCardView: LottoPrizeInfoCardView?
+    
     var lotteryDrawRound = UILabel()
     var lotteryDrawRoundNumber: Int?
     var drawDate = UILabel()
@@ -82,10 +84,22 @@ class LottoWinningInfoView: UIView {
                 flex.addItem(totalSalesAmountLabel)
             }
             // 당첨 정보 상세 박스
-            flex.addItem(lottoResultInfoView4).marginTop(12)
-            flex.addItem(pensionLotteryResultView).marginTop(12)
-            flex.addItem(pensionLotteryResultView2).marginTop(12)
-            flex.addItem(pensionLotteryResultView3).marginTop(12)
+            flex.addItem().direction(.column).gap(20).marginTop(12).marginBottom(20).define { flex in
+                let firstPrizeCardView = LottoPrizeInfoCardView(prizeTier: .firstPrize)
+                flex.addItem(firstPrizeCardView)
+                
+                let secondPrizeCardView = LottoPrizeInfoCardView(prizeTier: .secondPrize)
+                flex.addItem(secondPrizeCardView)
+                
+                let thirdPrizeCardView = LottoPrizeInfoCardView(prizeTier: .thirdPrize)
+                flex.addItem(thirdPrizeCardView)
+                
+                let fourthPrizeCardView = LottoPrizeInfoCardView(prizeTier: .fourthPrize)
+                flex.addItem(fourthPrizeCardView)
+                
+                let fifthPrizeCardView = LottoPrizeInfoCardView(prizeTier: .fifthPrize)
+                flex.addItem(fifthPrizeCardView)
+            }
         }
     }
     
