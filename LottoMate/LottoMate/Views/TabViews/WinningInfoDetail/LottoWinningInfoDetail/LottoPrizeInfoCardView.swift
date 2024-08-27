@@ -121,7 +121,7 @@ class LottoPrizeInfoCardView: UIView {
         // 당첨 조건 내용
         winningConditionValueLabel.text = "\(prizeTier.winningCondition)"
         winningConditionValueLabel.numberOfLines = 2
-        styleLabel(for: winningConditionValueLabel, fontStyle: .headline2, textColor: .black)
+        styleLabel(for: winningConditionValueLabel, fontStyle: .headline2, textColor: .black, alignment: .left)
         
         styleLabel(for: numberOfWinnersValueLabel, fontStyle: .headline2, textColor: .black)
         styleLabel(for: prizePerWinnerValueLabel, fontStyle: .headline2, textColor: .black)
