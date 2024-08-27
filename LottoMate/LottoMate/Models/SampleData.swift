@@ -40,3 +40,33 @@ struct SampleHtmlDoc {
 <div style="text-align: center;" align="center"><span style="font-size: 14pt;"><img src="/img/board/content/1723164312758.jpg" title="1723164312758.jpg"><br style="clear:both;"><br></span></div><div style="text-align: center;" align="center"></div><div style="text-align: center;"><span style="font-size: 18.6667px;"><img src="/img/board/content/1723164320613.jpg" title="1723164320613.jpg"><br style="clear:both;"><br></span></div>
 """
 }
+
+struct SampleSpeetoStoreModel: Identifiable {
+    let id = UUID()
+    let storeName: String
+    let round: Int
+    let prizePaymentDate: String
+    
+}
+
+struct SampleSpeetoData {
+    static var sampleData2000: [SpeetoPrizeTier : [SampleSpeetoStoreModel]] = [
+        .firstPrize: [
+            SampleSpeetoStoreModel(storeName: "야단법석", round: 53, prizePaymentDate: "2024-06-05"),
+            SampleSpeetoStoreModel(storeName: "또또복권방", round: 53, prizePaymentDate: "2024-05-22"),
+        ],
+        .secondPrize: [
+            SampleSpeetoStoreModel(storeName: "로또나라", round: 53, prizePaymentDate: "2024-06-26"),
+            SampleSpeetoStoreModel(storeName: "8888로또", round: 53, prizePaymentDate: "2024-06-26"),
+            SampleSpeetoStoreModel(storeName: "천하면당 사당점", round: 53, prizePaymentDate: "2024-06-24"),
+            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+        ]
+    ]
+}

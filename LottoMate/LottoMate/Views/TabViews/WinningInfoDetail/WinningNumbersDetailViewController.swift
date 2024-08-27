@@ -17,32 +17,24 @@ class WinningNumbersDetailViewController: UIViewController {
         return self.view as! WinningInfoDetailView
     }
     
-    private let viewModel: LottoMateViewModel
+    fileprivate let rootFlexContainer = UIView()
+    let viewModel = LottoMateViewModel.shared
     private let loadingIndicator = UIActivityIndicatorView(style: .large)
     private let disposeBag = DisposeBag()
     
-    init(viewModel: LottoMateViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func loadView() {
-        let winningInfoDetailView = WinningInfoDetailView()
-        view = winningInfoDetailView
-        mainView.delegate = self
-    }
-    
-    fileprivate let rootFlexContainer = UIView()
     
     let navBarContainer = UIView()
     /// 네비게이션 아이템 타이틀
     let navTitleLabel = UILabel()
     /// 네비게이션 아이템 뒤로가기 버튼
     let navBackButton = UIButton()
+    
+    let winningInfoDetailView = WinningInfoDetailView()
+    
+    override func loadView() {
+        view = winningInfoDetailView
+        mainView.delegate = self
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -72,10 +64,10 @@ class WinningNumbersDetailViewController: UIViewController {
         
         view.addSubview(rootFlexContainer)
         
-        // 회차별 로또 정보 가져오기
-        viewModel.fetchLottoResult(round: 1126)
+        // 최신회차로 가져오도록 하기
+//        viewModel.fetchLottoResult(round: 903)
         
-        setupBindings()
+        bindViewModel()
     }
     
     override func viewDidLayoutSubviews() {
@@ -84,33 +76,9 @@ class WinningNumbersDetailViewController: UIViewController {
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
     
-    private func setupBindings() {
-        // 로딩 인디케이터
-        viewModel.isLoading
-            .observe(on: MainScheduler.instance)
-            .bind(to: loadingIndicator.rx.isAnimating)
-            .disposed(by: disposeBag)
-        
-        // 회차 라벨
-        viewModel.lottoResult
-            .map { result in
-                let text = "\(result?.lottoResult.lottoRndNum ?? 0)회"
-                return NSAttributedString(string: text, attributes: Typography.headline1.attributes())
-            }
-            .bind(to: mainView.lotteryDrawRound.rx.attributedText)
-            .disposed(by: disposeBag)
-        
-        // 추첨 날짜
-        viewModel.lottoResult
-            .observe(on: MainScheduler.instance)
-            .map { result in
-                let dwrtDate = result?.lottoResult.drwtDate.reformatDate ?? "no data"
-                return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
-            }
-            .bind(to: mainView.drawDate.rx.attributedText)
-            .disposed(by: disposeBag)
-        
-        // 추첨 번호
+    private func bindViewModel() {
+//        mainView.bind(viewModel: viewModel)
+        mainView.setupBindings(viewModel: viewModel)
     }
     
     @objc func backButtonTapped() {
@@ -163,6 +131,6 @@ extension WinningNumbersDetailViewController: WinningInfoDetailViewDelegate {
 }
 
 #Preview {
-    let winningNumbersDetailViewController = WinningNumbersDetailViewController(viewModel: LottoMateViewModel())
+    let winningNumbersDetailViewController = WinningNumbersDetailViewController()
     return winningNumbersDetailViewController
 }

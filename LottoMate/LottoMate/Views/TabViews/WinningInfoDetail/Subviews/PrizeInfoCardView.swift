@@ -5,6 +5,7 @@
 //  Created by Mirae on 8/8/24.
 //
 
+import Foundation
 import UIKit
 import PinLayout
 import FlexLayout
@@ -25,8 +26,10 @@ class PrizeInfoCardView: UIView {
     
     let prizeMoney = UILabel()
     var lottoPrizeMoneyValue: Int?
+    let perOnePersonLabel = UILabel()
     /// 연금복권, 스피또는 상금이 고정되어 있어 스트링 타입으로 입력 (년, 원 등 단위까지 입력해주어야 함.)
     var prizeMoneyString: String?
+    
     
     /// 당첨 조건 타이틀 레이블
     let winningConditionLabel = UILabel()
@@ -76,7 +79,7 @@ class PrizeInfoCardView: UIView {
         switch lotteryType {
         case .lotto:
             if let lottoPrizeMoney = lottoPrizeMoneyValue {
-                prizeMoney.text = "\(lottoPrizeMoney.formattedWithSeparator())원"
+//                prizeMoney.text = "\(lottoPrizeMoney.formattedWithSeparator())원"
             }
         case .pensionLottery:
             if let pensionPrizeMoney = prizeMoneyString {
@@ -87,7 +90,12 @@ class PrizeInfoCardView: UIView {
                 prizeMoney.text = "\(speetoPrizeMoney)"
             }
         }
+        prizeMoney.numberOfLines = 0
+        prizeMoney.sizeToFit()
         styleLabel(for: prizeMoney, fontStyle: .title3, textColor: .black)
+        
+        perOnePersonLabel.text = "1인당"
+        styleLabel(for: perOnePersonLabel, fontStyle: .label2, textColor: .gray80)
         
         prizeInfoDetailContainer.backgroundColor = .gray_F9F9F9
         prizeInfoDetailContainer.layer.cornerRadius = 8
@@ -98,7 +106,7 @@ class PrizeInfoCardView: UIView {
         numberOfWinnersLabel.text = "당첨자 수"
         styleLabel(for: numberOfWinnersLabel, fontStyle: .headline2, textColor: .gray_858585)
         
-        prizePerWinnerLabel.text = "인당 당첨금"
+        prizePerWinnerLabel.text = "총 당첨금"
         styleLabel(for: prizePerWinnerLabel, fontStyle: .headline2, textColor: .gray_858585)
         
         winningConditionValueLabel.text = "\(winningConditionValue)"
@@ -121,7 +129,12 @@ class PrizeInfoCardView: UIView {
         
         rootFlexContainer.flex.direction(.column).padding(20).define { flex in
             flex.addItem(rank).alignSelf(.start)
-            flex.addItem(prizeMoney).alignSelf(.start).marginTop(2).marginBottom(12)
+            flex.addItem().direction(.row).alignItems(.end).paddingTop(2).paddingBottom(12).define { flex in
+                flex.addItem(prizeMoney)
+                    .minWidth(180) // 값에 따라 width가 변경되어야 함...
+                flex.addItem(perOnePersonLabel)
+                    .marginLeft(8)
+            }
             
             flex.addItem(prizeInfoDetailContainer).direction(.row).paddingVertical(16).paddingHorizontal(20).define { flex in
                 flex.addItem(prizeDetailLabelContainer).direction(.column).alignItems(.start).define { flex in
@@ -158,6 +171,6 @@ class PrizeInfoCardView: UIView {
 }
 
 #Preview {
-    let view = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 1)
+    let view = PrizeInfoCardView(lotteryType: .lotto, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 1)
     return view
 }

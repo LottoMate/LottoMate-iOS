@@ -1,22 +1,23 @@
 //
-//  WinningInfoDetailView+DrawView.swift
+//  PensionLotteryWinningInfoView+UIConfiguration.swift
 //  LottoMate
 //
-//  Created by Mirae on 8/8/24.
+//  Created by Mirae on 8/27/24.
 //
 
 import UIKit
 
-extension WinningInfoDetailView {
-    func drawView() {
-//        lotteryDrawRound.text = ""
+extension PensionLotteryWinningInfoView {
+    /// 연금 복권 회차 뷰 설정
+    func drawRoundContainer() {
+        //        lotteryDrawRound.text = ""
         styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .primaryGray)
         
-//        drawDate.text = ""
+        //        drawDate.text = ""
         styleLabel(for: drawDate, fontStyle: .label2, textColor: .gray_ACACAC)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapDrawView))
-        lotteryDrawingInfo.addGestureRecognizer(tapGesture)
+        //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapDrawView))
+        //        lotteryDrawingInfo.addGestureRecognizer(tapGesture)
         lotteryDrawingInfo.isUserInteractionEnabled = true
         
         let previousRoundBtnImage = UIImage(named: "small_arrow_left")

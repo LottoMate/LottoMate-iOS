@@ -13,7 +13,8 @@ enum LottoMateService {
 }
 
 extension LottoMateService: TargetType {
-    var baseURL: URL { URL(string: "https://906d8f0f-1936-4779-98bb-8d0fd918fc3e.mock.pstmn.io")! }
+//    var baseURL: URL { URL(string: "https://906d8f0f-1936-4779-98bb-8d0fd918fc3e.mock.pstmn.io")! }
+    var baseURL: URL { URL(string: "http://43.202.93.94:8080")! }
     
     var path: String {
         switch self {

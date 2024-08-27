@@ -8,9 +8,6 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
-    let viewModel = LottoMateViewModel()
-    
     override func loadView() {
         view = TestButtonView()
     }
@@ -25,7 +22,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func showWinningNumbersDetail() {
-        let detailViewController = WinningNumbersDetailViewController(viewModel: viewModel)
+        let detailViewController = WinningNumbersDetailViewController()
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

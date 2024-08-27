@@ -47,7 +47,6 @@ class TestButtonView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
@@ -60,7 +59,7 @@ class TestButtonView: UIView {
         do {
             let html = SampleHtmlDoc.sampleData
             let doc: Document = try SwiftSoup.parse(html)
-            let elements: Elements = try doc.select("div")
+            let elements: Elements = try doc.select("span")
             
             let lineSpacing: CGFloat = 2.0
             let paragraphStyle = NSMutableParagraphStyle()

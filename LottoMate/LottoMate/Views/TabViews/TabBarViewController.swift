@@ -8,6 +8,7 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
@@ -18,7 +19,7 @@ class TabBarViewController: UITabBarController {
         homeViewController.tabBarItem = homeTabIcon
         
         // MARK: Map Tab
-        let mapViewController = MapViewController()
+        let mapViewController = WinningNumbersDetailViewController()
         let mapTabIcon = UITabBarItem(title: "지도", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
         mapViewController.tabBarItem = mapTabIcon
         

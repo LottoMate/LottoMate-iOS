@@ -48,6 +48,8 @@ class PensionLotteryWinningNumbersView: UIView {
         self.groupNumber = groupNumber
         
         configureCardView(for: rootFlexContainer)
+        let shadowOffset = CGSize(width: 0, height: 0)
+        rootFlexContainer.addShadow(offset: shadowOffset, color: UIColor.black, radius: 5, opacity: 0.1)
         
         rankLabel.text = "1등"
         styleLabel(for: rankLabel, fontStyle: .caption, textColor: .gray_ACACAC)
