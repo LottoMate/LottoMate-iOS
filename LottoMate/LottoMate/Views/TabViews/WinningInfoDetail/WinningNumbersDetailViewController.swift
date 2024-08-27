@@ -66,6 +66,7 @@ class WinningNumbersDetailViewController: UIViewController {
         
         // 최신회차로 가져오도록 하기
 //        viewModel.fetchLottoResult(round: 903)
+//        viewModel.fetchLottoHome()
         
         bindViewModel()
     }

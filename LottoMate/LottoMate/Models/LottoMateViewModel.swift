@@ -13,6 +13,7 @@ class LottoMateViewModel {
     static let shared = LottoMateViewModel()
     
     var lottoResult = BehaviorRelay<LottoResultModel?>(value: nil)
+    var latestLotteryResult = BehaviorRelay<LatestLotteryWinningInfoModel?>(value: nil)
     var isLoading = BehaviorRelay<Bool>(value: true) // isLoading 값 사용 테스트 필요
     
     var selectedLotteryType = BehaviorSubject<LotteryType>(value: .lotto)
@@ -22,6 +23,18 @@ class LottoMateViewModel {
     private let disposeBag = DisposeBag()
     
     private init() { }
+    
+    /// 최신 회차 복권 당첨 정보 가져오기
+    func fetchLottoHome() {
+        apiClient.getLottoHome()
+            .subscribe(onNext: { [weak self] result in
+                self?.latestLotteryResult.accept(result)
+                print("fetching latest lottery result...: \(result)")
+            }, onError: { error in
+                print("Error fetching latest lottery result: \(error)")
+            })
+            .disposed(by: disposeBag)
+    }
     
     func fetchLottoResult(round: Int) {
         isLoading.accept(true)

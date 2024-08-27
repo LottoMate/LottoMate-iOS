@@ -70,7 +70,7 @@ public enum Typography {
         case .headline1:
             return 28
         case .headline2:
-            return 26
+            return 24
         case .body1:
             return 24
         case .body2:

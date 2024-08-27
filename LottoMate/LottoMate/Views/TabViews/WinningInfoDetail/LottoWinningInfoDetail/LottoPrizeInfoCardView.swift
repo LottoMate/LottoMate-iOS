@@ -120,9 +120,11 @@ class LottoPrizeInfoCardView: UIView {
         styleLabel(for: prizePerWinnerLabel, fontStyle: .body1, textColor: .gray_858585)
         // 당첨 조건 내용
         winningConditionValueLabel.text = "\(prizeTier.winningCondition)"
+        winningConditionValueLabel.numberOfLines = 2
         styleLabel(for: winningConditionValueLabel, fontStyle: .headline2, textColor: .black)
         
-        // 당첨자 수 레이블 세팅 필요 (가변하는 데이터의 세팅은 rx로 처리 예정)
+        styleLabel(for: numberOfWinnersValueLabel, fontStyle: .headline2, textColor: .black)
+        styleLabel(for: prizePerWinnerValueLabel, fontStyle: .headline2, textColor: .black)
         
         addSubview(rootFlexContainer)
         
@@ -139,12 +141,16 @@ class LottoPrizeInfoCardView: UIView {
             flex.addItem(prizeInfoDetailContainer).direction(.row).paddingVertical(16).paddingHorizontal(20).define { flex in
                 flex.addItem(prizeDetailLabelContainer).direction(.column).alignItems(.start).define { flex in
                     flex.addItem(winningConditionLabel)
-                    flex.addItem(numberOfWinnersLabel).marginTop(10)
+                    if prizeTier == .secondPrize {
+                        flex.addItem(numberOfWinnersLabel).marginTop(34)
+                    } else {
+                        flex.addItem(numberOfWinnersLabel).marginTop(10)
+                    }
                     flex.addItem(prizePerWinnerLabel).marginTop(10)
                     
                 }
                 flex.addItem(prizeDetailValueContainer).direction(.column).alignItems(.start).paddingLeft(24).define { flex in
-                    flex.addItem(winningConditionValueLabel)
+                    flex.addItem(winningConditionValueLabel).alignSelf(.start)
                     flex.addItem(numberOfWinnersValueLabel).marginTop(10)
                     flex.addItem(prizePerWinnerValueLabel).marginTop(10)
                 }
@@ -179,10 +185,50 @@ class LottoPrizeInfoCardView: UIView {
                 case .fifthPrize:
                     totalPrizeMoney = result?.lottoResult.p5Jackpot ?? 0
                 }
-                let prizeMoney = "\((totalPrizeMoney).formattedWithSeparator())원"
-                return NSAttributedString(string: prizeMoney, attributes: Typography.title3.attributes())
+                return "\((totalPrizeMoney).formattedWithSeparator())원"
             }
-            .bind(to: prizeMoney.rx.attributedText)
+            .bind(to: prizeMoney.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.lottoResult
+            .map { result in
+                var winnerCount = 0
+                switch self.prizeTier {
+                case .firstPrize:
+                    winnerCount = result?.lottoResult.p1WinnrCnt ?? 0
+                case .secondPrize:
+                    winnerCount = result?.lottoResult.p2WinnrCnt ?? 0
+                case .thirdPrize:
+                    winnerCount = result?.lottoResult.p3WinnrCnt ?? 0
+                case .fourthPrize:
+                    winnerCount = result?.lottoResult.p4WinnrCnt ?? 0
+                case .fifthPrize:
+                    winnerCount = result?.lottoResult.p5WinnrCnt ?? 0
+                }
+                return "\(winnerCount)명"
+            }
+            .bind(to: numberOfWinnersValueLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        
+        viewModel.lottoResult
+            .map { result in
+                var totalPrizeMoney = 0
+                switch self.prizeTier {
+                case .firstPrize:
+                    totalPrizeMoney = result?.lottoResult.p1Jackpot ?? 0
+                case .secondPrize:
+                    totalPrizeMoney = result?.lottoResult.p2Jackpot ?? 0
+                case .thirdPrize:
+                    totalPrizeMoney = result?.lottoResult.p3Jackpot ?? 0
+                case .fourthPrize:
+                    totalPrizeMoney = result?.lottoResult.p4Jackpot ?? 0
+                case .fifthPrize:
+                    totalPrizeMoney = result?.lottoResult.p5Jackpot ?? 0
+                }
+                return "\((totalPrizeMoney).formattedWithSeparator())원"
+            }
+            .bind(to: prizePerWinnerValueLabel.rx.text)
             .disposed(by: disposeBag)
     }
 }

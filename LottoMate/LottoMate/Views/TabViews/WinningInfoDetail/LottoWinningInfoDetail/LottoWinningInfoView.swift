@@ -135,26 +135,6 @@ class LottoWinningInfoView: UIView {
                 self.viewModel.fetchLottoResult(round: 902)
             })
             .disposed(by: disposeBag)
-        
-//        viewModel.lottoResult
-//            .observe(on: MainScheduler.instance)
-//            .map { result in
-//                let totalPrizeMoney = result?.lottoResult.p1Jackpot ?? 0
-//                let prizeMoneyString = "\(totalPrizeMoney.formattedWithSeparator())원"
-//                return NSAttributedString(string: prizeMoneyString, attributes: Typography.title3.attributes())
-//            }
-//            .bind(to: firstPrizeCardView.prizeMoney.rx.attributedText)
-//            .disposed(by: disposeBag)
-        
-        // 인당 당첨금
-//        viewModel.lottoResult
-//            .map { result in
-//                let drwtMoney = result?.lottoResult.p1Jackpot
-//                let string = (drwtMoney?.formattedWithSeparator() ?? "") + "원"
-//                return NSAttributedString(string: string, attributes: Typography.title3.attributes())
-//            }
-//            .bind(to: lottoResultInfoView4.prizeMoney.rx.attributedText)
-//            .disposed(by: disposeBag)
     }
 }
 

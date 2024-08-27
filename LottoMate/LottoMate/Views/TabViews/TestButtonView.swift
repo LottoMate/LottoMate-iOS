@@ -3,34 +3,34 @@
 //  LottoMate
 //
 //  Created by Mirae on 7/25/24.
-//
+//  임시 Home
 
 import UIKit
 import FlexLayout
 import PinLayout
 import SwiftSoup
+import RxSwift
 
 class TestButtonView: UIView {
+    var viewModel = LottoMateViewModel.shared
+    let disposeBag = DisposeBag()
+    
     fileprivate let rootFlexContainer = UIView()
+    
     public let defaultSolidButton = StyledButton(title: "Test Button", buttonStyle: .solid(.large, .active), fontSize: 16, cornerRadius: 8, verticalPadding: 0, horizontalPadding: 0)
+    
     let textView = UITextView()
     
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
         
+        viewModel.fetchLottoHome()
+        
+        bindData()
+        
         defaultSolidButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
-        let boldTextAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.boldSystemFont(ofSize: 16) // 굵은 폰트
-        ]
-        
-        let smallTextAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 12) // 작은 폰트
-        ]
-        
-        
-//        textView.font = UIFont.systemFont(ofSize: 14)
         parseHtml()
         
         addSubview(rootFlexContainer)
@@ -51,9 +51,20 @@ class TestButtonView: UIView {
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
     
+    func bindData() {
+        viewModel.latestLotteryResult
+            .subscribe(onNext: { result in
+                if let latestLottoDrawNumber = result?.the645.drwNum {
+                    self.viewModel.fetchLottoResult(round: latestLottoDrawNumber)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
     @objc func buttonTapped(_ sender: Any) {
         print("Button tapped")
     }
+    
     
     func parseHtml() {
         do {
@@ -69,7 +80,6 @@ class TestButtonView: UIView {
             
             for div in elements {
                 let text = try div.text()
-                var attributes = [NSAttributedString.Key: Any]()
                 
                 if text.first == "▶" {
                     let boldTextAttributes: [NSAttributedString.Key: Any] = [

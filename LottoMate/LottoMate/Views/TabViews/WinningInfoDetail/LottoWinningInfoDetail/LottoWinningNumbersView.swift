@@ -8,8 +8,11 @@
 import UIKit
 import FlexLayout
 import PinLayout
+import RxSwift
+import RxCocoa
 
 class LottoWinningNumbersView: UIView {
+    var viewModel = LottoMateViewModel.shared
     fileprivate let rootFlexContainer = UIView()
     
     /// 당첨번호, 보너스 텍스트를 담은 컨테이너 뷰
@@ -28,8 +31,12 @@ class LottoWinningNumbersView: UIView {
     let plusIcon = UIImageView()
     let bonusNumberView = WinningNumberCircleView()
     
+    private let disposeBag = DisposeBag()
+    
     init() {
         super.init(frame: .zero)
+        
+        bindData()
     
         rootFlexContainer.backgroundColor = .white
         rootFlexContainer.layer.borderWidth = 1
@@ -45,26 +52,19 @@ class LottoWinningNumbersView: UIView {
         styleLabel(for: BonusLabel, fontStyle: .caption, textColor: .gray_ACACAC)
         
         // MARK: 당첨 번호 설정
-        firstNumberView.number = 4
-        firstNumberView.circleColor = .ltmRed
+//        firstNumberView.circleColor = .ltmRed
         
-        secondNumberView.number = 5
-        secondNumberView.circleColor = .ltmBlue
+//        secondNumberView.circleColor = .ltmBlue
         
-        thirdNumberView.number = 6
-        thirdNumberView.circleColor = .ltmGreen
-        
-        fourthNumberView.number = 7
-        fourthNumberView.circleColor = .ltmPeach
-        
-        fifthNumberView.number = 8
-        fifthNumberView.circleColor = .ltmYellow
-        
-        sixthNumberView.number = 9
-        sixthNumberView.circleColor = .ltm_E1464C
-        
-        bonusNumberView.number = 9
-        bonusNumberView.circleColor = .ltmRed
+//        thirdNumberView.circleColor = .ltmGreen
+//        
+//        fourthNumberView.circleColor = .ltmPeach
+//        
+//        fifthNumberView.circleColor = .ltmYellow
+//        
+//        sixthNumberView.circleColor = .ltm_E1464C
+//        
+//        bonusNumberView.circleColor = .ltmRed
         
         plusIcon.image = UIImage(named: "plus")
         plusIcon.contentMode = .center
@@ -99,7 +99,114 @@ class LottoWinningNumbersView: UIView {
         rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
-
+    
+    func bindData() {
+        // 첫번째 번호
+        viewModel.lottoResult
+            .map { result -> (Int, UIColor) in
+                if let firstNumber = result?.lottoResult.lottoNum[0] {
+                    let color = self.colorForNumber(firstNumber)
+                    return (firstNumber, color)
+                } else {
+                    return (0, .black)
+                }
+            }
+            .subscribe(onNext: { number, color in
+                self.firstNumberView.number = number
+                self.firstNumberView.circleColor = color
+            })
+            .disposed(by: disposeBag)
+        // 두번째 번호
+        viewModel.lottoResult
+            .map { result -> (Int, UIColor) in
+                if let secondNumber = result?.lottoResult.lottoNum[1] {
+                    let color = self.colorForNumber(secondNumber)
+                    return (secondNumber, color)
+                } else {
+                    return (0, .black)
+                }
+            }
+            .subscribe(onNext: { number, color in
+                self.secondNumberView.number = number
+                self.secondNumberView.circleColor = color
+            })
+            .disposed(by: disposeBag)
+        // 세번째 번호
+        viewModel.lottoResult
+            .map { result -> (Int, UIColor) in
+                if let thirdNumber = result?.lottoResult.lottoNum[2] {
+                    let color = self.colorForNumber(thirdNumber)
+                    return (thirdNumber, color)
+                } else {
+                    return (0, .black)
+                }
+            }
+            .subscribe(onNext: { number, color in
+                self.thirdNumberView.number = number
+                self.thirdNumberView.circleColor = color
+            })
+            .disposed(by: disposeBag)
+        // 네번째 번호
+        viewModel.lottoResult
+            .map { result -> (Int, UIColor) in
+                if let fourthNumber = result?.lottoResult.lottoNum[3] {
+                    let color = self.colorForNumber(fourthNumber)
+                    return (fourthNumber, color)
+                } else {
+                    return (0, .black)
+                }
+            }
+            .subscribe(onNext: { number, color in
+                self.fourthNumberView.number = number
+                self.fourthNumberView.circleColor = color
+            })
+            .disposed(by: disposeBag)
+        // 다섯번째 번호
+        viewModel.lottoResult
+            .map { result -> (Int, UIColor) in
+                if let fifthNumber = result?.lottoResult.lottoNum[4] {
+                    let color = self.colorForNumber(fifthNumber)
+                    return (fifthNumber, color)
+                } else {
+                    return (0, .black)
+                }
+            }
+            .subscribe(onNext: { number, color in
+                self.fifthNumberView.number = number
+                self.fifthNumberView.circleColor = color
+            })
+            .disposed(by: disposeBag)
+        // 여섯번째 번호
+        viewModel.lottoResult
+            .map { result -> (Int, UIColor) in
+                if let sixthNumber = result?.lottoResult.lottoNum[5] {
+                    let color = self.colorForNumber(sixthNumber)
+                    return (sixthNumber, color)
+                } else {
+                    return (0, .black)
+                }
+            }
+            .subscribe(onNext: { number, color in
+                self.sixthNumberView.number = number
+                self.sixthNumberView.circleColor = color
+            })
+            .disposed(by: disposeBag)
+        // 보너스 번호
+        viewModel.lottoResult
+            .map { result -> (Int, UIColor) in
+                if let bonusNumber = result?.lottoResult.lottoBonusNum[0] {
+                    let color = self.colorForNumber(bonusNumber)
+                    return (bonusNumber, color)
+                } else {
+                    return (0, .black)
+                }
+            }
+            .subscribe(onNext: { number, color in
+                self.bonusNumberView.number = number
+                self.bonusNumberView.circleColor = color
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 #Preview {
