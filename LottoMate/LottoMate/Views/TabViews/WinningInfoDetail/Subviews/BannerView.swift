@@ -12,17 +12,15 @@ import FlexLayout
 class BannerView: UIView {
     fileprivate let rootFlexContainer = UIView()
     
-    /// 배너의 전체 배경색
-//    var bannerBackgroundColor: UIColor = .yellow5
     /// 배너에 들어가는 캐릭터 이미지
     var bannerImage = UIImageView()
+    /// 배너 타이틀 레이블
     let titleTextLabel = UILabel()
+    /// 배너 바디 레이블
     let bodyTextLabel = UILabel()
     
     init(bannerBackgroundColor: UIColor, bannerImageName: String?, titleText: String, bodyText: String) {
         super.init(frame: .zero)
-//        self.bannerBackgroundColor = bannerBackgroundColor
-//        self.bannerImageName = bannerImageName
         
         backgroundColor = bannerBackgroundColor
         layer.cornerRadius = 16
