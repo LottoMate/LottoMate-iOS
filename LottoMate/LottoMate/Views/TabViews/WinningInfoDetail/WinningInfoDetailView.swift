@@ -28,32 +28,6 @@ class WinningInfoDetailView: UIView {
     let lotteryTypeButtonsView = LotteryTypeButtonsView()
     let contentView = UIView()
     
-    // 복권 당첨 회차
-//    var lotteryDrawRound = UILabel()
-//    var lotteryDrawRoundNumber: Int?
-//    var drawDate = UILabel()
-//    let lotteryDrawingInfo = UIView()
-//    let previousRoundButton = UIButton()
-//    let nextRoundButton = UIButton()
-//    
-//    /// 당첨 번호 보기
-//    let lotteryResultsTitle = UILabel()
-//    let winningNumbersView = LottoWinningNumbersView()
-//    
-//    /// 등수별 당첨 정보 & 총 판매 금액 컨테이너
-//    let prizeAndSalesAmount = UIView()
-//    let prizeDetailsByRank = UILabel()
-//    /// 총 판매 금액 레이블
-//    let totalSalesAmountLabel = UILabel()
-//    /// 총 판매 금액 값
-//    let totalSalesAmountValue: Int = 111998191000
-//    
-//    let lottoResultInfoView4 = PrizeInfoCardView(lotteryType: .lotto, rankValue: 2, lottoPrizeMoneyValue: 12376487, winningConditionValue: "당첨번호 5개 일치", numberOfWinnerValue: 50, prizePerWinnerValue: 34323)
-//    
-//    let pensionLotteryResultView = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
-//    let pensionLotteryResultView2 = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
-//    let pensionLotteryResultView3 = PrizeInfoCardView(lotteryType: .pensionLottery, rankValue: 1, prizeMoneyString: "월 700만원 x 20년", winningConditionValue: "1등번호 7자리 일치", numberOfWinnerValue: 5)
-    
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
@@ -71,16 +45,17 @@ class WinningInfoDetailView: UIView {
                         // 뷰 변경 전 current view 제거
                         flex.view?.subviews.forEach { $0.removeFromSuperview() }
                         
-                        if type == .speeto {
-                            let view = SpeetoWinningInfoView()
-                                flex.addItem(view).grow(1)
-                                self.layoutSubviews()
-                        } else if type == .pensionLottery {
-                            let view = TestButtonView()
+                        if type == .lotto {
+                            let view = LottoWinningInfoView()
                             flex.addItem(view).grow(1)
                             self.layoutSubviews()
-                        } else if type == .lotto {
-                            let view = LottoWinningInfoView()
+                        } else if type == .speeto {
+                            let view = SpeetoWinningInfoView()
+                            flex.addItem(view).grow(1)
+                            self.layoutSubviews()
+                            
+                        } else if type == .pensionLottery {
+                            let view = PensionLotteryWinningInfoView()
                             flex.addItem(view).grow(1)
                             self.layoutSubviews()
                         }

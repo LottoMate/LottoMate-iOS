@@ -23,12 +23,15 @@ class LottoWinningInfoView: UIView {
     var thirdPrizeCardView = LottoPrizeInfoCardView(prizeTier: .thirdPrize)
     var fourthPrizeCardView = LottoPrizeInfoCardView(prizeTier: .fourthPrize)
     var fifthPrizeCardView = LottoPrizeInfoCardView(prizeTier: .fifthPrize)
-    
+    /// 당첨 회차
     var lotteryDrawRound = UILabel()
-    var lotteryDrawRoundNumber: Int?
+    /// 당첨 날짜
     var drawDate = UILabel()
+    /// 당첨 회차 + 날짜 컨테이너. 탭하여 회차 선택 픽커 바텀 시트를 보여줌.
     let lotteryDrawingInfo = UIView()
+    /// 전 회차로 가기 버튼
     let previousRoundButton = UIButton()
+    /// 다음 회차로 가기 버튼
     let nextRoundButton = UIButton()
     
     /// 당첨 번호 보기
@@ -43,6 +46,8 @@ class LottoWinningInfoView: UIView {
     /// 총 판매 금액 값
     let totalSalesAmountValue: Int = 111998191000
     
+    /// 지급 기한 정보 레이블
+    let claimNoticeLabel = UILabel()
     
     init() {
         super.init(frame: .zero)
@@ -59,6 +64,9 @@ class LottoWinningInfoView: UIView {
         
         totalSalesAmountLabel.text = "총 판매 금액 : \(totalSalesAmountValue.formattedWithSeparator())원"
         styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .gray_ACACAC)
+        
+        claimNoticeLabel.text = "* 지급 개시일부터 1년 내 당첨금을 찾아가야 해요. (휴일일 경우 다음날까지)"
+        styleLabel(for: claimNoticeLabel, fontStyle: .caption, textColor: .gray80)
         
         addSubview(rootFlexContainer)
         
@@ -82,13 +90,14 @@ class LottoWinningInfoView: UIView {
                 flex.addItem(totalSalesAmountLabel)
             }
             // 당첨 정보 상세 박스
-            flex.addItem().direction(.column).gap(20).marginTop(12).marginBottom(20).define { flex in
+            flex.addItem().direction(.column).gap(20).marginTop(12).marginBottom(16).define { flex in
                 flex.addItem(firstPrizeCardView)
                 flex.addItem(secondPrizeCardView)
                 flex.addItem(thirdPrizeCardView)
                 flex.addItem(fourthPrizeCardView)
                 flex.addItem(fifthPrizeCardView)
             }
+            flex.addItem(claimNoticeLabel).alignSelf(.start)
         }
     }
     

@@ -65,7 +65,7 @@ class WinningNumbersDetailViewController: UIViewController {
         view.addSubview(rootFlexContainer)
         
         // 최신회차로 가져오도록 하기
-        viewModel.fetchLottoResult(round: 903)
+//        viewModel.fetchLottoResult(round: 903)
         
         bindViewModel()
     }
