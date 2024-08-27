@@ -59,7 +59,7 @@ class LottoPrizeInfoCardView: UIView {
     /// 로또 당첨 등수 레이블 (예: 1등)
     let rank = UILabel()
     /// 1등 아이콘
-    private let firstPrizeIcon: UIImageView = {
+    let firstPrizeIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "ic_winnerBadge_lotto")
         imageView.contentMode = .scaleAspectFit

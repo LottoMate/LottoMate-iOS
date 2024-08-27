@@ -25,7 +25,7 @@ class TestButtonView: UIView {
         super.init(frame: .zero)
         backgroundColor = .white
         
-        viewModel.fetchLottoHome()
+//        viewModel.fetchLottoHome()
         
         bindData()
         
@@ -55,7 +55,7 @@ class TestButtonView: UIView {
         viewModel.latestLotteryResult
             .subscribe(onNext: { result in
                 if let latestLottoDrawNumber = result?.the645.drwNum {
-                    self.viewModel.fetchLottoResult(round: latestLottoDrawNumber)
+//                    self.viewModel.fetchLottoResult(round: latestLottoDrawNumber)
                 }
             })
             .disposed(by: disposeBag)

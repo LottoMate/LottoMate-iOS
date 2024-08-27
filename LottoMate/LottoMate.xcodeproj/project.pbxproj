@@ -13,6 +13,7 @@
 		091672C52C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672C42C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift */; };
 		091672C72C7DAE6100959767 /* PensionLotteryPrizeInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672C62C7DAE6100959767 /* PensionLotteryPrizeInfoCardView.swift */; };
 		091672C92C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */; };
+		091672CB2C7E0EE800959767 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672CA2C7E0EE800959767 /* BannerView.swift */; };
 		091C235E2C74F25400377A92 /* SpeetoWinningInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C235D2C74F25300377A92 /* SpeetoWinningInfoView.swift */; };
 		091C23642C75B87100377A92 /* CustomSementedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23632C75B87100377A92 /* CustomSementedButton.swift */; };
 		091C23662C75C43300377A92 /* SpeetoPrizeInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23652C75C43300377A92 /* SpeetoPrizeInfoCardView.swift */; };
@@ -80,6 +81,7 @@
 		091672C42C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PensionLotteryWinningInfoView+UIConfiguration.swift"; sourceTree = "<group>"; };
 		091672C62C7DAE6100959767 /* PensionLotteryPrizeInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryPrizeInfoCardView.swift; sourceTree = "<group>"; };
 		091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestLotteryWinningInfoModel.swift; sourceTree = "<group>"; };
+		091672CA2C7E0EE800959767 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		091C235D2C74F25300377A92 /* SpeetoWinningInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoWinningInfoView.swift; sourceTree = "<group>"; };
 		091C23632C75B87100377A92 /* CustomSementedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSementedButton.swift; sourceTree = "<group>"; };
 		091C23652C75C43300377A92 /* SpeetoPrizeInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoPrizeInfoCardView.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				09554D142C5E619C009D1847 /* DrawPickerViewController.swift */,
 				09554D1C2C649740009D1847 /* PrizeInfoCardView.swift */,
 				09554D212C64B798009D1847 /* LotteryTypeButtonsView.swift */,
+				091672CA2C7E0EE800959767 /* BannerView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 			files = (
 				09554D1F2C64B5CB009D1847 /* ViewTemplate.swift in Sources */,
 				091C23682C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift in Sources */,
+				091672CB2C7E0EE800959767 /* BannerView.swift in Sources */,
 				091C23642C75B87100377A92 /* CustomSementedButton.swift in Sources */,
 				09554D112C5E5376009D1847 /* Extensions.swift in Sources */,
 				09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */,
