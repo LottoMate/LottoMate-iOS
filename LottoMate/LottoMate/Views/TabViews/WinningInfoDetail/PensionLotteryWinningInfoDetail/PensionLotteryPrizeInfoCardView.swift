@@ -8,6 +8,8 @@
 import UIKit
 import PinLayout
 import FlexLayout
+import RxSwift
+import RxCocoa
 
 enum PensionLotteryTier: CaseIterable {
     case firstPrize
@@ -98,6 +100,8 @@ enum PensionLotteryTier: CaseIterable {
 }
 
 class PensionLotteryPrizeInfoCardView: UIView {
+    let viewModel = LottoMateViewModel.shared
+    private let disposeBag = DisposeBag()
     fileprivate let rootFlexContainer = UIView()
     var prizeTier: PensionLotteryTier = .firstPrize
     /// 연금복권 당첨 등수 레이블 (예: 1등)
@@ -130,6 +134,8 @@ class PensionLotteryPrizeInfoCardView: UIView {
         super.init(frame: .zero)
         self.prizeTier = prizeTier
         
+        bindData()
+        
         configureCardView(for: rootFlexContainer)
         let shadowOffset = CGSize(width: 0, height: 0)
         rootFlexContainer.addShadow(offset: shadowOffset, color: UIColor.black, radius: 8, opacity: 0.1)
@@ -153,9 +159,7 @@ class PensionLotteryPrizeInfoCardView: UIView {
         numberOfWinnersLabel.text = "당첨 수"
         styleLabel(for: numberOfWinnersLabel, fontStyle: .body1, textColor: .gray_858585)
         
-        // 당첨 수 내용 스타일 셋 필요
-        
-        
+        styleLabel(for: numberOfWinnersValueLabel, fontStyle: .headline2, textColor: .black)
         
         // MARK: FlexLayout
         addSubview(rootFlexContainer)
@@ -190,6 +194,35 @@ class PensionLotteryPrizeInfoCardView: UIView {
         super.layoutSubviews()
         rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
         rootFlexContainer.flex.layout(mode: .adjustHeight)
+    }
+    
+    func bindData() {
+        // 당첨자 수
+        viewModel.pensionLotteryResult
+            .map { result in
+                var winnerCount = 0
+                switch self.prizeTier {
+                case .firstPrize:
+                    winnerCount = result?.pensionLotteryResult.p1WinnrCnt ?? 0
+                case .secondPrize:
+                    winnerCount = result?.pensionLotteryResult.p2WinnrCnt ?? 0
+                case .thirdPrize:
+                    winnerCount = result?.pensionLotteryResult.p3WinnrCnt ?? 0
+                case .fourthPrize:
+                    winnerCount = result?.pensionLotteryResult.p4WinnrCnt ?? 0
+                case .fifthPrize:
+                    winnerCount = result?.pensionLotteryResult.p5WinnrCnt ?? 0
+                case .sixthPrize:
+                    winnerCount = result?.pensionLotteryResult.p6WinnrCnt ?? 0
+                case .seventhPrize:
+                    winnerCount = result?.pensionLotteryResult.p7WinnrCnt ?? 0
+                case .eighthPrize:
+                    winnerCount = result?.pensionLotteryResult.p8WinnrCnt ?? 0
+                }
+                return "\(winnerCount.formattedWithSeparator())매"
+            }
+            .bind(to: numberOfWinnersValueLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 }
 

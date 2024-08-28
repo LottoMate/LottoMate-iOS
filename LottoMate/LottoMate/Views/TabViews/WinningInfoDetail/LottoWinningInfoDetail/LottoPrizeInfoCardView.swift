@@ -210,7 +210,6 @@ class LottoPrizeInfoCardView: UIView {
             .bind(to: numberOfWinnersValueLabel.rx.text)
             .disposed(by: disposeBag)
         
-        
         viewModel.lottoResult
             .map { result in
                 var totalPrizeMoney = 0
