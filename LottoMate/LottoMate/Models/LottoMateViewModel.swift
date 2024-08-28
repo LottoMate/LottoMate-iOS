@@ -12,6 +12,9 @@ import RxRelay
 class LottoMateViewModel {
     static let shared = LottoMateViewModel()
     
+    var currentLottoRound = BehaviorRelay<Int?>(value: nil)
+    var currentPendingLotteryRound = BehaviorRelay<Int?>(value: nil)
+    
     var lottoResult = BehaviorRelay<LottoResultModel?>(value: nil)
     var pensionLotteryResult = BehaviorRelay<PensionLotteryResultModel?>(value: nil)
     var latestLotteryResult = BehaviorRelay<LatestLotteryWinningInfoModel?>(value: nil)
@@ -30,6 +33,13 @@ class LottoMateViewModel {
         apiClient.getLottoHome()
             .subscribe(onNext: { [weak self] result in
                 self?.latestLotteryResult.accept(result)
+                
+                let latestLottoRound = result.the645.drwNum
+                self?.currentLottoRound.accept(latestLottoRound)
+                
+                let pensionLotteryRound = result.the720.drwNum
+                self?.currentPendingLotteryRound.accept(pensionLotteryRound)
+                
                 print("fetching latest lottery result...: \(result)")
             }, onError: { error in
                 print("Error fetching latest lottery result: \(error)")
