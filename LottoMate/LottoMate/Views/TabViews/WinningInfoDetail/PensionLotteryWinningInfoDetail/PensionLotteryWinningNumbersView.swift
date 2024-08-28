@@ -8,8 +8,11 @@
 import UIKit
 import PinLayout
 import FlexLayout
+import RxSwift
+import RxCocoa
 
 class PensionLotteryWinningNumbersView: UIView {
+    var viewModel = LottoMateViewModel.shared
     fileprivate let rootFlexContainer = UIView()
     
     let groupAndNumbersContainer = UIView()
@@ -42,10 +45,13 @@ class PensionLotteryWinningNumbersView: UIView {
     let fifthPensionBonusNumber = WinningNumberCircleView()
     let sixthPensionBonusNumber = WinningNumberCircleView()
     
+    private let disposeBag = DisposeBag()
     
     init(groupNumber: Int) {
         super.init(frame: .zero)
         self.groupNumber = groupNumber
+        
+        bindData()
         
         configureCardView(for: rootFlexContainer)
         let shadowOffset = CGSize(width: 0, height: 0)
@@ -57,21 +63,15 @@ class PensionLotteryWinningNumbersView: UIView {
         groupLabel.text = "조"
         styleLabel(for: groupLabel, fontStyle: .label2, textColor: .black)
         
-        groupNumberBall.number = 4
+        
         groupNumberBall.circleColor = .black
         
-        firstPensionLotteryNumber.number = 8
-        firstPensionLotteryNumber.circleColor = .ltmRed
-        secondPensionLotteryNumber.number = 1
+        firstPensionLotteryNumber.circleColor = .red50Default
         secondPensionLotteryNumber.circleColor = .ltmPeach
-        thirdPensionLotteryNumber.number = 7
         thirdPensionLotteryNumber.circleColor = .ltmYellow
-        fourthPensionLotteryNumber.number = 5
-        fourthPensionLotteryNumber.circleColor = .ltmGreen
-        fifthPensionLotteryNumber.number = 1
-        fifthPensionLotteryNumber.circleColor = .ltmBlue
-        sixthPensionLotteryNumber.number = 9
-        sixthPensionLotteryNumber.circleColor = .ltmRed
+        fourthPensionLotteryNumber.circleColor = .ltmBlue
+        fifthPensionLotteryNumber.circleColor = .blue30
+        sixthPensionLotteryNumber.circleColor = .gray100
         
         bonusLabel.text = "보너스"
         styleLabel(for: bonusLabel, fontStyle: .caption, textColor: .gray_ACACAC)
@@ -80,18 +80,12 @@ class PensionLotteryWinningNumbersView: UIView {
         bonusGroupLabel.text = "조"
         styleLabel(for: bonusGroupLabel, fontStyle: .label2, textColor: .black)
         
-        firstPensionBonusNumber.number = 8
-        firstPensionBonusNumber.circleColor = .ltmRed
-        secondPensionBonusNumber.number = 1
+        firstPensionBonusNumber.circleColor = .red50Default
         secondPensionBonusNumber.circleColor = .ltmPeach
-        thirdPensionBonusNumber.number = 7
         thirdPensionBonusNumber.circleColor = .ltmYellow
-        fourthPensionBonusNumber.number = 5
-        fourthPensionBonusNumber.circleColor = .ltmGreen
-        fifthPensionBonusNumber.number = 1
-        fifthPensionBonusNumber.circleColor = .ltmBlue
-        sixthPensionBonusNumber.number = 9
-        sixthPensionBonusNumber.circleColor = .ltmRed
+        fourthPensionBonusNumber.circleColor = .ltmBlue
+        fifthPensionBonusNumber.circleColor = .blue30
+        sixthPensionBonusNumber.circleColor = .gray100
 
         rootFlexContainer.flex.direction(.column).paddingVertical(24).paddingHorizontal(20).define { flex in
             flex.addItem(rankLabel).alignSelf(.start).marginBottom(8)
@@ -142,6 +136,98 @@ class PensionLotteryWinningNumbersView: UIView {
         super.layoutSubviews()
         rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
         rootFlexContainer.flex.layout(mode: .adjustHeight)
+    }
+    
+    func bindData() {
+        // 조 번호
+        viewModel.pensionLotteryResult
+            .subscribe(onNext: { result in
+                let groupNumber = result?.pensionLotteryResult.lottoNum[0]
+                if let number = groupNumber {
+                    self.groupNumberBall.number = number
+                }
+            })
+            .disposed(by: disposeBag)
+        // 첫번째 번호
+        viewModel.pensionLotteryResult
+            .subscribe(onNext: { result in
+                let firstNumber = result?.pensionLotteryResult.lottoNum[1]
+                if let number = firstNumber {
+                    self.firstPensionLotteryNumber.number = number
+                }
+            })
+            .disposed(by: disposeBag)
+        // 두번째 번호
+        viewModel.pensionLotteryResult
+            .subscribe(onNext: { result in
+                let secondNumber = result?.pensionLotteryResult.lottoNum[2]
+                if let number = secondNumber {
+                    self.secondPensionLotteryNumber.number = number
+                }
+            })
+            .disposed(by: disposeBag)
+        // 세번째 번호
+        viewModel.pensionLotteryResult
+            .subscribe(onNext: { result in
+                let thirdNumber = result?.pensionLotteryResult.lottoNum[3]
+                if let number = thirdNumber {
+                    self.thirdPensionLotteryNumber.number = number
+                }
+            })
+            .disposed(by: disposeBag)
+        // 네번째 번호
+        viewModel.pensionLotteryResult
+            .subscribe(onNext: { result in
+                let fourthNumber = result?.pensionLotteryResult.lottoNum[4]
+                if let number = fourthNumber {
+                    self.fourthPensionLotteryNumber.number = number
+                }
+            })
+            .disposed(by: disposeBag)
+        // 다섯번째 번호
+        viewModel.pensionLotteryResult
+            .subscribe(onNext: { result in
+                let fifthNumber = result?.pensionLotteryResult.lottoNum[5]
+                if let number = fifthNumber {
+                    self.fifthPensionLotteryNumber.number = number
+                }
+            })
+            .disposed(by: disposeBag)
+        // 여섯번째 번호
+        viewModel.pensionLotteryResult
+            .subscribe(onNext: { result in
+                let sixthNumber = result?.pensionLotteryResult.lottoNum[6]
+                if let number = sixthNumber {
+                    self.sixthPensionLotteryNumber.number = number
+                }
+            })
+            .disposed(by: disposeBag)
+        // 보너스 번호
+        viewModel.pensionLotteryResult
+            .subscribe(onNext: { result in
+                if let firstBonusNumber = result?.pensionLotteryResult.lottoBonusNum[0] {
+                    self.firstPensionBonusNumber.number = firstBonusNumber
+                }
+                if let secondBonusNumber = result?.pensionLotteryResult.lottoBonusNum[1] {
+                    self.secondPensionBonusNumber.number = secondBonusNumber
+                }
+                if let thirdBonusNumber = result?.pensionLotteryResult.lottoBonusNum[2] {
+                    self.thirdPensionBonusNumber.number = thirdBonusNumber
+                }
+                if let fourthBonusNumber = result?.pensionLotteryResult.lottoBonusNum[3] {
+                    self.fourthPensionBonusNumber.number = fourthBonusNumber
+                }
+                if let fifthBonusNumber = result?.pensionLotteryResult.lottoBonusNum[4] {
+                    self.fifthPensionBonusNumber.number = fifthBonusNumber
+                }
+                if let sixthBonusNumber = result?.pensionLotteryResult.lottoBonusNum[5] {
+                    self.sixthPensionBonusNumber.number = sixthBonusNumber
+                }
+                
+            })
+            .disposed(by: disposeBag)
+        // 당첨 수
+        
     }
 }
 

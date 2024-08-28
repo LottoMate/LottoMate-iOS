@@ -9,8 +9,12 @@ import Foundation
 import Moya
 
 enum LottoMateService {
+    /// 로또 회차별 정보 조회
     case getLottoResult(round: Int)
+    /// 최신 로또 정보 조회 (홈)
     case getLottoHome
+    /// 연금 복권 회차별 정보 조회
+    case getPensionLotteryResult(round: Int)
 }
 
 extension LottoMateService: TargetType {
@@ -23,6 +27,8 @@ extension LottoMateService: TargetType {
             return "lottoInfo/645/\(round)"
         case .getLottoHome:
             return "/lottoInfo/home"
+        case .getPensionLotteryResult(let round):
+            return "lottoInfo/720/\(round)"
         }
     }
     
@@ -32,6 +38,8 @@ extension LottoMateService: TargetType {
             return .get
         case .getLottoHome:
             return .get
+        case .getPensionLotteryResult(_):
+            return .get
         }
     }
     
@@ -40,6 +48,8 @@ extension LottoMateService: TargetType {
         case .getLottoResult(_):
             return .requestPlain
         case .getLottoHome:
+            return .requestPlain
+        case .getPensionLotteryResult(_):
             return .requestPlain
         }
     }

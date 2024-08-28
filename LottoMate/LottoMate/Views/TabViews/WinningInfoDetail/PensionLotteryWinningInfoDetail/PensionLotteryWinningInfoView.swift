@@ -8,8 +8,12 @@
 import UIKit
 import PinLayout
 import FlexLayout
+import RxSwift
+import RxCocoa
 
 class PensionLotteryWinningInfoView: UIView {
+    let viewModel = LottoMateViewModel.shared
+    private let disposeBag = DisposeBag()
     fileprivate let rootFlexContainer = UIView()
     /// 당첨 번호 뷰 (groupNumber 정리 또는 제거 필요)
     let winningNumbersView = PensionLotteryWinningNumbersView(groupNumber: 1)
@@ -33,7 +37,11 @@ class PensionLotteryWinningInfoView: UIView {
     init() {
         super.init(frame: .zero)
         
+        bind()
+        
         drawRoundContainer()
+        
+        styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .black)
         
         lotteryResultsTitle.text = "당첨 번호 보기"
         styleLabel(for: lotteryResultsTitle, fontStyle: .headline1, textColor: .primaryGray)
@@ -81,6 +89,25 @@ class PensionLotteryWinningInfoView: UIView {
         super.layoutSubviews()
         rootFlexContainer.pin.top(pin.safeArea.top).horizontally()
         rootFlexContainer.flex.layout(mode: .adjustHeight)
+    }
+    
+    func bind() {
+        // 회차 라벨
+        viewModel.pensionLotteryResult
+            .map { result in
+                return "\(result?.pensionLotteryResult.drwNum ?? 0)회"
+            }
+            .bind(to: lotteryDrawRound.rx.text)
+            .disposed(by: disposeBag)
+        
+        // 추첨 날짜
+        viewModel.pensionLotteryResult
+            .map { result in
+                let dwrtDate = result?.pensionLotteryResult.drwDate.reformatDate ?? "no data"
+                return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
+            }
+            .bind(to: drawDate.rx.attributedText)
+            .disposed(by: disposeBag)
     }
 }
 

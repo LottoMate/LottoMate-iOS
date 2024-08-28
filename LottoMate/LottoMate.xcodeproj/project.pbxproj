@@ -42,6 +42,7 @@
 		09554D402C6907E4009D1847 /* LottoMateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D3F2C6907E4009D1847 /* LottoMateService.swift */; };
 		09554D422C6908E4009D1847 /* LottoMateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D412C6908E4009D1847 /* LottoMateViewModel.swift */; };
 		09554D442C6909C6009D1847 /* LottoResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D432C6909C6009D1847 /* LottoResultModel.swift */; };
+		096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -110,6 +111,7 @@
 		09554D3F2C6907E4009D1847 /* LottoMateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateService.swift; sourceTree = "<group>"; };
 		09554D412C6908E4009D1847 /* LottoMateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateViewModel.swift; sourceTree = "<group>"; };
 		09554D432C6909C6009D1847 /* LottoResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoResultModel.swift; sourceTree = "<group>"; };
+		096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryResultModel.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,12 +246,13 @@
 		09554D0F2C5E533D009D1847 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				09554D432C6909C6009D1847 /* LottoResultModel.swift */,
 				09554D122C5E5FB6009D1847 /* SampleData.swift */,
+				09554D432C6909C6009D1847 /* LottoResultModel.swift */,
+				091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */,
+				096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */,
 				09554D3F2C6907E4009D1847 /* LottoMateService.swift */,
 				09798E102C733CFF00FF187B /* LottoMateClient.swift */,
 				09554D412C6908E4009D1847 /* LottoMateViewModel.swift */,
-				091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09554D1F2C64B5CB009D1847 /* ViewTemplate.swift in Sources */,
+				096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */,
 				091C23682C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift in Sources */,
 				091672CB2C7E0EE800959767 /* BannerView.swift in Sources */,
 				091C23642C75B87100377A92 /* CustomSementedButton.swift in Sources */,
