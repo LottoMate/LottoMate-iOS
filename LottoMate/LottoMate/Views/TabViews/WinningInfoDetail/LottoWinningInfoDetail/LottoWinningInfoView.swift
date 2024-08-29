@@ -16,7 +16,7 @@ class LottoWinningInfoView: UIView {
     
     fileprivate let rootFlexContainer = UIView()
     
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     var firstPrizeCardView = LottoPrizeInfoCardView(prizeTier: .firstPrize)
     var secondPrizeCardView = LottoPrizeInfoCardView(prizeTier: .secondPrize)
@@ -150,6 +150,7 @@ class LottoWinningInfoView: UIView {
                     self.viewModel.fetchLottoResult(round: nextRound)
                 }
             })
+            .disposed(by: disposeBag)
     }
 }
 
