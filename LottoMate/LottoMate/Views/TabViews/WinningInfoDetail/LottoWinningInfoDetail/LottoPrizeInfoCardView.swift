@@ -104,7 +104,7 @@ class LottoPrizeInfoCardView: UIView {
         
         firstPrizeIcon.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         
-        styleLabel(for: prizeMoney, fontStyle: .title3, textColor: .black)
+        styleLabel(for: prizeMoney, fontStyle: .title3, textColor: .black, alignment: .left)
         
         perOnePersonLabel.text = "1인당"
         styleLabel(for: perOnePersonLabel, fontStyle: .label2, textColor: .gray80)
@@ -123,8 +123,8 @@ class LottoPrizeInfoCardView: UIView {
         winningConditionValueLabel.numberOfLines = 2
         styleLabel(for: winningConditionValueLabel, fontStyle: .headline2, textColor: .black, alignment: .left)
         
-        styleLabel(for: numberOfWinnersValueLabel, fontStyle: .headline2, textColor: .black)
-        styleLabel(for: prizePerWinnerValueLabel, fontStyle: .headline2, textColor: .black)
+        styleLabel(for: numberOfWinnersValueLabel, fontStyle: .headline2, textColor: .black, alignment: .left)
+        styleLabel(for: prizePerWinnerValueLabel, fontStyle: .headline2, textColor: .black, alignment: .left)
         
         addSubview(rootFlexContainer)
         
@@ -136,7 +136,7 @@ class LottoPrizeInfoCardView: UIView {
                 }
                 flex.addItem(rank).alignSelf(.start)
             }
-            flex.addItem(prizeMoney).alignSelf(.start).marginBottom(12)
+            flex.addItem(prizeMoney).alignSelf(.stretch).minWidth(0).maxWidth(.infinity).marginBottom(12)
             
             flex.addItem(prizeInfoDetailContainer).direction(.row).paddingVertical(16).paddingHorizontal(20).define { flex in
                 flex.addItem(prizeDetailLabelContainer).direction(.column).alignItems(.start).define { flex in
@@ -151,7 +151,7 @@ class LottoPrizeInfoCardView: UIView {
                 }
                 flex.addItem(prizeDetailValueContainer).direction(.column).alignItems(.start).paddingLeft(24).define { flex in
                     flex.addItem(winningConditionValueLabel).alignSelf(.start)
-                    flex.addItem(numberOfWinnersValueLabel).marginTop(10)
+                    flex.addItem(numberOfWinnersValueLabel).alignSelf(.stretch).minWidth(0).maxWidth(.infinity).marginTop(10)
                     flex.addItem(prizePerWinnerValueLabel).marginTop(10)
                 }
             }
@@ -195,7 +195,7 @@ class LottoPrizeInfoCardView: UIView {
                 var winnerCount = 0
                 switch self.prizeTier {
                 case .firstPrize:
-                    winnerCount = result?.lottoResult.p1WinnrCnt ?? 0
+                    winnerCount = result?.lottoResult.p1WinnrCnt ?? 0 // 데이터 없을 경우 뷰가 줄어드는 현상 때문에 임시로 큰 값을 기본값으로 줌.
                 case .secondPrize:
                     winnerCount = result?.lottoResult.p2WinnrCnt ?? 0
                 case .thirdPrize:
@@ -205,11 +205,10 @@ class LottoPrizeInfoCardView: UIView {
                 case .fifthPrize:
                     winnerCount = result?.lottoResult.p5WinnrCnt ?? 0
                 }
-                return "\(winnerCount)명"
+                return "\(winnerCount.formattedWithSeparator())명"
             }
             .bind(to: numberOfWinnersValueLabel.rx.text)
             .disposed(by: disposeBag)
-        
         
         viewModel.lottoResult
             .map { result in

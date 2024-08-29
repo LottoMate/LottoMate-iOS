@@ -51,21 +51,6 @@ class LottoWinningNumbersView: UIView {
         BonusLabel.text = "보너스"
         styleLabel(for: BonusLabel, fontStyle: .caption, textColor: .gray_ACACAC)
         
-        // MARK: 당첨 번호 설정
-//        firstNumberView.circleColor = .ltmRed
-        
-//        secondNumberView.circleColor = .ltmBlue
-        
-//        thirdNumberView.circleColor = .ltmGreen
-//        
-//        fourthNumberView.circleColor = .ltmPeach
-//        
-//        fifthNumberView.circleColor = .ltmYellow
-//        
-//        sixthNumberView.circleColor = .ltm_E1464C
-//        
-//        bonusNumberView.circleColor = .ltmRed
-        
         plusIcon.image = UIImage(named: "plus")
         plusIcon.contentMode = .center
         

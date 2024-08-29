@@ -25,10 +25,11 @@ class TestButtonView: UIView {
         super.init(frame: .zero)
         backgroundColor = .white
         
-//        viewModel.fetchLottoHome()
-        
+        #if !NO_SERVER
+        viewModel.fetchLottoHome()
         bindData()
-        
+        #endif
+                
         defaultSolidButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         parseHtml()
@@ -55,7 +56,10 @@ class TestButtonView: UIView {
         viewModel.latestLotteryResult
             .subscribe(onNext: { result in
                 if let latestLottoDrawNumber = result?.the645.drwNum {
-//                    self.viewModel.fetchLottoResult(round: latestLottoDrawNumber)
+                    self.viewModel.fetchLottoResult(round: latestLottoDrawNumber)
+                }
+                if let latestPensionLotteryResult = result?.the720.drwNum {
+                    self.viewModel.fetchPensionLotteryResult(round: latestPensionLotteryResult)
                 }
             })
             .disposed(by: disposeBag)

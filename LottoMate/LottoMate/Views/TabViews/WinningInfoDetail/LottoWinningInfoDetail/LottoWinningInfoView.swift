@@ -16,7 +16,7 @@ class LottoWinningInfoView: UIView {
     
     fileprivate let rootFlexContainer = UIView()
     
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     var firstPrizeCardView = LottoPrizeInfoCardView(prizeTier: .firstPrize)
     var secondPrizeCardView = LottoPrizeInfoCardView(prizeTier: .secondPrize)
@@ -132,10 +132,23 @@ class LottoWinningInfoView: UIView {
             .bind(to: drawDate.rx.attributedText)
             .disposed(by: disposeBag)
         
-        // round를 어떻게 보낼지....
         previousRoundButton.rx.tap
             .subscribe(onNext: { _ in
-                self.viewModel.fetchLottoResult(round: 902)
+                if let currentRound = self.viewModel.currentLottoRound.value {
+                    let previousRound = currentRound - 1
+                    self.viewModel.currentLottoRound.accept(previousRound)
+                    self.viewModel.fetchLottoResult(round: previousRound)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        nextRoundButton.rx.tap
+            .subscribe(onNext: { _ in
+                if let currentRound = self.viewModel.currentLottoRound.value {
+                    let nextRound = currentRound + 1
+                    self.viewModel.currentLottoRound.accept(nextRound)
+                    self.viewModel.fetchLottoResult(round: nextRound)
+                }
             })
             .disposed(by: disposeBag)
     }

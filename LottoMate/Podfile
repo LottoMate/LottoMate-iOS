@@ -24,4 +24,7 @@ target 'LottoMate' do
     # Pods for testing
   end
 
+ 
+  project 'LottoMate', 'NoServerDebug' => :debug
+
 end

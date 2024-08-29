@@ -26,4 +26,11 @@ class LottoMateClient {
             .map(LatestLotteryWinningInfoModel.self)
             .asObservable()
     }
+    /// 연금복권 회차별 정보 조회
+    func getPensionLotteryResult(round: Int) -> Observable<PensionLotteryResultModel> {
+        return provider.rx.request(.getPensionLotteryResult(round: round))
+            .filterSuccessfulStatusCodes()
+            .map(PensionLotteryResultModel.self)
+            .asObservable()
+    }
 }
