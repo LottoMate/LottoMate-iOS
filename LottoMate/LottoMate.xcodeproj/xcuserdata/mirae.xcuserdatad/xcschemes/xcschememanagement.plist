@@ -7,7 +7,30 @@
 		<key>LottoMate.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>1</integer>
+		</dict>
+		<key>NO_SERVER.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>096966572C4FE27600BCE28B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0969666D2C4FE27800BCE28B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>096966772C4FE27800BCE28B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
