@@ -30,4 +30,20 @@ extension UIColor {
         return UIColor(named: "ACACAC") ?? .clear
     }
     
+    // MARK: 각 로또 등수의 텍스트 컬러 (1등, 2등...)
+    static var firstPrizeTextColor: UIColor {
+        return UIColor(named: "red_50_default") ?? .black
+    }
+    static var secondPrizeTextColor: UIColor {
+        return UIColor(named: "red_30") ?? .black
+    }
+    static var thirdPrizeTextColor: UIColor {
+        return UIColor(named: "yellow_60") ?? .black
+    }
+    static var fourthPrizeTextColor: UIColor {
+        return UIColor(named: "green_50_default") ?? .black
+    }
+    static var fifthPrizeTextColor: UIColor {
+        return UIColor(named: "blue_40") ?? .black
+    }
 }

@@ -9,19 +9,17 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    let viewModel = LottoMateViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
         
         // MARK: Home Tab
-        let homeViewController = WinningNumbersDetailViewController(viewModel: viewModel)
+        let homeViewController = HomeViewController()
         let homeTabIcon = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         homeViewController.tabBarItem = homeTabIcon
         
         // MARK: Map Tab
-        let mapViewController = SpeetoWinningInfoViewController()
+        let mapViewController = WinningNumbersDetailViewController()
         let mapTabIcon = UITabBarItem(title: "지도", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
         mapViewController.tabBarItem = mapTabIcon
         

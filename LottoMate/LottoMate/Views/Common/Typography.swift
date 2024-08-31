@@ -70,7 +70,7 @@ public enum Typography {
         case .headline1:
             return 28
         case .headline2:
-            return 26
+            return 24
         case .body1:
             return 24
         case .body2:
@@ -115,16 +115,15 @@ public enum Typography {
         return font
     }
     
-    func attributes() -> [NSAttributedString.Key: Any] {
+    func attributes(alignment: NSTextAlignment = .center) -> [NSAttributedString.Key: Any] {
         let paragraphStyle = NSMutableParagraphStyle()
         
         paragraphStyle.minimumLineHeight = self.lineHeight
         paragraphStyle.maximumLineHeight = self.lineHeight
+        paragraphStyle.alignment = alignment
         
         let font = font()
         let baselineOffset = (self.lineHeight - font.lineHeight) / 2.0
-        
-        paragraphStyle.alignment = .center // 텍스트 뷰의 width가 최대한 넓게 설정됐을 때 가운데 오도록 함 (예: nav bar)
         
         return [
             .font: font,
@@ -136,9 +135,9 @@ public enum Typography {
 }
 
 // MARK: 사용
-public func styleLabel(for label: UILabel, fontStyle: Typography, textColor: UIColor) {
+public func styleLabel(for label: UILabel, fontStyle: Typography, textColor: UIColor, alignment: NSTextAlignment = .center) {
     let fontStyle: Typography = fontStyle
-    let attributedString = NSAttributedString(string: label.text ?? "", attributes: fontStyle.attributes())
+    let attributedString = NSAttributedString(string: label.text ?? "", attributes: fontStyle.attributes(alignment: alignment))
     
     label.attributedText = attributedString
     label.textColor = textColor

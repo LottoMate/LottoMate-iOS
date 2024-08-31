@@ -28,4 +28,21 @@ extension UIView {
         rootFlexContainer.layer.borderColor = UIColor.lightestGray.cgColor
         rootFlexContainer.layer.cornerRadius = 16
     }
+    
+    func colorForNumber(_ number: Int) -> UIColor {
+        switch number {
+        case 1...10:
+            return .yellow50Default
+        case 11...20:
+            return .blue50Default
+        case 21...30:
+            return .red50Default
+        case 31...40:
+            return .gray90
+        case 41...45:
+            return .green50Default
+        default:
+            return .gray // 범위 밖의 숫자에 대해 기본값 설정
+        }
+    }
 }

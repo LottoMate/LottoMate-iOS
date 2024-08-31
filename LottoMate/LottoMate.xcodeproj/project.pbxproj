@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		091C235E2C74F25400377A92 /* SpeetoWinningInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C235D2C74F25300377A92 /* SpeetoWinningInfoViewController.swift */; };
-		091C23622C74F98900377A92 /* SpeetoTypeButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23612C74F98900377A92 /* SpeetoTypeButtons.swift */; };
+		091672BE2C78CC6300959767 /* LottoWinningInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672BD2C78CC6300959767 /* LottoWinningInfoView.swift */; };
+		091672C02C7B505E00959767 /* LottoPrizeInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672BF2C7B505E00959767 /* LottoPrizeInfoCardView.swift */; };
+		091672C32C7CCB2600959767 /* PensionLotteryWinningInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672C22C7CCB2600959767 /* PensionLotteryWinningInfoView.swift */; };
+		091672C52C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672C42C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift */; };
+		091672C72C7DAE6100959767 /* PensionLotteryPrizeInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672C62C7DAE6100959767 /* PensionLotteryPrizeInfoCardView.swift */; };
+		091672C92C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */; };
+		091672CB2C7E0EE800959767 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672CA2C7E0EE800959767 /* BannerView.swift */; };
+		091C235E2C74F25400377A92 /* SpeetoWinningInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C235D2C74F25300377A92 /* SpeetoWinningInfoView.swift */; };
 		091C23642C75B87100377A92 /* CustomSementedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23632C75B87100377A92 /* CustomSementedButton.swift */; };
 		091C23662C75C43300377A92 /* SpeetoPrizeInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23652C75C43300377A92 /* SpeetoPrizeInfoCardView.swift */; };
 		091C23682C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23672C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift */; };
-		091C236A2C765CCA00377A92 /* LotteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23692C765CCA00377A92 /* LotteryViewController.swift */; };
 		09341C1D2C52394900B47642 /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C1C2C52394900B47642 /* StyledButton.swift */; };
-		09341C222C52653B00B47642 /* TestButtonView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C212C52653B00B47642 /* TestButtonView .swift */; };
+		09341C222C52653B00B47642 /* TestButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C212C52653B00B47642 /* TestButtonView.swift */; };
 		09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C252C53A71000B47642 /* TabBarViewController.swift */; };
 		09341C2A2C53AA6E00B47642 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C292C53AA6E00B47642 /* HomeViewController.swift */; };
 		09341C2C2C53AA8000B47642 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C2B2C53AA8000B47642 /* MapViewController.swift */; };
@@ -36,7 +41,9 @@
 		09554D252C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D242C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift */; };
 		09554D402C6907E4009D1847 /* LottoMateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D3F2C6907E4009D1847 /* LottoMateService.swift */; };
 		09554D422C6908E4009D1847 /* LottoMateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D412C6908E4009D1847 /* LottoMateViewModel.swift */; };
-		09554D442C6909C6009D1847 /* LottoResultInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D432C6909C6009D1847 /* LottoResultInfoModel.swift */; };
+		09554D442C6909C6009D1847 /* LottoResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D432C6909C6009D1847 /* LottoResultModel.swift */; };
+		096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */; };
+		096552682C809C5B00897DA7 /* GoogleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552672C809C5B00897DA7 /* GoogleLoginTestView.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -70,15 +77,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		091C235D2C74F25300377A92 /* SpeetoWinningInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoWinningInfoViewController.swift; sourceTree = "<group>"; };
-		091C23612C74F98900377A92 /* SpeetoTypeButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoTypeButtons.swift; sourceTree = "<group>"; };
+		0480271ED3F98A696AE44FE6 /* Pods-LottoMateTests.noserverdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMateTests.noserverdebug.xcconfig"; path = "Target Support Files/Pods-LottoMateTests/Pods-LottoMateTests.noserverdebug.xcconfig"; sourceTree = "<group>"; };
+		091672BD2C78CC6300959767 /* LottoWinningInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoWinningInfoView.swift; sourceTree = "<group>"; };
+		091672BF2C7B505E00959767 /* LottoPrizeInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoPrizeInfoCardView.swift; sourceTree = "<group>"; };
+		091672C22C7CCB2600959767 /* PensionLotteryWinningInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryWinningInfoView.swift; sourceTree = "<group>"; };
+		091672C42C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PensionLotteryWinningInfoView+UIConfiguration.swift"; sourceTree = "<group>"; };
+		091672C62C7DAE6100959767 /* PensionLotteryPrizeInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryPrizeInfoCardView.swift; sourceTree = "<group>"; };
+		091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestLotteryWinningInfoModel.swift; sourceTree = "<group>"; };
+		091672CA2C7E0EE800959767 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		091C235D2C74F25300377A92 /* SpeetoWinningInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoWinningInfoView.swift; sourceTree = "<group>"; };
 		091C23632C75B87100377A92 /* CustomSementedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSementedButton.swift; sourceTree = "<group>"; };
 		091C23652C75C43300377A92 /* SpeetoPrizeInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoPrizeInfoCardView.swift; sourceTree = "<group>"; };
 		091C23672C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoCardViewDetailContainer.swift; sourceTree = "<group>"; };
-		091C23692C765CCA00377A92 /* LotteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryViewController.swift; sourceTree = "<group>"; };
 		09341C1B2C51651500B47642 /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
 		09341C1C2C52394900B47642 /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
-		09341C212C52653B00B47642 /* TestButtonView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestButtonView .swift"; sourceTree = "<group>"; };
+		09341C212C52653B00B47642 /* TestButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonView.swift; sourceTree = "<group>"; };
 		09341C252C53A71000B47642 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		09341C292C53AA6E00B47642 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		09341C2B2C53AA8000B47642 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +112,9 @@
 		09554D242C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryWinningNumbersView.swift; sourceTree = "<group>"; };
 		09554D3F2C6907E4009D1847 /* LottoMateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateService.swift; sourceTree = "<group>"; };
 		09554D412C6908E4009D1847 /* LottoMateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateViewModel.swift; sourceTree = "<group>"; };
-		09554D432C6909C6009D1847 /* LottoResultInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoResultInfoModel.swift; sourceTree = "<group>"; };
+		09554D432C6909C6009D1847 /* LottoResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoResultModel.swift; sourceTree = "<group>"; };
+		096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryResultModel.swift; sourceTree = "<group>"; };
+		096552672C809C5B00897DA7 /* GoogleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginTestView.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +129,8 @@
 		0969667E2C4FE27800BCE28B /* LottoMateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		09798E102C733CFF00FF187B /* LottoMateClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateClient.swift; sourceTree = "<group>"; };
+		240B263A735F095C46EA4650 /* Pods-LottoMate.noserverdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate.noserverdebug.xcconfig"; path = "Target Support Files/Pods-LottoMate/Pods-LottoMate.noserverdebug.xcconfig"; sourceTree = "<group>"; };
+		4B1D68161677AA97D1129FFE /* Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig"; path = "Target Support Files/Pods-LottoMate-LottoMateUITests/Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig"; sourceTree = "<group>"; };
 		5E5C7A7533DF885F7DE00D46 /* Pods-LottoMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate.debug.xcconfig"; path = "Target Support Files/Pods-LottoMate/Pods-LottoMate.debug.xcconfig"; sourceTree = "<group>"; };
 		68C69D96F3ED39DB5BA4D4AE /* Pods_LottoMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottoMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7044F1E30336263B6D0F3A34 /* Pods-LottoMate-LottoMateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate-LottoMateUITests.debug.xcconfig"; path = "Target Support Files/Pods-LottoMate-LottoMateUITests/Pods-LottoMate-LottoMateUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +170,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		091672BC2C78CC2800959767 /* LottoWinningInfoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				091672BD2C78CC6300959767 /* LottoWinningInfoView.swift */,
+				09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */,
+				091672BF2C7B505E00959767 /* LottoPrizeInfoCardView.swift */,
+				09341CA62C5B9C6300B47642 /* LottoWinningNumbersView.swift */,
+			);
+			path = LottoWinningInfoDetail;
+			sourceTree = "<group>";
+		};
+		091672C12C7CCAEA00959767 /* PensionLotteryWinningInfoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				091672C22C7CCB2600959767 /* PensionLotteryWinningInfoView.swift */,
+				09554D242C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift */,
+				091672C42C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift */,
+				091672C62C7DAE6100959767 /* PensionLotteryPrizeInfoCardView.swift */,
+			);
+			path = PensionLotteryWinningInfoDetail;
+			sourceTree = "<group>";
+		};
 		09341C272C53A72200B47642 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,7 +209,7 @@
 				09341C252C53A71000B47642 /* TabBarViewController.swift */,
 				09341C292C53AA6E00B47642 /* HomeViewController.swift */,
 				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
-				09341C212C52653B00B47642 /* TestButtonView .swift */,
+				09341C212C52653B00B47642 /* TestButtonView.swift */,
 			);
 			path = TabViews;
 			sourceTree = "<group>";
@@ -180,6 +219,7 @@
 			children = (
 				09554D202C64B6EB009D1847 /* Common */,
 				09341C282C53AA4400B47642 /* TabViews */,
+				096552672C809C5B00897DA7 /* GoogleLoginTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,11 +227,11 @@
 		09341CA42C5B9C0600B47642 /* WinningInfoDetail */ = {
 			isa = PBXGroup;
 			children = (
-				09CB96002C748693001083F5 /* SpeetoWinningInfoDetail */,
 				09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */,
-				091C23692C765CCA00377A92 /* LotteryViewController.swift */,
 				09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */,
-				09554D162C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift */,
+				091672BC2C78CC2800959767 /* LottoWinningInfoDetail */,
+				091672C12C7CCAEA00959767 /* PensionLotteryWinningInfoDetail */,
+				09CB96002C748693001083F5 /* SpeetoWinningInfoDetail */,
 				09341CA52C5B9C3200B47642 /* Subviews */,
 			);
 			path = WinningInfoDetail;
@@ -200,12 +240,11 @@
 		09341CA52C5B9C3200B47642 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				09341CA62C5B9C6300B47642 /* LottoWinningNumbersView.swift */,
-				09554D242C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift */,
 				09341CA82C5BC97800B47642 /* WinningNumberCircleView.swift */,
 				09554D142C5E619C009D1847 /* DrawPickerViewController.swift */,
 				09554D1C2C649740009D1847 /* PrizeInfoCardView.swift */,
 				09554D212C64B798009D1847 /* LotteryTypeButtonsView.swift */,
+				091672CA2C7E0EE800959767 /* BannerView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -214,10 +253,12 @@
 			isa = PBXGroup;
 			children = (
 				09554D122C5E5FB6009D1847 /* SampleData.swift */,
+				09554D432C6909C6009D1847 /* LottoResultModel.swift */,
+				091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */,
+				096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */,
 				09554D3F2C6907E4009D1847 /* LottoMateService.swift */,
 				09798E102C733CFF00FF187B /* LottoMateClient.swift */,
 				09554D412C6908E4009D1847 /* LottoMateViewModel.swift */,
-				09554D432C6909C6009D1847 /* LottoResultInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,8 +350,7 @@
 		09CB96002C748693001083F5 /* SpeetoWinningInfoDetail */ = {
 			isa = PBXGroup;
 			children = (
-				091C235D2C74F25300377A92 /* SpeetoWinningInfoViewController.swift */,
-				091C23612C74F98900377A92 /* SpeetoTypeButtons.swift */,
+				091C235D2C74F25300377A92 /* SpeetoWinningInfoView.swift */,
 				091C23652C75C43300377A92 /* SpeetoPrizeInfoCardView.swift */,
 				091C23672C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift */,
 			);
@@ -336,6 +376,9 @@
 				A49C3277C82D089FC5C91474 /* Pods-LottoMate-LottoMateUITests.release.xcconfig */,
 				7FF700B421FB4DC0BC87F3C3 /* Pods-LottoMateTests.debug.xcconfig */,
 				9F05A526772F04023CB62B16 /* Pods-LottoMateTests.release.xcconfig */,
+				240B263A735F095C46EA4650 /* Pods-LottoMate.noserverdebug.xcconfig */,
+				4B1D68161677AA97D1129FFE /* Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig */,
+				0480271ED3F98A696AE44FE6 /* Pods-LottoMateTests.noserverdebug.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -358,8 +401,6 @@
 			dependencies = (
 			);
 			name = LottoMate;
-			packageProductDependencies = (
-			);
 			productName = LottoMate;
 			productReference = 096966582C4FE27600BCE28B /* LottoMate.app */;
 			productType = "com.apple.product-type.application";
@@ -435,8 +476,6 @@
 				Base,
 			);
 			mainGroup = 0969664F2C4FE27600BCE28B;
-			packageReferences = (
-			);
 			productRefGroup = 096966592C4FE27600BCE28B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -585,35 +624,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				09554D1F2C64B5CB009D1847 /* ViewTemplate.swift in Sources */,
-				091C236A2C765CCA00377A92 /* LotteryViewController.swift in Sources */,
+				096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */,
 				091C23682C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift in Sources */,
+				091672CB2C7E0EE800959767 /* BannerView.swift in Sources */,
 				091C23642C75B87100377A92 /* CustomSementedButton.swift in Sources */,
 				09554D112C5E5376009D1847 /* Extensions.swift in Sources */,
 				09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */,
-				09554D442C6909C6009D1847 /* LottoResultInfoModel.swift in Sources */,
+				091672C02C7B505E00959767 /* LottoPrizeInfoCardView.swift in Sources */,
+				09554D442C6909C6009D1847 /* LottoResultModel.swift in Sources */,
 				09341CA72C5B9C6300B47642 /* LottoWinningNumbersView.swift in Sources */,
 				09341CA12C58D8C500B47642 /* WinningInfoDetailView.swift in Sources */,
+				091672BE2C78CC6300959767 /* LottoWinningInfoView.swift in Sources */,
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
 				09554D222C64B798009D1847 /* LotteryTypeButtonsView.swift in Sources */,
 				09554D422C6908E4009D1847 /* LottoMateViewModel.swift in Sources */,
-				091C23622C74F98900377A92 /* SpeetoTypeButtons.swift in Sources */,
 				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
 				09554D252C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift in Sources */,
+				091672C52C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift in Sources */,
+				091672C32C7CCB2600959767 /* PensionLotteryWinningInfoView.swift in Sources */,
 				09554D1D2C649740009D1847 /* PrizeInfoCardView.swift in Sources */,
+				096552682C809C5B00897DA7 /* GoogleLoginTestView.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
 				09554D132C5E5FB6009D1847 /* SampleData.swift in Sources */,
 				09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */,
-				09341C222C52653B00B47642 /* TestButtonView .swift in Sources */,
+				09341C222C52653B00B47642 /* TestButtonView.swift in Sources */,
 				09554D172C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift in Sources */,
 				0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */,
 				09341C9B2C57F68B00B47642 /* WinningNumbersDetailViewController.swift in Sources */,
+				091672C72C7DAE6100959767 /* PensionLotteryPrizeInfoCardView.swift in Sources */,
 				09341C2C2C53AA8000B47642 /* MapViewController.swift in Sources */,
 				09554D402C6907E4009D1847 /* LottoMateService.swift in Sources */,
 				09341CAB2C5D140800B47642 /* UIView+Extensions.swift in Sources */,
 				09341C9E2C57FB0700B47642 /* Typography.swift in Sources */,
 				091C23662C75C43300377A92 /* SpeetoPrizeInfoCardView.swift in Sources */,
-				091C235E2C74F25400377A92 /* SpeetoWinningInfoViewController.swift in Sources */,
+				091672C92C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift in Sources */,
+				091C235E2C74F25400377A92 /* SpeetoWinningInfoView.swift in Sources */,
 				09798E112C733CFF00FF187B /* LottoMateClient.swift in Sources */,
 				09341CAF2C5E2FE200B47642 /* UIColor+Extensions.swift in Sources */,
 				09341C2A2C53AA6E00B47642 /* HomeViewController.swift in Sources */,
@@ -672,6 +718,137 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		096552632C7FFA7B00897DA7 /* NoServerDebug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = NO_SERVER;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = NO_SERVER;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = NoServerDebug;
+		};
+		096552642C7FFA7B00897DA7 /* NoServerDebug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240B263A735F095C46EA4650 /* Pods-LottoMate.noserverdebug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6K4KG4NH2;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LottoMate/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LottoMate.ltm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = NoServerDebug;
+		};
+		096552652C7FFA7B00897DA7 /* NoServerDebug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0480271ED3F98A696AE44FE6 /* Pods-LottoMateTests.noserverdebug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6K4KG4NH2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mirae.LottoMateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LottoMate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LottoMate";
+			};
+			name = NoServerDebug;
+		};
+		096552662C7FFA7B00897DA7 /* NoServerDebug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B1D68161677AA97D1129FFE /* Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6K4KG4NH2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mirae.LottoMateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LottoMate;
+			};
+			name = NoServerDebug;
+		};
 		096966802C4FE27800BCE28B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -714,10 +891,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -799,7 +972,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UWBTUB2396;
+				DEVELOPMENT_TEAM = G6K4KG4NH2;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LottoMate/Supporting Files/Info.plist";
@@ -814,7 +987,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Mirae.LottoMate;
+				PRODUCT_BUNDLE_IDENTIFIER = LottoMate.ltm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -845,7 +1018,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Mirae.LottoMate;
+				PRODUCT_BUNDLE_IDENTIFIER = LottoMate.ltm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -940,6 +1113,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				096966802C4FE27800BCE28B /* Debug */,
+				096552632C7FFA7B00897DA7 /* NoServerDebug */,
 				096966812C4FE27800BCE28B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -949,6 +1123,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				096966832C4FE27800BCE28B /* Debug */,
+				096552642C7FFA7B00897DA7 /* NoServerDebug */,
 				096966842C4FE27800BCE28B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -958,6 +1133,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				096966862C4FE27800BCE28B /* Debug */,
+				096552652C7FFA7B00897DA7 /* NoServerDebug */,
 				096966872C4FE27800BCE28B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -967,6 +1143,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				096966892C4FE27800BCE28B /* Debug */,
+				096552662C7FFA7B00897DA7 /* NoServerDebug */,
 				0969668A2C4FE27800BCE28B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

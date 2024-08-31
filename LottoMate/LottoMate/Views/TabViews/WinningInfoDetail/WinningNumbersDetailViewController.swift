@@ -11,6 +11,7 @@ import PinLayout
 import RxSwift
 import RxCocoa
 import RxRelay
+import BottomSheet
 
 class WinningNumbersDetailViewController: UIViewController {
     fileprivate var mainView: WinningInfoDetailView {
@@ -18,7 +19,7 @@ class WinningNumbersDetailViewController: UIViewController {
     }
     
     fileprivate let rootFlexContainer = UIView()
-    private let viewModel: LottoMateViewModel
+    let viewModel = LottoMateViewModel.shared
     private let loadingIndicator = UIActivityIndicatorView(style: .large)
     private let disposeBag = DisposeBag()
     
@@ -28,15 +29,6 @@ class WinningNumbersDetailViewController: UIViewController {
     let navTitleLabel = UILabel()
     /// 네비게이션 아이템 뒤로가기 버튼
     let navBackButton = UIButton()
-    
-    init(viewModel: LottoMateViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     let winningInfoDetailView = WinningInfoDetailView()
     
@@ -55,6 +47,9 @@ class WinningNumbersDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bind()
+        bindViewModel()
+        
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
         
@@ -72,11 +67,6 @@ class WinningNumbersDetailViewController: UIViewController {
         }
         
         view.addSubview(rootFlexContainer)
-        
-        // 회차별 로또 정보 가져오기
-        viewModel.fetchLottoResult(round: 1126)
-        bindViewModel()
-//        setupBindings()
     }
     
     override func viewDidLayoutSubviews() {
@@ -86,7 +76,18 @@ class WinningNumbersDetailViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        mainView.bind(viewModel: viewModel)
+        mainView.setupBindings(viewModel: viewModel)
+    }
+    
+    func bind() {
+        viewModel.lottoRoundTapEvent
+            .subscribe(onNext: { isTapped in
+                guard let tapped = isTapped else { return }
+                if tapped {
+                    self.showDrawPicker()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     @objc func backButtonTapped() {
@@ -98,18 +99,22 @@ class WinningNumbersDetailViewController: UIViewController {
         pickerVC.modalPresentationStyle = .pageSheet
         pickerVC.modalTransitionStyle = .coverVertical
         
-        if let sheet = pickerVC.sheetPresentationController {
-            sheet.detents = [
-                .custom { context in
-                    return 200 // Custom height in points
-                }
-            ]
-            sheet.prefersGrabberVisible = true
-        }
         pickerVC.selectedDrawInfo = { selectedInfo in
             print("Selected draw info: \(selectedInfo)")
         }
-        present(pickerVC, animated: true, completion: nil)
+//        present(pickerVC, animated: true, completion: nil)
+        
+        present(pickerVC, animated: true) {
+            if let sheet = pickerVC.sheetPresentationController {
+                sheet.detents = [
+                    .custom { context in
+                        print("pickerVC.view.frame.height: \(pickerVC.view.frame.height)")
+                        return 284.0
+                    }
+                ]
+                sheet.prefersGrabberVisible = false
+            }
+        }
     }
     
     func changeStatusBarBgColor(bgColor: UIColor?) {
@@ -139,6 +144,6 @@ extension WinningNumbersDetailViewController: WinningInfoDetailViewDelegate {
 }
 
 #Preview {
-    let winningNumbersDetailViewController = WinningNumbersDetailViewController(viewModel: LottoMateViewModel())
+    let winningNumbersDetailViewController = WinningNumbersDetailViewController()
     return winningNumbersDetailViewController
 }

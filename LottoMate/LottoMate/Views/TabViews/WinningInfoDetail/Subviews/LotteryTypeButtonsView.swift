@@ -14,32 +14,24 @@ import RxCocoa
 class LotteryTypeButtonsView: UIView {
     fileprivate let rootFlexContainer = UIView()
     
+    let viewModel = LottoMateViewModel.shared
+    
     var lottoTypeButton = StyledButton(title: "로또", buttonStyle: .solid(.round, .active), fontSize: 14, cornerRadius: 17, verticalPadding: 6, horizontalPadding: 16)
     var pensionLotteryTypeButton = StyledButton(title: "연금복권", buttonStyle: .assistive(.round, .active), fontSize: 14, cornerRadius: 17, verticalPadding: 6, horizontalPadding: 16)
     var speetoTypeButton = StyledButton(title: "스피또", buttonStyle: .assistive(.round, .active), fontSize: 14, cornerRadius: 17, verticalPadding: 6, horizontalPadding: 16)
     
-    //    var selectedLotteryType: LotteryType? {
-    //        didSet {
-    //            updateButtonStyles()
-    //            onStateChanged?(selectedLotteryType!)
-    //        }
-    //    }
-    
-    //    var onStateChanged: ((LotteryType) -> Void)?
-    
     private let disposeBag = DisposeBag()
-    
     // Observable to emit selected lottery type
-    var selectedLotteryType: Observable<LotteryType> {
-        return selectedLotteryTypeRelay.asObservable()
-    }
-    
-    private let selectedLotteryTypeRelay = BehaviorRelay<LotteryType>(value: .lotto)
+//    var selectedLotteryType: Observable<LotteryType> {
+//        return selectedLotteryTypeRelay.asObservable()
+//    }
+//    private let selectedLotteryTypeRelay = BehaviorRelay<LotteryType>(value: .lotto)
     
     init() {
         super.init(frame: .zero)
         
-        selectedLotteryTypeRelay.accept(.lotto)
+//        selectedLotteryTypeRelay.accept(.lotto)
+//        bind(viewModel: viewModel)
         setupBindings()
         
         rootFlexContainer.flex.direction(.row).define { flex in
@@ -47,14 +39,7 @@ class LotteryTypeButtonsView: UIView {
             flex.addItem(pensionLotteryTypeButton).marginRight(10)
             flex.addItem(speetoTypeButton)
         }
-        
         addSubview(rootFlexContainer)
-        
-//        lottoTypeButton.addTarget(self, action: #selector(lottoButtonTapped), for: .touchUpInside)
-//        pensionLotteryTypeButton.addTarget(self, action: #selector(pensionButtonTapped), for: .touchUpInside)
-//        speetoTypeButton.addTarget(self, action: #selector(speetoButtonTapped), for: .touchUpInside)
-        
-        //        selectedLotteryType = .lotto
     }
     
     required init?(coder: NSCoder) {
@@ -63,27 +48,14 @@ class LotteryTypeButtonsView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
     
-    // MARK: 버튼 액션
-    //    @objc private func lottoButtonTapped() {
-    //        selectedLotteryType = .lotto
-    //    }
-    //    @objc private func pensionButtonTapped() {
-    //        selectedLotteryType = .pensionLottery
-    //    }
-    //    @objc private func speetoButtonTapped() {
-    //        selectedLotteryType = .speeto
-    //    }
-    //
-    //    private func updateButtonStyles() {
-    //        lottoTypeButton.style = (selectedLotteryType == .lotto) ? .solid(.round, .active) : .assistive(.round, .active)
-    //        pensionLotteryTypeButton.style = (selectedLotteryType == .pensionLottery) ? .solid(.round, .active) : .assistive(.round, .active)
-    //        speetoTypeButton.style = (selectedLotteryType == .speeto) ? .solid(.round, .active) : .assistive(.round, .active)
-    //    }
+    func bind(viewModel: LottoMateViewModel) {
+        // init에 triggering 하지 않아도 되는지 확인
+//        setupBindings(viewModel: viewModel)
+    }
     
     private func setupBindings() {
         let lottoButtonTap = lottoTypeButton.rx.tap.asObservable()
@@ -93,10 +65,10 @@ class LotteryTypeButtonsView: UIView {
         Observable.merge(lottoButtonTap.map { LotteryType.lotto },
                          pensionButtonTap.map { LotteryType.pensionLottery },
                          speetoButtonTap.map { LotteryType.speeto })
-        .bind(to: selectedLotteryTypeRelay)
+        .bind(to: viewModel.selectedLotteryType)
         .disposed(by: disposeBag)
         
-        selectedLotteryType
+        viewModel.selectedLotteryType
             .subscribe(onNext: { [weak self] lotteryType in
                 self?.updateButtonStyles(for: lotteryType)
             })
