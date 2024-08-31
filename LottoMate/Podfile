@@ -13,7 +13,10 @@ target 'LottoMate' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'SwiftSoup'
-  
+  pod 'RxGesture'
+  pod 'BottomSheet', :git => 'https://github.com/joomcode/BottomSheet'
+  pod 'GoogleSignIn'
+  pod 'naveridlogin-sdk-ios'
 
   target 'LottoMateTests' do
     inherit! :search_paths

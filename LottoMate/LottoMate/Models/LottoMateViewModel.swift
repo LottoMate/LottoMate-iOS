@@ -28,6 +28,8 @@ class LottoMateViewModel {
     
     private init() { }
     
+    let lottoRoundTapEvent = BehaviorRelay<Bool?>(value: false)
+    
     /// 최신 회차 복권 당첨 정보 가져오기
     func fetchLottoHome() {
         apiClient.getLottoHome()

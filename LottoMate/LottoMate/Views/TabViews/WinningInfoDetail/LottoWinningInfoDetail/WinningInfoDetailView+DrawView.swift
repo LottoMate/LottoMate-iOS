@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 extension LottoWinningInfoView {
     func drawView() {
@@ -36,6 +37,14 @@ extension LottoWinningInfoView {
                         self.nextRoundButton.tintColor = .black
                     }
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        lotteryDrawingInfo.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.viewModel.lottoRoundTapEvent.accept(true)
             })
             .disposed(by: disposeBag)
     }

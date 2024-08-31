@@ -11,6 +11,7 @@ import PinLayout
 import RxSwift
 import RxCocoa
 import RxRelay
+import BottomSheet
 
 class WinningNumbersDetailViewController: UIViewController {
     fileprivate var mainView: WinningInfoDetailView {
@@ -46,6 +47,9 @@ class WinningNumbersDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bind()
+        bindViewModel()
+        
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
         
@@ -63,12 +67,6 @@ class WinningNumbersDetailViewController: UIViewController {
         }
         
         view.addSubview(rootFlexContainer)
-        
-        // 최신회차로 가져오도록 하기
-//        viewModel.fetchLottoResult(round: 903)
-//        viewModel.fetchLottoHome()
-        
-        bindViewModel()
     }
     
     override func viewDidLayoutSubviews() {
@@ -78,8 +76,18 @@ class WinningNumbersDetailViewController: UIViewController {
     }
     
     private func bindViewModel() {
-//        mainView.bind(viewModel: viewModel)
         mainView.setupBindings(viewModel: viewModel)
+    }
+    
+    func bind() {
+        viewModel.lottoRoundTapEvent
+            .subscribe(onNext: { isTapped in
+                guard let tapped = isTapped else { return }
+                if tapped {
+                    self.showDrawPicker()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     @objc func backButtonTapped() {
@@ -91,18 +99,22 @@ class WinningNumbersDetailViewController: UIViewController {
         pickerVC.modalPresentationStyle = .pageSheet
         pickerVC.modalTransitionStyle = .coverVertical
         
-        if let sheet = pickerVC.sheetPresentationController {
-            sheet.detents = [
-                .custom { context in
-                    return 200 // Custom height in points
-                }
-            ]
-            sheet.prefersGrabberVisible = true
-        }
         pickerVC.selectedDrawInfo = { selectedInfo in
             print("Selected draw info: \(selectedInfo)")
         }
-        present(pickerVC, animated: true, completion: nil)
+//        present(pickerVC, animated: true, completion: nil)
+        
+        present(pickerVC, animated: true) {
+            if let sheet = pickerVC.sheetPresentationController {
+                sheet.detents = [
+                    .custom { context in
+                        print("pickerVC.view.frame.height: \(pickerVC.view.frame.height)")
+                        return 284.0
+                    }
+                ]
+                sheet.prefersGrabberVisible = false
+            }
+        }
     }
     
     func changeStatusBarBgColor(bgColor: UIColor?) {
