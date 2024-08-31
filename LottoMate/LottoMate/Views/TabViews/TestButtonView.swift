@@ -25,10 +25,10 @@ class TestButtonView: UIView {
         super.init(frame: .zero)
         backgroundColor = .white
         
-        #if !NO_SERVER
+//        #if !NO_SERVER
         viewModel.fetchLottoHome()
         bindData()
-        #endif
+//        #endif
                 
         defaultSolidButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
