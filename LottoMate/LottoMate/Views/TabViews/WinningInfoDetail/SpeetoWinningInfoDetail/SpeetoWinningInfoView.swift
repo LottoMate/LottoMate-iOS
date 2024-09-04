@@ -24,6 +24,10 @@ class SpeetoWinningInfoView: UIView {
     let nextRoundButton = UIButton()
     
     let prizeDetailsByRank = UILabel()
+    /// 당첨 정보 안내 기준 레이블
+    let conditionNoticeLabel = UILabel()
+    /// 배너 뷰
+    let banner = BannerView(bannerBackgroundColor: .yellow5, bannerImageName: "img_banner_coins", titleText: "행운의 1등 로또\r어디서 샀을까?", bodyText: "당첨 판매점 보러가기")
     
     private let disposeBag = DisposeBag()
     private let selectedButtonSubject = BehaviorRelay<Int>(value: 0)
@@ -36,21 +40,24 @@ class SpeetoWinningInfoView: UIView {
         setupBindings()
         setupDrawRoundContainer()
         setupPrizeDetailByRankLabel()
+        setupConditionNoticeLabel()
         
         addSubview(rootFlexContainer)
         
-        rootFlexContainer.flex.direction(.column).paddingHorizontal(20).paddingTop(12).define { flex in
-            flex.addItem().direction(.row).paddingTop(10).define { flex in
-                flex.addItem(speeto2000Button).width(40).marginRight(16)
-                flex.addItem(speeto1000Button).width(40).marginRight(16)
-                flex.addItem(speeto500Button).width(40)
+        rootFlexContainer.flex.direction(.column).paddingTop(12).define { flex in
+            flex.addItem().direction(.row).paddingTop(10).paddingHorizontal(20).define { flex in
+                flex.addItem(speeto2000Button).width(40).marginRight(16).border(1, .red40)
+                flex.addItem(speeto1000Button).width(40).marginRight(16).border(1, .gray40)
+                flex.addItem(speeto500Button).width(40).border(1, .blue40)
             }
-            flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(36).define { flex in
+            flex.addItem().height(1).backgroundColor(.gray20)
+            
+            flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(36).paddingHorizontal(20).define { flex in
                 flex.addItem(previousRoundButton)
                 flex.addItem(drawRoundLabel)
                 flex.addItem(nextRoundButton)
             }
-            flex.addItem().direction(.column).marginTop(24).define { flex in
+            flex.addItem().direction(.column).marginTop(24).paddingHorizontal(20).define { flex in
                 flex.addItem(prizeDetailsByRank).alignSelf(.start).marginBottom(12)
                 // 1등 카드
                 let firstPrizeInfoView = SpeetoPrizeInfoCardView(prizeTier: .firstPrize)
@@ -59,6 +66,8 @@ class SpeetoWinningInfoView: UIView {
                 let secondPrizeInfoView = SpeetoPrizeInfoCardView(prizeTier: .secondPrize)
                 flex.addItem(secondPrizeInfoView)
             }
+            flex.addItem(conditionNoticeLabel).marginTop(16).paddingHorizontal(20).alignSelf(.start)
+            flex.addItem(banner).marginTop(32).paddingHorizontal(20)
         }
     }
     
@@ -127,6 +136,10 @@ class SpeetoWinningInfoView: UIView {
     private func setupPrizeDetailByRankLabel() {
         prizeDetailsByRank.text = "등수별 당첨 정보"
         styleLabel(for: prizeDetailsByRank, fontStyle: .headline1, textColor: .primaryGray)
+    }
+    private func setupConditionNoticeLabel() {
+        conditionNoticeLabel.text = "*1억원 이상의 당첨금 수령 후, 실물 확인된 복권만 안내해요"
+        styleLabel(for: conditionNoticeLabel, fontStyle: .caption, textColor: .gray80)
     }
 }
 
