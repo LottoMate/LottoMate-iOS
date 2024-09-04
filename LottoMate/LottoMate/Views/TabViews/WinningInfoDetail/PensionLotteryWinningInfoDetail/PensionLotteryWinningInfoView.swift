@@ -33,6 +33,8 @@ class PensionLotteryWinningInfoView: UIView {
     let prizeDetailsByRank = UILabel()
     /// 지급 기한 정보 레이블
     let claimNoticeLabel = UILabel()
+    /// 배너 뷰
+    let banner = BannerView(bannerBackgroundColor: .yellow5, bannerImageName: "img_banner_coins", titleText: "행운의 1등 로또\r어디서 샀을까?", bodyText: "당첨 판매점 보러가기")
     
     init() {
         super.init(frame: .zero)
@@ -77,7 +79,8 @@ class PensionLotteryWinningInfoView: UIView {
                     flex.addItem(view)
                 }
             }
-            flex.addItem(claimNoticeLabel).alignSelf(.start)
+            flex.addItem(claimNoticeLabel).alignSelf(.start).marginBottom(32)
+            flex.addItem(banner)
         }
     }
     
