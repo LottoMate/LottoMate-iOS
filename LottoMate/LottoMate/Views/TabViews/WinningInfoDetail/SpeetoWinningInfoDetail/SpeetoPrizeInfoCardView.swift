@@ -12,17 +12,13 @@ import FlexLayout
 enum SpeetoPrizeTier: String {
     case firstPrize = "1등"
     case secondPrize = "2등"
-    case thirdPrize = "3등"
-    case fourthPrize = "4등"
-    case fifthPrize = "5등"
-    case sixthPrize = "6등"
     
     var prizeTextColor: UIColor {
         switch self {
         case .firstPrize:
             return .red50Default
-        default:
-            return .gray_6B6B6B
+        case .secondPrize:
+            return .red30
         }
     }
     var prizeAmount: String {
@@ -31,8 +27,6 @@ enum SpeetoPrizeTier: String {
             return "10억원"
         case .secondPrize:
             return "1억원"
-        default:
-            return ""
         }
     }
 }
@@ -90,7 +84,7 @@ class SpeetoPrizeInfoCardView: UIView {
         firstPrizeIcon.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         
         prizeMoney.text = prizeTier.prizeAmount
-        styleLabel(for: prizeMoney, fontStyle: .title3, textColor: .black)
+        styleLabel(for: prizeMoney, fontStyle: .title2, textColor: .black)
         
         // MARK: FlexLayout
         rootFlexContainer.flex.direction(.column).padding(20).define { flex in
@@ -103,10 +97,21 @@ class SpeetoPrizeInfoCardView: UIView {
             flex.addItem(prizeMoney).alignSelf(.start).marginBottom(12)
             // 정보 컨테이너 (회색 배경)
             flex.addItem().direction(.column).define { flex in
-                SampleSpeetoData.sampleData2000[prizeTier]?.forEach({ winningInfo in
-                    let view = SpeetoCardViewDetailContainer(winningInfo: winningInfo)
-                    flex.addItem(view).marginBottom(10)
-                })
+                if prizeTier == .firstPrize {
+                    SampleSpeetoData.sampleData2000.forEach { winningInfo in
+                        if winningInfo.prizeTier == .firstPrize {
+                            let view = SpeetoCardViewDetailContainer(winningInfo: winningInfo)
+                            flex.addItem(view).marginBottom(10)
+                        }
+                    }
+                } else if prizeTier == .secondPrize {
+                    SampleSpeetoData.sampleData2000.forEach { winningInfo in
+                        if winningInfo.prizeTier == .secondPrize {
+                            let view = SpeetoCardViewDetailContainer(winningInfo: winningInfo)
+                            flex.addItem(view).marginBottom(10)
+                        }
+                    }
+                }
             }
         }
         addSubview(rootFlexContainer)
