@@ -13,7 +13,7 @@ class LottoMateViewModel {
     static let shared = LottoMateViewModel()
     
     var currentLottoRound = BehaviorRelay<Int?>(value: nil)
-    var currentPendingLotteryRound = BehaviorRelay<Int?>(value: nil)
+    var currentPensionLotteryRound = BehaviorRelay<Int?>(value: nil)
     
     var lottoResult = BehaviorRelay<LottoResultModel?>(value: nil)
     var pensionLotteryResult = BehaviorRelay<PensionLotteryResultModel?>(value: nil)
@@ -40,7 +40,7 @@ class LottoMateViewModel {
                 self?.currentLottoRound.accept(latestLottoRound)
                 
                 let pensionLotteryRound = result.the720.drwNum
-                self?.currentPendingLotteryRound.accept(pensionLotteryRound)
+                self?.currentPensionLotteryRound.accept(pensionLotteryRound)
                 
                 print("fetching latest lottery result...: \(result)")
             }, onError: { error in

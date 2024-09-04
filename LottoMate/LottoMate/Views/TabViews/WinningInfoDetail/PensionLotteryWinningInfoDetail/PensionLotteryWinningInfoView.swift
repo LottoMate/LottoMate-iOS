@@ -13,7 +13,7 @@ import RxCocoa
 
 class PensionLotteryWinningInfoView: UIView {
     let viewModel = LottoMateViewModel.shared
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     fileprivate let rootFlexContainer = UIView()
     /// 당첨 번호 뷰 (groupNumber 정리 또는 제거 필요)
     let winningNumbersView = PensionLotteryWinningNumbersView(groupNumber: 1)
@@ -41,7 +41,7 @@ class PensionLotteryWinningInfoView: UIView {
         
         bind()
         
-        drawRoundContainer()
+        pensionLotteryDrawRoundView()
         
         styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .black)
         
@@ -111,6 +111,42 @@ class PensionLotteryWinningInfoView: UIView {
             }
             .bind(to: drawDate.rx.attributedText)
             .disposed(by: disposeBag)
+        
+        // 전 회차
+        previousRoundButton.rx.tap
+            .subscribe(onNext: { _ in
+                if let currentRound = self.viewModel.currentPensionLotteryRound.value {
+                    let previousRound = currentRound - 1
+                    self.viewModel.currentPensionLotteryRound.accept(previousRound)
+                    self.viewModel.fetchPensionLotteryResult(round: previousRound)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        // 최신 회차일 때, next round button disabled 하기
+        let isNotLatestRound = self.viewModel.currentPensionLotteryRound
+            .map { currentPensionLotteryRound -> Bool in
+                if let currentRound = currentPensionLotteryRound, let latestRound = self.viewModel.latestLotteryResult.value?.the720.drwNum {
+                    return currentRound < latestRound
+                }
+                return false
+            }
+        
+        isNotLatestRound
+            .bind(to: nextRoundButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        // 다음 회차
+        nextRoundButton.rx.tap
+            .subscribe(onNext: { _ in
+                if let currentRound = self.viewModel.currentPensionLotteryRound.value {
+                    let nextRound = currentRound + 1
+                    self.viewModel.currentPensionLotteryRound.accept(nextRound)
+                    self.viewModel.fetchPensionLotteryResult(round: nextRound)
+                }
+            })
+            .disposed(by: disposeBag)
+        
     }
 }
 

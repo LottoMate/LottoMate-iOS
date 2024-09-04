@@ -11,7 +11,8 @@ import RxCocoa
 import RxGesture
 
 extension LottoWinningInfoView {
-    func drawView() {
+    /// 로또 복권 회차 뷰 설정
+    func lottoDrawRoundView() {
         styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .primaryGray)
         styleLabel(for: drawDate, fontStyle: .label2, textColor: .gray_ACACAC)
         

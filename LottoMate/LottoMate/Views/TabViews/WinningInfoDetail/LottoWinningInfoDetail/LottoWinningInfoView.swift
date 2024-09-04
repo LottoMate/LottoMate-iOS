@@ -57,7 +57,7 @@ class LottoWinningInfoView: UIView {
         
         bind()
         
-        drawView()
+        lottoDrawRoundView()
         
         lotteryResultsTitle.text = "당첨 번호 보기"
         styleLabel(for: lotteryResultsTitle, fontStyle: .headline1, textColor: .primaryGray)
