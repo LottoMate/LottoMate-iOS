@@ -104,7 +104,7 @@ class LottoPrizeInfoCardView: UIView {
         
         firstPrizeIcon.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         
-        styleLabel(for: prizeMoney, fontStyle: .title3, textColor: .black, alignment: .left)
+        styleLabel(for: prizeMoney, fontStyle: .title2, textColor: .black, alignment: .left)
         
         perOnePersonLabel.text = "1인당"
         styleLabel(for: perOnePersonLabel, fontStyle: .label2, textColor: .gray80)
