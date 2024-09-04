@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "배너이미지@1x.png",
+      "filename" : "img_banner_coins@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "배너이미지@2x.png",
+      "filename" : "img_banner_coins@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "배너이미지@3x.png",
+      "filename" : "img_banner_coins@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
