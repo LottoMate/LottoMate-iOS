@@ -15,7 +15,6 @@
 		091672C92C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */; };
 		091672CB2C7E0EE800959767 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091672CA2C7E0EE800959767 /* BannerView.swift */; };
 		091C235E2C74F25400377A92 /* SpeetoWinningInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C235D2C74F25300377A92 /* SpeetoWinningInfoView.swift */; };
-		091C23642C75B87100377A92 /* CustomSementedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23632C75B87100377A92 /* CustomSementedButton.swift */; };
 		091C23662C75C43300377A92 /* SpeetoPrizeInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23652C75C43300377A92 /* SpeetoPrizeInfoCardView.swift */; };
 		091C23682C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C23672C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift */; };
 		09341C1D2C52394900B47642 /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09341C1C2C52394900B47642 /* StyledButton.swift */; };
@@ -44,6 +43,7 @@
 		09554D442C6909C6009D1847 /* LottoResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D432C6909C6009D1847 /* LottoResultModel.swift */; };
 		096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */; };
 		096552682C809C5B00897DA7 /* GoogleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552672C809C5B00897DA7 /* GoogleLoginTestView.swift */; };
+		096552A92C8883D100897DA7 /* CustomSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552A82C8883D100897DA7 /* CustomSquareButton.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -86,7 +86,6 @@
 		091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestLotteryWinningInfoModel.swift; sourceTree = "<group>"; };
 		091672CA2C7E0EE800959767 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		091C235D2C74F25300377A92 /* SpeetoWinningInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoWinningInfoView.swift; sourceTree = "<group>"; };
-		091C23632C75B87100377A92 /* CustomSementedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSementedButton.swift; sourceTree = "<group>"; };
 		091C23652C75C43300377A92 /* SpeetoPrizeInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoPrizeInfoCardView.swift; sourceTree = "<group>"; };
 		091C23672C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeetoCardViewDetailContainer.swift; sourceTree = "<group>"; };
 		09341C1B2C51651500B47642 /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryResultModel.swift; sourceTree = "<group>"; };
 		096552672C809C5B00897DA7 /* GoogleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginTestView.swift; sourceTree = "<group>"; };
 		0965526C2C837F3200897DA7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		096552A82C8883D100897DA7 /* CustomSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSquareButton.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 			children = (
 				0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */,
 				09341C1C2C52394900B47642 /* StyledButton.swift */,
-				091C23632C75B87100377A92 /* CustomSementedButton.swift */,
+				096552A82C8883D100897DA7 /* CustomSquareButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -629,12 +629,12 @@
 				096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */,
 				091C23682C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift in Sources */,
 				091672CB2C7E0EE800959767 /* BannerView.swift in Sources */,
-				091C23642C75B87100377A92 /* CustomSementedButton.swift in Sources */,
 				09554D112C5E5376009D1847 /* Extensions.swift in Sources */,
 				09554D152C5E619D009D1847 /* DrawPickerViewController.swift in Sources */,
 				091672C02C7B505E00959767 /* LottoPrizeInfoCardView.swift in Sources */,
 				09554D442C6909C6009D1847 /* LottoResultModel.swift in Sources */,
 				09341CA72C5B9C6300B47642 /* LottoWinningNumbersView.swift in Sources */,
+				096552A92C8883D100897DA7 /* CustomSquareButton.swift in Sources */,
 				09341CA12C58D8C500B47642 /* WinningInfoDetailView.swift in Sources */,
 				091672BE2C78CC6300959767 /* LottoWinningInfoView.swift in Sources */,
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,

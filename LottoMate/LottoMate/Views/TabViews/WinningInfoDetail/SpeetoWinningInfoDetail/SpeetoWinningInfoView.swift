@@ -15,10 +15,6 @@ import RxRelay
 class SpeetoWinningInfoView: UIView {
     fileprivate let rootFlexContainer = UIView()
     
-    private let speeto2000Button = CustomSegmentedButton()
-    private let speeto1000Button = CustomSegmentedButton()
-    private let speeto500Button = CustomSegmentedButton()
-    
     let drawRoundLabel = UILabel()
     let previousRoundButton = UIButton()
     let nextRoundButton = UIButton()
@@ -30,14 +26,13 @@ class SpeetoWinningInfoView: UIView {
     let banner = BannerView(bannerBackgroundColor: .yellow5, bannerImageName: "img_banner_coins", titleText: "행운의 1등 로또\r어디서 샀을까?", bodyText: "당첨 판매점 보러가기")
     
     private let disposeBag = DisposeBag()
-    private let selectedButtonSubject = BehaviorRelay<Int>(value: 0)
+    
+    let typeButtons = CustomSquareButton()
     
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
         
-        setupButtons()
-        setupBindings()
         setupDrawRoundContainer()
         setupPrizeDetailByRankLabel()
         setupConditionNoticeLabel()
@@ -45,12 +40,7 @@ class SpeetoWinningInfoView: UIView {
         addSubview(rootFlexContainer)
         
         rootFlexContainer.flex.direction(.column).paddingTop(12).define { flex in
-            flex.addItem().direction(.row).paddingTop(10).paddingHorizontal(20).define { flex in
-                flex.addItem(speeto2000Button).width(40).marginRight(16).border(1, .red40)
-                flex.addItem(speeto1000Button).width(40).marginRight(16).border(1, .gray40)
-                flex.addItem(speeto500Button).width(40).border(1, .blue40)
-            }
-            flex.addItem().height(1).backgroundColor(.gray20)
+            flex.addItem(typeButtons)
             
             flex.addItem().direction(.row).justifyContent(.spaceBetween).paddingTop(36).paddingHorizontal(20).define { flex in
                 flex.addItem(previousRoundButton)
@@ -67,7 +57,7 @@ class SpeetoWinningInfoView: UIView {
                 flex.addItem(secondPrizeInfoView)
             }
             flex.addItem(conditionNoticeLabel).marginTop(16).paddingHorizontal(20).alignSelf(.start)
-            flex.addItem(banner).marginTop(32).paddingHorizontal(20)
+            flex.addItem(banner).marginHorizontal(20).marginTop(32)
         }
     }
     
@@ -80,43 +70,6 @@ class SpeetoWinningInfoView: UIView {
         rootFlexContainer.pin.top(pin.safeArea.top).horizontally()
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
-    
-    private func setupButtons() {
-        let speeto2000Title = NSAttributedString(string: "2000", attributes: Typography.headline2.attributes())
-        let speeto1000Title = NSAttributedString(string: "1000", attributes: Typography.headline2.attributes())
-        let speeto500Title = NSAttributedString(string: "500", attributes: Typography.headline2.attributes())
-        
-        speeto2000Button.setAttributedTitle(attributedTitle: speeto2000Title)
-        speeto1000Button.setAttributedTitle(attributedTitle: speeto1000Title)
-        speeto500Button.setAttributedTitle(attributedTitle: speeto500Title)
-        
-        speeto2000Button.tag = 0
-        speeto1000Button.tag = 1
-        speeto500Button.tag = 2
-        
-        speeto2000Button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        speeto1000Button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        speeto500Button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-    }
-    
-    private func setupBindings() {
-        selectedButtonSubject
-            .subscribe(onNext: { [weak self] selectedIndex in
-                self?.updateButtonSelection(selectedIndex: selectedIndex)
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    @objc private func buttonTapped(_ sender: UIButton) {
-        selectedButtonSubject.accept(sender.tag)
-    }
-    
-    private func updateButtonSelection(selectedIndex: Int) {
-        speeto2000Button.updateAppearance(isSelected: selectedIndex == 0)
-        speeto1000Button.updateAppearance(isSelected: selectedIndex == 1)
-        speeto500Button.updateAppearance(isSelected: selectedIndex == 2)
-    }
-    
     
     private func setupDrawRoundContainer() {
         let drawRoundLabelText = NSAttributedString(string: "1/69", attributes: Typography.headline1.attributes())
