@@ -44,6 +44,8 @@
 		096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */; };
 		096552682C809C5B00897DA7 /* GoogleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552672C809C5B00897DA7 /* GoogleLoginTestView.swift */; };
 		096552A92C8883D100897DA7 /* CustomSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552A82C8883D100897DA7 /* CustomSquareButton.swift */; };
+		096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */; };
+		096552AF2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552AE2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -116,6 +118,8 @@
 		096552672C809C5B00897DA7 /* GoogleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginTestView.swift; sourceTree = "<group>"; };
 		0965526C2C837F3200897DA7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		096552A82C8883D100897DA7 /* CustomSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSquareButton.swift; sourceTree = "<group>"; };
+		096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawRoundBottomSheet.swift; sourceTree = "<group>"; };
+		096552AE2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawRoundBottomSheetViewController.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 				09554D1C2C649740009D1847 /* PrizeInfoCardView.swift */,
 				09554D212C64B798009D1847 /* LotteryTypeButtonsView.swift */,
 				091672CA2C7E0EE800959767 /* BannerView.swift */,
+				096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */,
+				096552AE2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -637,6 +643,7 @@
 				096552A92C8883D100897DA7 /* CustomSquareButton.swift in Sources */,
 				09341CA12C58D8C500B47642 /* WinningInfoDetailView.swift in Sources */,
 				091672BE2C78CC6300959767 /* LottoWinningInfoView.swift in Sources */,
+				096552AF2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift in Sources */,
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
 				09554D222C64B798009D1847 /* LotteryTypeButtonsView.swift in Sources */,
 				09554D422C6908E4009D1847 /* LottoMateViewModel.swift in Sources */,
@@ -647,6 +654,7 @@
 				091672C32C7CCB2600959767 /* PensionLotteryWinningInfoView.swift in Sources */,
 				09554D1D2C649740009D1847 /* PrizeInfoCardView.swift in Sources */,
 				096552682C809C5B00897DA7 /* GoogleLoginTestView.swift in Sources */,
+				096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
 				09554D132C5E5FB6009D1847 /* SampleData.swift in Sources */,
 				09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */,

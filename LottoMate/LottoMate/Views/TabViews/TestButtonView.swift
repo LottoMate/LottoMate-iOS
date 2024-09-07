@@ -20,14 +20,15 @@ class TestButtonView: UIView {
     public let defaultSolidButton = StyledButton(title: "Test Button", buttonStyle: .solid(.large, .active), fontSize: 16, cornerRadius: 8, verticalPadding: 0, horizontalPadding: 0)
     
     let textView = UITextView()
+    let drawRoundTestView = DrawRoundBottomSheet()
     
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
         
 //        #if !NO_SERVER
-//        viewModel.fetchLottoHome()
-//        bindData()
+        viewModel.fetchLottoHome()
+        bindData()
 //        #endif
                 
         defaultSolidButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -36,10 +37,10 @@ class TestButtonView: UIView {
         
         addSubview(rootFlexContainer)
         
-        rootFlexContainer.flex.direction(.column).alignItems(.center).paddingHorizontal(10).define { flex in
+        rootFlexContainer.flex.direction(.column).define { flex in
             flex.addItem(defaultSolidButton).width(127).height(48).marginBottom(48)
-            flex.addItem(textView).grow(1)
-        }
+//            flex.addItem(drawRoundTestView).grow(1)
+        }.border(1, .red)
     }
     
     required init?(coder: NSCoder) {
@@ -48,7 +49,7 @@ class TestButtonView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        rootFlexContainer.pin.top().horizontally().margin(pin.safeArea)
+        rootFlexContainer.pin.top(pin.safeArea.top).horizontally()
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
     

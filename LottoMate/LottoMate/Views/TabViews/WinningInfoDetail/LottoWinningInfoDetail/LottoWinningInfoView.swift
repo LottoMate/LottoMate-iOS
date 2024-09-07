@@ -10,6 +10,7 @@ import PinLayout
 import FlexLayout
 import RxSwift
 import RxCocoa
+import BottomSheet
 
 class LottoWinningInfoView: UIView {
     let viewModel = LottoMateViewModel.shared

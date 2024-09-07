@@ -13,8 +13,6 @@ extension PensionLotteryWinningInfoView {
         styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .primaryGray)
         styleLabel(for: drawDate, fontStyle: .label2, textColor: .gray_ACACAC)
         
-        //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapDrawView))
-        //        lotteryDrawingInfo.addGestureRecognizer(tapGesture)
         lotteryDrawingInfo.isUserInteractionEnabled = true
         
         let previousRoundBtnImage = UIImage(named: "small_arrow_left")
@@ -35,6 +33,14 @@ extension PensionLotteryWinningInfoView {
                         self.nextRoundButton.tintColor = .black
                     }
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        lotteryDrawingInfo.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.viewModel.drawRoundTapEvent.accept(true)
             })
             .disposed(by: disposeBag)
     }
