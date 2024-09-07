@@ -43,7 +43,7 @@ extension LottoWinningInfoView {
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                self.viewModel.lottoRoundTapEvent.accept(true)
+                self.viewModel.drawRoundTapEvent.accept(true)
             })
             .disposed(by: disposeBag)
     }
