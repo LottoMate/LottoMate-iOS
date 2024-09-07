@@ -17,17 +17,13 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
     private let disposeBag = DisposeBag()
     
     private let pickerView = UIPickerView()
-    private let data = SampleDrawInfo.sampleData
     private let pickerTitleLabel = UILabel()
-    public let cancelButton = StyledButton(title: "취소", buttonStyle: .assistive(.large, .active), fontSize: 16, cornerRadius: 8, verticalPadding: 12, horizontalPadding: 0)
-    public let confirmButton = StyledButton(title: "확인", buttonStyle: .solid(.large, .active), fontSize: 16, cornerRadius: 8, verticalPadding: 12, horizontalPadding: 0)
-    
-    var selectedDrawRound: ((Int) -> Void)?
+    private let cancelButton = StyledButton(title: "취소", buttonStyle: .assistive(.large, .active), fontSize: 16, cornerRadius: 8, verticalPadding: 12, horizontalPadding: 0)
+    private let confirmButton = StyledButton(title: "확인", buttonStyle: .solid(.large, .active), fontSize: 16, cornerRadius: 8, verticalPadding: 12, horizontalPadding: 0)
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // 원하는 row (예: 3번째 row)를 선택 상태로 설정
+        // 원하는 row (예: 1133회차의 row)를 선택 상태로 설정
         if let currentRound = viewModel.currentLottoRound.value, let data = try? viewModel.lottoDrawRoundData.value() {
             if let selectedRow = rowForDraw(round: currentRound, from: data) {
                 pickerView.selectRow(selectedRow, inComponent: 0, animated: true)
@@ -38,10 +34,10 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cancelButtonAction()
-        
         pickerView.delegate = self
         pickerView.dataSource = self
+        
+        cancelButtonAction()
         
         rootFlexContainer.backgroundColor = .white
         rootFlexContainer.layer.cornerRadius = 32
@@ -54,7 +50,7 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // 데이터가 업데이트될 때마다 pickerView를 리로드
         viewModel.lottoDrawRoundData
             .subscribe(onNext: { [weak self] _ in
-                self?.pickerView.reloadAllComponents() // 데이터 변경 시 UIPickerView 리로드
+                self?.pickerView.reloadAllComponents()
             })
             .disposed(by: disposeBag)
         
@@ -146,13 +142,13 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let roundText = "\(drawInfo.0)회"
             drawRoundLabel.text = roundText
             drawRoundLabel.font = Typography.font(.headline1)()
-//            drawRoundLabel.textColor = .black
+            drawRoundLabel.textColor = .black
             drawRoundLabel.textAlignment = NSTextAlignment.right
             
             let dateText = drawInfo.1.reformatDate
             drawDateLabel.text = dateText
             drawDateLabel.font = Typography.font(.body1)()
-//            drawDateLabel.textColor = .black
+            drawDateLabel.textColor = .black
             drawDateLabel.textAlignment = NSTextAlignment.left
             
             // 여러 기기에서 확인 필요
