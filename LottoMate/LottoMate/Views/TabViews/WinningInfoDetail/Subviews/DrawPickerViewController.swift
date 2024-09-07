@@ -24,11 +24,27 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // 원하는 row (예: 1133회차의 row)를 선택 상태로 설정
-        if let currentRound = viewModel.currentLottoRound.value, let data = try? viewModel.lottoDrawRoundData.value() {
-            if let selectedRow = rowForDraw(round: currentRound, from: data) {
-                pickerView.selectRow(selectedRow, inComponent: 0, animated: true)
-            }
-        }
+        viewModel.selectedLotteryType
+            .subscribe(onNext: { [weak self] type in
+                guard let self = self else { return }
+                switch type {
+                case .lotto:
+                    if let currentRound = viewModel.currentLottoRound.value, let data = try? viewModel.lottoDrawRoundData.value() {
+                        if let selectedRow = rowForDraw(round: currentRound, from: data) {
+                            pickerView.selectRow(selectedRow, inComponent: 0, animated: true)
+                        }
+                    }
+                case .pensionLottery:
+                    if let currentRound = viewModel.currentPensionLotteryRound.value, let data = try? viewModel.pensionLotteryDrawRoundData.value() {
+                        if let selectedRow = rowForDraw(round: currentRound, from: data) {
+                            pickerView.selectRow(selectedRow, inComponent: 0, animated: true)
+                        }
+                    }
+                case .speeto:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewDidLoad() {
@@ -49,6 +65,12 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         // 데이터가 업데이트될 때마다 pickerView를 리로드
         viewModel.lottoDrawRoundData
+            .subscribe(onNext: { [weak self] _ in
+                self?.pickerView.reloadAllComponents()
+            })
+            .disposed(by: disposeBag)
+       
+        viewModel.pensionLotteryDrawRoundData
             .subscribe(onNext: { [weak self] _ in
                 self?.pickerView.reloadAllComponents()
             })
@@ -82,47 +104,108 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
             .disposed(by: disposeBag)
     }
     
-    func confirmButtonAction() {
-        
-    }
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        do {
-            if let data = try viewModel.lottoDrawRoundData.value() {
-                return data.count
-            } else {
-                return 0
-            }
-        } catch {
-            print("Error fetching data: \(error)")
-            return 0
-        }
+        
+        var count: Int?
+        
+        viewModel.selectedLotteryType
+            .subscribe(onNext: { [weak self] type in
+                switch type {
+                case .lotto:
+                    do {
+                        if let data = try self?.viewModel.lottoDrawRoundData.value() {
+                            count = data.count
+                        } else {
+                            count = 0
+                        }
+                    } catch {
+                        print("Error fetching data: \(error)")
+                        count = 0
+                    }
+                case .pensionLottery:
+                    do {
+                        if let data = try self?.viewModel.pensionLotteryDrawRoundData.value() {
+                            count = data.count
+                        } else {
+                            count = 0
+                        }
+                    } catch {
+                        print("Error fetching data: \(error)")
+                        count = 0
+                    }
+                case .speeto:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        return count ?? 0
     }
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let data = try? viewModel.lottoDrawRoundData.value()
+        
+        var data: [(Int, String)]?
+        
+        viewModel.selectedLotteryType
+            .subscribe(onNext: { [weak self] type in
+                guard let self = self else { return }
+                switch type {
+                case .lotto:
+                    data = try? self.viewModel.lottoDrawRoundData.value()
+                case .pensionLottery:
+                    data = try? self.viewModel.pensionLotteryDrawRoundData.value()
+                case .speeto:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+        
         guard let data else { return }
         
         confirmButton.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                // 현재 ViewController를 dismiss
                 let selectedRound = data[row].0
-                self.viewModel.fetchLottoResult(round: selectedRound)
-                self.viewModel.currentLottoRound.accept(selectedRound)
+                
+                viewModel.selectedLotteryType
+                    .subscribe(onNext: { [weak self] type in
+                        switch type {
+                        case .lotto:
+                            self?.viewModel.fetchLottoResult(round: selectedRound)
+                            self?.viewModel.currentLottoRound.accept(selectedRound)
+                        case .pensionLottery:
+                            self?.viewModel.fetchPensionLotteryResult(round: selectedRound)
+                            self?.viewModel.currentPensionLotteryRound.accept(selectedRound)
+                        case .speeto:
+                            break
+                        }
+                    })
+                    .disposed(by: disposeBag)
+                
                 self.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
         
         // 마지막 아이템 도달 시 회차를 추가로 가져옴
         if row == data.count - 1 {
-            viewModel.loadMoreDrawRounds()
+            viewModel.selectedLotteryType
+                .subscribe(onNext: { [weak self] type in
+                    switch type {
+                    case .lotto:
+                        self?.viewModel.loadMoreLottoDrawRounds()
+                    case .pensionLottery:
+                        self?.viewModel.loadMorePensionLotteryDrawRounds()
+                    case .speeto:
+                        break
+                    }
+                })
+                .disposed(by: disposeBag)
         }
     }
     
@@ -133,11 +216,25 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         /// 회차 & 날짜 컨테이너
         let containerView = UIView()
+        var data: [(Int, String)]?
         
         let drawRoundLabel = UILabel()
         let drawDateLabel = UILabel()
         
-        let data = try? viewModel.lottoDrawRoundData.value()
+        viewModel.selectedLotteryType
+            .subscribe(onNext: { [weak self] type in
+                guard let self = self else { return }
+                switch type {
+                case .lotto:
+                    data = try? self.viewModel.lottoDrawRoundData.value()
+                case .pensionLottery:
+                    data = try? self.viewModel.pensionLotteryDrawRoundData.value()
+                case .speeto:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+        
         if let drawInfo = data?[row] {
             let roundText = "\(drawInfo.0)회"
             drawRoundLabel.text = roundText

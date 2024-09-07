@@ -49,7 +49,8 @@ class WinningNumbersDetailViewController: UIViewController {
         bind()
         bindViewModel()
         
-        viewModel.drawRoundPickerViewData()
+        viewModel.lottoDrawRoundPickerViewData()
+        viewModel.pensionLotteryDrawRoundPickerViewData()
         
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
@@ -81,7 +82,7 @@ class WinningNumbersDetailViewController: UIViewController {
     }
     
     func bind() {
-        viewModel.lottoRoundTapEvent
+        viewModel.drawRoundTapEvent
             .subscribe(onNext: { isTapped in
                 guard let tapped = isTapped else { return }
                 if tapped {
@@ -133,7 +134,7 @@ extension WinningNumbersDetailViewController: WinningInfoDetailViewDelegate {
     func didTapBackButton() {
         navigationController?.popViewController(animated: true)
         // 뒤로간 후 다시 돌아올 때 회차 선택 피커뷰 나타남을 방지
-        self.viewModel.lottoRoundTapEvent.accept(false)
+        self.viewModel.drawRoundTapEvent.accept(false)
     }
 }
 

@@ -35,5 +35,13 @@ extension PensionLotteryWinningInfoView {
                 }
             })
             .disposed(by: disposeBag)
+        
+        lotteryDrawingInfo.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.viewModel.drawRoundTapEvent.accept(true)
+            })
+            .disposed(by: disposeBag)
     }
 }
