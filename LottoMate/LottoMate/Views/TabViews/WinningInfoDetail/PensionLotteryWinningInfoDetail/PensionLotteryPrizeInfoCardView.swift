@@ -159,7 +159,7 @@ class PensionLotteryPrizeInfoCardView: UIView {
         numberOfWinnersLabel.text = "당첨 수"
         styleLabel(for: numberOfWinnersLabel, fontStyle: .body1, textColor: .gray_858585)
         
-        styleLabel(for: numberOfWinnersValueLabel, fontStyle: .headline2, textColor: .black)
+        styleLabel(for: numberOfWinnersValueLabel, fontStyle: .headline2, textColor: .black, alignment: .left)
         
         // MARK: FlexLayout
         addSubview(rootFlexContainer)
@@ -178,9 +178,9 @@ class PensionLotteryPrizeInfoCardView: UIView {
                     flex.addItem(winningConditionLabel)
                     flex.addItem(numberOfWinnersLabel).marginTop(10)
                 }
-                flex.addItem(prizeDetailValueContainer).direction(.column).alignItems(.start).paddingLeft(24).define { flex in
+                flex.addItem(prizeDetailValueContainer).direction(.column).alignItems(.start).paddingLeft(24).grow(1).define { flex in
                     flex.addItem(winningConditionValueLabel)
-                    flex.addItem(numberOfWinnersValueLabel).marginTop(10)
+                    flex.addItem(numberOfWinnersValueLabel).marginTop(10).width(100%)
                 }
             }
         }

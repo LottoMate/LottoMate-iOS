@@ -43,8 +43,6 @@ class PensionLotteryWinningInfoView: UIView {
         
         pensionLotteryDrawRoundView()
         
-        styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .black)
-        
         lotteryResultsTitle.text = "당첨 번호 보기"
         styleLabel(for: lotteryResultsTitle, fontStyle: .headline1, textColor: .primaryGray)
         
@@ -59,12 +57,12 @@ class PensionLotteryWinningInfoView: UIView {
         rootFlexContainer.flex.direction(.column).paddingHorizontal(20).paddingTop(28).define { flex in
             // 회차
             flex.addItem().direction(.row).justifyContent(.spaceBetween).define { flex in
-                flex.addItem(previousRoundButton)
-                flex.addItem(lotteryDrawingInfo).direction(.row).alignItems(.baseline).define { flex in
-                    flex.addItem(lotteryDrawRound).marginRight(8).minWidth(53)
-                    flex.addItem(drawDate).minWidth(71)
+                flex.addItem(previousRoundButton).paddingHorizontal(10).paddingVertical(7)
+                flex.addItem(lotteryDrawingInfo).direction(.row).grow(1).justifyContent(.center).define { flex in
+                    flex.addItem(lotteryDrawRound).marginRight(8).grow(1)
+                    flex.addItem(drawDate).grow(1)
                 }
-                flex.addItem(nextRoundButton)
+                flex.addItem(nextRoundButton).paddingHorizontal(10).paddingVertical(7)
             }
             // 당첨 번호 보기
             flex.addItem(lotteryResultsTitle).alignSelf(.start).marginTop(24)
@@ -98,7 +96,8 @@ class PensionLotteryWinningInfoView: UIView {
         // 회차 라벨
         viewModel.pensionLotteryResult
             .map { result in
-                return "\(result?.pensionLotteryResult.drwNum ?? 0)회"
+                let text = "\(result?.pensionLotteryResult.drwNum ?? 0)회"
+                return text
             }
             .bind(to: lotteryDrawRound.rx.text)
             .disposed(by: disposeBag)
@@ -106,10 +105,10 @@ class PensionLotteryWinningInfoView: UIView {
         // 추첨 날짜
         viewModel.pensionLotteryResult
             .map { result in
-                let dwrtDate = result?.pensionLotteryResult.drwDate.reformatDate ?? "no data"
-                return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
+                let drawDate = result?.pensionLotteryResult.drwDate.reformatDate ?? "no data"
+                return drawDate
             }
-            .bind(to: drawDate.rx.attributedText)
+            .bind(to: drawDate.rx.text)
             .disposed(by: disposeBag)
         
         // 전 회차

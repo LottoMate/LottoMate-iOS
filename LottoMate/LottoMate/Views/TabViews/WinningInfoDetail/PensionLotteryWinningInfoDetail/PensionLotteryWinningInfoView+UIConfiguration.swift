@@ -10,8 +10,8 @@ import UIKit
 extension PensionLotteryWinningInfoView {
     /// 연금 복권 회차 뷰 설정
     func pensionLotteryDrawRoundView() {
-        styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .primaryGray)
-        styleLabel(for: drawDate, fontStyle: .label2, textColor: .gray_ACACAC)
+        styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .black, alignment: .right)
+        styleLabel(for: drawDate, fontStyle: .label2, textColor: .gray_ACACAC, alignment: .left)
         
         lotteryDrawingInfo.isUserInteractionEnabled = true
         
