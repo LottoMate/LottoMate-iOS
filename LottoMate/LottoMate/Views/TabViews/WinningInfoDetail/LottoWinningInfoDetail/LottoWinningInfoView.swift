@@ -79,12 +79,12 @@ class LottoWinningInfoView: UIView {
         rootFlexContainer.flex.direction(.column).paddingHorizontal(20).paddingTop(28).define { flex in
             // 회차
             flex.addItem().direction(.row).justifyContent(.spaceBetween).define { flex in
-                flex.addItem(previousRoundButton)
-                flex.addItem(lotteryDrawingInfo).direction(.row).alignItems(.baseline).define { flex in
-                    flex.addItem(lotteryDrawRound).marginRight(8).minWidth(53)
-                    flex.addItem(drawDate).minWidth(71)
+                flex.addItem(previousRoundButton).paddingHorizontal(10).paddingVertical(7)
+                flex.addItem(lotteryDrawingInfo).direction(.row).grow(1).justifyContent(.center).define { flex in
+                    flex.addItem(lotteryDrawRound).marginRight(8).grow(1)
+                    flex.addItem(drawDate).grow(1)
                 }
-                flex.addItem(nextRoundButton)
+                flex.addItem(nextRoundButton).paddingHorizontal(10).paddingVertical(7)
             }
             // 당첨 번호 보기
             flex.addItem().direction(.row).paddingTop(42).justifyContent(.spaceBetween).alignItems(.end).define { flex in
@@ -124,19 +124,19 @@ class LottoWinningInfoView: UIView {
         viewModel.lottoResult
             .map { result in
                 let text = "\(result?.lottoResult.drwNum ?? 0)회"
-                return NSAttributedString(string: text, attributes: Typography.headline1.attributes())
+                return text
             }
-            .bind(to: lotteryDrawRound.rx.attributedText)
+            .bind(to: lotteryDrawRound.rx.text)
             .disposed(by: disposeBag)
         
         // 추첨 날짜
         viewModel.lottoResult
             .observe(on: MainScheduler.instance)
             .map { result in
-                let dwrtDate = result?.lottoResult.drwDate.reformatDate ?? "no data"
-                return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
+                let drawDate = result?.lottoResult.drwDate.reformatDate ?? "no data"
+                return drawDate
             }
-            .bind(to: drawDate.rx.attributedText)
+            .bind(to: drawDate.rx.text)
             .disposed(by: disposeBag)
         
         previousRoundButton.rx.tap
