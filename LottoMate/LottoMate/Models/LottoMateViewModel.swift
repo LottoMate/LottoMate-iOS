@@ -35,6 +35,7 @@ class LottoMateViewModel {
     /// 로또, 연금복권 당첨 정보 상세에서 회차를 탭하면 픽커뷰가 표시됩니다.
     let drawRoundTapEvent = BehaviorRelay<Bool?>(value: false)
     let speetoTypeTapEvent = BehaviorRelay<SpeetoType?>(value: .the2000)
+    let speetoPageTapEvent = BehaviorRelay<Bool?>(value: false)
     
     /// 최신 회차 복권 당첨 정보를 가져오는 메서드
     func fetchLottoHome() {

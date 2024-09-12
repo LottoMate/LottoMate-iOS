@@ -15,11 +15,11 @@ extension PensionLotteryWinningInfoView {
         
         lotteryDrawingInfo.isUserInteractionEnabled = true
         
-        let previousRoundBtnImage = UIImage(named: "small_arrow_left")
+        let previousRoundBtnImage = UIImage(named: "icon_arrow_left_medium")
         previousRoundButton.setImage(previousRoundBtnImage, for: .normal)
         previousRoundButton.tintColor = .primaryGray
         previousRoundButton.frame = CGRect(x: 0, y: 0, width: 4, height: 10)
-        let nextRoundBtnImage = UIImage(named: "small_arrow_right")
+        let nextRoundBtnImage = UIImage(named: "icon_arrow_right_medium")
         nextRoundButton.setImage(nextRoundBtnImage, for: .normal)
         nextRoundButton.tintColor = .secondaryGray
         nextRoundButton.frame = CGRect(x: 0, y: 0, width: 4, height: 10)

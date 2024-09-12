@@ -49,8 +49,8 @@ class WinningNumbersDetailViewController: UIViewController {
         bind()
         bindViewModel()
         
-        viewModel.lottoDrawRoundPickerViewData()
-        viewModel.pensionLotteryDrawRoundPickerViewData()
+//        viewModel.lottoDrawRoundPickerViewData()
+//        viewModel.pensionLotteryDrawRoundPickerViewData()
         
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
@@ -90,6 +90,15 @@ class WinningNumbersDetailViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        viewModel.speetoPageTapEvent
+            .subscribe(onNext: { isTapped in
+                guard let tapped = isTapped else { return }
+                if tapped {
+//                    self.showCustomMenu()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     @objc func backButtonTapped() {
@@ -125,7 +134,6 @@ class WinningNumbersDetailViewController: UIViewController {
             true
         }, dismissCompletion: {
             // handle bottom sheet dismissal completion
-            
         })
     }
 }
