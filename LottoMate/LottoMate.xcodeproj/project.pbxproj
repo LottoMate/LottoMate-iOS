@@ -43,7 +43,6 @@
 		09554D442C6909C6009D1847 /* LottoResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D432C6909C6009D1847 /* LottoResultModel.swift */; };
 		095AEB5D2C92CE7000A7DD5A /* CustomMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB5C2C92CE7000A7DD5A /* CustomMenuViewController.swift */; };
 		096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */; };
-		096552682C809C5B00897DA7 /* GoogleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552672C809C5B00897DA7 /* GoogleLoginTestView.swift */; };
 		096552A92C8883D100897DA7 /* CustomSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552A82C8883D100897DA7 /* CustomSquareButton.swift */; };
 		096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */; };
 		096552AF2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552AE2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift */; };
@@ -117,7 +116,6 @@
 		09554D432C6909C6009D1847 /* LottoResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoResultModel.swift; sourceTree = "<group>"; };
 		095AEB5C2C92CE7000A7DD5A /* CustomMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuViewController.swift; sourceTree = "<group>"; };
 		096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryResultModel.swift; sourceTree = "<group>"; };
-		096552672C809C5B00897DA7 /* GoogleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginTestView.swift; sourceTree = "<group>"; };
 		0965526C2C837F3200897DA7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		096552A82C8883D100897DA7 /* CustomSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSquareButton.swift; sourceTree = "<group>"; };
 		096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawRoundBottomSheet.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 			children = (
 				09554D202C64B6EB009D1847 /* Common */,
 				09341C282C53AA4400B47642 /* TabViews */,
-				096552672C809C5B00897DA7 /* GoogleLoginTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -657,7 +654,6 @@
 				095AEB5D2C92CE7000A7DD5A /* CustomMenuViewController.swift in Sources */,
 				091672C32C7CCB2600959767 /* PensionLotteryWinningInfoView.swift in Sources */,
 				09554D1D2C649740009D1847 /* PrizeInfoCardView.swift in Sources */,
-				096552682C809C5B00897DA7 /* GoogleLoginTestView.swift in Sources */,
 				096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
 				09554D132C5E5FB6009D1847 /* SampleData.swift in Sources */,
