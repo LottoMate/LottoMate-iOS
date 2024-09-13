@@ -236,6 +236,7 @@
 			children = (
 				095AEB622C93237400A7DD5A /* WinningReviewDetailViewController.swift */,
 				095AEB5E2C92D6E100A7DD5A /* WinningReviewDetailView.swift */,
+				095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */,
 				09554D202C64B6EB009D1847 /* Common */,
 				09341C282C53AA4400B47642 /* TabViews */,
 			);
@@ -247,7 +248,6 @@
 			children = (
 				09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */,
 				09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */,
-				095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */,
 				095AEB6B2C94274A00A7DD5A /* ThumbnailCardView.swift */,
 				091672BC2C78CC2800959767 /* LottoWinningInfoDetail */,
 				091672C12C7CCAEA00959767 /* PensionLotteryWinningInfoDetail */,

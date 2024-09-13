@@ -13,28 +13,40 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         delegate = self
         
+        tabBar.barTintColor = UIColor.white
+        
+        let normalAttributes = [NSAttributedString.Key.font: Typography.caption.font(), NSAttributedString.Key.foregroundColor: UIColor.gray]
+        let selectedAttributes = [NSAttributedString.Key.font: Typography.caption.font(), NSAttributedString.Key.foregroundColor: UIColor.red50Default]
+
+        UITabBarItem.appearance().setTitleTextAttributes(normalAttributes, for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes, for: .selected)
+        
+        
         // MARK: 홈
         let homeViewController = HomeViewController()
-        let homeTabIcon = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        let homeTabIcon = UITabBarItem(title: "홈", image: UIImage(named: "icon_clover"), selectedImage: UIImage(named: "icon_clover_selected"))
         homeViewController.tabBarItem = homeTabIcon
+        homeViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -3)
         
         // MARK: 지도
         let mapViewController = WinningNumbersDetailViewController()
-        let mapTabIcon = UITabBarItem(title: "지도", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
+        let mapTabIcon = UITabBarItem(title: "지도", image: UIImage(named: "icon_map"), selectedImage: UIImage(named: "icon_map_selected"))
         mapViewController.tabBarItem = mapTabIcon
+        mapViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -3)
         
         // MARK: 보관소
         let storageViewController = WinningNumbersDetailViewController()
-        let storaTabIcon = UITabBarItem(title: "지도", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
-        mapViewController.tabBarItem = mapTabIcon
+        let storageTabIcon = UITabBarItem(title: "보관소", image: UIImage(named: "icon_pocket"), selectedImage: UIImage(named: "icon_pocket_selected"))
+        storageViewController.tabBarItem = storageTabIcon
+        storageViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -3)
         
         // MARK: 라운지
         let loungeViewController = WinningNumbersDetailViewController()
-        let loungeTabIcon = UITabBarItem(title: "지도", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
-        mapViewController.tabBarItem = mapTabIcon
+        let loungeTabIcon = UITabBarItem(title: "라운지", image: UIImage(named: "icon_person2"), selectedImage: UIImage(named: "icon_person2_selected"))
+        loungeViewController.tabBarItem = loungeTabIcon
+        loungeViewController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -3)
         
-        
-        let tabViewControllers = [homeViewController, mapViewController]
+        let tabViewControllers = [homeViewController, mapViewController, storageViewController, loungeViewController]
         self.viewControllers = tabViewControllers
     }
 }
