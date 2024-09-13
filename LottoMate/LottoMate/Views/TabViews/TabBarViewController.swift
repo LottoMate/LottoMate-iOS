@@ -13,14 +13,24 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         delegate = self
         
-        // MARK: Home Tab
+        // MARK: 홈
         let homeViewController = HomeViewController()
         let homeTabIcon = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         homeViewController.tabBarItem = homeTabIcon
         
-        // MARK: Map Tab
+        // MARK: 지도
         let mapViewController = WinningNumbersDetailViewController()
         let mapTabIcon = UITabBarItem(title: "지도", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
+        mapViewController.tabBarItem = mapTabIcon
+        
+        // MARK: 보관소
+        let storageViewController = WinningNumbersDetailViewController()
+        let storaTabIcon = UITabBarItem(title: "지도", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
+        mapViewController.tabBarItem = mapTabIcon
+        
+        // MARK: 라운지
+        let loungeViewController = WinningNumbersDetailViewController()
+        let loungeTabIcon = UITabBarItem(title: "지도", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
         mapViewController.tabBarItem = mapTabIcon
         
         
