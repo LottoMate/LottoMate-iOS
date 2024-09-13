@@ -24,7 +24,7 @@ class WinningReviewHorizontalScrollView: UIView {
         super.init(frame: .zero)
         
         scrollView.showsHorizontalScrollIndicator = false // 스크롤 인디케이터 숨기기
-        scrollView.isPagingEnabled = true
+        scrollView.isPagingEnabled = false
         
         scrollView.addSubview(rootFlexContainer)
         addSubview(scrollView)
