@@ -61,7 +61,7 @@ class SpeetoPrizeInfoCardView: UIView {
     /// 당첨자 인터뷰 버튼 right arrow
     var winnerInterViewArrow: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "icon_arrow_right")
+        imageView.image = UIImage(named: "icon_arrow_right_in_button")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()

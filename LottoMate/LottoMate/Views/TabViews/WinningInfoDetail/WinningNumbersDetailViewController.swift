@@ -57,6 +57,7 @@ class WinningNumbersDetailViewController: UIViewController {
         
         let backButtonImage = UIImage(named: "backArrow")
         navBackButton.setImage(backButtonImage, for: .normal)
+        navBackButton.tintColor = .black
         navBackButton.frame = CGRect(x: 0, y: 0, width: 10, height: 18)
         navBackButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         

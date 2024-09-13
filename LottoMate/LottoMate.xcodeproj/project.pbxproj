@@ -42,6 +42,12 @@
 		09554D422C6908E4009D1847 /* LottoMateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D412C6908E4009D1847 /* LottoMateViewModel.swift */; };
 		09554D442C6909C6009D1847 /* LottoResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09554D432C6909C6009D1847 /* LottoResultModel.swift */; };
 		095AEB5D2C92CE7000A7DD5A /* CustomMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB5C2C92CE7000A7DD5A /* CustomMenuViewController.swift */; };
+		095AEB5F2C92D6E100A7DD5A /* WinningReviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB5E2C92D6E100A7DD5A /* WinningReviewDetailView.swift */; };
+		095AEB612C9322F300A7DD5A /* ImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB602C9322F300A7DD5A /* ImagePageViewController.swift */; };
+		095AEB632C93237400A7DD5A /* WinningReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB622C93237400A7DD5A /* WinningReviewDetailViewController.swift */; };
+		095AEB682C940A1800A7DD5A /* ImageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB672C940A1800A7DD5A /* ImageContentViewController.swift */; };
+		095AEB6A2C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */; };
+		095AEB6C2C94274A00A7DD5A /* ThumbnailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB6B2C94274A00A7DD5A /* ThumbnailCardView.swift */; };
 		096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */; };
 		096552A92C8883D100897DA7 /* CustomSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552A82C8883D100897DA7 /* CustomSquareButton.swift */; };
 		096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */; };
@@ -115,6 +121,12 @@
 		09554D412C6908E4009D1847 /* LottoMateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateViewModel.swift; sourceTree = "<group>"; };
 		09554D432C6909C6009D1847 /* LottoResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoResultModel.swift; sourceTree = "<group>"; };
 		095AEB5C2C92CE7000A7DD5A /* CustomMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuViewController.swift; sourceTree = "<group>"; };
+		095AEB5E2C92D6E100A7DD5A /* WinningReviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningReviewDetailView.swift; sourceTree = "<group>"; };
+		095AEB602C9322F300A7DD5A /* ImagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewController.swift; sourceTree = "<group>"; };
+		095AEB622C93237400A7DD5A /* WinningReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningReviewDetailViewController.swift; sourceTree = "<group>"; };
+		095AEB672C940A1800A7DD5A /* ImageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageContentViewController.swift; sourceTree = "<group>"; };
+		095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningReviewHorizontalScrollView.swift; sourceTree = "<group>"; };
+		095AEB6B2C94274A00A7DD5A /* ThumbnailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCardView.swift; sourceTree = "<group>"; };
 		096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryResultModel.swift; sourceTree = "<group>"; };
 		0965526C2C837F3200897DA7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		096552A82C8883D100897DA7 /* CustomSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSquareButton.swift; sourceTree = "<group>"; };
@@ -222,6 +234,8 @@
 		09341C992C57F60900B47642 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				095AEB622C93237400A7DD5A /* WinningReviewDetailViewController.swift */,
+				095AEB5E2C92D6E100A7DD5A /* WinningReviewDetailView.swift */,
 				09554D202C64B6EB009D1847 /* Common */,
 				09341C282C53AA4400B47642 /* TabViews */,
 			);
@@ -233,6 +247,8 @@
 			children = (
 				09341C9A2C57F68B00B47642 /* WinningNumbersDetailViewController.swift */,
 				09341CA02C58D8C500B47642 /* WinningInfoDetailView.swift */,
+				095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */,
+				095AEB6B2C94274A00A7DD5A /* ThumbnailCardView.swift */,
 				091672BC2C78CC2800959767 /* LottoWinningInfoDetail */,
 				091672C12C7CCAEA00959767 /* PensionLotteryWinningInfoDetail */,
 				09CB96002C748693001083F5 /* SpeetoWinningInfoDetail */,
@@ -244,6 +260,7 @@
 		09341CA52C5B9C3200B47642 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				095AEB642C94057D00A7DD5A /* PageView */,
 				09341CA82C5BC97800B47642 /* WinningNumberCircleView.swift */,
 				09554D142C5E619C009D1847 /* DrawPickerViewController.swift */,
 				09554D1C2C649740009D1847 /* PrizeInfoCardView.swift */,
@@ -280,6 +297,15 @@
 				09554D1E2C64B5CB009D1847 /* ViewTemplate.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		095AEB642C94057D00A7DD5A /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				095AEB602C9322F300A7DD5A /* ImagePageViewController.swift */,
+				095AEB672C940A1800A7DD5A /* ImageContentViewController.swift */,
+			);
+			path = PageView;
 			sourceTree = "<group>";
 		};
 		0969664F2C4FE27600BCE28B = {
@@ -633,6 +659,7 @@
 			files = (
 				09554D1F2C64B5CB009D1847 /* ViewTemplate.swift in Sources */,
 				096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */,
+				095AEB6A2C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift in Sources */,
 				091C23682C761F0D00377A92 /* SpeetoCardViewDetailContainer.swift in Sources */,
 				091672CB2C7E0EE800959767 /* BannerView.swift in Sources */,
 				09554D112C5E5376009D1847 /* Extensions.swift in Sources */,
@@ -649,10 +676,14 @@
 				09554D422C6908E4009D1847 /* LottoMateViewModel.swift in Sources */,
 				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
+				095AEB6C2C94274A00A7DD5A /* ThumbnailCardView.swift in Sources */,
+				095AEB682C940A1800A7DD5A /* ImageContentViewController.swift in Sources */,
 				09554D252C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift in Sources */,
 				091672C52C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift in Sources */,
 				095AEB5D2C92CE7000A7DD5A /* CustomMenuViewController.swift in Sources */,
 				091672C32C7CCB2600959767 /* PensionLotteryWinningInfoView.swift in Sources */,
+				095AEB5F2C92D6E100A7DD5A /* WinningReviewDetailView.swift in Sources */,
+				095AEB612C9322F300A7DD5A /* ImagePageViewController.swift in Sources */,
 				09554D1D2C649740009D1847 /* PrizeInfoCardView.swift in Sources */,
 				096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
@@ -667,6 +698,7 @@
 				09554D402C6907E4009D1847 /* LottoMateService.swift in Sources */,
 				09341CAB2C5D140800B47642 /* UIView+Extensions.swift in Sources */,
 				09341C9E2C57FB0700B47642 /* Typography.swift in Sources */,
+				095AEB632C93237400A7DD5A /* WinningReviewDetailViewController.swift in Sources */,
 				091C23662C75C43300377A92 /* SpeetoPrizeInfoCardView.swift in Sources */,
 				091672C92C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift in Sources */,
 				091C235E2C74F25400377A92 /* SpeetoWinningInfoView.swift in Sources */,
