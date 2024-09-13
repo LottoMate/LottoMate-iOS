@@ -24,6 +24,9 @@ PODS:
     - Moya/Core
     - RxSwift (~> 6.0)
   - naveridlogin-sdk-ios (4.2.1)
+  - NMapsGeometry (1.0.2)
+  - NMapsMap (3.19.0):
+    - NMapsGeometry
   - PinLayout (1.10.5)
   - RxCocoa (6.7.1):
     - RxRelay (= 6.7.1)
@@ -43,6 +46,7 @@ DEPENDENCIES:
   - Moya
   - Moya/RxSwift
   - naveridlogin-sdk-ios
+  - NMapsMap
   - PinLayout
   - RxCocoa
   - RxGesture
@@ -59,6 +63,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - Moya
     - naveridlogin-sdk-ios
+    - NMapsGeometry
+    - NMapsMap
     - PinLayout
     - RxCocoa
     - RxGesture
@@ -85,6 +91,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   naveridlogin-sdk-ios: d5f9d92905a7e964976ebfdd665bee5fb75845c5
+  NMapsGeometry: 4e02554fa9880ef02ed96b075dc84355d6352479
+  NMapsMap: 99c10429d93340780b6f88d3fc7c0a3850b43664
   PinLayout: f6c2b63a5a5b24864064e1d15c67de41b4e74748
   RxCocoa: f5609cb4637587a7faa99c5d5787e3ad582b75a4
   RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
@@ -92,6 +100,6 @@ SPEC CHECKSUMS:
   RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
   SwiftSoup: e3849c3293b1efee9cf892f91f6ae5c22bfeb5f7
 
-PODFILE CHECKSUM: 1801d37b9ad08bca70045dfb9b4492d044409670
+PODFILE CHECKSUM: 1dcf514f8ec2299c725f8a62bebb110e77826430
 
 COCOAPODS: 1.14.3

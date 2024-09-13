@@ -17,6 +17,7 @@ target 'LottoMate' do
   pod 'BottomSheet', :git => 'https://github.com/joomcode/BottomSheet'
   pod 'GoogleSignIn'
   pod 'naveridlogin-sdk-ios'
+  pod 'NMapsMap'
 
   target 'LottoMateTests' do
     inherit! :search_paths

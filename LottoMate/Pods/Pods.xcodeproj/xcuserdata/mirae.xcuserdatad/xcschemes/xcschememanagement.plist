@@ -69,6 +69,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NMapsGeometry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>NMapsMap.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PinLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
