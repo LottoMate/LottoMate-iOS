@@ -40,7 +40,7 @@ class TestButtonView: UIView {
         rootFlexContainer.flex.direction(.column).define { flex in
             flex.addItem(defaultSolidButton).width(127).height(48).marginBottom(48)
 //            flex.addItem(drawRoundTestView).grow(1)
-        }.border(1, .red)
+        }
     }
     
     required init?(coder: NSCoder) {
