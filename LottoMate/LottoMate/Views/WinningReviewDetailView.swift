@@ -232,8 +232,8 @@ class WinningReviewDetailView: UIView, UIScrollViewDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        rootFlexContainer.pin.top().left().right()
         scrollView.pin.top().bottom().left().right()
+        rootFlexContainer.pin.top().left().right()
         rootFlexContainer.flex.layout(mode: .adjustHeight)
         scrollView.contentSize = rootFlexContainer.frame.size
     }
