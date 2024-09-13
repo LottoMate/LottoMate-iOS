@@ -121,6 +121,7 @@ public enum Typography {
         paragraphStyle.minimumLineHeight = self.lineHeight
         paragraphStyle.maximumLineHeight = self.lineHeight
         paragraphStyle.alignment = alignment
+        paragraphStyle.lineBreakMode = .byTruncatingTail
         
         let font = font()
         let baselineOffset = (self.lineHeight - font.lineHeight) / 2.0

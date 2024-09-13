@@ -23,7 +23,7 @@ class SpeetoCardViewDetailContainer: UIView {
     /// 당첨자 인터뷰 버튼 right arrow
     var winnerInterViewArrow: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "icon_arrow_right")
+        imageView.image = UIImage(named: "icon_arrow_right_in_button")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -38,16 +38,18 @@ class SpeetoCardViewDetailContainer: UIView {
         setupDetailInfoContainer(for: winningInfo)
         
         rootFlexContainer.flex.direction(.column).paddingVertical(16).paddingHorizontal(20).define { flex in
-            
             // row 1
-            flex.addItem().direction(.row).justifyContent(.spaceBetween).grow(1).define { flex in
-                flex.addItem().direction(.row).define { flex in
+            flex.addItem().direction(.row).justifyContent(.spaceBetween).shrink(1).define { flex in
+                flex.addItem().direction(.row).shrink(1).define { flex in
                     flex.addItem(storeNameLabel).marginRight(4) // 판매점
-                    flex.addItem(storeNameValueLabel) // 야단법석
+                    flex.addItem(storeNameValueLabel).marginRight(20).shrink(1) // 야단법석
                 }
-                flex.addItem().direction(.row).define { flex in
-                    flex.addItem(winnerInterViewTextLabel).marginRight(4) // 당첨자 인터뷰
-                    flex.addItem(winnerInterViewArrow) // 당첨자 인터뷰 arrow icon
+                // 1등일때만 당첨자 인터뷰 이동 버튼 나타남
+                if winningInfo.prizeTier == .firstPrize {
+                    flex.addItem().direction(.row).define { flex in
+                        flex.addItem(winnerInterViewTextLabel).marginRight(4) // 당첨자 인터뷰
+                        flex.addItem(winnerInterViewArrow) // 당첨자 인터뷰 arrow icon
+                    }
                 }
             }
             
@@ -94,6 +96,6 @@ class SpeetoCardViewDetailContainer: UIView {
 }
 
 #Preview {
-    let view = SpeetoCardViewDetailContainer(winningInfo: SampleSpeetoStoreModel(storeName: "샘플상호명", round: 32, prizePaymentDate: "2024.06.24"))
+    let view = SpeetoCardViewDetailContainer(winningInfo: SampleSpeetoStoreModel(prizeTier: .secondPrize, storeName: "샘플상호명", round: 32, prizePaymentDate: "2024.06.24"))
     return view
 }

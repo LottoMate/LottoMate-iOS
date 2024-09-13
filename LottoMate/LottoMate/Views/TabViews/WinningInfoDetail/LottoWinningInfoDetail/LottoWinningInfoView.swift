@@ -10,6 +10,7 @@ import PinLayout
 import FlexLayout
 import RxSwift
 import RxCocoa
+import BottomSheet
 
 class LottoWinningInfoView: UIView {
     let viewModel = LottoMateViewModel.shared
@@ -36,15 +37,16 @@ class LottoWinningInfoView: UIView {
     
     /// 당첨 번호 보기
     let lotteryResultsTitle = UILabel()
-    let winningNumbersView = LottoWinningNumbersView()
-    
-    /// 등수별 당첨 정보 & 총 판매 금액 컨테이너
-    let prizeAndSalesAmount = UIView()
-    let prizeDetailsByRank = UILabel()
     /// 총 판매 금액 레이블
     let totalSalesAmountLabel = UILabel()
     /// 총 판매 금액 값
-    let totalSalesAmountValue: Int = 111998191000
+//    let totalSalesAmountValue: Int = 111998191000
+    let winningNumbersView = LottoWinningNumbersView()
+    
+    /// 등수별 당첨 정보
+    let prizeDetailsByRank = UILabel()
+    /// '1인당 당첨 수령 금액' 레이블
+    let noticePrizeAmountPerPerson = UILabel()
     
     /// 지급 기한 정보 레이블
     let claimNoticeLabel = UILabel()
@@ -56,7 +58,7 @@ class LottoWinningInfoView: UIView {
         
         bind()
         
-        drawView()
+        lottoDrawRoundView()
         
         lotteryResultsTitle.text = "당첨 번호 보기"
         styleLabel(for: lotteryResultsTitle, fontStyle: .headline1, textColor: .primaryGray)
@@ -64,8 +66,10 @@ class LottoWinningInfoView: UIView {
         prizeDetailsByRank.text = "등수별 당첨 정보"
         styleLabel(for: prizeDetailsByRank, fontStyle: .headline1, textColor: .primaryGray)
         
-        totalSalesAmountLabel.text = "총 판매 금액 : \(totalSalesAmountValue.formattedWithSeparator())원"
-        styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .gray_ACACAC)
+        noticePrizeAmountPerPerson.text = "1인당 당첨 수령 금액"
+        styleLabel(for: noticePrizeAmountPerPerson, fontStyle: .caption, textColor: .gray80)
+        
+        styleLabel(for: totalSalesAmountLabel, fontStyle: .caption, textColor: .gray80)
         
         claimNoticeLabel.text = "* 지급 개시일부터 1년 내 당첨금을 찾아가야 해요. (휴일일 경우 다음날까지)"
         styleLabel(for: claimNoticeLabel, fontStyle: .caption, textColor: .gray80)
@@ -75,21 +79,24 @@ class LottoWinningInfoView: UIView {
         rootFlexContainer.flex.direction(.column).paddingHorizontal(20).paddingTop(28).define { flex in
             // 회차
             flex.addItem().direction(.row).justifyContent(.spaceBetween).define { flex in
-                flex.addItem(previousRoundButton)
-                flex.addItem(lotteryDrawingInfo).direction(.row).alignItems(.baseline).define { flex in
-                    flex.addItem(lotteryDrawRound).marginRight(8).minWidth(53)
-                    flex.addItem(drawDate).minWidth(71)
+                flex.addItem(previousRoundButton).paddingHorizontal(10).paddingVertical(7)
+                flex.addItem(lotteryDrawingInfo).direction(.row).grow(1).justifyContent(.center).define { flex in
+                    flex.addItem(lotteryDrawRound).marginRight(8).grow(1)
+                    flex.addItem(drawDate).grow(1)
                 }
-                flex.addItem(nextRoundButton)
+                flex.addItem(nextRoundButton).paddingHorizontal(10).paddingVertical(7)
             }
             // 당첨 번호 보기
-            flex.addItem(lotteryResultsTitle).alignSelf(.start).marginTop(24)
+            flex.addItem().direction(.row).paddingTop(42).justifyContent(.spaceBetween).alignItems(.end).define { flex in
+                flex.addItem(lotteryResultsTitle).alignSelf(.start).marginTop(24)
+                flex.addItem(totalSalesAmountLabel)
+            }
             // 당첨 번호 박스
             flex.addItem(winningNumbersView).marginTop(12)
             // 등수별 당첨 정보
             flex.addItem().direction(.row).paddingTop(42).justifyContent(.spaceBetween).alignItems(.end).define { flex in
                 flex.addItem(prizeDetailsByRank)
-                flex.addItem(totalSalesAmountLabel)
+                flex.addItem(noticePrizeAmountPerPerson)
             }
             // 당첨 정보 상세 박스
             flex.addItem().direction(.column).gap(20).marginTop(12).marginBottom(16).define { flex in
@@ -117,19 +124,19 @@ class LottoWinningInfoView: UIView {
         viewModel.lottoResult
             .map { result in
                 let text = "\(result?.lottoResult.drwNum ?? 0)회"
-                return NSAttributedString(string: text, attributes: Typography.headline1.attributes())
+                return text
             }
-            .bind(to: lotteryDrawRound.rx.attributedText)
+            .bind(to: lotteryDrawRound.rx.text)
             .disposed(by: disposeBag)
         
         // 추첨 날짜
         viewModel.lottoResult
             .observe(on: MainScheduler.instance)
             .map { result in
-                let dwrtDate = result?.lottoResult.drwDate.reformatDate ?? "no data"
-                return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
+                let drawDate = result?.lottoResult.drwDate.reformatDate ?? "no data"
+                return drawDate
             }
-            .bind(to: drawDate.rx.attributedText)
+            .bind(to: drawDate.rx.text)
             .disposed(by: disposeBag)
         
         previousRoundButton.rx.tap
@@ -142,6 +149,19 @@ class LottoWinningInfoView: UIView {
             })
             .disposed(by: disposeBag)
         
+        // 최신 회차일 때, next round button disabled 하기
+        let isNotLatestRound = self.viewModel.currentLottoRound
+            .map { currentLottoRound -> Bool in
+                if let currentRound = currentLottoRound, let latestRound = self.viewModel.latestLotteryResult.value?.the645.drwNum {
+                    return currentRound < latestRound
+                }
+                return false
+            }
+        
+        isNotLatestRound
+            .bind(to: nextRoundButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
         nextRoundButton.rx.tap
             .subscribe(onNext: { _ in
                 if let currentRound = self.viewModel.currentLottoRound.value {
@@ -150,6 +170,15 @@ class LottoWinningInfoView: UIView {
                     self.viewModel.fetchLottoResult(round: nextRound)
                 }
             })
+            .disposed(by: disposeBag)
+        
+        // 총 판매 금액
+        viewModel.lottoResult
+            .map { result in
+                let totalSalesPrice = result?.lottoResult.totalSalesPrice ?? 0
+                return "총 판매 금액 : \(totalSalesPrice.formattedWithSeparator())원"
+            }
+            .bind(to: totalSalesAmountLabel.rx.text)
             .disposed(by: disposeBag)
     }
 }

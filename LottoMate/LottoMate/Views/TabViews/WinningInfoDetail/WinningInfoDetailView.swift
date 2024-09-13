@@ -13,7 +13,6 @@ import RxCocoa
 
 protocol WinningInfoDetailViewDelegate: AnyObject {
     func didTapBackButton()
-    func didTapDrawView()
 }
 
 class WinningInfoDetailView: UIView {
@@ -110,10 +109,6 @@ class WinningInfoDetailView: UIView {
         // Add the selected view to contentView
         contentView.addSubview(selectedView)
         self.layoutSubviews()
-    }
-    
-    @objc func didTapDrawView() {
-        delegate?.didTapDrawView()
     }
 }
 

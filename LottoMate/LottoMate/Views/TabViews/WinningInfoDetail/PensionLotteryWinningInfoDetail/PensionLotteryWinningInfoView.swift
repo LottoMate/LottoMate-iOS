@@ -13,7 +13,7 @@ import RxCocoa
 
 class PensionLotteryWinningInfoView: UIView {
     let viewModel = LottoMateViewModel.shared
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     fileprivate let rootFlexContainer = UIView()
     /// 당첨 번호 뷰 (groupNumber 정리 또는 제거 필요)
     let winningNumbersView = PensionLotteryWinningNumbersView(groupNumber: 1)
@@ -33,15 +33,15 @@ class PensionLotteryWinningInfoView: UIView {
     let prizeDetailsByRank = UILabel()
     /// 지급 기한 정보 레이블
     let claimNoticeLabel = UILabel()
+    /// 배너 뷰
+    let banner = BannerView(bannerBackgroundColor: .yellow5, bannerImageName: "img_banner_coins", titleText: "행운의 1등 로또\r어디서 샀을까?", bodyText: "당첨 판매점 보러가기")
     
     init() {
         super.init(frame: .zero)
         
         bind()
         
-        drawRoundContainer()
-        
-        styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .black)
+        pensionLotteryDrawRoundView()
         
         lotteryResultsTitle.text = "당첨 번호 보기"
         styleLabel(for: lotteryResultsTitle, fontStyle: .headline1, textColor: .primaryGray)
@@ -57,12 +57,12 @@ class PensionLotteryWinningInfoView: UIView {
         rootFlexContainer.flex.direction(.column).paddingHorizontal(20).paddingTop(28).define { flex in
             // 회차
             flex.addItem().direction(.row).justifyContent(.spaceBetween).define { flex in
-                flex.addItem(previousRoundButton)
-                flex.addItem(lotteryDrawingInfo).direction(.row).alignItems(.baseline).define { flex in
-                    flex.addItem(lotteryDrawRound).marginRight(8).minWidth(53)
-                    flex.addItem(drawDate).minWidth(71)
+                flex.addItem(previousRoundButton).paddingHorizontal(10).paddingVertical(7)
+                flex.addItem(lotteryDrawingInfo).direction(.row).grow(1).justifyContent(.center).define { flex in
+                    flex.addItem(lotteryDrawRound).marginRight(8).grow(1)
+                    flex.addItem(drawDate).grow(1)
                 }
-                flex.addItem(nextRoundButton)
+                flex.addItem(nextRoundButton).paddingHorizontal(10).paddingVertical(7)
             }
             // 당첨 번호 보기
             flex.addItem(lotteryResultsTitle).alignSelf(.start).marginTop(24)
@@ -77,7 +77,8 @@ class PensionLotteryWinningInfoView: UIView {
                     flex.addItem(view)
                 }
             }
-            flex.addItem(claimNoticeLabel).alignSelf(.start)
+            flex.addItem(claimNoticeLabel).alignSelf(.start).marginBottom(32)
+            flex.addItem(banner)
         }
     }
     
@@ -95,7 +96,8 @@ class PensionLotteryWinningInfoView: UIView {
         // 회차 라벨
         viewModel.pensionLotteryResult
             .map { result in
-                return "\(result?.pensionLotteryResult.drwNum ?? 0)회"
+                let text = "\(result?.pensionLotteryResult.drwNum ?? 0)회"
+                return text
             }
             .bind(to: lotteryDrawRound.rx.text)
             .disposed(by: disposeBag)
@@ -103,11 +105,47 @@ class PensionLotteryWinningInfoView: UIView {
         // 추첨 날짜
         viewModel.pensionLotteryResult
             .map { result in
-                let dwrtDate = result?.pensionLotteryResult.drwDate.reformatDate ?? "no data"
-                return NSAttributedString(string: dwrtDate, attributes: Typography.label2.attributes())
+                let drawDate = result?.pensionLotteryResult.drwDate.reformatDate ?? "no data"
+                return drawDate
             }
-            .bind(to: drawDate.rx.attributedText)
+            .bind(to: drawDate.rx.text)
             .disposed(by: disposeBag)
+        
+        // 전 회차
+        previousRoundButton.rx.tap
+            .subscribe(onNext: { _ in
+                if let currentRound = self.viewModel.currentPensionLotteryRound.value {
+                    let previousRound = currentRound - 1
+                    self.viewModel.currentPensionLotteryRound.accept(previousRound)
+                    self.viewModel.fetchPensionLotteryResult(round: previousRound)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        // 최신 회차일 때, next round button disabled 하기
+        let isNotLatestRound = self.viewModel.currentPensionLotteryRound
+            .map { currentPensionLotteryRound -> Bool in
+                if let currentRound = currentPensionLotteryRound, let latestRound = self.viewModel.latestLotteryResult.value?.the720.drwNum {
+                    return currentRound < latestRound
+                }
+                return false
+            }
+        
+        isNotLatestRound
+            .bind(to: nextRoundButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        // 다음 회차
+        nextRoundButton.rx.tap
+            .subscribe(onNext: { _ in
+                if let currentRound = self.viewModel.currentPensionLotteryRound.value {
+                    let nextRound = currentRound + 1
+                    self.viewModel.currentPensionLotteryRound.accept(nextRound)
+                    self.viewModel.fetchPensionLotteryResult(round: nextRound)
+                }
+            })
+            .disposed(by: disposeBag)
+        
     }
 }
 

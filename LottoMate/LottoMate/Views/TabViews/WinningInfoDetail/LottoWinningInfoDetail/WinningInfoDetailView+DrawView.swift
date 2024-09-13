@@ -11,19 +11,18 @@ import RxCocoa
 import RxGesture
 
 extension LottoWinningInfoView {
-    func drawView() {
-        styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .primaryGray)
-        styleLabel(for: drawDate, fontStyle: .label2, textColor: .gray_ACACAC)
+    /// 로또 복권 회차 뷰 설정
+    func lottoDrawRoundView() {
+        styleLabel(for: lotteryDrawRound, fontStyle: .headline1, textColor: .black, alignment: .right)
+        styleLabel(for: drawDate, fontStyle: .label2, textColor: .gray_ACACAC, alignment: .left)
         
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapDrawView))
-//        lotteryDrawingInfo.addGestureRecognizer(tapGesture)
         lotteryDrawingInfo.isUserInteractionEnabled = true
         
-        let previousRoundBtnImage = UIImage(named: "small_arrow_left")
+        let previousRoundBtnImage = UIImage(named: "icon_arrow_left_medium")
         previousRoundButton.setImage(previousRoundBtnImage, for: .normal)
         previousRoundButton.tintColor = .primaryGray
         previousRoundButton.frame = CGRect(x: 0, y: 0, width: 4, height: 10)
-        let nextRoundBtnImage = UIImage(named: "small_arrow_right")
+        let nextRoundBtnImage = UIImage(named: "icon_arrow_right_medium")
         nextRoundButton.setImage(nextRoundBtnImage, for: .normal)
         nextRoundButton.tintColor = .gray40
         nextRoundButton.frame = CGRect(x: 0, y: 0, width: 4, height: 10)
@@ -44,7 +43,7 @@ extension LottoWinningInfoView {
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                self.viewModel.lottoRoundTapEvent.accept(true)
+                self.viewModel.drawRoundTapEvent.accept(true)
             })
             .disposed(by: disposeBag)
     }

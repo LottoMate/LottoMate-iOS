@@ -39,7 +39,6 @@ class WinningNumbersDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         // 뷰를 나타낼때마다 색이 적용되어 opacity가 변경됨... 점점 불투명해짐.
         changeStatusBarBgColor(bgColor: .commonNavBar)
     }
@@ -50,11 +49,15 @@ class WinningNumbersDetailViewController: UIViewController {
         bind()
         bindViewModel()
         
+//        viewModel.lottoDrawRoundPickerViewData()
+//        viewModel.pensionLotteryDrawRoundPickerViewData()
+        
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
         
         let backButtonImage = UIImage(named: "backArrow")
         navBackButton.setImage(backButtonImage, for: .normal)
+        navBackButton.tintColor = .black
         navBackButton.frame = CGRect(x: 0, y: 0, width: 10, height: 18)
         navBackButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
@@ -80,11 +83,20 @@ class WinningNumbersDetailViewController: UIViewController {
     }
     
     func bind() {
-        viewModel.lottoRoundTapEvent
+        viewModel.drawRoundTapEvent
             .subscribe(onNext: { isTapped in
                 guard let tapped = isTapped else { return }
                 if tapped {
-                    self.showDrawPicker()
+                    self.showDrawRoundTest()
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.speetoPageTapEvent
+            .subscribe(onNext: { isTapped in
+                guard let tapped = isTapped else { return }
+                if tapped {
+//                    self.showCustomMenu()
                 }
             })
             .disposed(by: disposeBag)
@@ -92,29 +104,6 @@ class WinningNumbersDetailViewController: UIViewController {
     
     @objc func backButtonTapped() {
         didTapBackButton()
-    }
-    
-    @objc func showDrawPicker() {
-        let pickerVC = DrawPickerViewController()
-        pickerVC.modalPresentationStyle = .pageSheet
-        pickerVC.modalTransitionStyle = .coverVertical
-        
-        pickerVC.selectedDrawInfo = { selectedInfo in
-            print("Selected draw info: \(selectedInfo)")
-        }
-//        present(pickerVC, animated: true, completion: nil)
-        
-        present(pickerVC, animated: true) {
-            if let sheet = pickerVC.sheetPresentationController {
-                sheet.detents = [
-                    .custom { context in
-                        print("pickerVC.view.frame.height: \(pickerVC.view.frame.height)")
-                        return 284.0
-                    }
-                ]
-                sheet.prefersGrabberVisible = false
-            }
-        }
     }
     
     func changeStatusBarBgColor(bgColor: UIColor?) {
@@ -132,14 +121,29 @@ class WinningNumbersDetailViewController: UIViewController {
                statusBarView?.backgroundColor = bgColor
            }
        }
+    
+    func showDrawRoundTest() {
+        let viewController = DrawPickerViewController()
+        
+        viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.width / 1.25) - view.safeAreaInsets.bottom)
+        
+        presentBottomSheet(viewController: viewController, configuration: BottomSheetConfiguration(
+            cornerRadius: 32,
+            pullBarConfiguration: .hidden,
+            shadowConfiguration: .default
+        ), canBeDismissed: {
+            true
+        }, dismissCompletion: {
+            // handle bottom sheet dismissal completion
+        })
+    }
 }
 
 extension WinningNumbersDetailViewController: WinningInfoDetailViewDelegate {
-    func didTapDrawView() {
-        showDrawPicker()
-    }
     func didTapBackButton() {
         navigationController?.popViewController(animated: true)
+        // 뒤로간 후 다시 돌아올 때 회차 선택 피커뷰 나타남을 방지
+        self.viewModel.drawRoundTapEvent.accept(false)
     }
 }
 

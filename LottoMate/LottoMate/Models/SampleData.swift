@@ -43,6 +43,7 @@ struct SampleHtmlDoc {
 
 struct SampleSpeetoStoreModel: Identifiable {
     let id = UUID()
+    let prizeTier: SpeetoPrizeTier
     let storeName: String
     let round: Int
     let prizePaymentDate: String
@@ -50,23 +51,20 @@ struct SampleSpeetoStoreModel: Identifiable {
 }
 
 struct SampleSpeetoData {
-    static var sampleData2000: [SpeetoPrizeTier : [SampleSpeetoStoreModel]] = [
-        .firstPrize: [
-            SampleSpeetoStoreModel(storeName: "야단법석", round: 53, prizePaymentDate: "2024-06-05"),
-            SampleSpeetoStoreModel(storeName: "또또복권방", round: 53, prizePaymentDate: "2024-05-22"),
-        ],
-        .secondPrize: [
-            SampleSpeetoStoreModel(storeName: "로또나라", round: 53, prizePaymentDate: "2024-06-26"),
-            SampleSpeetoStoreModel(storeName: "8888로또", round: 53, prizePaymentDate: "2024-06-26"),
-            SampleSpeetoStoreModel(storeName: "천하면당 사당점", round: 53, prizePaymentDate: "2024-06-24"),
-            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
-            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
-            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
-            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
-            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
-            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
-            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
-            SampleSpeetoStoreModel(storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
-        ]
+    static var sampleData2000: [SampleSpeetoStoreModel] = [
+        SampleSpeetoStoreModel(prizeTier: .firstPrize, storeName: "야단법석", round: 53, prizePaymentDate: "2024-06-05"),
+        SampleSpeetoStoreModel(prizeTier: .firstPrize, storeName: "진짜진짜진짜진짜진짜긴복권판매점명한줄처리되는지확인", round: 53, prizePaymentDate: "2024-05-22"),
+        
+        SampleSpeetoStoreModel(prizeTier: .secondPrize, storeName: "로또나라", round: 53, prizePaymentDate: "2024-06-26"),
+        SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "8888로또", round: 53, prizePaymentDate: "2024-06-26"),
+        SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "천하면당 사당점", round: 53, prizePaymentDate: "2024-06-24"),
+        SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "진짜진짜진짜진짜진짜긴복권판매점명한줄처리되는지확인", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+        SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+        SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+        SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+        SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+        SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+        SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
+        SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
     ]
 }
