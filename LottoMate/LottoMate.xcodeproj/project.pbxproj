@@ -222,6 +222,7 @@
 		09341C282C53AA4400B47642 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
+				095AEB742C9C5DE700A7DD5A /* WinningReviewDetail */,
 				09341C292C53AA6E00B47642 /* HomeViewController.swift */,
 				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
 				09341C212C52653B00B47642 /* TestButtonView.swift */,
@@ -234,9 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				09341C252C53A71000B47642 /* TabBarViewController.swift */,
-				095AEB622C93237400A7DD5A /* WinningReviewDetailViewController.swift */,
-				095AEB5E2C92D6E100A7DD5A /* WinningReviewDetailView.swift */,
-				095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */,
 				09554D202C64B6EB009D1847 /* Common */,
 				09341C282C53AA4400B47642 /* TabViews */,
 			);
@@ -306,6 +304,16 @@
 				095AEB672C940A1800A7DD5A /* ImageContentViewController.swift */,
 			);
 			path = PageView;
+			sourceTree = "<group>";
+		};
+		095AEB742C9C5DE700A7DD5A /* WinningReviewDetail */ = {
+			isa = PBXGroup;
+			children = (
+				095AEB622C93237400A7DD5A /* WinningReviewDetailViewController.swift */,
+				095AEB5E2C92D6E100A7DD5A /* WinningReviewDetailView.swift */,
+				095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */,
+			);
+			path = WinningReviewDetail;
 			sourceTree = "<group>";
 		};
 		0969664F2C4FE27600BCE28B = {
