@@ -22,7 +22,8 @@ class HomeViewController: UIViewController {
     }
     
     @objc func showWinningNumbersDetail() {
-        let detailViewController = WinningNumbersDetailViewController()
+//        let detailViewController = WinningNumbersDetailViewController()
+        let detailViewController = WinningReviewDetailViewController()
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

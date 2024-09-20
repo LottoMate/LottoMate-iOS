@@ -82,10 +82,9 @@ class WinningReviewDetailView: UIView, UIScrollViewDelegate {
         scrollView.addSubview(rootFlexContainer)
         addSubview(scrollView)
         
-        rootFlexContainer.flex.direction(.column).define { flex in
-            flex.addItem(imagePageView.view)
+        rootFlexContainer.flex.direction(.column).paddingTop(56).define { flex in
             // 텍스트 부분
-            flex.addItem().direction(.column).paddingHorizontal(20).paddingTop(28).paddingBottom(24).define { flex in
+            flex.addItem().direction(.column).paddingHorizontal(20).paddingTop(12).paddingBottom(24).define { flex in
                 flex.addItem().direction(.row).gap(4).define { flex in
                     flex.addItem(drawRoundLabel)
                     flex.addItem(dotLabel)
@@ -233,7 +232,7 @@ class WinningReviewDetailView: UIView, UIScrollViewDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         scrollView.pin.top().bottom().left().right()
-        rootFlexContainer.pin.top().left().right()
+        rootFlexContainer.pin.top(pin.safeArea.top).left().right()
         rootFlexContainer.flex.layout(mode: .adjustHeight)
         scrollView.contentSize = rootFlexContainer.frame.size
     }
