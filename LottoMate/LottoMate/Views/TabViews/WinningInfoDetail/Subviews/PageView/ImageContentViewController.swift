@@ -24,7 +24,7 @@ class ImageContentViewController: UIViewController {
         // 이미지 뷰 설정
         imageView = UIImageView()
         imageView.image = UIImage(named: imageName)
-        imageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 1.34)
+        imageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 1.33)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         
@@ -32,8 +32,8 @@ class ImageContentViewController: UIViewController {
         
         rootFlexContainer.flex.define { flex in
             flex.addItem(imageView)
-                .height(UIScreen.main.bounds.width / 1.34)  // 고정된 비율로 높이 설정
-                .width(UIScreen.main.bounds.width) 
+                .height(UIScreen.main.bounds.width / 1.33)  // 고정된 비율로 높이 설정
+                .width(UIScreen.main.bounds.width)
         }
     }
     
