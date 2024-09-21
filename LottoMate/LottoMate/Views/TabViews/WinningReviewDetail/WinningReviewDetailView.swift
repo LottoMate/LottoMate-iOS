@@ -3,7 +3,10 @@
 //  LottoMate
 //
 //  Created by Mirae on 9/12/24.
-//
+/*
+ 1. 이미지 데이터 개수별 다른 뷰 적용 필요
+ 2. 동시 당첨 시 달라지는 맨 위 텍스트 뷰 수정 필요
+ */
 
 import UIKit
 import PinLayout
@@ -98,6 +101,8 @@ class WinningReviewDetailView: UIView, UIScrollViewDelegate {
                     flex.addItem().width(1).height(10).backgroundColor(.gray80)
                     flex.addItem(createdDate)
                 }
+                
+                flex.addItem(imagePageView.view)
                 
                 flex.addItem().direction(.column).marginBottom(16).define { flex in
                     flex.addItem(questionLabel)

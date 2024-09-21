@@ -21,7 +21,7 @@ class ImagePageViewController: UIViewController, UIPageViewControllerDataSource,
     let images = ["winning_review_sample_1", "winning_review_sample_2", "winning_review_sample_3"]
     
     // 이미지 뷰의 비율
-    let imageAspectRatio: CGFloat = 1.34
+    let imageAspectRatio: CGFloat = 1.33
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,6 @@ class ImagePageViewController: UIViewController, UIPageViewControllerDataSource,
         setupPageViewControllerSize()
         
         // 페이지 컨트롤 추가
-        setupGradientOverlay()
         setupPageControl()
         
         view.backgroundColor = .white
@@ -53,12 +52,13 @@ class ImagePageViewController: UIViewController, UIPageViewControllerDataSource,
         view.addSubview(rootFlexContainer)
         rootFlexContainer.flex.define { flex in
             flex.addItem(pageViewController.view)
+            flex.addItem(pageControl).height(32)
         }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        rootFlexContainer.pin.top().horizontally()
+        rootFlexContainer.pin.top(view.safeAreaInsets.top).horizontally()
         rootFlexContainer.flex.layout(mode: .adjustHeight)
     }
     
@@ -66,44 +66,30 @@ class ImagePageViewController: UIViewController, UIPageViewControllerDataSource,
     func setupPageViewControllerSize() {
         let screenWidth = UIScreen.main.bounds.width
         let pageViewHeight = screenWidth / imageAspectRatio
+        
         pageViewController.view.frame = CGRect(x: 0, y: 0, width: screenWidth, height: pageViewHeight)
-    }
-    
-    // 그라디언트 오버레이 설정
-    func setupGradientOverlay() {
-        let screenWidth = UIScreen.main.bounds.width
-        let pageViewHeight = screenWidth * imageAspectRatio
-        
-        gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 195, width: screenWidth, height: 100)
-        
-        // 그라디언트 색상 (밝은 투명 -> 어두운 반투명)
-        gradientLayer.colors = [
-            UIColor.clear.cgColor,
-            UIColor.black.withAlphaComponent(0.4).cgColor
-        ]
-        gradientLayer.locations = [0.0, 1.0]
-        
-        // 페이지 뷰에 그라디언트 오버레이 추가
-        pageViewController.view.layer.addSublayer(gradientLayer)
+        pageViewController.view.layer.cornerRadius = 16
+        pageViewController.view.layer.masksToBounds = true
+        if let parentView = pageViewController.view.superview {
+            parentView.clipsToBounds = false // 부모 뷰가 잘리지 않도록 설정
+        }
     }
     
     // 페이지 컨트롤 설정 (이미지 위에 오버레이)
     func setupPageControl() {
         let screenWidth = UIScreen.main.bounds.width
-        let pageViewHeight = screenWidth / imageAspectRatio
+//        let pageViewHeight = screenWidth / imageAspectRatio
+        let scale: CGFloat = 0.8
         
-        pageControl = UIPageControl(frame: CGRect(x: 0, y: pageViewHeight - 36, width: screenWidth, height: 30))
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 32))
+        pageControl.transform = CGAffineTransform.init(scaleX: scale, y: scale)
         pageControl.numberOfPages = images.count
         pageControl.currentPage = 0
         pageControl.tintColor = UIColor.white
-        pageControl.pageIndicatorTintColor = UIColor.white.withAlphaComponent(0.2)
-        pageControl.currentPageIndicatorTintColor = UIColor.white
+        pageControl.pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
+        pageControl.currentPageIndicatorTintColor = .red50Default
         
         pageControl.isUserInteractionEnabled = false
-        
-        // 페이지 컨트롤을 이미지 위에 오버레이
-        pageViewController.view.addSubview(pageControl)
     }
     
     // 현재 페이지 인덱스에 맞는 뷰 컨트롤러를 반환
