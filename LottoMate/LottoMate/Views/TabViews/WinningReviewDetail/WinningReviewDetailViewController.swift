@@ -8,6 +8,7 @@
 import UIKit
 import FlexLayout
 import PinLayout
+import RxSwift
 
 class WinningReviewDetailViewController: UIViewController {
     fileprivate var mainView: WinningReviewDetailView {
@@ -15,8 +16,10 @@ class WinningReviewDetailViewController: UIViewController {
     }
     
     fileprivate let rootFlexContainer = UIView()
-
+    
     let viewModel = LottoMateViewModel.shared
+    
+    private let disposeBag = DisposeBag()
     
     let navBarContainer = UIView()
     /// 네비게이션 아이템 타이틀
@@ -33,7 +36,6 @@ class WinningReviewDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // 뷰를 나타낼때마다 색이 적용되어 opacity가 변경됨... 점점 불투명해짐.
         changeStatusBarBgColor(bgColor: .commonNavBar)
     }
     
@@ -46,13 +48,13 @@ class WinningReviewDetailViewController: UIViewController {
         navBackButton.frame = CGRect(x: 0, y: 0, width: 10, height: 18)
         navBackButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
-        print("device? \(UIDevice.current.name)")
+        showTappedImage()
         
         view.addSubview(rootFlexContainer)
         rootFlexContainer.flex.paddingVertical(19).define { flex in
             flex.addItem(navBackButton).alignSelf(.start).marginLeft(20)
         }
-        .backgroundColor(.white.withAlphaComponent(0.8))
+        .backgroundColor(.commonNavBar)
     }
     
     override func viewDidLayoutSubviews() {
@@ -97,6 +99,75 @@ class WinningReviewDetailViewController: UIViewController {
             
             // statusBarView를 윈도우에 추가
             window.addSubview(statusBarView)
+        }
+    }
+    
+    func showTappedImage() {
+        viewModel.winningReviewFullSizeImgName
+            .subscribe(onNext: { name in
+                self.changeStatusBarBgColor(bgColor: .clear)
+                self.showFullscreenImage(named: "\(name)")
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func showFullscreenImage(named name: String) {
+        // 투명한 배경 뷰 추가 (터치 이벤트 차단용)
+        let dimmingView = UIView(frame: self.view.bounds)
+        dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        dimmingView.isUserInteractionEnabled = true // 다른 터치를 막기 위해 사용
+        
+        // 전체 화면 이미지 뷰 설정
+        let fullscreenImageView = UIImageView(frame: self.view.bounds)
+        fullscreenImageView.contentMode = .scaleAspectFit
+        fullscreenImageView.image = UIImage(named: name)
+        fullscreenImageView.isUserInteractionEnabled = true // 이미지 뷰도 터치 이벤트를 받을 수 있게 설정
+        
+        // closeButton 이미지 생성
+        if let closeIcon = UIImage(named: "icon_X")?.withRenderingMode(.alwaysTemplate) {
+            let closeButton = UIImageView(image: closeIcon)
+            closeButton.tintColor = UIColor.white.withAlphaComponent(0.6)
+            closeButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+            closeButton.isUserInteractionEnabled = true // 버튼처럼 동작하도록 설정
+            
+            // UIWindowScene을 통해 window 접근
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.first {
+                
+                // status bar height 가져오기
+                let statusBarHeight = windowScene.statusBarManager?.statusBarFrame.height ?? 0
+                
+                // closeButton을 status bar height + 16 아래로 배치
+                let closeButtonX = window.frame.width - 24 - 20 // 오른쪽에서 20px 띄움
+                let closeButtonY = statusBarHeight + 16 // status bar 아래로 16pt 띄움
+                
+                closeButton.frame.origin = CGPoint(x: closeButtonX, y: closeButtonY)
+                
+                // closeButton에 탭 제스처 추가 (전체 화면 이미지 제거 기능)
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+                closeButton.addGestureRecognizer(tapGesture)
+            }
+            
+            // closeButton을 fullscreenImageView에 추가
+            fullscreenImageView.addSubview(closeButton)
+        }
+        
+        // dimmingView에 fullscreenImageView를 추가
+        dimmingView.addSubview(fullscreenImageView)
+        
+        // dimmingView를 현재 뷰에 추가
+        self.view.addSubview(dimmingView)
+        
+        // dimmingView를 나중에 제거할 수 있도록 tag 설정
+        dimmingView.tag = 12345
+    }
+
+    // 전체 화면 이미지 뷰를 제거하는 함수
+    @objc func dismissFullscreenImage() {
+        // tag를 이용해 dimmingView를 찾아서 제거
+        if let dimmingView = self.view.viewWithTag(12345) {
+            changeStatusBarBgColor(bgColor: .commonNavBar)
+            dimmingView.removeFromSuperview()
         }
     }
 }

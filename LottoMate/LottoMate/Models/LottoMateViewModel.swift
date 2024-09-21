@@ -37,6 +37,9 @@ class LottoMateViewModel {
     let speetoTypeTapEvent = BehaviorRelay<SpeetoType?>(value: .the2000)
     let speetoPageTapEvent = BehaviorRelay<Bool?>(value: false)
     
+    // 당첨 후기 이미지 페이지 뷰 전체 보기 (이미지 이름) - 다른 view model로 옮길 수 있음
+    var winningReviewFullSizeImgName = BehaviorSubject<String>(value: "")
+    
     /// 최신 회차 복권 당첨 정보를 가져오는 메서드
     func fetchLottoHome() {
         apiClient.getLottoHome()

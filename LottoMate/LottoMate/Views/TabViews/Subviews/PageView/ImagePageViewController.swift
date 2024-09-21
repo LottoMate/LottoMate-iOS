@@ -8,14 +8,14 @@
 import UIKit
 import FlexLayout
 import PinLayout
+import RxSwift
+import RxGesture
 
 class ImagePageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     fileprivate let rootFlexContainer = UIView()
     
     var pageViewController: UIPageViewController!
     var pageControl = UIPageControl()
-    
-    var gradientLayer: CAGradientLayer!
     
     // 보여줄 이미지 배열
     let images = ["winning_review_sample_1", "winning_review_sample_2", "winning_review_sample_3"]
@@ -38,7 +38,6 @@ class ImagePageViewController: UIViewController, UIPageViewControllerDataSource,
         
         // 페이지 뷰 컨트롤러 추가
         addChild(pageViewController)
-//        view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         
         // 페이지 뷰 컨트롤러의 크기 설정
