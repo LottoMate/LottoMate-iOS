@@ -31,7 +31,6 @@ class WinningReviewDetailViewController: UIViewController {
     
     override func loadView() {
         view = winningReviewDetailView
-        mainView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,8 +104,10 @@ class WinningReviewDetailViewController: UIViewController {
     func showTappedImage() {
         viewModel.winningReviewFullSizeImgName
             .subscribe(onNext: { name in
-                self.changeStatusBarBgColor(bgColor: .clear)
-                self.showFullscreenImage(named: "\(name)")
+                if name != "" {
+                    self.changeStatusBarBgColor(bgColor: .clear)
+                    self.showFullscreenImage(named: "\(name)")
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -114,7 +115,7 @@ class WinningReviewDetailViewController: UIViewController {
     func showFullscreenImage(named name: String) {
         // 투명한 배경 뷰 추가 (터치 이벤트 차단용)
         let dimmingView = UIView(frame: self.view.bounds)
-        dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        dimmingView.backgroundColor = .dimFullScreenImageBackground
         dimmingView.isUserInteractionEnabled = true // 다른 터치를 막기 위해 사용
         
         // 전체 화면 이미지 뷰 설정
@@ -157,29 +158,19 @@ class WinningReviewDetailViewController: UIViewController {
         
         // dimmingView를 현재 뷰에 추가
         self.view.addSubview(dimmingView)
-        
-        // dimmingView를 나중에 제거할 수 있도록 tag 설정
-        dimmingView.tag = 12345
-    }
-
-    // 전체 화면 이미지 뷰를 제거하는 함수
-    @objc func dismissFullscreenImage() {
-        // tag를 이용해 dimmingView를 찾아서 제거
-        if let dimmingView = self.view.viewWithTag(12345) {
-            changeStatusBarBgColor(bgColor: .commonNavBar)
-            dimmingView.removeFromSuperview()
-        }
-    }
-}
-
-extension WinningReviewDetailViewController: WinningReviewDetailViewDelegate {
-    func didScrollDown() {
-        navBackButton.isHidden = true
-    }
-    func didScrollUp() {
-        navBackButton.isHidden = false
     }
     
+    @objc func dismissFullscreenImage() {
+        if let dimmingView = self.view.subviews.first(where: { $0.backgroundColor == .dimFullScreenImageBackground }) {
+            UIView.animate(withDuration: 0.3, animations: {
+                dimmingView.alpha = 0
+            }) { _ in
+                dimmingView.removeFromSuperview()
+                self.changeStatusBarBgColor(bgColor: .commonNavBar)
+                self.viewModel.winningReviewFullSizeImgName.onNext("")
+            }
+        }
+    }
 }
 
 #Preview {
