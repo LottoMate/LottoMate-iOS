@@ -21,3 +21,6 @@
 - PinLayout
 - RxSwift
 - Moya
+
+## 🗃️ Wiki
+이 프로젝트에 대한 모든 정보를 [여기](https://github.com/LottoMate/LottoMate-iOS/wiki)에서 확인하실 수 있습니다.
