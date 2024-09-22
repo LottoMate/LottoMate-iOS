@@ -12,17 +12,10 @@ import UIKit
 import PinLayout
 import FlexLayout
 
-protocol WinningReviewDetailViewDelegate: AnyObject {
-    func didScrollDown()
-    func didScrollUp()
-}
-
 class WinningReviewDetailView: UIView, UIScrollViewDelegate {
     fileprivate let scrollView = UIScrollView()
     fileprivate let rootFlexContainer = UIView()
-    
-    weak var delegate: WinningReviewDetailViewDelegate?
-    
+        
     /// 당첨 회차 레이블
     let drawRoundLabel = UILabel()
     let dotLabel = UILabel()
@@ -240,29 +233,6 @@ class WinningReviewDetailView: UIView, UIScrollViewDelegate {
         rootFlexContainer.pin.top(pin.safeArea.top).left().right()
         rootFlexContainer.flex.layout(mode: .adjustHeight)
         scrollView.contentSize = rootFlexContainer.frame.size
-    }
-    
-    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        print("scrollViewWillBeginDecelerating")
-        
-        let actualPosition = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
-       
-        if (actualPosition.y > 0) {
-            // Dragging down
-            
-            UIView.animate(withDuration: 3, animations: {
-                // Hide navBackButton
-                self.delegate?.didScrollUp()
-            })
-            
-        } else {
-            // Dragging up
-            
-            UIView.animate(withDuration: 3, animations: {
-                //Change the color of view
-                self.delegate?.didScrollDown()
-            })
-        }
     }
 }
 

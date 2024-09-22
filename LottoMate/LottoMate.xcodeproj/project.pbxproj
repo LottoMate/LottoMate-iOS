@@ -222,11 +222,12 @@
 		09341C282C53AA4400B47642 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
-				095AEB742C9C5DE700A7DD5A /* WinningReviewDetail */,
 				09341C292C53AA6E00B47642 /* HomeViewController.swift */,
 				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
 				09341C212C52653B00B47642 /* TestButtonView.swift */,
 				09341CA42C5B9C0600B47642 /* WinningInfoDetail */,
+				095AEB742C9C5DE700A7DD5A /* WinningReviewDetail */,
+				09341CA52C5B9C3200B47642 /* Subviews */,
 			);
 			path = TabViews;
 			sourceTree = "<group>";
@@ -250,7 +251,6 @@
 				091672BC2C78CC2800959767 /* LottoWinningInfoDetail */,
 				091672C12C7CCAEA00959767 /* PensionLotteryWinningInfoDetail */,
 				09CB96002C748693001083F5 /* SpeetoWinningInfoDetail */,
-				09341CA52C5B9C3200B47642 /* Subviews */,
 			);
 			path = WinningInfoDetail;
 			sourceTree = "<group>";
