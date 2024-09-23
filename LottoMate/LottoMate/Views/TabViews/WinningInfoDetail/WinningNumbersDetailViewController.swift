@@ -50,8 +50,8 @@ class WinningNumbersDetailViewController: UIViewController {
         bindViewModel()
         
         // !NO_SERVER
-        viewModel.lottoDrawRoundPickerViewData()
-        viewModel.pensionLotteryDrawRoundPickerViewData()
+//        viewModel.lottoDrawRoundPickerViewData()
+//        viewModel.pensionLotteryDrawRoundPickerViewData()
         
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
