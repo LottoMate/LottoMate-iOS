@@ -49,8 +49,9 @@ class WinningNumbersDetailViewController: UIViewController {
         bind()
         bindViewModel()
         
-//        viewModel.lottoDrawRoundPickerViewData()
-//        viewModel.pensionLotteryDrawRoundPickerViewData()
+        // !NO_SERVER
+        viewModel.lottoDrawRoundPickerViewData()
+        viewModel.pensionLotteryDrawRoundPickerViewData()
         
         navTitleLabel.text = "당첨 정보 상세"
         styleLabel(for: navTitleLabel, fontStyle: .headline1, textColor: .primaryGray)
@@ -96,7 +97,7 @@ class WinningNumbersDetailViewController: UIViewController {
             .subscribe(onNext: { isTapped in
                 guard let tapped = isTapped else { return }
                 if tapped {
-//                    self.showCustomMenu()
+                    self.showDrawRoundTest()
                 }
             })
             .disposed(by: disposeBag)
@@ -124,8 +125,7 @@ class WinningNumbersDetailViewController: UIViewController {
     
     func showDrawRoundTest() {
         let viewController = DrawPickerViewController()
-        
-        viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.width / 1.25) - view.safeAreaInsets.bottom)
+        viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 1.25)
         
         presentBottomSheet(viewController: viewController, configuration: BottomSheetConfiguration(
             cornerRadius: 32,

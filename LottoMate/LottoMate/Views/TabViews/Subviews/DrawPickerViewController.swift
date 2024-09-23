@@ -60,7 +60,19 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
         rootFlexContainer.clipsToBounds = true
         rootFlexContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
-        pickerTitleLabel.text = "회차 선택"
+        viewModel.selectedLotteryType
+            .subscribe(onNext: { [weak self] type in
+                guard let self = self else { return }
+                switch type {
+                case .lotto, .pensionLottery:
+                    self.pickerTitleLabel.text = "회차 선택"
+                case .speeto:
+                    self.pickerTitleLabel.text = "페이지 선택"
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        
         styleLabel(for: pickerTitleLabel, fontStyle: .headline1, textColor: .black)
         
         // 데이터가 업데이트될 때마다 pickerView를 리로드
@@ -138,7 +150,7 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         count = 0
                     }
                 case .speeto:
-                    break
+                    count = 0
                 }
             })
             .disposed(by: disposeBag)
@@ -169,25 +181,22 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         confirmButton.rx.tapGesture()
             .when(.recognized)
-            .subscribe(onNext: { [weak self] _ in
+            .withLatestFrom(viewModel.selectedLotteryType) // tap 시점에 최신 로터리 타입을 가져옴
+            .subscribe(onNext: { [weak self] type in
                 guard let self = self else { return }
                 let selectedRound = data[row].0
                 
-                viewModel.selectedLotteryType
-                    .subscribe(onNext: { [weak self] type in
-                        switch type {
-                        case .lotto:
-                            self?.viewModel.fetchLottoResult(round: selectedRound)
-                            self?.viewModel.currentLottoRound.accept(selectedRound)
-                        case .pensionLottery:
-                            self?.viewModel.fetchPensionLotteryResult(round: selectedRound)
-                            self?.viewModel.currentPensionLotteryRound.accept(selectedRound)
-                        case .speeto:
-                            break
-                        }
-                    })
-                    .disposed(by: disposeBag)
-                
+                switch type {
+                case .lotto:
+                    self.viewModel.fetchLottoResult(round: selectedRound)
+                    self.viewModel.currentLottoRound.accept(selectedRound)
+                case .pensionLottery:
+                    self.viewModel.fetchPensionLotteryResult(round: selectedRound)
+                    self.viewModel.currentPensionLotteryRound.accept(selectedRound)
+                case .speeto:
+                    break
+                }
+
                 self.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
@@ -230,7 +239,8 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 case .pensionLottery:
                     data = try? self.viewModel.pensionLotteryDrawRoundData.value()
                 case .speeto:
-                    break
+                    // 샘플 데이터
+                    data = [(1, ""), (2, ""), (3, ""), (4, ""), (5, ""), (6, ""), (7, ""), (8, "")]
                 }
             })
             .disposed(by: disposeBag)
@@ -277,4 +287,8 @@ class DrawPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // 만약 해당하는 회차가 없다면 nil을 반환
         return nil
     }
+}
+
+#Preview {
+    DrawPickerViewController()
 }
