@@ -108,6 +108,7 @@ class SpeetoWinningInfoView: UIView {
                 guard let self = self else { return }
                 self.viewModel.speetoPageTapEvent.accept(true)
             })
+            .disposed(by: disposeBag)
     }
 }
 
