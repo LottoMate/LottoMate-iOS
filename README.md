@@ -15,12 +15,16 @@
 <img src = "https://github.com/user-attachments/assets/4050d23a-87a0-4252-9b9b-22ba311300fa" width = "77" height = "100"> &nbsp;
 <img src = "https://github.com/user-attachments/assets/eb370f91-4da8-4e36-8630-711f0ba4f31b" width = "100" height = "100"> &nbsp;
 <img src = "https://github.com/user-attachments/assets/c11e4f39-8924-4c48-a395-e8a74938ef63" width = "100" height = "100"> &nbsp;
+<img src = "https://github.com/user-attachments/assets/ea33c394-a31b-4753-9e75-037eb0c5b2d4" width = "100" height = "100"> &nbsp;
 <br>
+
 - Swift(UIKit)
 - FinLayout
 - PinLayout
 - RxSwift
 - Moya
+- ReactorKit
+
 
 ## 🗃️ Wiki
 이 프로젝트에 대한 모든 정보를 [여기](https://github.com/LottoMate/LottoMate-iOS/wiki)에서 확인하실 수 있습니다.
