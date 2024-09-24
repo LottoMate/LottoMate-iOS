@@ -18,7 +18,7 @@ class ShadowRoundButton: UIView {
     init(title: String? = nil, icon: UIImage? = nil) {
         super.init(frame: .zero)
         
-        backgroundColor = .gray130
+//        backgroundColor = .gray130
 
         if let icon = icon {
             filterIcon.image = icon

@@ -53,7 +53,7 @@
 		096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */; };
 		096552AF2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552AE2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift */; };
 		0965AB442CA16E3700CAE34F /* ShadowRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965AB432CA16E3700CAE34F /* ShadowRoundButton.swift */; };
-		0965ABCE2CA3197200CAE34F /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0965ABCD2CA3197200CAE34F /* ReactorKit */; };
+		0965ABD12CA321C400CAE34F /* MapViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965ABD02CA321C400CAE34F /* MapViewReactor.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -135,6 +135,7 @@
 		096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawRoundBottomSheet.swift; sourceTree = "<group>"; };
 		096552AE2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawRoundBottomSheetViewController.swift; sourceTree = "<group>"; };
 		0965AB432CA16E3700CAE34F /* ShadowRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowRoundButton.swift; sourceTree = "<group>"; };
+		0965ABD02CA321C400CAE34F /* MapViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewReactor.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,7 +168,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0965ABCE2CA3197200CAE34F /* ReactorKit in Frameworks */,
 				351E7EC8303E6F0E8904CCCB /* Pods_LottoMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,8 +226,8 @@
 		09341C282C53AA4400B47642 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
+				0965ABCF2CA3219400CAE34F /* MapView */,
 				09341C292C53AA6E00B47642 /* HomeViewController.swift */,
-				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
 				09341C212C52653B00B47642 /* TestButtonView.swift */,
 				09341CA42C5B9C0600B47642 /* WinningInfoDetail */,
 				095AEB742C9C5DE700A7DD5A /* WinningReviewDetail */,
@@ -285,6 +285,7 @@
 				09554D3F2C6907E4009D1847 /* LottoMateService.swift */,
 				09798E102C733CFF00FF187B /* LottoMateClient.swift */,
 				09554D412C6908E4009D1847 /* LottoMateViewModel.swift */,
+				0965ABD02CA321C400CAE34F /* MapViewReactor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,6 +319,14 @@
 				095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */,
 			);
 			path = WinningReviewDetail;
+			sourceTree = "<group>";
+		};
+		0965ABCF2CA3219400CAE34F /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 		0969664F2C4FE27600BCE28B = {
@@ -449,7 +458,6 @@
 			);
 			name = LottoMate;
 			packageProductDependencies = (
-				0965ABCD2CA3197200CAE34F /* ReactorKit */,
 			);
 			productName = LottoMate;
 			productReference = 096966582C4FE27600BCE28B /* LottoMate.app */;
@@ -527,7 +535,6 @@
 			);
 			mainGroup = 0969664F2C4FE27600BCE28B;
 			packageReferences = (
-				0965ABCC2CA3197200CAE34F /* XCRemoteSwiftPackageReference "ReactorKit" */,
 			);
 			productRefGroup = 096966592C4FE27600BCE28B /* Products */;
 			projectDirPath = "";
@@ -704,6 +711,7 @@
 				095AEB5F2C92D6E100A7DD5A /* WinningReviewDetailView.swift in Sources */,
 				095AEB612C9322F300A7DD5A /* ImagePageViewController.swift in Sources */,
 				09554D1D2C649740009D1847 /* PrizeInfoCardView.swift in Sources */,
+				0965ABD12CA321C400CAE34F /* MapViewReactor.swift in Sources */,
 				0965AB442CA16E3700CAE34F /* ShadowRoundButton.swift in Sources */,
 				096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
@@ -1079,25 +1087,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0965ABCC2CA3197200CAE34F /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactorKit/ReactorKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0965ABCD2CA3197200CAE34F /* ReactorKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0965ABCC2CA3197200CAE34F /* XCRemoteSwiftPackageReference "ReactorKit" */;
-			productName = ReactorKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 096966502C4FE27600BCE28B /* Project object */;
 }
