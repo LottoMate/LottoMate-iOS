@@ -30,10 +30,16 @@ class ShadowRoundButton: UIView {
         if let title = title {
             titleLabel.text = title
             styleLabel(for: titleLabel, fontStyle: .label2, textColor: .black)
+//            titleLabel.layer.borderColor = UIColor.red.cgColor
+//            titleLabel.layer.borderWidth = 1
             aButtonView.addSubview(titleLabel)
         }
         
         aButtonView.backgroundColor = .white
+        
+        let shadowOffset = CGSize(width: 0, height: 0)
+        aButtonView.addShadow(offset: shadowOffset, color: UIColor.black, radius: 5, opacity: 0.1)
+        
         addSubview(aButtonView)
     }
     
@@ -56,7 +62,7 @@ class ShadowRoundButton: UIView {
         } else if titleLabel.text != nil {
             // 타이틀만 있는 경우
             titleLabel.pin.sizeToFit().center()
-            aButtonView.pin.wrapContent(padding: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
+            aButtonView.pin.wrapContent(padding: UIEdgeInsets(top: 8, left: 17.75, bottom: 8, right: 17.75))
         }
         
         aButtonView.layer.cornerRadius = (aButtonView.layer.bounds.height / 2)

@@ -22,7 +22,12 @@ class MapViewController: UIViewController, View {
     fileprivate let rootFlexContainer = UIView()
     
     var mapHeight: CGFloat = 0
+    var tabBarHeight: CGFloat = 0.0
     let filterButton = ShadowRoundButton(title: "복권 전체", icon: UIImage(named: "icon_filter"))
+    let winningStoreButton = ShadowRoundButton(title: "당첨 판매점")
+    let savedStoreButton = ShadowRoundButton(title: "찜")
+    let refreshButton = ShadowRoundButton(icon: UIImage(named: "icon_refresh"))
+    let currentLocationButton = ShadowRoundButton(icon: UIImage(named: "icon_ location"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +35,10 @@ class MapViewController: UIViewController, View {
         bind(reactor: reactor)
         
         let screenHeight = UIScreen.main.bounds.height
-        mapHeight = screenHeight
+        if let tabBarHeight = self.tabBarController?.tabBar.frame.size.height {
+            self.tabBarHeight = tabBarHeight
+        }
+        mapHeight = screenHeight - self.tabBarHeight
         
         self.view.backgroundColor = .white
         
@@ -44,7 +52,27 @@ class MapViewController: UIViewController, View {
                 .marginTop(8)
                 .marginLeft(20)
                 .position(.absolute)  // 버튼을 지도 위에 오버레이
-                .border(1, .red)
+            
+            flex.addItem(winningStoreButton)
+                .width(98)
+                .height(38)
+                .position(.absolute)
+            
+            flex.addItem(savedStoreButton)
+                .width(45)
+                .height(38)
+                .marginTop(8)
+                .position(.absolute)
+            
+            flex.addItem(refreshButton)
+                .width(40)
+                .height(40)
+                .position(.absolute)
+            
+            flex.addItem(currentLocationButton)
+                .width(40)
+                .height(40)
+                .position(.absolute)
         }
         view.addSubview(rootFlexContainer)
     }
@@ -55,6 +83,10 @@ class MapViewController: UIViewController, View {
         rootFlexContainer.flex.layout(mode: .adjustHeight)
         
         filterButton.pin.top(view.safeAreaInsets)
+        savedStoreButton.pin.top(view.safeAreaInsets).right().marginRight(20)
+        winningStoreButton.pin.left(of: savedStoreButton, aligned: .center).marginRight(8)
+        refreshButton.pin.bottom().left().marginLeft(20).marginBottom(78)
+        currentLocationButton.pin.bottom().right().marginRight(20).marginBottom(78)
     }
     
     func bind(reactor: MapViewReactor) {
