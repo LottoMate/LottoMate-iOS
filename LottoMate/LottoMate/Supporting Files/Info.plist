@@ -19,13 +19,9 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>naverLogin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>LottoMate.ltm</string>
+				<string>$(GOOGLE_URL_SCHEME)</string>
 			</array>
 		</dict>
 	</array>
@@ -62,5 +58,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>GIDClientID</key>
+	<string>$(GOOGLE_CLIENT_ID)</string>
+	<key>GIDServerClientID</key>
+	<string>$(GOOGLE_SERVER_CLIENT_ID)</string>
 </dict>
 </plist>
