@@ -23,6 +23,8 @@ class LoginView: UIView {
     init() {
         super.init(frame: .zero)
         
+        backgroundColor = .white
+        
         titleLabel.text = "로또 당첨을 위해\r로또메이트와 함께!"
         titleLabel.numberOfLines = 2
         styleLabel(for: titleLabel, fontStyle: .title2, textColor: .black)
