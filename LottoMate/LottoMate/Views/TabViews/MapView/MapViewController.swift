@@ -125,7 +125,7 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
             .disposed(by: self.disposeBag)
         
         reactor.state
-            .map { $0.isBottomSheetVisible }
+            .map { $0.isfilterBottomSheetVisible }
             .subscribe(onNext: { [weak self] isVisible in
                 if isVisible {
                     self?.showDrawRoundTest()
@@ -136,11 +136,11 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
     }
     
     func showDrawRoundTest() {
-        let viewController = DrawPickerViewController()
-        viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 1.25)
+        let viewController = LotteryTypeFilterBottomSheetViewController()
+        viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 1.3)
         
         presentBottomSheet(viewController: viewController, configuration: BottomSheetConfiguration(
-            cornerRadius: 32,
+            cornerRadius: 0,
             pullBarConfiguration: .hidden,
             shadowConfiguration: .default
         ), canBeDismissed: {

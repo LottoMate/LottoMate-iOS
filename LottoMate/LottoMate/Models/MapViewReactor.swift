@@ -19,7 +19,7 @@ class MapViewReactor: Reactor {
     }
     
     struct State {
-        var isBottomSheetVisible: Bool = false
+        var isfilterBottomSheetVisible: Bool = false
     }
     
     let initialState = State()
@@ -35,7 +35,7 @@ class MapViewReactor: Reactor {
         var newState = state
         switch mutation {
         case .setBottomSheetVisible(let isVisible):
-            newState.isBottomSheetVisible = isVisible
+            newState.isfilterBottomSheetVisible = isVisible
             return newState
         }
     }

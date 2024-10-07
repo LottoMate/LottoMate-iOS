@@ -66,6 +66,7 @@
 		09798E112C733CFF00FF187B /* LottoMateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09798E102C733CFF00FF187B /* LottoMateClient.swift */; };
 		09C508602CAED9F800621FB1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5085F2CAED9F800621FB1 /* LoginView.swift */; };
 		09C508622CAEE19100621FB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508612CAEE19100621FB1 /* LoginViewController.swift */; };
+		09C508652CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508642CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift */; };
 		351E7EC8303E6F0E8904CCCB /* Pods_LottoMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C69D96F3ED39DB5BA4D4AE /* Pods_LottoMate.framework */; };
 		537DF08BDE30FF4F05AFA1E6 /* Pods_LottoMateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B94928D4A7AEBEA74C0515 /* Pods_LottoMateTests.framework */; };
 		95344F206282895607E6B85B /* Pods_LottoMate_LottoMateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AA9DA80FE4904DA373202B /* Pods_LottoMate_LottoMateUITests.framework */; };
@@ -154,6 +155,7 @@
 		09798E102C733CFF00FF187B /* LottoMateClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateClient.swift; sourceTree = "<group>"; };
 		09C5085F2CAED9F800621FB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		09C508612CAEE19100621FB1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		09C508642CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryTypeFilterBottomSheetViewController.swift; sourceTree = "<group>"; };
 		240B263A735F095C46EA4650 /* Pods-LottoMate.noserverdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate.noserverdebug.xcconfig"; path = "Target Support Files/Pods-LottoMate/Pods-LottoMate.noserverdebug.xcconfig"; sourceTree = "<group>"; };
 		4B1D68161677AA97D1129FFE /* Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig"; path = "Target Support Files/Pods-LottoMate-LottoMateUITests/Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig"; sourceTree = "<group>"; };
 		5E5C7A7533DF885F7DE00D46 /* Pods-LottoMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate.debug.xcconfig"; path = "Target Support Files/Pods-LottoMate/Pods-LottoMate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
+				09C508642CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
 				095AEB6C2C94274A00A7DD5A /* ThumbnailCardView.swift in Sources */,
+				09C508652CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift in Sources */,
 				095AEB682C940A1800A7DD5A /* ImageContentViewController.swift in Sources */,
 				09554D252C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift in Sources */,
 				091672C52C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift in Sources */,
