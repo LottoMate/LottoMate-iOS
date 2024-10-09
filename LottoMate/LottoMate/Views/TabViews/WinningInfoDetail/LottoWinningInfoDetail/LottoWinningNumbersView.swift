@@ -46,10 +46,10 @@ class LottoWinningNumbersView: UIView {
         rootFlexContainer.addShadow(offset: shadowOffset, color: UIColor.black, radius: 5, opacity: 0.1)
         
         winningNumberLabel.text = "당첨 번호"
-        styleLabel(for: winningNumberLabel, fontStyle: .caption, textColor: .gray_ACACAC)
+        styleLabel(for: winningNumberLabel, fontStyle: .caption1, textColor: .gray_ACACAC)
         
         BonusLabel.text = "보너스"
-        styleLabel(for: BonusLabel, fontStyle: .caption, textColor: .gray_ACACAC)
+        styleLabel(for: BonusLabel, fontStyle: .caption1, textColor: .gray_ACACAC)
         
         plusIcon.image = UIImage(named: "plus")
         plusIcon.contentMode = .center

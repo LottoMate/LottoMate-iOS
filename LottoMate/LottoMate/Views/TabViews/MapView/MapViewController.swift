@@ -128,14 +128,14 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
             .map { $0.isfilterBottomSheetVisible }
             .subscribe(onNext: { [weak self] isVisible in
                 if isVisible {
-                    self?.showDrawRoundTest()
+                    self?.showLotteryTypeFilter()
                     print("isVisible")
                 }
             })
             .disposed(by: self.disposeBag)
     }
     
-    func showDrawRoundTest() {
+    func showLotteryTypeFilter() {
         let viewController = LotteryTypeFilterBottomSheetViewController()
         viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 1.3)
         

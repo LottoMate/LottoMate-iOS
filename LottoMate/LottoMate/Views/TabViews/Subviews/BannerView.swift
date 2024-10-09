@@ -30,7 +30,7 @@ class BannerView: UIView {
         titleTextLabel.frame = CGRect(x: 0, y: 0, width: 94, height: 48)
         styleLabel(for: titleTextLabel, fontStyle: .headline2, textColor: .black, alignment: .left)
         bodyTextLabel.text = bodyText
-        styleLabel(for: bodyTextLabel, fontStyle: .caption, textColor: .gray90)
+        styleLabel(for: bodyTextLabel, fontStyle: .caption1, textColor: .gray90)
         
         if let imageName = bannerImageName {
             bannerImage.image = UIImage(named: imageName)

@@ -58,7 +58,7 @@ class PensionLotteryWinningNumbersView: UIView {
         rootFlexContainer.addShadow(offset: shadowOffset, color: UIColor.black, radius: 5, opacity: 0.1)
         
         rankLabel.text = "1등"
-        styleLabel(for: rankLabel, fontStyle: .caption, textColor: .gray_ACACAC)
+        styleLabel(for: rankLabel, fontStyle: .caption1, textColor: .gray_ACACAC)
         
         groupLabel.text = "조"
         styleLabel(for: groupLabel, fontStyle: .label2, textColor: .black)
@@ -74,7 +74,7 @@ class PensionLotteryWinningNumbersView: UIView {
         sixthPensionLotteryNumber.circleColor = .gray100
         
         bonusLabel.text = "보너스"
-        styleLabel(for: bonusLabel, fontStyle: .caption, textColor: .gray_ACACAC)
+        styleLabel(for: bonusLabel, fontStyle: .caption1, textColor: .gray_ACACAC)
         eachLabel.text = "각"
         styleLabel(for: eachLabel, fontStyle: .body1, textColor: .black)
         bonusGroupLabel.text = "조"

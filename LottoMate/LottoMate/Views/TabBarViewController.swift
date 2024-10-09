@@ -15,8 +15,8 @@ class TabBarViewController: UITabBarController {
         
         tabBar.barTintColor = UIColor.white
         
-        let normalAttributes = [NSAttributedString.Key.font: Typography.caption.font(), NSAttributedString.Key.foregroundColor: UIColor.gray]
-        let selectedAttributes = [NSAttributedString.Key.font: Typography.caption.font(), NSAttributedString.Key.foregroundColor: UIColor.red50Default]
+        let normalAttributes = [NSAttributedString.Key.font: Typography.caption1.font(), NSAttributedString.Key.foregroundColor: UIColor.gray]
+        let selectedAttributes = [NSAttributedString.Key.font: Typography.caption1.font(), NSAttributedString.Key.foregroundColor: UIColor.red50Default]
 
         UITabBarItem.appearance().setTitleTextAttributes(normalAttributes, for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes, for: .selected)
