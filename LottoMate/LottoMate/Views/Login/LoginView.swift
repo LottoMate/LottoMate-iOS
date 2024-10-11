@@ -8,9 +8,13 @@
 import UIKit
 import PinLayout
 import FlexLayout
+import RxSwift
+import RxGesture
 
 class LoginView: UIView {
     fileprivate let rootFlexContainer = UIView()
+    let viewModel = LoginViewModel.shared
+    let disposeBag = DisposeBag()
     
     let titleLabel = UILabel()
     let titleImage = UIImageView()
@@ -22,6 +26,8 @@ class LoginView: UIView {
     
     init() {
         super.init(frame: .zero)
+        
+        signInButtonTapped()
         
         backgroundColor = .white
         
@@ -78,6 +84,15 @@ class LoginView: UIView {
         super.layoutSubviews()
         rootFlexContainer.pin.top(pin.safeArea).horizontally()
         rootFlexContainer.flex.layout(mode: .adjustHeight)
+    }
+    
+    func signInButtonTapped() {
+        googleLoginButton.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { _ in
+                self.viewModel.googleSignIn()
+            })
+            .disposed(by: disposeBag)
     }
 }
 
