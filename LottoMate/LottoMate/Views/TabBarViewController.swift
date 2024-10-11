@@ -13,7 +13,22 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         delegate = self
         
-        tabBar.barTintColor = UIColor.white
+        tabBar.isTranslucent = false
+        tabBar.backgroundColor = .white
+        
+        let border = UIView()
+        border.backgroundColor = .gray_D9D9D9 // 원하는 테두리 색상
+        border.translatesAutoresizingMaskIntoConstraints = false
+        tabBar.addSubview(border)
+        
+        // 오토레이아웃으로 테두리 위치 및 크기 설정
+        NSLayoutConstraint.activate([
+            border.leadingAnchor.constraint(equalTo: tabBar.leadingAnchor),
+            border.trailingAnchor.constraint(equalTo: tabBar.trailingAnchor),
+            border.topAnchor.constraint(equalTo: tabBar.topAnchor),
+            border.heightAnchor.constraint(equalToConstant: 1) // 테두리 높이
+        ])
+        
         
         let normalAttributes = [NSAttributedString.Key.font: Typography.caption1.font(), NSAttributedString.Key.foregroundColor: UIColor.gray]
         let selectedAttributes = [NSAttributedString.Key.font: Typography.caption1.font(), NSAttributedString.Key.foregroundColor: UIColor.red50Default]

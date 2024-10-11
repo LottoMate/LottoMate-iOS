@@ -29,6 +29,9 @@ extension UIColor {
     static var gray_ACACAC: UIColor {
         return UIColor(named: "ACACAC") ?? .clear
     }
+    static var gray_D9D9D9: UIColor {
+        return UIColor(named: "D9D9D9") ?? .clear
+    }
     
     // MARK: 각 로또 등수의 텍스트 컬러 (1등, 2등...)
     static var firstPrizeTextColor: UIColor {

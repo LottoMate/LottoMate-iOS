@@ -145,8 +145,8 @@ class StoreInfoBottomSheetView: UIView {
         addSubview(rootFlexContainer)
         
         rootFlexContainer.flex.direction(.column).paddingTop(12).define { flex in
-            
-            flex.addItem().width(40).height(4).backgroundColor(.gray40).cornerRadius(2).alignSelf(.center)
+            // handle
+            flex.addItem().width(40).height(4).backgroundColor(.gray30).cornerRadius(2).alignSelf(.center)
             
             flex.addItem().direction(.row).gap(4).paddingLeft(20).marginTop(20).define { flex in
                 flex.addItem(lottoTypeTag)

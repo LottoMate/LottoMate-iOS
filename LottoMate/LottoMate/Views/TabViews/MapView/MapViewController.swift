@@ -32,6 +32,10 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
     let refreshButton = ShadowRoundButton(icon: UIImage(named: "icon_refresh"))
     let currentLocationButton = ShadowRoundButton(icon: UIImage(named: "icon_ location"))
     
+//    let bottomSheetViewController = StoreInfoBottomSheetViewController()
+//    let bottomSheetDefaultHeight: CGFloat = 110
+    let bottomSheet = BottomSheetViewController(contentViewController: StoreInfoBottomSheetViewController(), defaultHeight: 110.0, cornerRadius: 32, isPannedable: true)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -46,30 +50,34 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         }
         mapHeight = screenHeight - self.tabBarHeight
         
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
+//        let bottomSheet = BottomSheetViewController(contentViewController: bottomSheetViewController, defaultHeight: bottomSheetDefaultHeight, cornerRadius: 32, isPannedable: true)
         
-        if CLLocationManager.locationServicesEnabled() {
-            print("위치 서비스 On")
-            locationManager.startUpdatingLocation()
-            
-            // 현재 위치를 구하지 못할 경우 기본값으로 들어갈 값 정하기 (예: 서울 시청의 좌표)
-            let longitude = locationManager.location?.coordinate.longitude ?? 0
-            let latitude = locationManager.location?.coordinate.latitude ?? 0
-            let currentLocation = NMGLatLng(lat: latitude, lng: longitude)
-            
-            let cameraUpdate = NMFCameraUpdate(scrollTo: currentLocation)
-            cameraUpdate.animation = .easeIn
-            mapView.moveCamera(cameraUpdate)
-            
-            let marker = NMFMarker()
-            marker.position = currentLocation
-            marker.mapView = mapView
-            
-        } else {
-            print("위치 서비스 Off")
-        }
+//        self.present(bottomSheet, animated: false, completion: nil)
+        
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.requestWhenInUseAuthorization()
+        
+//        if CLLocationManager.locationServicesEnabled() {
+//            print("위치 서비스 On")
+//            locationManager.startUpdatingLocation()
+//            
+//            // 현재 위치를 구하지 못할 경우 기본값으로 들어갈 값 정하기 (예: 서울 시청의 좌표)
+//            let longitude = locationManager.location?.coordinate.longitude ?? 0
+//            let latitude = locationManager.location?.coordinate.latitude ?? 0
+//            let currentLocation = NMGLatLng(lat: latitude, lng: longitude)
+//            
+//            let cameraUpdate = NMFCameraUpdate(scrollTo: currentLocation)
+//            cameraUpdate.animation = .easeIn
+//            mapView.moveCamera(cameraUpdate)
+//            
+//            let marker = NMFMarker()
+//            marker.position = currentLocation
+//            marker.mapView = mapView
+//            
+//        } else {
+//            print("위치 서비스 Off")
+//        }
         
         rootFlexContainer.flex.define { flex in
             flex.addItem(mapView).minWidth(0).maxWidth(.infinity).height(mapHeight)
@@ -100,6 +108,11 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
                 .width(40)
                 .height(40)
                 .position(.absolute)
+            
+            flex.addItem(bottomSheet.view)
+                .width(100%)
+//                .height(48) // bottomSheet의 state가 .normal이라면 48 / .expanded라면 다른 값을 줘야함. 핸들 부분을 터치하면 height 설정이 사라지고 뷰가 올라오도록 maxHeigh를 줘야함
+                .position(.absolute)
         }
         view.addSubview(rootFlexContainer)
     }
@@ -114,6 +127,7 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         winningStoreButton.pin.left(of: savedStoreButton, aligned: .center).marginRight(8)
         refreshButton.pin.bottom().left().marginLeft(20).marginBottom(78)
         currentLocationButton.pin.bottom().right().marginRight(20).marginBottom(78)
+        bottomSheet.view.pin.bottom()
     }
     
     func bind(reactor: MapViewReactor) {

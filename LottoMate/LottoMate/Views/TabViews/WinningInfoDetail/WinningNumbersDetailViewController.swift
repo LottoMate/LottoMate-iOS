@@ -108,20 +108,29 @@ class WinningNumbersDetailViewController: UIViewController {
     }
     
     func changeStatusBarBgColor(bgColor: UIColor?) {
-           if #available(iOS 13.0, *) {
-               let window = UIApplication.shared.windows.first
-               let statusBarManager = window?.windowScene?.statusBarManager
-               
-               let statusBarView = UIView(frame: statusBarManager?.statusBarFrame ?? .zero)
-               statusBarView.backgroundColor = bgColor
-               
-               window?.addSubview(statusBarView)
-               
-           } else {
-               let statusBarView = UIApplication.shared.value(forKey: "statusBar") as? UIView
-               statusBarView?.backgroundColor = bgColor
-           }
-       }
+        guard let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+              let window = windowScene.windows.first else { return }
+        
+        let tag = 987654 // 고유한 태그 번호 설정
+        
+        // 기존의 statusBarView가 있는지 확인
+        if let existingStatusBarView = window.viewWithTag(tag) {
+            // 이미 존재하면 배경색만 업데이트
+            existingStatusBarView.backgroundColor = bgColor
+        } else {
+            // 존재하지 않으면 새로운 statusBarView 생성
+            let statusBarManager = windowScene.statusBarManager
+            let statusBarFrame = statusBarManager?.statusBarFrame ?? .zero
+            
+            // 새로운 statusBarView 생성 및 설정
+            let statusBarView = UIView(frame: statusBarFrame)
+            statusBarView.backgroundColor = bgColor
+            statusBarView.tag = tag // 고유 태그 설정
+            
+            // statusBarView를 윈도우에 추가
+            window.addSubview(statusBarView)
+        }
+    }
     
     func showDrawRoundTest() {
         let viewController = DrawPickerViewController()
@@ -136,6 +145,15 @@ class WinningNumbersDetailViewController: UIViewController {
         }, dismissCompletion: {
             // handle bottom sheet dismissal completion
         })
+//        let viewController = DrawPickerViewController()
+//        let height: CGFloat = 700
+//        let bottomSheetViewController = BottomSheetViewController(
+//            contentViewController: viewController,
+//            defaultHeight: height,
+//            cornerRadius: 25,
+//            isPannedable: true)
+//        
+//        self.present(bottomSheetViewController, animated: false, completion: nil)
     }
 }
 
