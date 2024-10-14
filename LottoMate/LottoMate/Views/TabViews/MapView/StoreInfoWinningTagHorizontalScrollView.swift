@@ -21,12 +21,13 @@ class StoreInfoWinningTagHorizontalScrollView: UIView {
     init() {
         super.init(frame: .zero)
         
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isPagingEnabled = false
         scrollView.addSubview(rootFlexContainer)
         addSubview(scrollView)
         
-        rootFlexContainer.flex.direction(.row).gap(16).paddingLeft(20).paddingTop(20).define { flex in
+        rootFlexContainer.flex.direction(.row).gap(16).paddingLeft(20).paddingTop(20).paddingRight(20).paddingBottom(14).define { flex in
             let itemsPerColumn = 5
             let itemCount = sampleData.count
             let columns = Int(ceil(Double(itemCount) / Double(itemsPerColumn))) // 총 몇 개의 컬럼이 필요한지 계산

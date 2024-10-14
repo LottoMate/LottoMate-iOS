@@ -31,16 +31,23 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
     let savedStoreButton = ShadowRoundButton(title: "찜")
     let refreshButton = ShadowRoundButton(icon: UIImage(named: "icon_refresh"))
     let currentLocationButton = ShadowRoundButton(icon: UIImage(named: "icon_ location"))
+    let listButton = ShadowRoundButton(icon: UIImage(named: "icon_list"))
     
-//    let bottomSheetViewController = StoreInfoBottomSheetViewController()
-//    let bottomSheetDefaultHeight: CGFloat = 110
-    let bottomSheet = BottomSheetViewController(contentViewController: StoreInfoBottomSheetViewController(), defaultHeight: 110.0, cornerRadius: 32, isPannedable: true)
+    lazy var bottomSheet: CustomBottomSheetViewController = {
+        let contentVC = StoreInfoBottomSheetViewController()
+        let bottomSheet = CustomBottomSheetViewController(contentViewController: contentVC, minHeight: 48, maxHeight: 423)
+        return bottomSheet
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
         bind(reactor: reactor)
+        
+        addChild(bottomSheet)
+        view.addSubview(bottomSheet.view)
+        bottomSheet.didMove(toParent: self)
         
         let mapView = NMFMapView()
         
@@ -49,8 +56,6 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
             self.tabBarHeight = tabBarHeight
         }
         mapHeight = screenHeight - self.tabBarHeight
-        
-//        let bottomSheet = BottomSheetViewController(contentViewController: bottomSheetViewController, defaultHeight: bottomSheetDefaultHeight, cornerRadius: 32, isPannedable: true)
         
 //        self.present(bottomSheet, animated: false, completion: nil)
         
@@ -109,12 +114,18 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
                 .height(40)
                 .position(.absolute)
             
+            flex.addItem(listButton)
+                .width(40)
+                .height(40)
+                .position(.absolute)
+            
             flex.addItem(bottomSheet.view)
                 .width(100%)
                 .position(.absolute)
-                .border(2, .red)
         }
         view.addSubview(rootFlexContainer)
+        
+        bottomSheet.addToParent(self)
     }
     
     override func viewDidLayoutSubviews() {
@@ -125,9 +136,10 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         filterButton.pin.top(view.safeAreaInsets)
         savedStoreButton.pin.top(view.safeAreaInsets).right().marginRight(20)
         winningStoreButton.pin.left(of: savedStoreButton, aligned: .center).marginRight(8)
-        refreshButton.pin.bottom().left().marginLeft(20).marginBottom(78)
-        currentLocationButton.pin.bottom().right().marginRight(20).marginBottom(78)
-        bottomSheet.view.pin.bottom()
+        
+        refreshButton.pin.above(of: bottomSheet.view, aligned: .left).marginLeft(20).marginBottom(28)
+        currentLocationButton.pin.above(of: bottomSheet.view, aligned: .right).marginRight(20).marginBottom(28)
+        listButton.pin.above(of: currentLocationButton, aligned: .center).marginBottom(20)
     }
     
     func bind(reactor: MapViewReactor) {

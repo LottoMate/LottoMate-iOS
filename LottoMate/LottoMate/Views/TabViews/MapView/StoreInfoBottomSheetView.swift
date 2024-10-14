@@ -212,8 +212,8 @@ class StoreInfoBottomSheetView: UIView {
                 }
                 flex.addItem(arrowDownIcon).size(20).marginRight(20)
             }
-            flex.addItem().height(1).backgroundColor(.gray20).marginTop(20)
-            if sampleData.count == 0 { 
+            flex.addItem().height(1).backgroundColor(.gray20).marginTop(20).marginHorizontal(20)
+            if sampleData.count == 0 {
                 flex.addItem().direction(.column).gap(8).alignItems(.center).paddingVertical(57).define { flex in
                     flex.addItem(noWinningHistoryCharacter).size(100)
                     flex.addItem(noWinningHistoryLabel)
