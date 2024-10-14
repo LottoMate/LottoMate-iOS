@@ -111,8 +111,8 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
             
             flex.addItem(bottomSheet.view)
                 .width(100%)
-//                .height(48) // bottomSheet의 state가 .normal이라면 48 / .expanded라면 다른 값을 줘야함. 핸들 부분을 터치하면 height 설정이 사라지고 뷰가 올라오도록 maxHeigh를 줘야함
                 .position(.absolute)
+                .border(2, .red)
         }
         view.addSubview(rootFlexContainer)
     }

@@ -195,7 +195,6 @@ extension BottomSheetViewController {
 // MARK: Gesture
 extension BottomSheetViewController {
 //    @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
-////        self.hideBottomSheetAndGoBack()
 //        showBottomSheet(atState: .normal)
 //    }
     
@@ -216,7 +215,6 @@ extension BottomSheetViewController {
 //            dimmedView.alpha = dimAlphaWithBottomSheetTopConstraint(value: bottomSheetViewTopConstraint.constant)
         case .ended:
             if velocity.y > 1500 {
-//                hideBottomSheetAndGoBack()
                 showBottomSheet(atState: .normal)
                 return
             }
@@ -234,7 +232,6 @@ extension BottomSheetViewController {
                 showBottomSheet(atState: .normal)
             } else {
                 // Bottom Sheet을 숨기고 현재 View Controller를 dismiss시키기
-//                hideBottomSheetAndGoBack()
                 showBottomSheet(atState: .normal)
             }
         default:
@@ -244,19 +241,6 @@ extension BottomSheetViewController {
 }
 
 extension BottomSheetViewController {
-    private func hideBottomSheetAndGoBack() {
-        let safeAreaHeight = view.safeAreaLayoutGuide.layoutFrame.height
-        let bottomPadding = view.safeAreaInsets.bottom
-        bottomSheetViewTopConstraint.constant = safeAreaHeight + bottomPadding
-        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
-//            self.dimmedView.alpha = 0.0
-            self.view.layoutIfNeeded()
-        }) { _ in
-            if self.presentingViewController != nil {
-                self.dismiss(animated: false, completion: nil)
-            }
-        }
-    }
     
     //주어진 CGFloat 배열의 값 중 number로 주어진 값과 가까운 값을 찾아내는 메소드
     private func nearest(to number: CGFloat, inValues values: [CGFloat]) -> CGFloat {
@@ -293,44 +277,5 @@ extension BottomSheetViewController {
         
         // 그 외의 경우 top constraint 값에 따라 0.0과 dimmedAlpha 사이의 alpha 값이 Return되도록 합니다
         return fullDimAlpha * (1 - ((value - fullDimPosition) / (noDimPosition - fullDimPosition)))
-    }
-    
-    @objc private func handlePanGesture(recognizer: UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: view)
-        let velocity = recognizer.velocity(in: view)
-
-        // 현재 화면의 높이와 안전 영역 높이 계산
-        let partiallyVisibleHeight = (view.safeAreaLayoutGuide.layoutFrame.height + view.safeAreaInsets.bottom) - 100 // partiallyVisibleHeight
-        let topConstraintLimit = partiallyVisibleHeight
-
-        switch recognizer.state {
-        case .changed:
-            // panning 중일 때 바텀 시트를 끌어올리거나 내리기
-            var newTopConstant = bottomSheetViewTopConstraint.constant + translation.y
-
-            // newTopConstant가 partiallyVisibleHeight 이하로 내려가지 않도록 제한
-            if newTopConstant > topConstraintLimit {
-                newTopConstant = topConstraintLimit
-            }
-
-            // 바텀 시트가 화면 위쪽으로 지나치게 올라가지 않도록 제한
-            newTopConstant = min(newTopConstant, bottomSheetPanMinTopConstant)
-
-            // 제스처를 통해 이동한 만큼의 값을 constraint에 반영
-            bottomSheetViewTopConstraint.constant = newTopConstant
-            recognizer.setTranslation(.zero, in: view)
-
-        case .ended:
-            // panning이 끝난 후 바텀 시트를 펼칠지, partiallyVisibleHeight로 돌아갈지 결정
-            let shouldExpand = velocity.y < 0 || bottomSheetViewTopConstraint.constant < (view.frame.height * 0.75)
-            if shouldExpand {
-                showBottomSheet(atState: .expanded) // 완전히 펼치기
-            } else {
-                showBottomSheet(atState: .normal) // 다시 partiallyVisibleHeight로 돌아가기
-            }
-
-        default:
-            break
-        }
     }
 }
