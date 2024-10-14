@@ -6,12 +6,11 @@
 //
 
 import UIKit
-
+import RxSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
-
+    private let disposeBag = DisposeBag()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -19,19 +18,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        // Create a navigation controller
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
         
-        let viewController = TabBarViewController()
-        viewController.selectedIndex = 1
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let tabBarController = TabBarViewController()
+//        let tabBarController = LoginViewController()
+        
+        let navigationController = UINavigationController(rootViewController: tabBarController)
         navigationController.setNavigationBarHidden(true, animated: false)
         
         window?.rootViewController = navigationController
         
         // 맵 로딩 뷰
-//        LoadingViewManager.shared.showLoading()
+        // LoadingViewManager.shared.showLoading()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            LocationManager.shared.requestLocationAuthorization()
+                .subscribe(onNext: { status in
+                    switch status {
+                    case .authorizedWhenInUse, .authorizedAlways:
+                        print("Location access granted")
+                        // 위치 기반 기능 초기화
+                    case .denied, .restricted:
+                        print("Location access denied")
+                        // 사용자에게 위치 권한이 필요하다는 메시지 표시
+                    case .notDetermined:
+                        print("Location access not determined")
+                        // 사용자가 아직 선택하지 않음
+                    @unknown default:
+                        break
+                    }
+                })
+                .disposed(by: self.disposeBag)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

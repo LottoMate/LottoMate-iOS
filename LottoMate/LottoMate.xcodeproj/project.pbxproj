@@ -66,6 +66,7 @@
 		09713F552CBD1DE700890178 /* CustomBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F542CBD1DE700890178 /* CustomBottomSheetViewController.swift */; };
 		09713F572CBD2B2600890178 /* MapLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F562CBD2B2600890178 /* MapLoadingView.swift */; };
 		09713F592CBD2FEF00890178 /* LoadingViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F582CBD2FEF00890178 /* LoadingViewManager.swift */; };
+		09713F5B2CBD3ECD00890178 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F5A2CBD3ECD00890178 /* LocationManager.swift */; };
 		09798E112C733CFF00FF187B /* LottoMateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09798E102C733CFF00FF187B /* LottoMateClient.swift */; };
 		09C508602CAED9F800621FB1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5085F2CAED9F800621FB1 /* LoginView.swift */; };
 		09C508622CAEE19100621FB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508612CAEE19100621FB1 /* LoginViewController.swift */; };
@@ -163,6 +164,7 @@
 		09713F542CBD1DE700890178 /* CustomBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomSheetViewController.swift; sourceTree = "<group>"; };
 		09713F562CBD2B2600890178 /* MapLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLoadingView.swift; sourceTree = "<group>"; };
 		09713F582CBD2FEF00890178 /* LoadingViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewManager.swift; sourceTree = "<group>"; };
+		09713F5A2CBD3ECD00890178 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		09798E102C733CFF00FF187B /* LottoMateClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateClient.swift; sourceTree = "<group>"; };
 		09C5085F2CAED9F800621FB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		09C508612CAEE19100621FB1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				09C508632CAEE19A00621FB1 /* Login */,
 				09554D202C64B6EB009D1847 /* Common */,
 				09341C282C53AA4400B47642 /* TabViews */,
+				09713F5A2CBD3ECD00890178 /* LocationManager.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,16 +306,16 @@
 		09554D0F2C5E533D009D1847 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				09798E102C733CFF00FF187B /* LottoMateClient.swift */,
+				09554D3F2C6907E4009D1847 /* LottoMateService.swift */,
 				09554D122C5E5FB6009D1847 /* SampleData.swift */,
 				09554D432C6909C6009D1847 /* LottoResultModel.swift */,
 				091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */,
 				096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */,
-				09554D3F2C6907E4009D1847 /* LottoMateService.swift */,
-				09798E102C733CFF00FF187B /* LottoMateClient.swift */,
 				09554D412C6908E4009D1847 /* LottoMateViewModel.swift */,
 				09C508762CB92B2E00621FB1 /* LoginViewModel.swift */,
-				0965ABD02CA321C400CAE34F /* MapViewReactor.swift */,
 				09C5086A2CB54B1200621FB1 /* StoreInfoModel.swift */,
+				0965ABD02CA321C400CAE34F /* MapViewReactor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				0965ABD12CA321C400CAE34F /* MapViewReactor.swift in Sources */,
 				09713F592CBD2FEF00890178 /* LoadingViewManager.swift in Sources */,
 				0965AB442CA16E3700CAE34F /* ShadowRoundButton.swift in Sources */,
+				09713F5B2CBD3ECD00890178 /* LocationManager.swift in Sources */,
 				096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */,
 				09C508712CB7C68500621FB1 /* StoreInfoBottomSheetViewController.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,

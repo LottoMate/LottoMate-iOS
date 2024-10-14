@@ -57,33 +57,6 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         }
         mapHeight = screenHeight - self.tabBarHeight
         
-//        self.present(bottomSheet, animated: false, completion: nil)
-        
-//        locationManager.delegate = self
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.requestWhenInUseAuthorization()
-        
-//        if CLLocationManager.locationServicesEnabled() {
-//            print("위치 서비스 On")
-//            locationManager.startUpdatingLocation()
-//            
-//            // 현재 위치를 구하지 못할 경우 기본값으로 들어갈 값 정하기 (예: 서울 시청의 좌표)
-//            let longitude = locationManager.location?.coordinate.longitude ?? 0
-//            let latitude = locationManager.location?.coordinate.latitude ?? 0
-//            let currentLocation = NMGLatLng(lat: latitude, lng: longitude)
-//            
-//            let cameraUpdate = NMFCameraUpdate(scrollTo: currentLocation)
-//            cameraUpdate.animation = .easeIn
-//            mapView.moveCamera(cameraUpdate)
-//            
-//            let marker = NMFMarker()
-//            marker.position = currentLocation
-//            marker.mapView = mapView
-//            
-//        } else {
-//            print("위치 서비스 Off")
-//        }
-        
         rootFlexContainer.flex.define { flex in
             flex.addItem(mapView).minWidth(0).maxWidth(.infinity).height(mapHeight)
             flex.addItem(filterButton)
