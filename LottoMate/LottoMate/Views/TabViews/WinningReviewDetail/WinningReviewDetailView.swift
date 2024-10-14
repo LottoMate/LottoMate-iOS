@@ -131,7 +131,7 @@ class WinningReviewDetailView: UIView, UIScrollViewDelegate {
         drawRoundLabel.text = "NNN회차"
         styleLabel(for: drawRoundLabel, fontStyle: .label2, textColor: .gray120)
         dotLabel.text = "•"
-        styleLabel(for: dotLabel, fontStyle: .caption, textColor: .gray120)
+        styleLabel(for: dotLabel, fontStyle: .caption1, textColor: .gray120)
         winningLotteryInfoLabel.text = "연금복권 1등 NN억"
         styleLabel(for: winningLotteryInfoLabel, fontStyle: .label2, textColor: .gray120)
         
@@ -141,9 +141,9 @@ class WinningReviewDetailView: UIView, UIScrollViewDelegate {
         styleLabel(for: winningReviewDetailTitleLabel, fontStyle: .title3, textColor: .black, alignment: .left)
         
         interviewDate.text = "인터뷰 2024.06.29"
-        styleLabel(for: interviewDate, fontStyle: .caption, textColor: .gray80)
+        styleLabel(for: interviewDate, fontStyle: .caption1, textColor: .gray80)
         createdDate.text = "작성 2024.07.01"
-        styleLabel(for: createdDate, fontStyle: .caption, textColor: .gray80)
+        styleLabel(for: createdDate, fontStyle: .caption1, textColor: .gray80)
         
         questionLabel.numberOfLines = 0
         questionLabel2.numberOfLines = 0
@@ -176,7 +176,7 @@ class WinningReviewDetailView: UIView, UIScrollViewDelegate {
         styleLabel(for: answerLabel4, fontStyle: .body1, textColor: .black, alignment: .left)
         
         noticeLabel.text = "오늘 본 글은 내일 다시 확인할 수 있어요."
-        styleLabel(for: noticeLabel, fontStyle: .caption, textColor: .gray80)
+        styleLabel(for: noticeLabel, fontStyle: .caption1, textColor: .gray80)
         
         otherReviewsTitle.text = "로또 당첨자 후기"
         styleLabel(for: otherReviewsTitle, fontStyle: .headline1, textColor: .gray120)
@@ -185,7 +185,7 @@ class WinningReviewDetailView: UIView, UIScrollViewDelegate {
     }
     
     func setButtons() {
-        let attributedTitle = NSAttributedString(string: "원문 보러 가기", attributes: Typography.caption.attributes())
+        let attributedTitle = NSAttributedString(string: "원문 보러 가기", attributes: Typography.caption1.attributes())
         goToOriginalReview.setAttributedTitle(attributedTitle, for: .normal)
         if let image = UIImage(named: "icon_arrow_right_in_button") {
             let resizedImage = resizeImage(image: image, targetSize: CGSizeMake(14.0, 14.0))

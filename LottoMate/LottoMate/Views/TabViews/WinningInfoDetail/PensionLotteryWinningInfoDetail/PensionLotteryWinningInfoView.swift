@@ -50,7 +50,7 @@ class PensionLotteryWinningInfoView: UIView {
         styleLabel(for: prizeDetailsByRank, fontStyle: .headline1, textColor: .primaryGray)
         
         claimNoticeLabel.text = "* 지급 개시일부터 1년 내 당첨금을 찾아가야 해요. (휴일일 경우 다음날까지)"
-        styleLabel(for: claimNoticeLabel, fontStyle: .caption, textColor: .gray80)
+        styleLabel(for: claimNoticeLabel, fontStyle: .caption1, textColor: .gray80)
         
         addSubview(rootFlexContainer)
         

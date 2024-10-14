@@ -20,11 +20,14 @@ class TestButtonView: UIView {
     public let defaultSolidButton = StyledButton(title: "Test Button", buttonStyle: .solid(.large, .active), fontSize: 16, cornerRadius: 8, verticalPadding: 0, horizontalPadding: 0)
     
     let textView = UITextView()
-    let drawRoundTestView = DrawRoundBottomSheet()
+    
+    let shadowButtonWithIconAndTitle = ShadowRoundButton(title: "복권 전체", icon: UIImage(named: "icon_filter"))
+    let shadowButtonWithOnlyTitle = ShadowRoundButton(title: "당첨 판매점")
+    let shadowButtonWithOnlyIcon = ShadowRoundButton(icon: UIImage(named: "icon_filter"))
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .white
+        backgroundColor = .gray130
         
 //        #if !NO_SERVER
 //        viewModel.fetchLottoHome()
@@ -39,7 +42,11 @@ class TestButtonView: UIView {
         
         rootFlexContainer.flex.direction(.column).define { flex in
             flex.addItem(defaultSolidButton).width(127).height(48).marginBottom(48)
-//            flex.addItem(drawRoundTestView).grow(1)
+            flex.addItem().direction(.column).gap(48).define { flex in
+                flex.addItem(shadowButtonWithIconAndTitle)
+                flex.addItem(shadowButtonWithOnlyTitle)
+                flex.addItem(shadowButtonWithOnlyIcon)
+            }
         }
     }
     

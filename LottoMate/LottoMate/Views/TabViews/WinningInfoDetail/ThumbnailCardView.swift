@@ -53,14 +53,14 @@ class ThumbnailCardView: UIView {
     
     func setupLabels() {
         lotteryInfoLabel.text = "연금복권 1등"
-        styleLabel(for: lotteryInfoLabel, fontStyle: .caption, textColor: .gray80)
+        styleLabel(for: lotteryInfoLabel, fontStyle: .caption1, textColor: .gray80)
         
         titleLabel.numberOfLines = 2
         titleLabel.text = "사회 초년생 시절부터 꾸준히 구매해서 1등 당첨"
         styleLabel(for: titleLabel, fontStyle: .label2, textColor: .black, alignment: .left)
         
         dateLabel.text = "YYYY.MM.DD"
-        styleLabel(for: dateLabel, fontStyle: .caption, textColor: .gray80)
+        styleLabel(for: dateLabel, fontStyle: .caption1, textColor: .gray80)
     }
     
     func setupImageView() {

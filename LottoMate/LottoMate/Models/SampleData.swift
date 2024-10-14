@@ -68,3 +68,32 @@ struct SampleSpeetoData {
         SampleSpeetoStoreModel(prizeTier: .secondPrize,storeName: "판매점명", round: 53, prizePaymentDate: "YYYY-MM-DD"),
     ]
 }
+
+struct StoreInfoSampleData {
+    static var drwtList: [DrwtList] = [
+        DrwtList(type: "L720", prizeMoney: "25억원", lottoRndNum: "6102", drwtDate: ""),
+        DrwtList(type: "S2000", prizeMoney: "24억원", lottoRndNum: "52", drwtDate: ""),
+        DrwtList(type: "L645", prizeMoney: "23억원", lottoRndNum: "5016", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "22억원", lottoRndNum: "5999", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "21억원", lottoRndNum: "4102", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "20억원", lottoRndNum: "111", drwtDate: ""),
+        DrwtList(type: "S2000", prizeMoney: "25억원", lottoRndNum: "222", drwtDate: ""),
+        DrwtList(type: "S2000", prizeMoney: "24억원", lottoRndNum: "333", drwtDate: ""),
+        DrwtList(type: "L645", prizeMoney: "23억원", lottoRndNum: "444", drwtDate: ""),
+        DrwtList(type: "S2000", prizeMoney: "22억원", lottoRndNum: "555", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "21억원", lottoRndNum: "666", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "25억원", lottoRndNum: "777", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "24억원", lottoRndNum: "888", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "21억원", lottoRndNum: "666", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "25억원", lottoRndNum: "777", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "24억원", lottoRndNum: "888", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "21억원", lottoRndNum: "666", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "25억원", lottoRndNum: "777", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "24억원", lottoRndNum: "888", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "21억원", lottoRndNum: "666", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "25억원", lottoRndNum: "777", drwtDate: ""),
+        DrwtList(type: "L720", prizeMoney: "24억원", lottoRndNum: "888", drwtDate: ""),
+    ]
+}
+
+

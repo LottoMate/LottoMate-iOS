@@ -10,7 +10,6 @@ target 'LottoMate' do
   pod 'PinLayout'
   pod 'Moya'
   pod 'Moya/RxSwift'
-  pod 'RxSwift'
   pod 'RxCocoa'
   pod 'SwiftSoup'
   pod 'RxGesture'
@@ -18,6 +17,8 @@ target 'LottoMate' do
   pod 'GoogleSignIn'
   pod 'naveridlogin-sdk-ios'
   pod 'NMapsMap'
+  pod 'ReactorKit'
+
 
   target 'LottoMateTests' do
     inherit! :search_paths

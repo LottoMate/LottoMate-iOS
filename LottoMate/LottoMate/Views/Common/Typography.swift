@@ -19,7 +19,8 @@ public enum Typography {
     case body2
     case label1
     case label2
-    case caption
+    case caption1
+    case caption2
     ///  커스텀 폰트 (weight는 String 타입으로 폰트 이름을 입력해 주어야 함.    PretendardVariable-Regular, PretendardVariable-Thin, PretendardVariable-ExtraLight, PretendardVariable-Light, PretendardVariable-Medium, PretendardVariable-SemiBold, PretendardVariable-Bold, PretendardVariable-ExtraBold, PretendardVariable-Black)
     case custom(weight: String, size: CGFloat, lineHeight: CGFloat, letterSpacing: CGFloat)
     
@@ -45,11 +46,13 @@ public enum Typography {
         case .body2:
             return 16
         case .label1:
-            return 16
+            return 14
         case .label2:
             return 14
-        case .caption:
+        case .caption1:
             return 12
+        case .caption2:
+            return 10
         case .custom(_, let size, _, _):
             return size
         }
@@ -76,11 +79,13 @@ public enum Typography {
         case .body2:
             return 24
         case .label1:
-            return 24
+            return 22
         case .label2:
             return 22
-        case .caption:
+        case .caption1:
             return 18
+        case .caption2:
+            return 16
         case .custom(_, _, let lineHeight, _):
             return lineHeight
         }
@@ -100,11 +105,11 @@ public enum Typography {
         switch self {
         case .display1, .display2, .title1, .title2, .title3, .headline1, .headline2:
             fontName = "PretendardVariable-Bold"
-        case .body1:
+        case .body1, .label1, .caption2:
             fontName = "PretendardVariable-Medium"
-        case .body2, .caption:
+        case .body2:
             fontName = "PretendardVariable-Regular"
-        case .label1, .label2:
+        case .label2, .caption1:
             fontName = "PretendardVariable-SemiBold"
         case .custom(let weight, _, _, _):
             fontName = weight

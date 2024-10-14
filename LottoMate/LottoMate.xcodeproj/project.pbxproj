@@ -52,6 +52,8 @@
 		096552A92C8883D100897DA7 /* CustomSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552A82C8883D100897DA7 /* CustomSquareButton.swift */; };
 		096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */; };
 		096552AF2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552AE2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift */; };
+		0965AB442CA16E3700CAE34F /* ShadowRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965AB432CA16E3700CAE34F /* ShadowRoundButton.swift */; };
+		0965ABD12CA321C400CAE34F /* MapViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965ABD02CA321C400CAE34F /* MapViewReactor.swift */; };
 		0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665B2C4FE27600BCE28B /* AppDelegate.swift */; };
 		0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969665D2C4FE27600BCE28B /* SceneDelegate.swift */; };
 		096966632C4FE27600BCE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096966612C4FE27600BCE28B /* Main.storyboard */; };
@@ -61,7 +63,19 @@
 		0969667D2C4FE27800BCE28B /* LottoMateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969667C2C4FE27800BCE28B /* LottoMateUITests.swift */; };
 		0969667F2C4FE27800BCE28B /* LottoMateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969667E2C4FE27800BCE28B /* LottoMateUITestsLaunchTests.swift */; };
 		0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */; };
+		09713F552CBD1DE700890178 /* CustomBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F542CBD1DE700890178 /* CustomBottomSheetViewController.swift */; };
+		09713F572CBD2B2600890178 /* MapLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F562CBD2B2600890178 /* MapLoadingView.swift */; };
+		09713F592CBD2FEF00890178 /* LoadingViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F582CBD2FEF00890178 /* LoadingViewManager.swift */; };
+		09713F5B2CBD3ECD00890178 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F5A2CBD3ECD00890178 /* LocationManager.swift */; };
 		09798E112C733CFF00FF187B /* LottoMateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09798E102C733CFF00FF187B /* LottoMateClient.swift */; };
+		09C508602CAED9F800621FB1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5085F2CAED9F800621FB1 /* LoginView.swift */; };
+		09C508622CAEE19100621FB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508612CAEE19100621FB1 /* LoginViewController.swift */; };
+		09C508652CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508642CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift */; };
+		09C508672CB3FD5700621FB1 /* StoreInfoBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508662CB3FD5600621FB1 /* StoreInfoBottomSheetView.swift */; };
+		09C508692CB5471300621FB1 /* StoreInfoWinningTagHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508682CB5471300621FB1 /* StoreInfoWinningTagHorizontalScrollView.swift */; };
+		09C5086B2CB54B1200621FB1 /* StoreInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5086A2CB54B1200621FB1 /* StoreInfoModel.swift */; };
+		09C508712CB7C68500621FB1 /* StoreInfoBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508702CB7C68500621FB1 /* StoreInfoBottomSheetViewController.swift */; };
+		09C508772CB92B2E00621FB1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508762CB92B2E00621FB1 /* LoginViewModel.swift */; };
 		351E7EC8303E6F0E8904CCCB /* Pods_LottoMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C69D96F3ED39DB5BA4D4AE /* Pods_LottoMate.framework */; };
 		537DF08BDE30FF4F05AFA1E6 /* Pods_LottoMateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B94928D4A7AEBEA74C0515 /* Pods_LottoMateTests.framework */; };
 		95344F206282895607E6B85B /* Pods_LottoMate_LottoMateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AA9DA80FE4904DA373202B /* Pods_LottoMate_LottoMateUITests.framework */; };
@@ -132,6 +146,8 @@
 		096552A82C8883D100897DA7 /* CustomSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSquareButton.swift; sourceTree = "<group>"; };
 		096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawRoundBottomSheet.swift; sourceTree = "<group>"; };
 		096552AE2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawRoundBottomSheetViewController.swift; sourceTree = "<group>"; };
+		0965AB432CA16E3700CAE34F /* ShadowRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowRoundButton.swift; sourceTree = "<group>"; };
+		0965ABD02CA321C400CAE34F /* MapViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewReactor.swift; sourceTree = "<group>"; };
 		096966582C4FE27600BCE28B /* LottoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0969665B2C4FE27600BCE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0969665D2C4FE27600BCE28B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,7 +161,19 @@
 		0969667C2C4FE27800BCE28B /* LottoMateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateUITests.swift; sourceTree = "<group>"; };
 		0969667E2C4FE27800BCE28B /* LottoMateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		09713F542CBD1DE700890178 /* CustomBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomSheetViewController.swift; sourceTree = "<group>"; };
+		09713F562CBD2B2600890178 /* MapLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLoadingView.swift; sourceTree = "<group>"; };
+		09713F582CBD2FEF00890178 /* LoadingViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewManager.swift; sourceTree = "<group>"; };
+		09713F5A2CBD3ECD00890178 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		09798E102C733CFF00FF187B /* LottoMateClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateClient.swift; sourceTree = "<group>"; };
+		09C5085F2CAED9F800621FB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		09C508612CAEE19100621FB1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		09C508642CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryTypeFilterBottomSheetViewController.swift; sourceTree = "<group>"; };
+		09C508662CB3FD5600621FB1 /* StoreInfoBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoBottomSheetView.swift; sourceTree = "<group>"; };
+		09C508682CB5471300621FB1 /* StoreInfoWinningTagHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoWinningTagHorizontalScrollView.swift; sourceTree = "<group>"; };
+		09C5086A2CB54B1200621FB1 /* StoreInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoModel.swift; sourceTree = "<group>"; };
+		09C508702CB7C68500621FB1 /* StoreInfoBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoBottomSheetViewController.swift; sourceTree = "<group>"; };
+		09C508762CB92B2E00621FB1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		240B263A735F095C46EA4650 /* Pods-LottoMate.noserverdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate.noserverdebug.xcconfig"; path = "Target Support Files/Pods-LottoMate/Pods-LottoMate.noserverdebug.xcconfig"; sourceTree = "<group>"; };
 		4B1D68161677AA97D1129FFE /* Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig"; path = "Target Support Files/Pods-LottoMate-LottoMateUITests/Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig"; sourceTree = "<group>"; };
 		5E5C7A7533DF885F7DE00D46 /* Pods-LottoMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate.debug.xcconfig"; path = "Target Support Files/Pods-LottoMate/Pods-LottoMate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,8 +250,8 @@
 		09341C282C53AA4400B47642 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
+				0965ABCF2CA3219400CAE34F /* MapView */,
 				09341C292C53AA6E00B47642 /* HomeViewController.swift */,
-				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
 				09341C212C52653B00B47642 /* TestButtonView.swift */,
 				09341CA42C5B9C0600B47642 /* WinningInfoDetail */,
 				095AEB742C9C5DE700A7DD5A /* WinningReviewDetail */,
@@ -235,9 +263,12 @@
 		09341C992C57F60900B47642 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				09713F582CBD2FEF00890178 /* LoadingViewManager.swift */,
 				09341C252C53A71000B47642 /* TabBarViewController.swift */,
+				09C508632CAEE19A00621FB1 /* Login */,
 				09554D202C64B6EB009D1847 /* Common */,
 				09341C282C53AA4400B47642 /* TabViews */,
+				09713F5A2CBD3ECD00890178 /* LocationManager.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,6 +298,7 @@
 				096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */,
 				096552AE2C8B01C500897DA7 /* DrawRoundBottomSheetViewController.swift */,
 				095AEB5C2C92CE7000A7DD5A /* CustomMenuViewController.swift */,
+				09713F542CBD1DE700890178 /* CustomBottomSheetViewController.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -274,13 +306,16 @@
 		09554D0F2C5E533D009D1847 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				09798E102C733CFF00FF187B /* LottoMateClient.swift */,
+				09554D3F2C6907E4009D1847 /* LottoMateService.swift */,
 				09554D122C5E5FB6009D1847 /* SampleData.swift */,
 				09554D432C6909C6009D1847 /* LottoResultModel.swift */,
 				091672C82C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift */,
 				096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */,
-				09554D3F2C6907E4009D1847 /* LottoMateService.swift */,
-				09798E102C733CFF00FF187B /* LottoMateClient.swift */,
 				09554D412C6908E4009D1847 /* LottoMateViewModel.swift */,
+				09C508762CB92B2E00621FB1 /* LoginViewModel.swift */,
+				09C5086A2CB54B1200621FB1 /* StoreInfoModel.swift */,
+				0965ABD02CA321C400CAE34F /* MapViewReactor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -314,6 +349,19 @@
 				095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */,
 			);
 			path = WinningReviewDetail;
+			sourceTree = "<group>";
+		};
+		0965ABCF2CA3219400CAE34F /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				09713F562CBD2B2600890178 /* MapLoadingView.swift */,
+				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
+				09C508642CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift */,
+				09C508662CB3FD5600621FB1 /* StoreInfoBottomSheetView.swift */,
+				09C508702CB7C68500621FB1 /* StoreInfoBottomSheetViewController.swift */,
+				09C508682CB5471300621FB1 /* StoreInfoWinningTagHorizontalScrollView.swift */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 		0969664F2C4FE27600BCE28B = {
@@ -385,8 +433,18 @@
 				0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */,
 				09341C1C2C52394900B47642 /* StyledButton.swift */,
 				096552A82C8883D100897DA7 /* CustomSquareButton.swift */,
+				0965AB432CA16E3700CAE34F /* ShadowRoundButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		09C508632CAEE19A00621FB1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				09C508612CAEE19100621FB1 /* LoginViewController.swift */,
+				09C5085F2CAED9F800621FB1 /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		09CB96002C748693001083F5 /* SpeetoWinningInfoDetail */ = {
@@ -443,6 +501,8 @@
 			dependencies = (
 			);
 			name = LottoMate;
+			packageProductDependencies = (
+			);
 			productName = LottoMate;
 			productReference = 096966582C4FE27600BCE28B /* LottoMate.app */;
 			productType = "com.apple.product-type.application";
@@ -518,6 +578,8 @@
 				Base,
 			);
 			mainGroup = 0969664F2C4FE27600BCE28B;
+			packageReferences = (
+			);
 			productRefGroup = 096966592C4FE27600BCE28B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -675,6 +737,7 @@
 				091672C02C7B505E00959767 /* LottoPrizeInfoCardView.swift in Sources */,
 				09554D442C6909C6009D1847 /* LottoResultModel.swift in Sources */,
 				09341CA72C5B9C6300B47642 /* LottoWinningNumbersView.swift in Sources */,
+				09713F572CBD2B2600890178 /* MapLoadingView.swift in Sources */,
 				096552A92C8883D100897DA7 /* CustomSquareButton.swift in Sources */,
 				09341CA12C58D8C500B47642 /* WinningInfoDetailView.swift in Sources */,
 				091672BE2C78CC6300959767 /* LottoWinningInfoView.swift in Sources */,
@@ -682,21 +745,33 @@
 				0969665C2C4FE27600BCE28B /* AppDelegate.swift in Sources */,
 				09554D222C64B798009D1847 /* LotteryTypeButtonsView.swift in Sources */,
 				09554D422C6908E4009D1847 /* LottoMateViewModel.swift in Sources */,
+				09C5086B2CB54B1200621FB1 /* StoreInfoModel.swift in Sources */,
 				09341CA92C5BC97800B47642 /* WinningNumberCircleView.swift in Sources */,
 				09341C1D2C52394900B47642 /* StyledButton.swift in Sources */,
 				095AEB6C2C94274A00A7DD5A /* ThumbnailCardView.swift in Sources */,
+				09C508652CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift in Sources */,
 				095AEB682C940A1800A7DD5A /* ImageContentViewController.swift in Sources */,
 				09554D252C6642F0009D1847 /* PensionLotteryWinningNumbersView.swift in Sources */,
 				091672C52C7CE11D00959767 /* PensionLotteryWinningInfoView+UIConfiguration.swift in Sources */,
 				095AEB5D2C92CE7000A7DD5A /* CustomMenuViewController.swift in Sources */,
+				09C508672CB3FD5700621FB1 /* StoreInfoBottomSheetView.swift in Sources */,
+				09C508622CAEE19100621FB1 /* LoginViewController.swift in Sources */,
 				091672C32C7CCB2600959767 /* PensionLotteryWinningInfoView.swift in Sources */,
 				095AEB5F2C92D6E100A7DD5A /* WinningReviewDetailView.swift in Sources */,
 				095AEB612C9322F300A7DD5A /* ImagePageViewController.swift in Sources */,
+				09C508602CAED9F800621FB1 /* LoginView.swift in Sources */,
+				09C508772CB92B2E00621FB1 /* LoginViewModel.swift in Sources */,
 				09554D1D2C649740009D1847 /* PrizeInfoCardView.swift in Sources */,
+				0965ABD12CA321C400CAE34F /* MapViewReactor.swift in Sources */,
+				09713F592CBD2FEF00890178 /* LoadingViewManager.swift in Sources */,
+				0965AB442CA16E3700CAE34F /* ShadowRoundButton.swift in Sources */,
+				09713F5B2CBD3ECD00890178 /* LocationManager.swift in Sources */,
 				096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */,
+				09C508712CB7C68500621FB1 /* StoreInfoBottomSheetViewController.swift in Sources */,
 				0969665E2C4FE27600BCE28B /* SceneDelegate.swift in Sources */,
 				09554D132C5E5FB6009D1847 /* SampleData.swift in Sources */,
 				09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */,
+				09C508692CB5471300621FB1 /* StoreInfoWinningTagHorizontalScrollView.swift in Sources */,
 				09341C222C52653B00B47642 /* TestButtonView.swift in Sources */,
 				09554D172C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift in Sources */,
 				0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */,
@@ -711,6 +786,7 @@
 				091672C92C7DE0A000959767 /* LatestLotteryWinningInfoModel.swift in Sources */,
 				091C235E2C74F25400377A92 /* SpeetoWinningInfoView.swift in Sources */,
 				09798E112C733CFF00FF187B /* LottoMateClient.swift in Sources */,
+				09713F552CBD1DE700890178 /* CustomBottomSheetViewController.swift in Sources */,
 				09341CAF2C5E2FE200B47642 /* UIColor+Extensions.swift in Sources */,
 				09341C2A2C53AA6E00B47642 /* HomeViewController.swift in Sources */,
 			);

@@ -98,7 +98,7 @@ class SpeetoWinningInfoView: UIView {
     
     private func setupConditionNoticeLabel() {
         conditionNoticeLabel.text = "*1억원 이상의 당첨금 수령 후, 실물 확인된 복권만 안내해요"
-        styleLabel(for: conditionNoticeLabel, fontStyle: .caption, textColor: .gray80)
+        styleLabel(for: conditionNoticeLabel, fontStyle: .caption1, textColor: .gray80)
     }
     
     private func pageLabelTapped() {

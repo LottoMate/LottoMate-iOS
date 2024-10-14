@@ -80,7 +80,7 @@ class SpeetoCardViewDetailContainer: UIView {
         styleLabel(for: storeNameLabel, fontStyle: .label2, textColor: .gray100)
         
         winnerInterViewTextLabel.text = "당첨자 인터뷰"
-        styleLabel(for: winnerInterViewTextLabel, fontStyle: .caption, textColor: .gray100)
+        styleLabel(for: winnerInterViewTextLabel, fontStyle: .caption1, textColor: .gray100)
         winnerInterViewArrow.frame = CGRect(x: 0, y: 0, width: 14, height: 14)
         
         winningRoundLabel.text = "\(winningInfo.round)회차"
