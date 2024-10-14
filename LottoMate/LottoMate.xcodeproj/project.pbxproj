@@ -65,6 +65,7 @@
 		0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */; };
 		09713F552CBD1DE700890178 /* CustomBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F542CBD1DE700890178 /* CustomBottomSheetViewController.swift */; };
 		09713F572CBD2B2600890178 /* MapLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F562CBD2B2600890178 /* MapLoadingView.swift */; };
+		09713F592CBD2FEF00890178 /* LoadingViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09713F582CBD2FEF00890178 /* LoadingViewManager.swift */; };
 		09798E112C733CFF00FF187B /* LottoMateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09798E102C733CFF00FF187B /* LottoMateClient.swift */; };
 		09C508602CAED9F800621FB1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5085F2CAED9F800621FB1 /* LoginView.swift */; };
 		09C508622CAEE19100621FB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508612CAEE19100621FB1 /* LoginViewController.swift */; };
@@ -161,6 +162,7 @@
 		0969668E2C4FE4C800BCE28B /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		09713F542CBD1DE700890178 /* CustomBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomSheetViewController.swift; sourceTree = "<group>"; };
 		09713F562CBD2B2600890178 /* MapLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLoadingView.swift; sourceTree = "<group>"; };
+		09713F582CBD2FEF00890178 /* LoadingViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewManager.swift; sourceTree = "<group>"; };
 		09798E102C733CFF00FF187B /* LottoMateClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateClient.swift; sourceTree = "<group>"; };
 		09C5085F2CAED9F800621FB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		09C508612CAEE19100621FB1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		09341C992C57F60900B47642 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				09713F582CBD2FEF00890178 /* LoadingViewManager.swift */,
 				09341C252C53A71000B47642 /* TabBarViewController.swift */,
 				09C508632CAEE19A00621FB1 /* Login */,
 				09554D202C64B6EB009D1847 /* Common */,
@@ -757,6 +760,7 @@
 				09C508772CB92B2E00621FB1 /* LoginViewModel.swift in Sources */,
 				09554D1D2C649740009D1847 /* PrizeInfoCardView.swift in Sources */,
 				0965ABD12CA321C400CAE34F /* MapViewReactor.swift in Sources */,
+				09713F592CBD2FEF00890178 /* LoadingViewManager.swift in Sources */,
 				0965AB442CA16E3700CAE34F /* ShadowRoundButton.swift in Sources */,
 				096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */,
 				09C508712CB7C68500621FB1 /* StoreInfoBottomSheetViewController.swift in Sources */,

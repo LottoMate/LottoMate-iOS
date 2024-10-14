@@ -24,10 +24,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         let viewController = TabBarViewController()
+        viewController.selectedIndex = 1
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.setNavigationBarHidden(true, animated: false)
         
         window?.rootViewController = navigationController
+        
+        // 맵 로딩 뷰
+//        LoadingViewManager.shared.showLoading()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
