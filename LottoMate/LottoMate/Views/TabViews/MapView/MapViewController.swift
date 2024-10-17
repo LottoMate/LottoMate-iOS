@@ -17,15 +17,16 @@ import BottomSheet
 
 class MapViewController: UIViewController, View, CLLocationManagerDelegate {
     
-    var disposeBag = DisposeBag()
     let reactor = MapViewReactor()
-    
-    var locationManager = CLLocationManager()
+    var disposeBag = DisposeBag()
     
     fileprivate let rootFlexContainer = UIView()
     
+    let mapView = NMFMapView()
+    var currentMarker: NMFMarker?
     var mapHeight: CGFloat = 0
     var tabBarHeight: CGFloat = 0.0
+    
     let filterButton = ShadowRoundButton(title: "복권 전체", icon: UIImage(named: "icon_filter"))
     let winningStoreButton = ShadowRoundButton(title: "당첨 판매점")
     let savedStoreButton = ShadowRoundButton(title: "찜")
@@ -41,6 +42,7 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = .white
         
         bind(reactor: reactor)
@@ -48,8 +50,6 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         addChild(bottomSheet)
         view.addSubview(bottomSheet.view)
         bottomSheet.didMove(toParent: self)
-        
-        let mapView = NMFMapView()
         
         let screenHeight = UIScreen.main.bounds.height
         if let tabBarHeight = self.tabBarController?.tabBar.frame.size.height {
@@ -97,7 +97,6 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
                 .position(.absolute)
         }
         view.addSubview(rootFlexContainer)
-        
         bottomSheet.addToParent(self)
     }
     
@@ -116,26 +115,62 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
     }
     
     func bind(reactor: MapViewReactor) {
-        // 필터 버튼을 눌렀을 때 액션을 전송
+        // 복권 종류 필터 버튼 Action
         filterButton.rx.tapGesture()
             .when(.recognized)
             .map { _ in MapViewReactor.Action.filterButtonTapped }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
-        
+        // 복권 종류 필터 버튼 State
         reactor.state
             .map { $0.isfilterBottomSheetVisible }
             .subscribe(onNext: { [weak self] isVisible in
                 if isVisible {
                     self?.showLotteryTypeFilter()
-                    print("isVisible")
                 }
             })
             .disposed(by: self.disposeBag)
+        
+        // 현재 위치 버튼 Action
+        currentLocationButton.rx.tapGesture()
+            .when(.recognized)
+            .map { _ in MapViewReactor.Action.getCurrentLocation }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        // 현재 위치 버튼 State
+        reactor.state
+            .map { $0.currentLocation }
+            .distinctUntilChanged()
+            .compactMap { $0 }
+            .subscribe(onNext: { [weak self] location in
+                print("Location received: \(location)")
+                self?.moveToLocation(location)
+                self?.updateMarker(at: location)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func moveToLocation(_ location: CLLocation) {
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude))
+        cameraUpdate.animation = .easeIn
+        mapView.moveCamera(cameraUpdate)
+    }
+    
+    func updateMarker(at location: CLLocation) {
+        // 현재 위치에 이미 마커가 있다면 제거
+        currentMarker?.mapView = nil
+        
+        let marker = NMFMarker()
+        marker.position = NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+        marker.iconImage = NMFOverlayImage(name: "currentLocationMarker")
+        marker.mapView = mapView
+        
+        currentMarker = marker
     }
     
     func showLotteryTypeFilter() {
         let viewController = LotteryTypeFilterBottomSheetViewController()
+        
         viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 1.3)
         
         presentBottomSheet(viewController: viewController, configuration: BottomSheetConfiguration(
@@ -145,7 +180,7 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         ), canBeDismissed: {
             true
         }, dismissCompletion: {
-            // handle bottom sheet dismissal completion
+            
         })
     }
 }

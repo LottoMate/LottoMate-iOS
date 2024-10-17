@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import CoreLocation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -32,27 +33,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 맵 로딩 뷰
         // LoadingViewManager.shared.showLoading()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            LocationManager.shared.requestLocationAuthorization()
-                .subscribe(onNext: { status in
-                    switch status {
-                    case .authorizedWhenInUse, .authorizedAlways:
-                        print("Location access granted")
-                        // 위치 기반 기능 초기화
-                    case .denied, .restricted:
-                        print("Location access denied")
-                        // 사용자에게 위치 권한이 필요하다는 메시지 표시
-                    case .notDetermined:
-                        print("Location access not determined")
-                        // 사용자가 아직 선택하지 않음
-                    @unknown default:
-                        break
-                    }
-                })
-                .disposed(by: self.disposeBag)
-        }
+        LocationManager.shared.requestLocationAuthorization()
+            .subscribe(onNext: { status in
+                switch status {
+                case .authorizedWhenInUse, .authorizedAlways:
+                    print("Location access granted")
+                case .denied, .restricted:
+                    print("Location access denied")
+                    // 사용자에게 위치 권한이 필요하다는 메시지 표시
+                case .notDetermined:
+                    print("Location access not determined")
+                    // 사용자가 아직 선택하지 않음
+                @unknown default:
+                    break
+                }
+            })
+            .disposed(by: self.disposeBag)
+        
     }
-
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

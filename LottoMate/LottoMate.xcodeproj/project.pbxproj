@@ -76,6 +76,7 @@
 		09C5086B2CB54B1200621FB1 /* StoreInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5086A2CB54B1200621FB1 /* StoreInfoModel.swift */; };
 		09C508712CB7C68500621FB1 /* StoreInfoBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508702CB7C68500621FB1 /* StoreInfoBottomSheetViewController.swift */; };
 		09C508772CB92B2E00621FB1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C508762CB92B2E00621FB1 /* LoginViewModel.swift */; };
+		09E4E1BF2CC1058E00041D87 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E4E1BE2CC1058E00041D87 /* MapViewControllerTests.swift */; };
 		351E7EC8303E6F0E8904CCCB /* Pods_LottoMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C69D96F3ED39DB5BA4D4AE /* Pods_LottoMate.framework */; };
 		537DF08BDE30FF4F05AFA1E6 /* Pods_LottoMateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B94928D4A7AEBEA74C0515 /* Pods_LottoMateTests.framework */; };
 		95344F206282895607E6B85B /* Pods_LottoMate_LottoMateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AA9DA80FE4904DA373202B /* Pods_LottoMate_LottoMateUITests.framework */; };
@@ -174,6 +175,7 @@
 		09C5086A2CB54B1200621FB1 /* StoreInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoModel.swift; sourceTree = "<group>"; };
 		09C508702CB7C68500621FB1 /* StoreInfoBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoBottomSheetViewController.swift; sourceTree = "<group>"; };
 		09C508762CB92B2E00621FB1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		09E4E1BE2CC1058E00041D87 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		240B263A735F095C46EA4650 /* Pods-LottoMate.noserverdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate.noserverdebug.xcconfig"; path = "Target Support Files/Pods-LottoMate/Pods-LottoMate.noserverdebug.xcconfig"; sourceTree = "<group>"; };
 		4B1D68161677AA97D1129FFE /* Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig"; path = "Target Support Files/Pods-LottoMate-LottoMateUITests/Pods-LottoMate-LottoMateUITests.noserverdebug.xcconfig"; sourceTree = "<group>"; };
 		5E5C7A7533DF885F7DE00D46 /* Pods-LottoMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottoMate.debug.xcconfig"; path = "Target Support Files/Pods-LottoMate/Pods-LottoMate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -268,7 +270,6 @@
 				09C508632CAEE19A00621FB1 /* Login */,
 				09554D202C64B6EB009D1847 /* Common */,
 				09341C282C53AA4400B47642 /* TabViews */,
-				09713F5A2CBD3ECD00890178 /* LocationManager.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -354,6 +355,7 @@
 		0965ABCF2CA3219400CAE34F /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				09713F5A2CBD3ECD00890178 /* LocationManager.swift */,
 				09713F562CBD2B2600890178 /* MapLoadingView.swift */,
 				09341C2B2C53AA8000B47642 /* MapViewController.swift */,
 				09C508642CB3D18B00621FB1 /* LotteryTypeFilterBottomSheetViewController.swift */,
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				096966722C4FE27800BCE28B /* LottoMateTests.swift */,
+				09E4E1BE2CC1058E00041D87 /* MapViewControllerTests.swift */,
 			);
 			path = LottoMateTests;
 			sourceTree = "<group>";
@@ -797,6 +800,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				096966732C4FE27800BCE28B /* LottoMateTests.swift in Sources */,
+				09E4E1BF2CC1058E00041D87 /* MapViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,6 +905,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = NO;
 			};
 			name = Debug;
 		};
@@ -957,6 +962,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -14,6 +14,7 @@ class LocationManager: NSObject {
     
     private let locationManager = CLLocationManager()
     private let authorizationStatus = BehaviorRelay<CLAuthorizationStatus>(value: .notDetermined)
+    private let currentLocation = BehaviorRelay<CLLocation?>(value: nil)
     private let disposeBag = DisposeBag()
     
     private override init() {
@@ -55,6 +56,27 @@ class LocationManager: NSObject {
     func observeAuthorizationStatus() -> Observable<CLAuthorizationStatus> {
         return authorizationStatus.asObservable().distinctUntilChanged()
     }
+    
+    func getCurrentLocation() -> Observable<CLLocation> {
+        return Observable.create { observer in
+            let authorizationDisposable = self.authorizationStatus
+                .filter { $0 == .authorizedWhenInUse || $0 == .authorizedAlways }
+                .take(1)
+                .subscribe(onNext: { _ in
+                    self.locationManager.startUpdatingLocation()
+                })
+
+            let locationDisposable = self.currentLocation
+                .compactMap { $0 }
+                .take(1)
+                .subscribe(onNext: { location in
+                    observer.onNext(location)
+                    observer.onCompleted()
+                })
+
+            return Disposables.create([authorizationDisposable, locationDisposable])
+        }
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
@@ -66,5 +88,11 @@ extension LocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         authorizationStatus.accept(status)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        currentLocation.accept(location)
+        locationManager.stopUpdatingLocation()
     }
 }
