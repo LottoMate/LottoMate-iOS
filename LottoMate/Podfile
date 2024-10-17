@@ -13,6 +13,8 @@ target 'LottoMate' do
   pod 'RxCocoa'
   pod 'SwiftSoup'
   pod 'RxGesture'
+  pod 'RxTest'
+  pod 'RxBlocking'
   pod 'BottomSheet', :git => 'https://github.com/joomcode/BottomSheet'
   pod 'GoogleSignIn'
   pod 'naveridlogin-sdk-ios'

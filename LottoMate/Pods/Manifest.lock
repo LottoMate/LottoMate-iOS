@@ -31,6 +31,8 @@ PODS:
   - ReactorKit (3.2.0):
     - RxSwift (~> 6.0)
     - WeakMapTable (~> 1.1)
+  - RxBlocking (6.7.1):
+    - RxSwift (= 6.7.1)
   - RxCocoa (6.7.1):
     - RxRelay (= 6.7.1)
     - RxSwift (= 6.7.1)
@@ -40,6 +42,8 @@ PODS:
   - RxRelay (6.7.1):
     - RxSwift (= 6.7.1)
   - RxSwift (6.7.1)
+  - RxTest (6.7.1):
+    - RxSwift (= 6.7.1)
   - SwiftSoup (2.7.3)
   - WeakMapTable (1.2.0)
 
@@ -53,8 +57,10 @@ DEPENDENCIES:
   - NMapsMap
   - PinLayout
   - ReactorKit
+  - RxBlocking
   - RxCocoa
   - RxGesture
+  - RxTest
   - SwiftSoup
 
 SPEC REPOS:
@@ -71,10 +77,12 @@ SPEC REPOS:
     - NMapsMap
     - PinLayout
     - ReactorKit
+    - RxBlocking
     - RxCocoa
     - RxGesture
     - RxRelay
     - RxSwift
+    - RxTest
     - SwiftSoup
     - WeakMapTable
 
@@ -101,13 +109,15 @@ SPEC CHECKSUMS:
   NMapsMap: 99c10429d93340780b6f88d3fc7c0a3850b43664
   PinLayout: f6c2b63a5a5b24864064e1d15c67de41b4e74748
   ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
+  RxBlocking: 48b86e3ed2a9a19150491e8dc5409973baac2eb1
   RxCocoa: f5609cb4637587a7faa99c5d5787e3ad582b75a4
   RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 4151ba01152436b08271e08410135e099880eae5
   RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
+  RxTest: eec2bff159d799cdc02da2b40ef47e43dc17e688
   SwiftSoup: e3849c3293b1efee9cf892f91f6ae5c22bfeb5f7
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: c9d29d9e4c1138e6a31f2d9585933a01e9fe957b
+PODFILE CHECKSUM: c1e9ab4411bb6adadf778ea0edfd1ec483f7bd56
 
 COCOAPODS: 1.14.3
