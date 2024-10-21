@@ -50,8 +50,6 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         
         loadSampleData()
         bind(reactor: reactor)
-
-        
         
         addChild(bottomSheet)
         view.addSubview(bottomSheet.view)
@@ -159,6 +157,25 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
                 self?.updateMarker(at: location)
             })
             .disposed(by: disposeBag)
+        
+        // refresh 버튼
+        refreshButton.rx.tapGesture()
+            .when(.recognized)
+            .map { _ in MapViewReactor.Action.reloadMapData }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.lotteryStores }
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] stores in
+                print("store count: \(stores)")
+                if stores.count > 0 {
+                    self?.addMarkers(for: stores)
+                }
+            }
+            .disposed(by: disposeBag)
+            
     }
     
     func moveToLocation(_ location: CLLocation) {
@@ -193,6 +210,34 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         }, dismissCompletion: {
             
         })
+    }
+    
+    func addMarkers(for sampleStores: [StoreInfo]?) {
+        guard let storeList = sampleStores else {
+            print("No sample store data available")
+            return
+        }
+        
+        for store in storeList {
+            guard let lat = Double(store.addrLat), let lng = Double(store.addrLot) else {
+                print("Invalid coordinates for store: \(store.name)")
+                continue
+            }
+            
+            print("\(store.name), \(store.addrLat), \(store.addrLot)")
+            
+            let marker = NMFMarker()
+            marker.position = NMGLatLng(lat: lat, lng: lng)
+            marker.iconImage = NMFOverlayImage(name: "pin_default") // 커스텀 마커 이미지 사용
+            marker.captionText = store.name
+            marker.mapView = mapView
+            
+            // 마커 터치 이벤트 설정
+            //                marker.touchHandler = { [weak self] (overlay: NMFOverlay) -> Bool in
+            //                    self?.showStoreInfo(store)
+            //                    return true
+            //                }
+        }
     }
 }
 

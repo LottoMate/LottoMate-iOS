@@ -14,16 +14,19 @@ class MapViewReactor: Reactor {
     enum Action {
         case filterButtonTapped
         case getCurrentLocation
+        case reloadMapData
     }
     
     enum Mutation {
         case setBottomSheetVisible(Bool)
         case setCurrentLocation(CLLocation)
+        case reloadMapData([StoreInfo])
     }
     
     struct State {
         var isfilterBottomSheetVisible: Bool = false
         var currentLocation: CLLocation?
+        var lotteryStores: [StoreInfo] = []
     }
     
     let initialState = State()
@@ -35,13 +38,11 @@ class MapViewReactor: Reactor {
         case .getCurrentLocation:
             return LocationManager.shared.getCurrentLocation()
                 .map { Mutation.setCurrentLocation($0) }
-                .do(onNext: { _ in
-                    print("Location received in Reactor")
-                }, onError: { error in
-                    print("Error getting location: \(error)")
-                }, onCompleted: {
-                    print("Get location completed")
-                })
+        case .reloadMapData:
+            // 서버 데이터로 변경하기
+            return LocationManager.shared.loadStoreList()
+                .map { Mutation.reloadMapData($0) }
+                
         }
     }
     
@@ -50,10 +51,11 @@ class MapViewReactor: Reactor {
         switch mutation {
         case .setBottomSheetVisible(let isVisible):
             newState.isfilterBottomSheetVisible = isVisible
-            return newState
         case .setCurrentLocation(let location):
             newState.currentLocation = location
-            return newState
+        case .reloadMapData(let stores):
+            newState.lotteryStores = stores
         }
+        return newState
     }
 }

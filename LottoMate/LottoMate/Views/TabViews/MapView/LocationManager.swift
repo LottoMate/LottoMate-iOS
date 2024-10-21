@@ -77,6 +77,23 @@ class LocationManager: NSObject {
             return Disposables.create([authorizationDisposable, locationDisposable])
         }
     }
+    
+    func loadStoreList() -> Observable<[StoreInfo]> {
+        return Observable.create { observer in
+            // 샘플 데이터 로드 시뮬레이션
+            DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) { // 1초 지연을 주어 네트워크 요청을 시뮬레이션
+                guard let storeList = JSONLoader.loadStoreList()?.storeInfo else {
+                    observer.onError(NSError(domain: "com.example.LottoMate", code: 0, userInfo: [NSLocalizedDescriptionKey: "No sample data available"]))
+                    return
+                }
+                
+                observer.onNext(storeList)
+                observer.onCompleted()
+            }
+            
+            return Disposables.create()
+        }
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {

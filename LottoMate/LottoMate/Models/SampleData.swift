@@ -109,7 +109,7 @@ class JSONLoader {
             let storeInfo = try decoder.decode(StoreInfoModel.self, from: data)
             return storeInfo
         } catch {
-            print("Error decoding JSON: \(error)")
+            print("loadStoreInfo - Error decoding JSON: \(error)")
             return nil
         }
     }
@@ -126,7 +126,7 @@ class JSONLoader {
             let storeInfo = try decoder.decode(StoreListModel.self, from: data)
             return storeInfo
         } catch {
-            print("Error decoding JSON: \(error)")
+            print("loadStoreInfo - Error decoding JSON: \(error)")
             return nil
         }
     }
