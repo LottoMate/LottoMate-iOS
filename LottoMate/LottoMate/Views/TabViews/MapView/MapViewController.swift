@@ -17,6 +17,9 @@ import BottomSheet
 
 class MapViewController: UIViewController, View, CLLocationManagerDelegate {
     
+    var sampleStoreInfo: StoreInfoModel?
+    var sampleStoreList: StoreListModel?
+    
     let reactor = MapViewReactor()
     var disposeBag = DisposeBag()
     
@@ -45,7 +48,10 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         
         self.view.backgroundColor = .white
         
+        loadSampleData()
         bind(reactor: reactor)
+
+        
         
         addChild(bottomSheet)
         view.addSubview(bottomSheet.view)
@@ -112,6 +118,11 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         refreshButton.pin.above(of: bottomSheet.view, aligned: .left).marginLeft(20).marginBottom(28)
         currentLocationButton.pin.above(of: bottomSheet.view, aligned: .right).marginRight(20).marginBottom(28)
         listButton.pin.above(of: currentLocationButton, aligned: .center).marginBottom(20)
+    }
+    
+    func loadSampleData() {
+        sampleStoreInfo = JSONLoader.loadStoreInfo()
+        sampleStoreList = JSONLoader.loadStoreList()
     }
     
     func bind(reactor: MapViewReactor) {
@@ -185,6 +196,6 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
     }
 }
 
-#Preview {
-    MapViewController()
-}
+//#Preview {
+//    MapViewController()
+//}
