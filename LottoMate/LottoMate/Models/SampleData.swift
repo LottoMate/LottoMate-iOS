@@ -96,4 +96,40 @@ struct StoreInfoSampleData {
     ]
 }
 
+class JSONLoader {
+    static func loadStoreInfo() -> StoreInfoModel? {
+        guard let url = Bundle.main.url(forResource: "StoreInfoSampleData", withExtension: "json") else {
+            print("loadStoreInfo - JSON file not found")
+            return nil
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            let storeInfo = try decoder.decode(StoreInfoModel.self, from: data)
+            return storeInfo
+        } catch {
+            print("loadStoreInfo - Error decoding JSON: \(error)")
+            return nil
+        }
+    }
+    
+    static func loadStoreList() -> StoreListModel? {
+        guard let url = Bundle.main.url(forResource: "StoreInfoSampleData", withExtension: "json") else {
+            print("loadStoreList - JSON file not found")
+            return nil
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            let storeInfo = try decoder.decode(StoreListModel.self, from: data)
+            return storeInfo
+        } catch {
+            print("loadStoreInfo - Error decoding JSON: \(error)")
+            return nil
+        }
+    }
+}
+
 

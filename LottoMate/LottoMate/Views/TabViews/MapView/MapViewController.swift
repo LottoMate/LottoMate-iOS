@@ -17,15 +17,19 @@ import BottomSheet
 
 class MapViewController: UIViewController, View, CLLocationManagerDelegate {
     
-    var disposeBag = DisposeBag()
-    let reactor = MapViewReactor()
+    var sampleStoreInfo: StoreInfoModel?
+    var sampleStoreList: StoreListModel?
     
-    var locationManager = CLLocationManager()
+    let reactor = MapViewReactor()
+    var disposeBag = DisposeBag()
     
     fileprivate let rootFlexContainer = UIView()
     
+    let mapView = NMFMapView()
+    var currentMarker: NMFMarker?
     var mapHeight: CGFloat = 0
     var tabBarHeight: CGFloat = 0.0
+    
     let filterButton = ShadowRoundButton(title: "복권 전체", icon: UIImage(named: "icon_filter"))
     let winningStoreButton = ShadowRoundButton(title: "당첨 판매점")
     let savedStoreButton = ShadowRoundButton(title: "찜")
@@ -41,15 +45,15 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = .white
         
+        loadSampleData()
         bind(reactor: reactor)
         
         addChild(bottomSheet)
         view.addSubview(bottomSheet.view)
         bottomSheet.didMove(toParent: self)
-        
-        let mapView = NMFMapView()
         
         let screenHeight = UIScreen.main.bounds.height
         if let tabBarHeight = self.tabBarController?.tabBar.frame.size.height {
@@ -97,7 +101,6 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
                 .position(.absolute)
         }
         view.addSubview(rootFlexContainer)
-        
         bottomSheet.addToParent(self)
     }
     
@@ -115,27 +118,90 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         listButton.pin.above(of: currentLocationButton, aligned: .center).marginBottom(20)
     }
     
+    func loadSampleData() {
+        sampleStoreInfo = JSONLoader.loadStoreInfo()
+        sampleStoreList = JSONLoader.loadStoreList()
+    }
+    
     func bind(reactor: MapViewReactor) {
-        // 필터 버튼을 눌렀을 때 액션을 전송
+        // 복권 종류 필터 버튼 Action
         filterButton.rx.tapGesture()
             .when(.recognized)
             .map { _ in MapViewReactor.Action.filterButtonTapped }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
-        
+        // 복권 종류 필터 버튼 State
         reactor.state
             .map { $0.isfilterBottomSheetVisible }
             .subscribe(onNext: { [weak self] isVisible in
                 if isVisible {
                     self?.showLotteryTypeFilter()
-                    print("isVisible")
                 }
             })
             .disposed(by: self.disposeBag)
+        
+        // 현재 위치 버튼 Action
+        currentLocationButton.rx.tapGesture()
+            .when(.recognized)
+            .map { _ in MapViewReactor.Action.getCurrentLocation }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        // 현재 위치 버튼 State
+        reactor.state
+            .map { $0.currentLocation }
+            .distinctUntilChanged()
+            .compactMap { $0 }
+            .subscribe(onNext: { [weak self] location in
+                self?.moveToLocation(location)
+                self?.updateMarker(at: location)
+            })
+            .disposed(by: disposeBag)
+        
+        // refresh 버튼
+        refreshButton.rx.tapGesture()
+            .when(.recognized)
+            .map { _ in MapViewReactor.Action.reloadMapData }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.lotteryStores }
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] stores in
+                if stores.count > 0 {
+                    do {
+                        try self?.addMarkers(for: stores)
+                    } catch {
+                        let error = LottoMateError.failedToAddMarkers(reason: error.localizedDescription)
+                        print("\(error)")
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
+            
+    }
+    
+    func moveToLocation(_ location: CLLocation) {
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude))
+        cameraUpdate.animation = .easeIn
+        mapView.moveCamera(cameraUpdate)
+    }
+    
+    func updateMarker(at location: CLLocation) {
+        // 현재 위치에 이미 마커가 있다면 제거
+        currentMarker?.mapView = nil
+        
+        let marker = NMFMarker()
+        marker.position = NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+        marker.iconImage = NMFOverlayImage(name: "currentLocationMarker")
+        marker.mapView = mapView
+        
+        currentMarker = marker
     }
     
     func showLotteryTypeFilter() {
         let viewController = LotteryTypeFilterBottomSheetViewController()
+        
         viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 1.3)
         
         presentBottomSheet(viewController: viewController, configuration: BottomSheetConfiguration(
@@ -145,11 +211,37 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         ), canBeDismissed: {
             true
         }, dismissCompletion: {
-            // handle bottom sheet dismissal completion
+            
         })
+    }
+    
+    func addMarkers(for sampleStores: [StoreInfo]?) throws {
+        guard let storeList = sampleStores else {
+            throw LottoMateError.noSampleStoreData
+        }
+        
+        for store in storeList {
+            guard let lat = Double(store.addrLat), let lng = Double(store.addrLot) else {
+                throw LottoMateError.invalidStoreCoordinates(storeName: store.name)
+            }
+            
+            print("\(store.name), \(store.addrLat), \(store.addrLot)")
+            
+            let marker = NMFMarker()
+            marker.position = NMGLatLng(lat: lat, lng: lng)
+            marker.iconImage = NMFOverlayImage(name: "pin_default") // 커스텀 마커 이미지 사용
+            marker.captionText = store.name
+            marker.mapView = mapView
+            
+            // 마커 터치 이벤트 설정
+            //                marker.touchHandler = { [weak self] (overlay: NMFOverlay) -> Bool in
+            //                    self?.showStoreInfo(store)
+            //                    return true
+            //                }
+        }
     }
 }
 
-#Preview {
-    MapViewController()
-}
+//#Preview {
+//    MapViewController()
+//}

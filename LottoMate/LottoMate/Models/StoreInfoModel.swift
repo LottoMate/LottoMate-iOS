@@ -8,10 +8,21 @@
 import Foundation
 import UIKit
 
-// MARK: - Welcome
+// MARK: - 지점 정보
 struct StoreInfoModel: Codable {
     let code, message: String
     let storeInfo: StoreInfo
+
+    enum CodingKeys: String, CodingKey {
+        case code, message
+        case storeInfo = "store_info"
+    }
+}
+
+// MARK: - 지점 리스트 보기
+struct StoreListModel: Codable {
+    let code, message: String
+    let storeInfo: [StoreInfo]
 
     enum CodingKeys: String, CodingKey {
         case code, message
