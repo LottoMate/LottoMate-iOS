@@ -152,7 +152,6 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
             .distinctUntilChanged()
             .compactMap { $0 }
             .subscribe(onNext: { [weak self] location in
-                print("Location received: \(location)")
                 self?.moveToLocation(location)
                 self?.updateMarker(at: location)
             })
@@ -169,9 +168,13 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
             .map { $0.lotteryStores }
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] stores in
-                print("store count: \(stores)")
                 if stores.count > 0 {
-                    self?.addMarkers(for: stores)
+                    do {
+                        try self?.addMarkers(for: stores)
+                    } catch {
+                        let error = LottoMateError.failedToAddMarkers(reason: error.localizedDescription)
+                        print("\(error)")
+                    }
                 }
             }
             .disposed(by: disposeBag)
@@ -212,16 +215,14 @@ class MapViewController: UIViewController, View, CLLocationManagerDelegate {
         })
     }
     
-    func addMarkers(for sampleStores: [StoreInfo]?) {
+    func addMarkers(for sampleStores: [StoreInfo]?) throws {
         guard let storeList = sampleStores else {
-            print("No sample store data available")
-            return
+            throw LottoMateError.noSampleStoreData
         }
         
         for store in storeList {
             guard let lat = Double(store.addrLat), let lng = Double(store.addrLot) else {
-                print("Invalid coordinates for store: \(store.name)")
-                continue
+                throw LottoMateError.invalidStoreCoordinates(storeName: store.name)
             }
             
             print("\(store.name), \(store.addrLat), \(store.addrLot)")

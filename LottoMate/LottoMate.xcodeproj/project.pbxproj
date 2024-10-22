@@ -48,6 +48,7 @@
 		095AEB682C940A1800A7DD5A /* ImageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB672C940A1800A7DD5A /* ImageContentViewController.swift */; };
 		095AEB6A2C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */; };
 		095AEB6C2C94274A00A7DD5A /* ThumbnailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AEB6B2C94274A00A7DD5A /* ThumbnailCardView.swift */; };
+		095D42A02CC7913B0079159F /* LottoMateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095D429F2CC7913B0079159F /* LottoMateError.swift */; };
 		096552622C7F161000897DA7 /* PensionLotteryResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */; };
 		096552A92C8883D100897DA7 /* CustomSquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552A82C8883D100897DA7 /* CustomSquareButton.swift */; };
 		096552AB2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096552AA2C8AE0C200897DA7 /* DrawRoundBottomSheet.swift */; };
@@ -142,6 +143,7 @@
 		095AEB672C940A1800A7DD5A /* ImageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageContentViewController.swift; sourceTree = "<group>"; };
 		095AEB692C94259600A7DD5A /* WinningReviewHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningReviewHorizontalScrollView.swift; sourceTree = "<group>"; };
 		095AEB6B2C94274A00A7DD5A /* ThumbnailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCardView.swift; sourceTree = "<group>"; };
+		095D429F2CC7913B0079159F /* LottoMateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoMateError.swift; sourceTree = "<group>"; };
 		096552612C7F161000897DA7 /* PensionLotteryResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensionLotteryResultModel.swift; sourceTree = "<group>"; };
 		0965526C2C837F3200897DA7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		096552A82C8883D100897DA7 /* CustomSquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSquareButton.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				09C508762CB92B2E00621FB1 /* LoginViewModel.swift */,
 				0965ABD02CA321C400CAE34F /* MapViewReactor.swift */,
 				09C5086A2CB54B1200621FB1 /* StoreInfoModel.swift */,
+				095D429F2CC7913B0079159F /* LottoMateError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				09341C262C53A71000B47642 /* TabBarViewController.swift in Sources */,
 				09C508692CB5471300621FB1 /* StoreInfoWinningTagHorizontalScrollView.swift in Sources */,
 				09341C222C52653B00B47642 /* TestButtonView.swift in Sources */,
+				095D42A02CC7913B0079159F /* LottoMateError.swift in Sources */,
 				09554D172C63E5CD009D1847 /* WinningInfoDetailView+DrawView.swift in Sources */,
 				0969668F2C4FE4C800BCE28B /* ButtonStyle.swift in Sources */,
 				09341C9B2C57F68B00B47642 /* WinningNumbersDetailViewController.swift in Sources */,
